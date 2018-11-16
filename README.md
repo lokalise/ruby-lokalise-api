@@ -12,7 +12,9 @@ Install it by running:
 $ gem install ruby-lokalise-api
 ```
 
-## Initializing the Client
+## Usage
+
+### Initializing the Client
 
 In order to perform any API requests, you require a special token that can be obtained in your [personal profile](https://lokalise.co/profile#apitokens) (*API tokens* section). Note that the owner of the token must have admin access rights.
 
@@ -26,6 +28,30 @@ require 'ruby-lokalise-api'
 
 Now the `@client` can be used to perform API requests!
 
+### Comments
+
+### Contributors
+
+### Files
+
+### Keys
+
+### Languages
+
+### Projects
+
+### Screenshots
+
+### Snapshots
+
+### Tasks
+
+### Teams
+
+### Team users
+
+### Translations
+
 ## API Rate Limits
 
 Lokalise does not [rate-limit API requests](https://lokalise.co/api2docs/ruby/#resource-rate-limits), however retain a right to decline the service in case of excessive use. Only one concurrent request per token is allowed. To ensure data consistency, it is not recommended to access the same project simultaneously using multiple tokens.
@@ -38,6 +64,6 @@ Lokalise does not [rate-limit API requests](https://lokalise.co/api2docs/ruby/#r
 
 ## License
 
-This plugin is licensed under the MIT License.
+This gem is licensed under the [MIT License](https://github.com/lokalise/ruby-lokalise-api/blob/master/LICENSE).
 
 Copyright (c) [Lokalise team](http://lokalise.co), [Ilya Bodrov](http://bodrovis.tech), Roman Kutanov
