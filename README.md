@@ -3,7 +3,9 @@
 ## Initializing the Client
 
 ```ruby
+require 'ruby-lokalise-api'
 
+@client = Lokalise.client 'YOUR_TOKEN_HERE'
 ```
 
 ## License
