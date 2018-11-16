@@ -1,0 +1,11 @@
+.idea/*
+*.gem
+coverage/*
+Gemfile.lock
+*~
+.bundle
+.rvmrc
+log/*
+measurement/*
+pkg/*
+.DS_Store
