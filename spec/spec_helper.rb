@@ -1,5 +1,10 @@
+require 'dotenv/load'
+
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start do
+  add_filter "spec/"
+  add_filter ".github/"
+end
 
 require 'ruby-lokalise-api'
 

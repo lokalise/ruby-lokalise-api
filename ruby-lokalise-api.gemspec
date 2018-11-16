@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.4.0'
 
   spec.files            =  Dir["README.md", "LICENSE", "CONTRIBUTING.md",
-                               "CHANGELOG.md", "lib/**/*.rb", "chgk_rating.gemspec",
+                               "CHANGELOG.md", "lib/**/*.rb", "chgk_rating.gemspec", ".github/*.md",
                                "Gemfile", "Rakefile"]
   spec.test_files       = Dir["spec/**/*.rb"]
   spec.extra_rdoc_files = ['README.md']
@@ -26,4 +26,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec',                     '~> 3.6'
   spec.add_development_dependency 'vcr',                       '~> 4.0'
   spec.add_development_dependency 'codeclimate-test-reporter', '~> 1.0'
+  spec.add_development_dependency 'dotenv',                    '~> 2.5'
 end

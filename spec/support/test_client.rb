@@ -1,6 +1,6 @@
 module TestClient
   def test_client
     return @client if @client
-    @client = Lokalise.client '123'
+    @client = Lokalise.client ENV['LOKALISE_API_TOKEN']
   end
 end
