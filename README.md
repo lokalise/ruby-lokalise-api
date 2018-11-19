@@ -33,6 +33,20 @@ Now the `@client` can be used to perform API requests!
 
 ### Pagination
 
+All collections returned by the API (that is, bulk fetches) support [pagination](https://lokalise.co/api2docs/php/#resource-pagination). There are two common parameters available:
+
+* `:limit` (defaults to `100`, maximum is `5000`) - number of records to display per page
+* `:page` (defaults  to `1`) - page to fetch
+
+A paginated collection responds to the following methods:
+
+* `#total_pages`
+* `#total_results`
+* `#results_per_page`
+* `#current_page`
+
+In order to fetch *the actual content of the collection*, use the `#content` method.
+
 ### Comments
 
 ### Contributors
