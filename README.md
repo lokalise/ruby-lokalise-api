@@ -31,6 +31,8 @@ require 'ruby-lokalise-api'
 
 Now the `@client` can be used to perform API requests!
 
+### Pagination
+
 ### Comments
 
 ### Contributors
@@ -43,6 +45,85 @@ Now the `@client` can be used to perform API requests!
 
 ### Projects
 
+[Project attributes](https://lokalise.co/api2docs/php/#object-projects)
+
+#### Fetch projects collection
+
+[Doc](https://lokalise.co/api2docs/php/#transition-list-all-projects-get)
+
+```ruby
+@client.projects(params = {})   # Input:
+                                ## params
+                                ### :filter_team_id (string) - load projects only for the given team
+                                ### :page and :limit
+                                # Output:
+                                ## Array of projects under the `projects` attribute 
+```
+
+#### Fetch a single project
+
+[Doc](https://lokalise.co/api2docs/php/#transition-retrieve-a-project-get)
+
+```ruby
+@client.project(project_id)     # Input:
+                                ## project_id (string, required)
+                                # Output:
+                                ## A single project 
+```
+
+#### Create a project
+
+[Doc](https://lokalise.co/api2docs/php/#transition-create-a-project-post)
+
+```ruby
+@client.create_project(params)  # Input:
+                                ## params (required)
+                                ### name (string, required)
+                                ### description (string)
+                                ### team_id (integer) - you must be an admin of the chosen team. When omitted, defaults to the current team of the token's owner 
+                                # Output:
+                                ## A newly created project 
+
+```
+
+#### Update a project
+
+[Doc](https://lokalise.co/api2docs/php/#transition-update-a-project-put)
+
+```ruby
+@client.update_project(project_id, params)  # Input:
+                                            ## project_id (required)
+                                            ## params (required)
+                                            ### name (string, required)
+                                            ### description (string)
+                                            # Output:
+                                            ## An updated project
+```
+
+#### Empty a project
+
+[Doc](https://lokalise.co/api2docs/php/#transition-empty-a-project-put)
+
+Deletes *all* keys and translations from the project.
+
+```ruby
+@client.empty_project(project_id)   # Input:
+                                    ## project_id (required)
+                                    # Output:
+                                    ## A project containing its id and a `keys_deleted => true` attribute
+```
+
+#### Delete a project
+
+[Doc](https://lokalise.co/api2docs/php/#transition-delete-a-project-delete)
+
+```ruby
+@client.delete_project(project_id)    # Input:
+                                      ## project_id (required)
+                                      # Output:
+                                      ## A project containing its id and a `project_deleted => true` attribute
+```
+
 ### Screenshots
 
 ### Snapshots
@@ -54,6 +135,13 @@ Now the `@client` can be used to perform API requests!
 ### Team users
 
 ### Translations
+
+### Error handling
+
+The gem may raise the following custom exceptions:
+
+* `Lokalise::Error::BadRequest` - the provided token or an id is incorrect
+* `Lokalise::Error::NotFound` - the provided endpoint (resource) cannot be found
 
 ## API Rate Limits
 

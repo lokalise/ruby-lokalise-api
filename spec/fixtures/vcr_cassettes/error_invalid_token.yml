@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.lokalise.co/api2/projects
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - ruby-lokalise-api gem/1.0.0.pre1
+      X-api-token:
+      - invalid
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      server:
+      - nginx
+      date:
+      - Mon, 19 Nov 2018 15:15:25 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - close
+      set-cookie:
+      - PHPSESSID=1ea5e99a83e1e71ec17c8adb8638cbe7; path=/; HttpOnly, locale=en_US;
+        expires=Wed, 19-Dec-2018 15:15:25 GMT; Max-Age=2592000; path=/; secure
+      expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      cache-control:
+      - no-store, no-cache, must-revalidate, no-store, no-cache
+      pragma:
+      - no-cache, no-cache
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      strict-transport-security:
+      - max-age=31536000
+    body:
+      encoding: UTF-8
+      string: '{"error":{"message":"Invalid `X-Api-Token` header","code":400}}'
+    http_version: 
+  recorded_at: Mon, 19 Nov 2018 15:15:23 GMT
+recorded_with: VCR 4.0.0

@@ -1,13 +1,13 @@
 module Lokalise
   module Connection
-    # TODO: add base url
-    BASE_URL = ''.freeze
+    BASE_URL = 'https://api.lokalise.co/api2/'.freeze
 
-    def connection
+    def connection(token)
       options = {
         headers: {
           accept: 'application/json',
-          user_agent: "ruby-lokalise-api gem/#{Lokalise::VERSION}"
+          user_agent: "ruby-lokalise-api gem/#{Lokalise::VERSION}",
+          'X-Api-Token': token
         },
         url: BASE_URL + '/'
       }

@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.lokalise.co/api2/invalid_path
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - ruby-lokalise-api gem/1.0.0.pre1
+      X-api-token:
+      - "<LOKALISE_TOKEN>"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      server:
+      - nginx
+      date:
+      - Mon, 19 Nov 2018 15:30:01 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - close
+      vary:
+      - Accept-Encoding
+      set-cookie:
+      - PHPSESSID=b79c2c3a99c2fb6eada925c0a68f52fb; path=/; HttpOnly, locale=en_US;
+        expires=Wed, 19-Dec-2018 15:30:01 GMT; Max-Age=2592000; path=/; secure
+      expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      cache-control:
+      - no-store, no-cache, must-revalidate, no-store, no-cache
+      pragma:
+      - no-cache, no-cache
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      strict-transport-security:
+      - max-age=31536000
+    body:
+      encoding: ASCII-8BIT
+      string: '{"error":{"message":"Not Found","code":404}}'
+    http_version: 
+  recorded_at: Mon, 19 Nov 2018 15:30:00 GMT
+recorded_with: VCR 4.0.0

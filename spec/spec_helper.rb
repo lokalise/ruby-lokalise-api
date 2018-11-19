@@ -1,5 +1,5 @@
 require 'dotenv/load'
-
+require 'pry'
 require 'simplecov'
 SimpleCov.start do
   add_filter "spec/"

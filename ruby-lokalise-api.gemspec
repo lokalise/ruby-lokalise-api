@@ -27,4 +27,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'vcr',                       '~> 4.0'
   spec.add_development_dependency 'codeclimate-test-reporter', '~> 1.0'
   spec.add_development_dependency 'dotenv',                    '~> 2.5'
+  spec.add_development_dependency 'pry',                       '~> 0.12.2'
 end
