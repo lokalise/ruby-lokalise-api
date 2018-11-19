@@ -10,7 +10,7 @@ require 'ruby-lokalise-api/client'
 module Lokalise
   # Initializes a new Client object
   #
-  # @return [ChgkRating::Client]
+  # @return [Lokalise::Client]
   def self.client(token)
     @client ||= Lokalise::Client.new token
   end

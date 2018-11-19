@@ -1,5 +1,8 @@
 # RubyLokaliseApi Client
 
+[![Gem Version](https://badge.fury.io/rb/ruby-lokalise-api.svg)](https://badge.fury.io/rb/ruby-lokalise-api)
+[![Build Status](https://travis-ci.org/lokalise/ruby-lokalise-api.svg?branch=master)](https://travis-ci.org/lokalise/ruby-lokalise-api)
+
 Official Ruby interface for the [Lokalise API](https://lokalise.co/api2docs/ruby/).
 
 ## Installation and Requirements

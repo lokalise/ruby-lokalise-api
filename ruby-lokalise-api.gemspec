@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.4.0'
 
   spec.files            =  Dir["README.md", "LICENSE", "CONTRIBUTING.md",
-                               "CHANGELOG.md", "lib/**/*.rb", "chgk_rating.gemspec", ".github/*.md",
+                               "CHANGELOG.md", "lib/**/*.rb", "ruby-lokalise-api.gemspec", ".github/*.md",
                                "Gemfile", "Rakefile"]
   spec.test_files       = Dir["spec/**/*.rb"]
   spec.extra_rdoc_files = ['README.md']
