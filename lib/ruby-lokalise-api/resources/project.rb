@@ -4,10 +4,6 @@ module Lokalise
       ENDPOINT = 'projects'.freeze
 
       class << self
-        def all(token, params = {})
-          load_collection ENDPOINT, token, params
-        end
-
         def find(token, project_id)
           load_record ENDPOINT, token, project_id
         end

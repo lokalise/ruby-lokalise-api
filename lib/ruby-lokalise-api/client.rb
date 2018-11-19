@@ -9,7 +9,7 @@ module Lokalise
     # Projects endpoint
 
     def projects(params = {})
-      Lokalise::Resources::Project.all @token, params
+      Lokalise::Collections::Project.all @token, params
     end
 
     def project(project_id)
