@@ -12,6 +12,7 @@ require_relative 'ruby-lokalise-api/resources/project_language'
 
 require_relative 'ruby-lokalise-api/collections/base'
 require_relative 'ruby-lokalise-api/collections/project'
+require_relative 'ruby-lokalise-api/collections/team'
 require_relative 'ruby-lokalise-api/collections/system_language'
 require_relative 'ruby-lokalise-api/collections/project_language'
 

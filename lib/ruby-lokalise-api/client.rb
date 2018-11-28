@@ -57,5 +57,11 @@ module Lokalise
     def delete_language(project_id, language_id)
       Lokalise::Resources::ProjectLanguage.destroy @token, project_id, language_id
     end
+
+    # Teams endpoint
+
+    def teams(params = {})
+      Lokalise::Collections::Team.all @token, params
+    end
   end
 end

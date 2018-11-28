@@ -67,7 +67,7 @@ In order to fetch *the actual content of the collection*, use the `#content` met
 
 ```ruby
 @client.system_languages(params = {})   # Input:
-                                        ## params
+                                        ## params (hash)
                                         ### :page and :limit
                                         # Output:
                                         ## Array of system languages supported by Lokalise
@@ -80,7 +80,7 @@ In order to fetch *the actual content of the collection*, use the `#content` met
 ```ruby
 @client.project_languages(project_id, params = {})    # Input:
                                                       ## project_id (string, required)
-                                                      ## params
+                                                      ## params (hash)
                                                       ### :page and :limit
                                                       # Output:
                                                       ## Array of languages available in the given project
@@ -152,7 +152,7 @@ In order to fetch *the actual content of the collection*, use the `#content` met
 
 ```ruby
 @client.projects(params = {})   # Input:
-                                ## params
+                                ## params (hash)
                                 ### :filter_team_id (string) - load projects only for the given team
                                 ### :page and :limit
                                 # Output:
@@ -176,7 +176,7 @@ In order to fetch *the actual content of the collection*, use the `#content` met
 
 ```ruby
 @client.create_project(params)  # Input:
-                                ## params (required)
+                                ## params (hash, required)
                                 ### name (string, required)
                                 ### description (string)
                                 ### team_id (integer) - you must be an admin of the chosen team. When omitted, defaults to the current team of the token's owner 
@@ -191,8 +191,8 @@ In order to fetch *the actual content of the collection*, use the `#content` met
 
 ```ruby
 @client.update_project(project_id, params)  # Input:
-                                            ## project_id (required)
-                                            ## params (required)
+                                            ## project_id (string, required)
+                                            ## params (hash, required)
                                             ### name (string, required)
                                             ### description (string)
                                             # Output:
@@ -207,7 +207,7 @@ Deletes *all* keys and translations from the project.
 
 ```ruby
 @client.empty_project(project_id)   # Input:
-                                    ## project_id (required)
+                                    ## project_id (string, required)
                                     # Output:
                                     ## A project containing its id and a `keys_deleted => true` attribute
 ```
@@ -218,7 +218,7 @@ Deletes *all* keys and translations from the project.
 
 ```ruby
 @client.delete_project(project_id)    # Input:
-                                      ## project_id (required)
+                                      ## project_id (string, required)
                                       # Output:
                                       ## A project containing its id and a `project_deleted => true` attribute
 ```
@@ -230,6 +230,18 @@ Deletes *all* keys and translations from the project.
 ### Tasks
 
 ### Teams
+
+#### Fetch teams collection
+
+[Doc](https://lokalise.co/api2docs/ruby/#resource-teams)
+
+```ruby
+@client.teams(params = {})  # Input:
+                            ## params (hash)
+                            ### :page and :limit
+                            # Output:
+                            ## Array of projects under the `projects` attribute 
+```
 
 ### Team users
 
