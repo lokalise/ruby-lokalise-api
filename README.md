@@ -9,7 +9,7 @@ Official Ruby interface for the [Lokalise API](https://lokalise.co/api2docs/ruby
 
 ### Installation and Requirements
 
-This gem requires Ruby 2.4+ and RubyGems.
+This gem requires [Ruby 2.4+](https://www.ruby-lang.org/en/) and [RubyGems package manager](https://rubygems.org/pages/download).
 
 Install it by running:
 
@@ -19,7 +19,7 @@ $ gem install ruby-lokalise-api
 
 ### Initializing the Client
 
-In order to perform any API requests, you require a special token that can be obtained in your [personal profile](https://lokalise.co/profile#apitokens) (*API tokens* section). Note that the owner of the token must have admin access rights.
+In order to perform API requests, you require a special token that can be obtained in your [personal profile](https://lokalise.co/profile#apitokens) (*API tokens* section). Note that the owner of the token must have admin access rights.
 
 After you've obtained the token, initialize the client:
 
@@ -63,6 +63,8 @@ In order to fetch *the actual content of the collection*, use the `#content` met
 
 #### Fetch system languages
 
+[Doc](https://lokalise.co/api2docs/ruby/#transition-list-system-languages-get)
+
 ```ruby
 @client.system_languages(params = {})   # Input:
                                         ## params
@@ -72,6 +74,8 @@ In order to fetch *the actual content of the collection*, use the `#content` met
 ```
 
 #### Fetch project languages
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-list-project-languages-get)
 
 ```ruby
 @client.project_languages(project_id, params = {})    # Input:
@@ -84,12 +88,58 @@ In order to fetch *the actual content of the collection*, use the `#content` met
 
 #### Fetch a single project language
 
+[Doc](https://lokalise.co/api2docs/ruby/#transition-retrieve-a-language-get)
+
 ```ruby
 @client.language(project_id, language_id)     # Input:
                                               ## project_id (string, required)
                                               ## language_id (string, required)
                                               # Output:
                                               ## A single language in the given project
+```
+
+#### Create project languages
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-create-languages-post)
+
+```ruby
+@client.create_language(project_id, params)     # Input:
+                                                ## project_id (string, required)
+                                                ## params (array or hash, required) - contains parameter of newly created languages. Pass array of hashes to create multiple languages, or a hash to create a single language
+                                                ### :lang_iso (string, required)
+                                                ### :custom_iso (string) 
+                                                ### :custom_name (string)
+                                                ### :custom_plural_forms (array) - can contain only plural forms initially supported by Lokalise
+                                                # Output:
+                                                ## Newly created language
+```
+
+#### Update project language
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-update-a-language-put)
+
+```ruby
+@client.update_language(project_id, language_id, params)    # Input:
+                                                            ## project_id (string, required)
+                                                            ## language_id (string, required) 
+                                                            ## params (hash, required)
+                                                            ### :lang_iso (string, required)
+                                                            ### :custom_name (string)
+                                                            ### :plural_forms (array) - can contain only plural forms initially supported by Lokalise 
+                                                            # Output:
+                                                            ## Updated language
+```
+
+#### Delete project language
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-delete-a-language-delete)
+
+```ruby
+@client.delete_language(project_id, language_id)     # Input:
+                                                     ## project_id (string, required)
+                                                     ## language_id (string, required)
+                                                     # Output:
+                                                     ## Hash with the project's id and "language_deleted"=>true
 ```
 
 ### Projects

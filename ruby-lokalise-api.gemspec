@@ -3,8 +3,8 @@ require File.expand_path('lib/ruby-lokalise-api/version', __dir__)
 Gem::Specification.new do |spec|
   spec.name                  = 'ruby-lokalise-api'
   spec.version               = Lokalise::VERSION
-  spec.authors               = ['Ilya Bodrov', 'Roman Kutanov']
-  spec.email                 = ['golosizpru@gmail.com', 'kutanov@gmail.com']
+  spec.authors               = ['Ilya Bodrov']
+  spec.email                 = ['golosizpru@gmail.com']
   spec.summary               = 'Ruby interface to the Lokalise API'
   spec.description           = 'Ruby client for the Lokalise platform API allowing to work with translations, projects, users and more'
   spec.homepage              = 'https://github.com/lokalise/ruby-lokalise-api'
