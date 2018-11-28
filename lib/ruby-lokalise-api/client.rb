@@ -31,5 +31,15 @@ module Lokalise
     def delete_project(project_id)
       Lokalise::Resources::Project.destroy @token, project_id
     end
+
+    # Languages endpoint
+
+    def system_languages(params = {})
+      Lokalise::Collections::SystemLanguage.all @token, params
+    end
+
+    def project_languages(project_id, params = {})
+      Lokalise::Collections::ProjectLanguage.all @token, params.merge({id: project_id})
+    end
   end
 end

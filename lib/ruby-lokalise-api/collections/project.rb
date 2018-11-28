@@ -1,12 +1,14 @@
 module Lokalise
   module Collections
     class Project < Base
-      ENDPOINT = 'projects'.freeze
+      def self.languages(token, project_id, params = {})
+        load_collection "#{endpoint}/#{project_id}/languages", token, params
+      end
 
-      class << self
-        def all(token, params = {})
-          load_collection ENDPOINT, token, params
-        end
+      private
+
+      def self.endpoint(*_args)
+        'projects'
       end
     end
   end

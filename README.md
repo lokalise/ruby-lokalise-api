@@ -5,7 +5,9 @@
 
 Official Ruby interface for the [Lokalise API](https://lokalise.co/api2docs/ruby/).
 
-## Installation and Requirements
+## Getting Started
+
+### Installation and Requirements
 
 This gem requires Ruby 2.4+ and RubyGems.
 
@@ -14,8 +16,6 @@ Install it by running:
 ```bash
 $ gem install ruby-lokalise-api
 ```
-
-## Usage
 
 ### Initializing the Client
 
@@ -46,6 +46,8 @@ A paginated collection responds to the following methods:
 * `#current_page`
 
 In order to fetch *the actual content of the collection*, use the `#content` method.
+
+## Available Resources
 
 ### Comments
 
@@ -150,6 +152,8 @@ Deletes *all* keys and translations from the project.
 
 ### Translations
 
+## Additional Info
+
 ### Error handling
 
 The gem may raise the following custom exceptions:
@@ -157,7 +161,7 @@ The gem may raise the following custom exceptions:
 * `Lokalise::Error::BadRequest` - the provided token or an id is incorrect
 * `Lokalise::Error::NotFound` - the provided endpoint (resource) cannot be found
 
-## API Rate Limits
+### API Rate Limits
 
 Lokalise does not [rate-limit API requests](https://lokalise.co/api2docs/ruby/#resource-rate-limits), however retain a right to decline the service in case of excessive use. Only one concurrent request per token is allowed. To ensure data consistency, it is not recommended to access the same project simultaneously using multiple tokens.
 

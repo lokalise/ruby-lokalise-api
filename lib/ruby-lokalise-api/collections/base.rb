@@ -13,6 +13,14 @@ module Lokalise
         @current_page = response['x-pagination-page'].to_i
       end
 
+      class << self
+        def all(token, params = {})
+          load_collection endpoint(params.delete(:id)),
+                          token,
+                          params
+        end
+      end
+
       private
 
       def self.load_collection(path, token, params)
