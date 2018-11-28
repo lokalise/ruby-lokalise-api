@@ -270,4 +270,4 @@ Lokalise does not [rate-limit API requests](https://lokalise.co/api2docs/ruby/#r
 
 This gem is licensed under the [MIT License](https://github.com/lokalise/ruby-lokalise-api/blob/master/LICENSE).
 
-Copyright (c) [Lokalise team](http://lokalise.co), [Ilya Bodrov](http://bodrovis.tech), Roman Kutanov
+Copyright (c) [Lokalise team](http://lokalise.co), [Ilya Bodrov](http://bodrovis.tech)
