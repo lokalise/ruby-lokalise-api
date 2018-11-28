@@ -7,7 +7,10 @@ rescue LoadError
   puts 'although not required, bundler is recommened for running the tests'
 end
 
-task :default => :spec
+task default: :spec
 
 require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new(:spec)
+
+require 'rubocop/rake_task'
+RuboCop::RakeTask.new

@@ -13,7 +13,7 @@ module Lokalise
       400 => Lokalise::Error::BadRequest,
       404 => Lokalise::Error::NotFound,
       501 => Lokalise::Error::NotImplemented
-    }
+    }.freeze
 
     class << self
       # Create a new error from an HTTP response

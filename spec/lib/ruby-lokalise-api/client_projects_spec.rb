@@ -8,7 +8,7 @@ RSpec.describe Lokalise::Client do
 
       expect(projects.count).to eq(3)
       expect(project['name']).to eq('demo phoenix')
-      expect(project['team_id']).to eq(176692)
+      expect(project['team_id']).to eq(176_692)
     end
 
     it 'should support pagination' do
@@ -24,7 +24,7 @@ RSpec.describe Lokalise::Client do
       expect(projects.current_page).to eq(2)
 
       expect(project['name']).to eq('Demo Rails Proj')
-      expect(project['created_by']).to eq(20181)
+      expect(project['created_by']).to eq(20_181)
       expect(project['statistics']['progress']).to eq(95)
     end
   end
@@ -37,7 +37,7 @@ RSpec.describe Lokalise::Client do
 
       expect(project['project_id']).to eq('803826145ba90b42d5d860.46800099')
       expect(project['name']).to eq('demo phoenix')
-      expect(project['team_id']).to eq(176692)
+      expect(project['team_id']).to eq(176_692)
     end
   end
 end

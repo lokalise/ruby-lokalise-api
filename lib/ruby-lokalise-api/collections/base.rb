@@ -3,7 +3,7 @@ module Lokalise
     class Base
       extend Lokalise::Request
 
-      attr_reader :content, :total_pages, :total_results,  :results_per_page, :current_page
+      attr_reader :content, :total_pages, :total_results, :results_per_page, :current_page
 
       def initialize(response)
         @content = response['content']
@@ -19,12 +19,12 @@ module Lokalise
                           token,
                           params
         end
-      end
 
-      private
+        private
 
-      def self.load_collection(path, token, params)
-        new get(path, token, params)
+        def load_collection(path, token, params)
+          new get(path, token, params)
+        end
       end
     end
   end

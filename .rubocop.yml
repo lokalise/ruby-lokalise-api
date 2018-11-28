@@ -1,0 +1,61 @@
+AllCops:
+  TargetRubyVersion: 2.4
+
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+
+Lint/Void:
+  Enabled: false
+
+Metrics/BlockLength:
+  Max: 36
+  Exclude:
+    - spec/**/*.rb
+
+Metrics/BlockNesting:
+  Max: 2
+
+Metrics/LineLength:
+  AllowURI: true
+  Enabled: false
+
+Metrics/MethodLength:
+  CountComments: false
+  Max: 10
+
+Metrics/ModuleLength:
+  Max: 150
+
+Metrics/ParameterLists:
+  Max: 4
+  CountKeywordArgs: true
+
+Style/CollectionMethods:
+  Enabled: true
+  PreferredMethods:
+    map:      'collect'
+    map!:     'collect!'
+    reduce:   'inject'
+    find:     'detect'
+    find_all: 'select'
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
+Naming/FileName:
+  Enabled: false
+
+Layout/AccessModifierIndentation:
+  Enabled: false
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: 'no_comma'
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: 'no_comma'

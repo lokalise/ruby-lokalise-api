@@ -11,10 +11,7 @@ module Lokalise
         },
         url: BASE_URL + '/'
       }
-
-      Faraday.new options do |faraday|
-        faraday.adapter Faraday.default_adapter
-      end
+      Faraday.new(options) { |faraday| faraday.adapter Faraday.default_adapter }
     end
   end
 end

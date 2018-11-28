@@ -39,7 +39,7 @@ module Lokalise
     end
 
     def project_languages(project_id, params = {})
-      Lokalise::Collections::ProjectLanguage.all @token, params.merge({id: project_id})
+      Lokalise::Collections::ProjectLanguage.all @token, params.merge(id: project_id)
     end
 
     def language(project_id, language_id)

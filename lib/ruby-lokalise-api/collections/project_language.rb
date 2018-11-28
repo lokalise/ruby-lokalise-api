@@ -1,11 +1,12 @@
 module Lokalise
   module Collections
     class ProjectLanguage < Base
+      class << self
+        private
 
-      private
-
-      def self.endpoint(project_id)
-        "projects/#{project_id}/languages"
+        def endpoint(project_id)
+          "projects/#{project_id}/languages"
+        end
       end
     end
   end

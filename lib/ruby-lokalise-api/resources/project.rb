@@ -21,16 +21,16 @@ module Lokalise
         def destroy(token, project_id)
           destroy_record endpoint, token, project_id
         end
-      end
 
-      private
+        private
 
-      def self.endpoint
-        'projects'
-      end
+        def endpoint
+          'projects'
+        end
 
-      def self.endpoint_with_id(project_id)
-        "#{endpoint}/#{project_id}"
+        def endpoint_with_id(project_id)
+          "#{endpoint}/#{project_id}"
+        end
       end
     end
   end

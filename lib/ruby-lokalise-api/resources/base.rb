@@ -9,22 +9,24 @@ module Lokalise
         @content = response['content']
       end
 
-      private
+      class << self
+        private
 
-      def self.load_record(path, token, id)
-        new get(path + '/'  + id.to_s, token)
-      end
+        def load_record(path, token, id)
+          new get(path + '/' + id.to_s, token)
+        end
 
-      def self.create_record(path, token, params)
-        new post(path, token, params)
-      end
+        def create_record(path, token, params)
+          new post(path, token, params)
+        end
 
-      def self.update_record(path, token, params = {})
-        new put(path, token, params)
-      end
+        def update_record(path, token, params = {})
+          new put(path, token, params)
+        end
 
-      def self.destroy_record(path, token, id)
-        new delete(path + '/'  + id.to_s, token)
+        def destroy_record(path, token, id)
+          new delete(path + '/' + id.to_s, token)
+        end
       end
     end
   end
