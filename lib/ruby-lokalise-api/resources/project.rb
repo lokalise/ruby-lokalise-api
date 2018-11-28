@@ -1,8 +1,6 @@
 module Lokalise
   module Resources
     class Project < Base
-      ENDPOINT = 'projects'.freeze
-
       class << self
         def find(token, project_id)
           load_record endpoint, token, project_id

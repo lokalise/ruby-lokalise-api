@@ -59,6 +59,39 @@ In order to fetch *the actual content of the collection*, use the `#content` met
 
 ### Languages
 
+[Language attributes](https://lokalise.co/api2docs/ruby/#object-languages)
+
+#### Fetch system languages
+
+```ruby
+@client.system_languages(params = {})   # Input:
+                                        ## params
+                                        ### :page and :limit
+                                        # Output:
+                                        ## Array of system languages supported by Lokalise
+```
+
+#### Fetch project languages
+
+```ruby
+@client.project_languages(project_id, params = {})    # Input:
+                                                      ## project_id (string, required)
+                                                      ## params
+                                                      ### :page and :limit
+                                                      # Output:
+                                                      ## Array of languages available in the given project
+```
+
+#### Fetch a single project language
+
+```ruby
+@client.language(project_id, language_id)     # Input:
+                                              ## project_id (string, required)
+                                              ## language_id (string, required)
+                                              # Output:
+                                              ## A single language in the given project
+```
+
 ### Projects
 
 [Project attributes](https://lokalise.co/api2docs/php/#object-projects)

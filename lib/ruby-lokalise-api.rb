@@ -8,6 +8,7 @@ require_relative 'ruby-lokalise-api/error'
 
 require_relative 'ruby-lokalise-api/resources/base'
 require_relative 'ruby-lokalise-api/resources/project'
+require_relative 'ruby-lokalise-api/resources/project_language'
 
 require_relative 'ruby-lokalise-api/collections/base'
 require_relative 'ruby-lokalise-api/collections/project'
