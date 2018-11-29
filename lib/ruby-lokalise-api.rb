@@ -9,12 +9,16 @@ require 'ruby-lokalise-api/error'
 require 'ruby-lokalise-api/resources/base'
 require 'ruby-lokalise-api/resources/project'
 require 'ruby-lokalise-api/resources/project_language'
+require 'ruby-lokalise-api/resources/key_comment'
 
 require 'ruby-lokalise-api/collections/base'
 require 'ruby-lokalise-api/collections/project'
 require 'ruby-lokalise-api/collections/team'
 require 'ruby-lokalise-api/collections/system_language'
 require 'ruby-lokalise-api/collections/project_language'
+require 'ruby-lokalise-api/collections/project_comment'
+require 'ruby-lokalise-api/collections/key_comment'
+require 'ruby-lokalise-api/collections/key'
 
 require 'ruby-lokalise-api/client'
 

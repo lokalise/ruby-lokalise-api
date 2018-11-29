@@ -51,11 +51,95 @@ In order to fetch *the actual content of the collection*, use the `#content` met
 
 ### Comments
 
+[Comments attributes](https://lokalise.co/api2docs/ruby/#resource-comments)
+
+#### Fetch project comments
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-list-project-comments-get)
+
+```ruby
+@client.project_comments(project_id, params = {})   # Input:
+                                                    ## project_id (string, required)
+                                                    ## params (hash)
+                                                    ### :page and :limit
+                                                    # Output:
+                                                    ## Array of comments available in the given project
+```
+
+#### Fetch key comments
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-list-key-comments-get)
+
+```ruby
+@client.comments(project_id, key_id, params = {})   # Input:
+                                                    ## project_id (string, required)
+                                                    ## key_id (string, required) 
+                                                    ## params (hash)
+                                                    ### :page and :limit
+                                                    # Output:
+                                                    ## Array of comments available for the specified key in the given project
+```
+
+#### Create key comments
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-create-comments-post)
+
+```ruby
+@client.create_comment(project_id, key_id, params)    # Input:
+                                                          ## project_id (string, required)
+                                                          ## key_id (string, required)  
+                                                          ## params (array or hash, required) - contains parameter of newly created comments. Pass array of hashes to create multiple comments, or a hash to create a single comment
+                                                          ### :comment (string, required)
+                                                          # Output:
+                                                          ## Newly created comment
+```
+
+#### Fetch key comment
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-retrieve-a-comment-get)
+
+```ruby
+@client.comment(project_id, key_id, comment_id)   # Input:
+                                                      ## project_id (string, required)
+                                                      ## key_id (string, required) 
+                                                      ## comment_id (string, required)  
+                                                      # Output:
+                                                      ## Comment for the key in the given project
+```
+
+#### Delete key comment
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-delete-a-comment-delete)
+
+```ruby
+@client.delete_comment(project_id, key_id, comment_id)    # Input:
+                                                          ## project_id (string, required)
+                                                          ## key_id (string, required) 
+                                                          ## comment_id (string, required)  
+                                                          # Output:
+                                                          ## Hash with the project's id and "comment_deleted"=>true
+```
+
 ### Contributors
 
 ### Files
 
 ### Keys
+
+[Key attributes](https://lokalise.co/api2docs/ruby/#object-keys)
+
+#### Fetch project keys
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-list-all-keys-get)
+
+```ruby
+@client.keys(project_id, params = {})   # Input:
+                                        ## project_id (string, required)
+                                        ## params (hash)
+                                        ### :page and :limit
+                                        # Output:
+                                        ## Array of keys available in the given project
+```
 
 ### Languages
 

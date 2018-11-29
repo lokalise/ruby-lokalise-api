@@ -1,11 +1,11 @@
 module Lokalise
   module Collections
-    class ProjectLanguage < Base
+    class ProjectComment < Base
       class << self
         private
 
         def endpoint(project_id, *_args)
-          "projects/#{project_id}/languages"
+          "projects/#{project_id}/comments"
         end
       end
     end

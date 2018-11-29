@@ -1,6 +1,8 @@
 require 'ruby-lokalise-api/rest/languages'
 require 'ruby-lokalise-api/rest/teams'
 require 'ruby-lokalise-api/rest/projects'
+require 'ruby-lokalise-api/rest/comments'
+require 'ruby-lokalise-api/rest/keys'
 
 module Lokalise
   class Client

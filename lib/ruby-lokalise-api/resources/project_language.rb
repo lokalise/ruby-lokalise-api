@@ -26,7 +26,7 @@ module Lokalise
         end
 
         def endpoint_with_id(project_id, language_id)
-          "projects/#{project_id}/languages/#{language_id}"
+          "#{endpoint(project_id)}/#{language_id}"
         end
       end
     end
