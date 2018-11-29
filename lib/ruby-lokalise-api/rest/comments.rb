@@ -15,7 +15,7 @@ module Lokalise
       )
     end
 
-    def create_comment(project_id, key_id, params)
+    def create_comments(project_id, key_id, params)
       Lokalise::Resources::KeyComment.create @token, project_id, key_id, params
     end
 

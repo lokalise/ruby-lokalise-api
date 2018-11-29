@@ -12,7 +12,7 @@ module Lokalise
       Lokalise::Resources::ProjectLanguage.find @token, project_id, language_id
     end
 
-    def create_language(project_id, params)
+    def create_languages(project_id, params)
       Lokalise::Resources::ProjectLanguage.create @token, project_id, params
     end
 
