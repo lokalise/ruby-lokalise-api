@@ -4,6 +4,7 @@ require 'ruby-lokalise-api/rest/projects'
 require 'ruby-lokalise-api/rest/comments'
 require 'ruby-lokalise-api/rest/keys'
 require 'ruby-lokalise-api/rest/contributors'
+require 'ruby-lokalise-api/rest/files'
 
 module Lokalise
   class Client

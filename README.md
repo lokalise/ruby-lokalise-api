@@ -141,10 +141,10 @@ In order to fetch *the actual content of the collection*, use the `#content` met
 
 ```ruby
 @client.contributor(project_id, contributor_id)   # Input:
-                                                ## project_id (string, required)
-                                                ## contributor_id (string, required) - named as "user_id" in the response
-                                                # Output:
-                                                ## Contributor in the given project
+                                                  ## project_id (string, required)
+                                                  ## contributor_id (string, required) - named as "user_id" in the response
+                                                  # Output:
+                                                  ## Contributor in the given project
 ```
 
 #### Create contributors
@@ -172,18 +172,18 @@ In order to fetch *the actual content of the collection*, use the `#content` met
 [Doc](https://lokalise.co/api2docs/ruby/#transition-update-a-contributor-put)
 
 ```ruby
-@client.update_contributor(project_id, contributor_id, params)  # Input:
-                                                 ## project_id (string, required)
-                                                 ## contributor_id (string, required) 
-                                                 ## params (hash, required)
-                                                 ### :is_admin (boolean)
-                                                 ### :is_reviewer (boolean)
-                                                 ### :languages (array of hashes) - possible languages attributes:
-                                                 #### :lang_iso (string, required)
-                                                 #### :is_writable (boolean) 
-                                                 ### :admin_rights (array) 
-                                                 # Output:
-                                                 ## Updated contributor
+@client.update_contributor(project_id, contributor_id, params)   # Input:
+                                                                 ## project_id (string, required)
+                                                                 ## contributor_id (string, required) 
+                                                                 ## params (hash, required)
+                                                                 ### :is_admin (boolean)
+                                                                 ### :is_reviewer (boolean)
+                                                                 ### :languages (array of hashes) - possible languages attributes:
+                                                                 #### :lang_iso (string, required)
+                                                                 #### :is_writable (boolean) 
+                                                                 ### :admin_rights (array) 
+                                                                 # Output:
+                                                                 ## Updated contributor
 ```
 
 #### Delete contributor
@@ -199,6 +199,53 @@ In order to fetch *the actual content of the collection*, use the `#content` met
 ```
 
 ### Files
+
+[File attributes](https://lokalise.co/api2docs/ruby/#object-files)
+
+#### Fetch translation files
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-list-all-files-get)
+
+```ruby
+@client.files(project_id, params = {})  # Input:
+                                        ## project_id (string, required)
+                                        ## params (hash)
+                                        ### :page and :limit
+                                        # Output:
+                                        ## Array of translation files available in the given project
+```
+
+#### Download translation files
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-download-files-post)
+
+Exports project files as a `.zip` bundle and makes them available to download (the link is valid for 12 months).
+
+```ruby
+@client.download_files(project_id, params)  # Input:
+                                        ## project_id (string, required)
+                                        ## params (hash, required)
+                                        ### :format (string, required) - one of the file formats supported by Lokalise (json, xml, po etc).
+                                        ### Find the list of other supported params at https://lokalise.co/api2docs/ruby/#transition-download-files-post 
+                                        # Output:
+                                        ## Hash with the project id and a "bundle_url" link
+```
+
+#### Upload translation files
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-upload-a-file-post)
+
+```ruby
+@client.upload_file(project_id, params) # Input:
+                                        ## project_id (string, required)
+                                        ## params (hash, required)
+                                        ### :data (string, required) - base64-encoded data (the format must be supported by Lokalise)
+                                        ### :filename (string, required)
+                                        ### :lang_iso (string, required) 
+                                        ### Find the list of other supported params at https://lokalise.co/api2docs/ruby/#transition-upload-a-file-post
+                                        # Output:
+                                        ## Hash with information about the upload
+```
 
 ### Keys
 
