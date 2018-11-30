@@ -13,6 +13,7 @@ require 'ruby-lokalise-api/resources/key_comment'
 require 'ruby-lokalise-api/resources/contributor'
 require 'ruby-lokalise-api/resources/file'
 require 'ruby-lokalise-api/resources/translation'
+require 'ruby-lokalise-api/resources/team_user'
 
 require 'ruby-lokalise-api/collections/base'
 require 'ruby-lokalise-api/collections/project'
@@ -25,6 +26,7 @@ require 'ruby-lokalise-api/collections/key'
 require 'ruby-lokalise-api/collections/contributor'
 require 'ruby-lokalise-api/collections/file'
 require 'ruby-lokalise-api/collections/translation'
+require 'ruby-lokalise-api/collections/team_user'
 
 require 'ruby-lokalise-api/client'
 
