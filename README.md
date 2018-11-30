@@ -458,6 +458,59 @@ Deletes *all* keys and translations from the project.
 
 ### Snapshots
 
+[Snapshot attributes](https://lokalise.co/api2docs/ruby/#object-snapshots)
+
+#### Fetch snapshots
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-list-all-snapshots-get)
+
+```ruby
+@client.snapshots(project_id, params = {})  # Input:
+                                            ## project_id (string, required)
+                                            ## params (hash)
+                                            ### :filter_title (string) - set title filter for the list 
+                                            ### :page and :limit
+                                            # Output:
+                                            ## Array of project snapshots
+```
+
+#### Create snapshot
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-create-a-snapshot-post)
+
+```ruby
+@client.create_snapshot(project_id, params = {})  # Input:
+                                                  ## project_id (string, required)
+                                                  ## params (hash)
+                                                  ### :title (string)
+                                                  # Output:
+                                                  ## Created snapshot
+```
+
+#### Restore snapshot
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-restore-a-snapshot-post)
+
+```ruby
+@client.restore_snapshot(project_id, snapshot_id)   # Input:
+                                                    ## project_id (string, required)
+                                                    ## snapshot_id (string, required)
+                                                    # Output:
+                                                    ## Information about the restored project from the specified snapshot
+```
+
+#### Delete snapshot
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-delete-a-snapshot-delete)
+
+```ruby
+@client.delete_snapshot(project_id, snapshot_id)    # Input:
+                                                    ## project_id (string, required)
+                                                    ## snapshot_id (string, required)
+                                                    # Output:
+                                                    ## Hash with the project id and "snapshot_deleted" set to "true"
+```
+
 ### Tasks
 
 [Task attributes](https://lokalise.co/api2docs/ruby/#resource-tasks)

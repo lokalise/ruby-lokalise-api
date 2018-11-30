@@ -9,7 +9,7 @@ require 'ruby-lokalise-api'
 
 # puts @client.create_key_comment('803826145ba90b42d5d860.46800099', '13207975',
 # {comment: 'test'}).inspect
-puts @client.delete_task('803826145ba90b42d5d860.46800099', '4053').inspect
+puts @client.delete_snapshot('803826145ba90b42d5d860.46800099', '26395').inspect
 
 # puts @client.create_task('803826145ba90b42d5d860.46800099',
 #                          {
