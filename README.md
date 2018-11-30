@@ -5,6 +5,30 @@
 
 Official Ruby interface for the [Lokalise API](https://lokalise.co/api2docs/ruby/).
 
+## Index
+
+* [Getting started](#getting-started)
+  + [Installation and Requirements](#installation-and-requirements)
+  + [Initializing the Client](#initializing-the-client)
+  + [Pagination](#pagination)
+* [Available Resources](#available-resources)
+  + [Comments](#comments)
+  + [Contributors](#contributors)
+  + [Files](#files)
+  + [Keys](#keys)
+  + [Languages](#languages)
+  + [Projects](#projects)
+  + [Screenshots](#screenshots)
+  + [Snapshots](#snapshots)
+  + [Tasks](#tasks)
+  + [Teams](#teams)
+  + [Team users](#team-users)
+  + [Translations](#translations)
+* [Additional Info](#additional-info)
+  + [Error handling](#error-handling)
+  + [API Rate Limits](#api-rate-limits)
+* [Running Tests](#running-tests)
+
 ## Getting Started
 
 ### Installation and Requirements
@@ -451,6 +475,10 @@ Deletes *all* keys and translations from the project.
 ```
 
 ### Team users
+
+[Team user attributes](https://lokalise.co/api2docs/ruby/#object-team-users)
+
+#### Fetch team users
 
 ### Translations
 
