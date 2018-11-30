@@ -231,7 +231,7 @@ Exports project files as a `.zip` bundle and makes them available to download (t
                                         ## Hash with the project id and a "bundle_url" link
 ```
 
-#### Upload translation files
+#### Upload translation file
 
 [Doc](https://lokalise.co/api2docs/ruby/#transition-upload-a-file-post)
 
@@ -438,7 +438,7 @@ Deletes *all* keys and translations from the project.
 
 ### Teams
 
-#### Fetch teams collection
+#### Fetch teams
 
 [Doc](https://lokalise.co/api2docs/ruby/#resource-teams)
 
@@ -453,6 +453,52 @@ Deletes *all* keys and translations from the project.
 ### Team users
 
 ### Translations
+
+[Translation attributes](https://lokalise.co/api2docs/ruby/#resource-translations)
+
+#### Fetch translations
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-list-all-translations-get)
+
+```ruby
+@client.translations(project_id, params = {})   # Input:
+                                                ## project_id (string, required)
+                                                ## params (hash)
+                                                ### :disable_references (string) - whether to disable key references. Supported values are 0 and 1
+                                                ### :page and :limit
+                                                # Output:
+                                                ## Array of translations for the project
+```
+
+#### Fetch a single translation
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-retrieve-a-translation-get)
+
+```ruby
+@client.translation(project_id, translation_id, params = {})   # Input:
+                                                                ## project_id (string, required)
+                                                                ## translation_id (string, required) 
+                                                                ## params (hash)
+                                                                ### :disable_references (string) - whether to disable key references. Supported values are 0 and 1
+                                                                # Output:
+                                                                ## Single translation for the project
+```
+
+#### Update translation
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-update-a-translation-put)
+
+```ruby
+@client.update_translation(project_id, translation_id, params = {})   # Input:
+                                                                      ## project_id (string, required)
+                                                                      ## translation_id (string, required) 
+                                                                      ## params (hash, required)
+                                                                      ### :translation (string or hash, required) - the actual translation. Provide hash for plural keys.
+                                                                      ### :is_fuzzy (boolean)
+                                                                      ### :is_reviewed (boolean) 
+                                                                      # Output:
+                                                                      ## Updated translation
+```
 
 ## Additional Info
 

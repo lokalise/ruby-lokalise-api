@@ -12,8 +12,8 @@ module Lokalise
       class << self
         private
 
-        def load_record(path, token, id)
-          new get(path + '/' + id.to_s, token)
+        def load_record(path, token, id, params = {})
+          new get(path + '/' + id.to_s, token, params)
         end
 
         def create_record(path, token, params)
