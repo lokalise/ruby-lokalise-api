@@ -863,8 +863,7 @@ Lokalise does not [rate-limit API requests](https://lokalise.co/api2docs/ruby/#r
 
 ## Running Tests
 
-1. Copypaste `.env.example` file as `.env`.
-2. Put your API token inside. The `.env` file is excluded from version control so your token is safe.
+1. Copypaste `.env.example` file as `.env`. Put your API token inside. The `.env` file is excluded from version control so your token is safe. All in all, we use pre-recorded VCR cassettes, so the actual API requests won't be sent. However, providing at least some token is required.
 3. Run `rspec .`. Observe test results and code coverage.
 
 ## License
