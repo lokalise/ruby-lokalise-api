@@ -24,8 +24,14 @@ module Lokalise
           new put(path, token, params)
         end
 
-        def destroy_record(path, token, id)
-          new delete(path + '/' + id.to_s, token)
+        # Destroys records by given ids. id_or_ids may be a string or a hash with an array of ids
+        def destroy_record(path, token, id_or_ids)
+          resp = if id_or_ids.is_a?(Hash)
+                   delete(path, token, id_or_ids)
+                 else
+                   delete(path + '/' + id_or_ids.to_s, token)
+                 end
+          new resp
         end
       end
     end

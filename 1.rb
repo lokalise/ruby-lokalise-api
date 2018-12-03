@@ -10,8 +10,7 @@ require 'ruby-lokalise-api'
 # puts @client.create_key_comment('803826145ba90b42d5d860.46800099', '13207975',
 # {comment: 'test'}).inspect
 #
-puts @client.delete_screenshot('803826145ba90b42d5d860.46800099',
-                               '112836').inspect
+puts @client.keys('803826145ba90b42d5d860.46800099').inspect
 
 # puts @client.create_screenshots('803826145ba90b42d5d860.46800099',
 #                                {

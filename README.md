@@ -288,6 +288,87 @@ Exports project files as a `.zip` bundle and makes them available to download (t
                                         ## Array of keys available in the given project
 ```
 
+#### Fetch a single project key
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-retrieve-a-key-get)
+
+```ruby
+@client.key(project_id, key_id, params = {})    # Input:
+                                                ## project_id (string, required)
+                                                ## key_id (string, required) 
+                                                ## params (hash)
+                                                ### :disable_references (string) - possible values are "1" and "0".
+                                                # Output:
+                                                ## Project key
+```
+
+#### Create project keys
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-create-keys-post)
+
+```ruby
+@client.create_keys(project_id, params)   # Input:
+                                          ## project_id (string, required)
+                                          ## params (array of hashes or hash, required)
+                                          ### :key_name (string or hash, required) - for projects with enabled per-platform key names, pass hash with "ios", "android", "web" and "other" params.
+                                          ### :platforms (array) - supported values are "ios", "android", "web" and "other"
+### Find all other supported attributes at https://lokalise.co/api2docs/ruby/#transition-create-keys-post 
+                                          # Output:
+                                          ## Newly created keys
+```
+
+#### Update project key
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-update-a-key-put)
+
+```ruby
+@client.update_key(project_id, key_id, params = {})   # Input:
+                                                      ## project_id (string, required)
+                                                      ## key_id (string, required)  
+                                                      ## params (hash)
+                                                      ### Find a list of supported attributes at https://lokalise.co/api2docs/ruby/#transition-update-a-key-put
+                                                      # Output:
+                                                      ## Updated key
+```
+
+#### Bulk update project keys
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-bulk-update-put)
+
+```ruby
+@client.update_keys(project_id, params)  # Input:
+                                         ## project_id (string, required)
+                                         ## params (hash or array of hashes, required)
+                                         ### :key_id (string, required)
+                                         ### Find all other supported attributes at https://lokalise.co/api2docs/ruby/#transition-bulk-update-put 
+                                         # Output:
+                                         ## Updated keys
+```
+
+#### Delete project key
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-delete-a-key-delete)
+
+```ruby
+@client.delete_key(project_id, key_id)  # Input:
+                                        ## project_id (string, required)
+                                        ## key_id (string, required)  
+                                        # Output:
+                                        ## Hash with project_id and "key_removed" set to "true"
+```
+
+#### Bulk delete project keys
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-delete-multiple-keys-delete)
+
+```ruby
+@client.delete_keys(project_id, key_ids)  # Input:
+                                          ## project_id (string, required)
+                                          ## key_ids (array, required)  
+                                          # Output:
+                                          ## Hash with project_id and "keys_removed" set to "true"
+```
+
 ### Languages
 
 [Language attributes](https://lokalise.co/api2docs/ruby/#object-languages)

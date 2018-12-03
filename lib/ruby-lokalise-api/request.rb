@@ -19,9 +19,13 @@ module Lokalise
         put(path, MultiJson.dump(params))
     end
 
-    def delete(path, token)
+    def delete(path, token, params = {})
       respond connection(token).
-        delete(path)
+        run_request(:delete, path, MultiJson.dump(params), {})
+      # TODO: current version of Faraday does not allow to pass DELETE body request
+      # As soon as this PR https://github.com/lostisland/faraday/issues/693 is merged,
+      # replace above with:
+      # delete(path, MultiJson.dump(params))
     end
 
     private
