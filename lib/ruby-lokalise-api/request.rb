@@ -37,7 +37,11 @@ module Lokalise
     end
 
     def respond_with_error(code, body)
-      raise Lokalise::Error::ERRORS[code].from_response(body)
+      if Lokalise::Error::ERRORS.key? code
+        raise Lokalise::Error::ERRORS[code].from_response(body)
+      else
+        raise Lokalise::Error, body['error']
+      end
     end
   end
 end

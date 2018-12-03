@@ -7,14 +7,6 @@ RSpec.describe Lokalise::Error do
     end.to raise_error(Lokalise::Error::BadRequest)
   end
 
-  it 'should raise BadRequest when the provided id is invalid' do
-    expect do
-      VCR.use_cassette('error_project_bad_request') do
-        test_client.project '123.45'
-      end
-    end.to raise_error(Lokalise::Error::BadRequest)
-  end
-
   it 'should raise NotFound when the provided path cannot be found' do
     expect do
       VCR.use_cassette('error_not_found') do

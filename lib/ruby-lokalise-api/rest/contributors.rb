@@ -1,7 +1,7 @@
 module Lokalise
   class Client
     def contributors(project_id, params = {})
-      Lokalise::Collections::Contributor.all @token, params.merge(id: project_id)
+      Lokalise::Collections::Contributor.all @token, params, project_id
     end
 
     def contributor(project_id, contributor_id)
@@ -9,7 +9,9 @@ module Lokalise
     end
 
     def create_contributors(project_id, params)
-      Lokalise::Resources::Contributor.create @token, project_id, params
+      Lokalise::Resources::Contributor.create @token,
+                                              project_id,
+                                              params.merge(object_key: :contributors)
     end
 
     def update_contributor(project_id, contributor_id, params)

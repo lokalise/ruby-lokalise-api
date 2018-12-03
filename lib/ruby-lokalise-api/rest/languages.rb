@@ -5,7 +5,7 @@ module Lokalise
     end
 
     def project_languages(project_id, params = {})
-      Lokalise::Collections::ProjectLanguage.all @token, params.merge(id: project_id)
+      Lokalise::Collections::ProjectLanguage.all @token, params, project_id
     end
 
     def language(project_id, language_id)
@@ -13,7 +13,9 @@ module Lokalise
     end
 
     def create_languages(project_id, params)
-      Lokalise::Resources::ProjectLanguage.create @token, project_id, params
+      Lokalise::Resources::ProjectLanguage.create @token,
+                                                  project_id,
+                                                  params.merge(object_key: :languages)
     end
 
     def update_language(project_id, language_id, params)

@@ -1,7 +1,7 @@
 module Lokalise
   class Client
     def translations(project_id, params = {})
-      Lokalise::Collections::Translation.all @token, params.merge(id: project_id)
+      Lokalise::Collections::Translation.all @token, params, project_id
     end
 
     def translation(project_id, translation_id, params = {})

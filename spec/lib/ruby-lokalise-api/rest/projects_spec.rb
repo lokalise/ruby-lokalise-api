@@ -6,7 +6,7 @@ RSpec.describe Lokalise::Client do
       end.content['projects']
       project = projects[0]
 
-      expect(projects.count).to eq(3)
+      expect(projects.count).to eq(5)
       expect(project['name']).to eq('demo phoenix')
       expect(project['team_id']).to eq(176_692)
     end
@@ -18,14 +18,14 @@ RSpec.describe Lokalise::Client do
       project = projects.content['projects'][0]
 
       expect(projects.content.count).to eq(1)
-      expect(projects.total_results).to eq(3)
-      expect(projects.total_pages).to eq(3)
+      expect(projects.total_results).to eq(5)
+      expect(projects.total_pages).to eq(5)
       expect(projects.results_per_page).to eq(1)
       expect(projects.current_page).to eq(2)
 
-      expect(project['name']).to eq('Demo Rails Proj')
+      expect(project['name']).to eq('demo phoenix copy')
       expect(project['created_by']).to eq(20_181)
-      expect(project['statistics']['progress']).to eq(95)
+      expect(project['statistics']['progress']).to eq(0)
     end
   end
 

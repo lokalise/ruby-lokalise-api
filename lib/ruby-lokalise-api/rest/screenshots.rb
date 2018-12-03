@@ -1,7 +1,7 @@
 module Lokalise
   class Client
     def screenshots(project_id, params = {})
-      Lokalise::Collections::Screenshot.all @token, params.merge(id: project_id)
+      Lokalise::Collections::Screenshot.all @token, params, project_id
     end
 
     def screenshot(project_id, screenshot_id)
@@ -9,7 +9,9 @@ module Lokalise
     end
 
     def create_screenshots(project_id, params = {})
-      Lokalise::Resources::Screenshot.create @token, project_id, params
+      Lokalise::Resources::Screenshot.create @token,
+                                             project_id,
+                                             params.merge(object_key: :screenshots)
     end
 
     def update_screenshot(project_id, screenshot_id, params = {})

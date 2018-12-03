@@ -8,10 +8,14 @@ module Lokalise
     BadRequest = Class.new(ServerError)
     NotFound = Class.new(ServerError)
     NotImplemented = Class.new(ServerError)
+    Forbidden = Class.new(ServerError)
+    Locked = Class.new(ServerError)
 
     ERRORS = {
       400 => Lokalise::Error::BadRequest,
+      403 => Lokalise::Error::Forbidden,
       404 => Lokalise::Error::NotFound,
+      423 => Lokalise::Error::Locked,
       501 => Lokalise::Error::NotImplemented
     }.freeze
 

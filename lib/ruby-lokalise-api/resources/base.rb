@@ -10,28 +10,45 @@ module Lokalise
       end
 
       class << self
-        private
-
-        def load_record(path, token, id, params = {})
-          new get(path + '/' + id.to_s, token, params)
+        def find(token, endpoint_ids, resource_id = '', params = {})
+          new get("#{endpoint(*endpoint_ids)}/#{resource_id}",
+                  token,
+                  params)
         end
 
-        def create_record(path, token, params)
-          new post(path, token, params)
+        def create(token, endpoint_ids, params)
+          new post(endpoint(*endpoint_ids),
+                   token,
+                   body_from(params))
         end
 
-        def update_record(path, token, params = {})
-          new put(path, token, params)
+        def update(token, endpoint_ids, resource_id, params)
+          new put("#{endpoint(*endpoint_ids)}/#{resource_id}",
+                  token,
+                  body_from(params))
         end
 
-        # Destroys records by given ids. id_or_ids may be a string or a hash with an array of ids
-        def destroy_record(path, token, id_or_ids)
-          resp = if id_or_ids.is_a?(Hash)
-                   delete(path, token, id_or_ids)
+        # Destroys records by given ids. resource_id may be a string or a hash with an array of ids
+        def destroy(token, endpoint_ids, resource_id)
+          resp = if resource_id.is_a?(Hash)
+                   delete path, token, resource_id
                  else
-                   delete(path + '/' + id_or_ids.to_s, token)
+                   delete "#{endpoint(*endpoint_ids)}/#{resource_id}",
+                          token
                  end
           new resp
+        end
+
+        private
+
+        # Converts `params` to hash with arrays under the `object_key` key
+        # Used in bulk operations
+        def body_from(params)
+          return params unless params.key?(:object_key)
+
+          object_key = params.delete :object_key
+          params = [params] unless params.is_a?(Array)
+          Hash[object_key, params]
         end
       end
     end

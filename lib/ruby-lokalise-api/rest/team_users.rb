@@ -1,7 +1,7 @@
 module Lokalise
   class Client
     def team_users(team_id, params = {})
-      Lokalise::Collections::TeamUser.all @token, params.merge(id: team_id)
+      Lokalise::Collections::TeamUser.all @token, params, team_id
     end
 
     def team_user(team_id, user_id)

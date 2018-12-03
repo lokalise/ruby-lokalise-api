@@ -1,7 +1,7 @@
 module Lokalise
   class Client
     def snapshots(project_id, params = {})
-      Lokalise::Collections::Snapshot.all @token, params.merge(id: project_id)
+      Lokalise::Collections::Snapshot.all @token, params, project_id
     end
 
     def create_snapshot(project_id, params = {})

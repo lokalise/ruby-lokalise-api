@@ -14,10 +14,8 @@ module Lokalise
       end
 
       class << self
-        def all(token, params = {})
-          load_collection endpoint(params.delete(:id), params.delete(:secondary_id)),
-                          token,
-                          params
+        def all(token, params = {}, *ids)
+          load_collection endpoint(*ids), token, params
         end
 
         private

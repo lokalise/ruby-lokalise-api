@@ -1,7 +1,7 @@
 module Lokalise
   class Client
     def files(project_id, params = {})
-      Lokalise::Collections::File.all @token, params.merge(id: project_id)
+      Lokalise::Collections::File.all @token, params, project_id
     end
 
     def download_files(project_id, params)
