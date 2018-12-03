@@ -16,6 +16,7 @@ require 'ruby-lokalise-api/resources/translation'
 require 'ruby-lokalise-api/resources/team_user'
 require 'ruby-lokalise-api/resources/task'
 require 'ruby-lokalise-api/resources/snapshot'
+require 'ruby-lokalise-api/resources/screenshot'
 
 require 'ruby-lokalise-api/collections/base'
 require 'ruby-lokalise-api/collections/project'
@@ -31,6 +32,7 @@ require 'ruby-lokalise-api/collections/translation'
 require 'ruby-lokalise-api/collections/team_user'
 require 'ruby-lokalise-api/collections/task'
 require 'ruby-lokalise-api/collections/snapshot'
+require 'ruby-lokalise-api/collections/screenshot'
 
 require 'ruby-lokalise-api/client'
 
