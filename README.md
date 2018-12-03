@@ -851,8 +851,11 @@ Deletes *all* keys and translations from the project.
 
 The gem may raise the following custom exceptions:
 
-* `Lokalise::Error::BadRequest` - the provided token or an id is incorrect
-* `Lokalise::Error::NotFound` - the provided endpoint (resource) cannot be found
+* `Lokalise::Error::BadRequest` (`400`) - the provided token or an id is incorrect
+* `Lokalise::Error::Forbidden` (`403`)
+* `Lokalise::Error::Locked` (`423`) - your token is used simultaneously in multiple requests
+* `Lokalise::Error::NotFound` (`404`) - the provided endpoint (resource) cannot be found
+* `Lokalise::Error::NotImplemented` (`501`)
 
 ### API Rate Limits
 

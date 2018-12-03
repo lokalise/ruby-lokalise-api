@@ -1,7 +1,6 @@
 module Lokalise
   class Error < StandardError
-    # TODO: define error codes
-    #
+    # :nocov:
     ClientError = Class.new(self)
     ServerError = Class.new(self)
 
@@ -16,8 +15,10 @@ module Lokalise
       403 => Lokalise::Error::Forbidden,
       404 => Lokalise::Error::NotFound,
       423 => Lokalise::Error::Locked,
+      500 => Lokalise::Error::ServerError,
       501 => Lokalise::Error::NotImplemented
     }.freeze
+    # :nocov:
 
     class << self
       # Create a new error from an HTTP response
