@@ -15,9 +15,7 @@ module Lokalise
     end
 
     def create_comments(project_id, key_id, params)
-      Lokalise::Resources::KeyComment.create @token,
-                                             [project_id, key_id],
-                                             params.merge(object_key: :comments)
+      Lokalise::Resources::KeyComment.create @token, [project_id, key_id], params, :comments
     end
 
     def delete_comment(project_id, key_id, comment_id)

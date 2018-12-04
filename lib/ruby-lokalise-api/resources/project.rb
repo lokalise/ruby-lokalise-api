@@ -3,9 +3,7 @@ module Lokalise
     class Project < Base
       class << self
         def clear(token, project_id)
-          new put("#{endpoint(project_id)}/empty",
-                  token,
-                  params)
+          put "#{endpoint(project_id)}/empty", token, params
         end
 
         private

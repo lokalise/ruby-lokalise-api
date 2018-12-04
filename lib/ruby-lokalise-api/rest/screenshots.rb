@@ -9,9 +9,7 @@ module Lokalise
     end
 
     def create_screenshots(project_id, params = {})
-      Lokalise::Resources::Screenshot.create @token,
-                                             project_id,
-                                             params.merge(object_key: :screenshots)
+      Lokalise::Resources::Screenshot.create @token, project_id, params, :screenshots
     end
 
     def update_screenshot(project_id, screenshot_id, params = {})

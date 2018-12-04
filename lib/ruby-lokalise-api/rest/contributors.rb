@@ -9,9 +9,7 @@ module Lokalise
     end
 
     def create_contributors(project_id, params)
-      Lokalise::Resources::Contributor.create @token,
-                                              project_id,
-                                              params.merge(object_key: :contributors)
+      Lokalise::Resources::Contributor.create @token, project_id, params, :contributors
     end
 
     def update_contributor(project_id, contributor_id, params)

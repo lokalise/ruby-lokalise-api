@@ -4,19 +4,33 @@ module Lokalise
     ClientError = Class.new(self)
     ServerError = Class.new(self)
 
-    BadRequest = Class.new(ServerError)
-    NotFound = Class.new(ServerError)
+    BadRequest = Class.new(ClientError)
+    Unauthorized = Class.new(ClientError)
+    NotAcceptable = Class.new(ClientError)
+    NotFound = Class.new(ClientError)
+    Conflict = Class.new(ClientError)
+    TooManyRequests = Class.new(ClientError)
+    Forbidden = Class.new(ClientError)
+    Locked = Class.new(ClientError)
+
     NotImplemented = Class.new(ServerError)
-    Forbidden = Class.new(ServerError)
-    Locked = Class.new(ServerError)
+    BadGateway = Class.new(ServerError)
+    ServiceUnavailable = Class.new(ServerError)
+    GatewayTimeout = Class.new(ServerError)
 
     ERRORS = {
       400 => Lokalise::Error::BadRequest,
+      401 => Lokalise::Error::Unauthorized,
       403 => Lokalise::Error::Forbidden,
       404 => Lokalise::Error::NotFound,
+      406 => Lokalise::Error::NotAcceptable,
+      409 => Lokalise::Error::Conflict,
       423 => Lokalise::Error::Locked,
+      429 => Lokalise::Error::TooManyRequests,
       500 => Lokalise::Error::ServerError,
-      501 => Lokalise::Error::NotImplemented
+      502 => Lokalise::Error::BadGateway,
+      503 => Lokalise::Error::ServiceUnavailable,
+      504 => Lokalise::Error::GatewayTimeout
     }.freeze
     # :nocov:
 

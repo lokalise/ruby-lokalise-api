@@ -1,0 +1,13 @@
+{
+  "project": [
+    "project_id",
+    "name"
+  ],
+  "contributor": [
+    "user_id",
+    "email"
+  ],
+  "task": [
+    "task_id"
+  ]
+}

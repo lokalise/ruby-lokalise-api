@@ -9,9 +9,7 @@ module Lokalise
     end
 
     def create_keys(project_id, params = {})
-      Lokalise::Resources::Key.create @token,
-                                      project_id,
-                                      params.merge(object_key: :keys)
+      Lokalise::Resources::Key.create @token, project_id, params, :keys
     end
 
     def update_key(project_id, key_id, params = {})
@@ -19,10 +17,7 @@ module Lokalise
     end
 
     def update_keys(project_id, params)
-      Lokalise::Resources::Key.update @token,
-                                      project_id,
-                                      nil,
-                                      params.merge(object_key: :keys)
+      Lokalise::Resources::Key.update @token, project_id, nil, params, :keys
     end
 
     def delete_key(project_id, key_id)
