@@ -7,7 +7,10 @@ require 'ruby-lokalise-api'
 
 @client = Lokalise.client ENV['LOKALISE_API_TOKEN']
 
-# puts @client.create_key_comment('803826145ba90b42d5d860.46800099', '13207975',
+# puts @client.create_comments('803826145ba90b42d5d860.46800099', '13207975',
+#                              {
+#                                comment: 'demo'
+#                              }).inspect
 # {comment: 'test'}).inspect
 #
 # r = @client.create_contributors('803826145ba90b42d5d860.46800099',
@@ -17,7 +20,7 @@ require 'ruby-lokalise-api'
 #                                     languages: [{lang_iso: 'en'}]
 #                                   })
 # puts r.inspect
-#puts r.email
+# puts r.email
 
 # puts @client.create_screenshots('803826145ba90b42d5d860.46800099',
 #                                {
@@ -36,8 +39,8 @@ require 'ruby-lokalise-api'
 #                              }
 #                            ]
 #                          }).inspect
-puts @client.projects.inspect
+# puts @client.projects.inspect
 
-#puts @client.keys('803826145ba90b42d5d860.46800099').inspect
+puts @client.files('803826145ba90b42d5d860.46800099').inspect
 
 # puts @client.keys('803826145ba90b42d5d860.46800099').inspect

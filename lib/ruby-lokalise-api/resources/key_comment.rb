@@ -1,6 +1,8 @@
 module Lokalise
   module Resources
     class KeyComment < Base
+      DATA_KEY = 'Comment'.freeze
+
       class << self
         private
 

@@ -1,11 +1,29 @@
 {
-  "project": [
-    "project_id",
-    "name"
+  "comment": [
+    "comment_id",
+    "key_id",
+    "comment",
+    "added_by",
+    "added_by_email",
+    "added_at"
   ],
   "contributor": [
     "user_id",
-    "email"
+    "email",
+    "fullname",
+    "created_at",
+    "is_admin",
+    "is_reviewer",
+    "languages",
+    "admin_rights"
+  ],
+  "file": [
+    "filename",
+    "key_count"
+  ],
+  "project": [
+    "project_id",
+    "name"
   ],
   "task": [
     "task_id"

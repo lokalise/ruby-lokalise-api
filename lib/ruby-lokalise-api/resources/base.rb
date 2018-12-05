@@ -9,10 +9,14 @@ module Lokalise
       def initialize(response)
         # Store all attributes under instance variables
         # ATTRIBUTES is defined inside model-specific classes
-        data_key = self.class.const_get(:DATA_KEY).snakecase
+        data_key = if self.class.const_defined? :DATA_KEY
+                     self.class.const_get :DATA_KEY
+                   else
+                     self.class.name.base_class_name
+                   end.snakecase
 
         self.class.const_get(:ATTRIBUTES).each do |attr|
-          value = response['content'].key?(data_key) ?
+          value = response['content'].key?(data_key) && response['content'][data_key].is_a?(Hash) ?
                     response['content'][data_key][attr] :
                     response['content'][attr]
 
@@ -41,13 +45,14 @@ module Lokalise
           r = post(endpoint(*endpoint_ids),
                    token,
                    body_from(params, object_key))
-          data_key = if self.const_defined? :DATA_KEY
-                       self.const_get :DATA_KEY
+          model_class = name.base_class_name
+          data_key = if const_defined? :DATA_KEY
+                       const_get :DATA_KEY
                      else
-                       self.name.base_class_name
+                       model_class
                      end
           if r['content'].key?(data_key.snakecase + 's')
-            Module.const_get("Lokalise::Collections::#{data_key}").new r, self.class
+            Module.const_get("Lokalise::Collections::#{model_class}").new r, self.class
           else
             new r
           end

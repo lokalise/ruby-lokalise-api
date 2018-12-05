@@ -6,8 +6,8 @@ class String
   # replaced by underscores.
   def snakecase
     base_class_name.
-      gsub(/([A-Z]+)([A-Z][a-z])/,'\1_\2').
-      gsub(/([a-z\d])([A-Z])/,'\1_\2').
+      gsub(/([A-Z]+)([A-Z][a-z])/, '\1_\2').
+      gsub(/([a-z\d])([A-Z])/, '\1_\2').
       tr('-', '_').
       gsub(/\s/, '_').
       gsub(/__+/, '_').
@@ -16,6 +16,6 @@ class String
 
   # Turn `Module::Nested::ClassName` to just `ClassName`
   def base_class_name
-    split("::").last
+    split('::').last
   end
 end

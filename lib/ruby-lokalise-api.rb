@@ -22,6 +22,7 @@ require 'ruby-lokalise-api/resources/task'
 require 'ruby-lokalise-api/resources/snapshot'
 require 'ruby-lokalise-api/resources/screenshot'
 require 'ruby-lokalise-api/resources/key'
+require 'ruby-lokalise-api/resources/project_comment'
 
 require 'ruby-lokalise-api/collections/base'
 require 'ruby-lokalise-api/collections/project'
