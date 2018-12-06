@@ -17,7 +17,6 @@ module Lokalise
           Module.const_get("Lokalise::Resources::#{model_class}").new 'content' => raw_model
         end
 
-        # @raw_data = response['content']
         @total_results = response['x-pagination-total-count'].to_i
         @total_pages = response['x-pagination-page-count'].to_i
         @results_per_page = response['x-pagination-limit'].to_i

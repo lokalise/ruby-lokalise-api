@@ -4,9 +4,6 @@ AllCops:
 Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
 
-Lint/Void:
-  Enabled: false
-
 Metrics/BlockLength:
   Max: 36
   Exclude:
@@ -27,7 +24,7 @@ Metrics/ModuleLength:
   Max: 150
 
 Metrics/ParameterLists:
-  Max: 4
+  Max: 5
   CountKeywordArgs: true
 
 Style/CollectionMethods:

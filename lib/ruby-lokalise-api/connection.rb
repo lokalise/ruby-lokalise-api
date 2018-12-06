@@ -9,7 +9,7 @@ module Lokalise
           user_agent: "ruby-lokalise-api gem/#{Lokalise::VERSION}",
           'X-Api-Token': token
         },
-        url: BASE_URL + '/'
+        url: BASE_URL
       }
       Faraday.new(options) { |faraday| faraday.adapter Faraday.default_adapter }
     end

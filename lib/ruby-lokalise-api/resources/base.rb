@@ -16,9 +16,11 @@ module Lokalise
                    end.snakecase
 
         self.class.const_get(:ATTRIBUTES).each do |attr|
-          value = response['content'].key?(data_key) && response['content'][data_key].is_a?(Hash) ?
-                    response['content'][data_key][attr] :
+          value = if response['content'].key?(data_key) && response['content'][data_key].is_a?(Hash)
+                    response['content'][data_key][attr]
+                  else
                     response['content'][attr]
+                  end
 
           instance_variable_set "@#{attr}", value
         end
@@ -59,9 +61,21 @@ module Lokalise
         end
 
         def update(token, endpoint_ids, resource_id, params, object_key = nil)
-          new put("#{endpoint(*endpoint_ids)}/#{resource_id}",
+          r = put("#{endpoint(*endpoint_ids)}/#{resource_id}",
                   token,
                   body_from(params, object_key))
+
+          model_class = name.base_class_name
+          data_key = if const_defined? :DATA_KEY
+                       const_get :DATA_KEY
+                     else
+                       model_class
+                     end
+          if r['content'].key?(data_key.snakecase + 's')
+            Module.const_get("Lokalise::Collections::#{model_class}").new r, self.class
+          else
+            new r
+          end
         end
 
         # Destroys records by given ids. resource_id may be a string or a hash with an array of ids
@@ -69,9 +83,8 @@ module Lokalise
           if resource_id.is_a?(Hash)
             delete path, token, resource_id
           else
-            delete "#{endpoint(*endpoint_ids)}/#{resource_id}",
-                   token
-          end
+            delete "#{endpoint(*endpoint_ids)}/#{resource_id}", token
+          end['content']
         end
 
         private

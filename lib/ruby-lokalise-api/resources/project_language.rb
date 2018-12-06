@@ -1,6 +1,8 @@
 module Lokalise
   module Resources
     class ProjectLanguage < Base
+      DATA_KEY = 'Language'.freeze
+
       class << self
         private
 

@@ -1,8 +1,9 @@
 module Lokalise
   module Utils
     module Attributes
-      UNIFIED_RESOURCES = %w[comment].freeze
+      UNIFIED_RESOURCES = %w[comment language].freeze
 
+      # Loads attributes for the given resource based on its name
       def attributes_for(klass)
         @attributes ||= begin
           YAML.load_file(File.expand_path('../data/attributes.json', __dir__)).freeze

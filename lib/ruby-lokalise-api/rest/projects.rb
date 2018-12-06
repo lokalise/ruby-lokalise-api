@@ -15,7 +15,7 @@ module Lokalise
     end
 
     def update_project(project_id, params)
-      Lokalise::Resources::Project.update @token, project_id, nil, params
+      Lokalise::Resources::Project.update @token, nil, project_id, params
     end
 
     def empty_project(project_id)
@@ -23,7 +23,7 @@ module Lokalise
     end
 
     def delete_project(project_id)
-      Lokalise::Resources::Project.destroy @token, project_id, nil
+      Lokalise::Resources::Project.destroy @token, nil, project_id
     end
   end
 end

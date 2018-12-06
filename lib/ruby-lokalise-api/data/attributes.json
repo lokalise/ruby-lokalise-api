@@ -21,11 +21,107 @@
     "filename",
     "key_count"
   ],
+  "key": [
+    "key_id",
+    "created_at",
+    "key_name",
+    "filenames",
+    "description",
+    "platforms",
+    "tags",
+    "comments",
+    "screenshots",
+    "translations",
+    "is_plural",
+    "plural_name",
+    "is_hidden",
+    "is_archived",
+    "context",
+    "base_words",
+    "char_limit",
+    "custom_attributes"
+  ],
+  "language": [
+    "lang_id",
+    "lang_iso",
+    "lang_name",
+    "is_rtl",
+    "plural_forms"
+  ],
   "project": [
     "project_id",
-    "name"
+    "name",
+    "description",
+    "created_at",
+    "created_by",
+    "created_by_email",
+    "team_id"
+  ],
+  "screenshot": [
+    "screenshot_id",
+    "key_ids",
+    "url",
+    "title",
+    "description",
+    "screenshot_tags",
+    "width",
+    "height"
+  ],
+  "snapshot": [
+    "snapshot_id",
+    "title",
+    "created_at",
+    "created_by",
+    "created_by_email"
   ],
   "task": [
-    "task_id"
+    "task_id",
+    "title",
+    "description",
+    "status",
+    "progress",
+    "due_date",
+    "keys_count",
+    "words_count",
+    "created_at",
+    "created_by",
+    "created_by_email",
+    "can_be_parent",
+    "task_type",
+    "parent_task_id",
+    "closing_tags",
+    "languages",
+    "auto_close_languages",
+    "auto_close_task",
+    "completed_at",
+    "completed_by",
+    "completed_by_email"
+  ],
+  "team": [
+    "team_id",
+    "name",
+    "created_at",
+    "plan",
+    "quota_usage",
+    "quota_allowed"
+  ],
+  "team_user": [
+    "user_id",
+    "email",
+    "fullname",
+    "created_at",
+    "role"
+  ],
+  "translation": [
+    "translation_id",
+    "key_id",
+    "language_iso",
+    "modified_at",
+    "modified_by",
+    "modified_by_email",
+    "translation",
+    "is_fuzzy",
+    "is_reviewed",
+    "words"
   ]
 }
