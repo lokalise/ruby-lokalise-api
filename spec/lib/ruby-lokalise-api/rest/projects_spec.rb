@@ -73,7 +73,6 @@ RSpec.describe Lokalise::Client do
     response = VCR.use_cassette('delete_project') do
       test_client.delete_project new_project_id
     end
-
     expect(response['project_id']).to eq(new_project_id)
     expect(response['project_deleted']).to eq(true)
   end
