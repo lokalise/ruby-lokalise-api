@@ -1,22 +1,17 @@
 RSpec.describe String do
-  describe '#snakecase' do
-    let(:result) { 'snake_case' }
+  let(:snake_result) { 'snake_case' }
+  let(:bc_result) { 'Klass' }
 
-    it 'should convert the string properly' do
-      expect('SnakeCase'.snakecase).to eq result
-      expect('Snake-Case'.snakecase).to eq result
-      expect('Snake Case'.snakecase).to eq result
-      expect('Snake  -  Case'.snakecase).to eq result
-    end
+  specify '#snakecase' do
+    expect('SnakeCase'.snakecase).to eq snake_result
+    expect('Snake-Case'.snakecase).to eq snake_result
+    expect('Snake Case'.snakecase).to eq snake_result
+    expect('Snake  -  Case'.snakecase).to eq snake_result
   end
 
-  describe '#base_class_name' do
-    let(:result) { 'Klass' }
-
-    it 'should convert classes with namespaces to base class names' do
-      expect('Namespace::Nested::Klass'.base_class_name).to eq result
-      expect('Nested::Klass'.base_class_name).to eq result
-      expect('Klass'.base_class_name).to eq result
-    end
+  specify '#base_class_name' do
+    expect('Namespace::Nested::Klass'.base_class_name).to eq bc_result
+    expect('Nested::Klass'.base_class_name).to eq bc_result
+    expect('Klass'.base_class_name).to eq bc_result
   end
 end

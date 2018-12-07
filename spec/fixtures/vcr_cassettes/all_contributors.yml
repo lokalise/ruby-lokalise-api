@@ -1,0 +1,70 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.lokalise.co/api2/projects/803826145ba90b42d5d860.46800099/contributors
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - ruby-lokalise-api gem/1.0.0.pre1
+      X-api-token:
+      - "<LOKALISE_TOKEN>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx
+      date:
+      - Fri, 07 Dec 2018 17:09:33 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - close
+      vary:
+      - Accept-Encoding
+      set-cookie:
+      - PHPSESSID=9aa927bb14d96332084c9db7ef49af7a; path=/; HttpOnly, locale=en_US;
+        expires=Sun, 06-Jan-2019 17:09:33 GMT; Max-Age=2592000; path=/; secure
+      expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      cache-control:
+      - no-store, no-cache, must-revalidate, no-store, no-cache
+      pragma:
+      - no-cache, no-cache
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      strict-transport-security:
+      - max-age=31536000
+      x-pagination-total-count:
+      - '2'
+      x-pagination-page-count:
+      - '1'
+      x-pagination-limit:
+      - '100'
+      x-pagination-page:
+      - '1'
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-headers:
+      - Content-Type
+    body:
+      encoding: ASCII-8BIT
+      string: '{"project_id":"803826145ba90b42d5d860.46800099","contributors":[{"user_id":5870,"email":"test@example.com","fullname":"John
+        Doe","created_at":"2017-06-09 13:56:00 (Etc\/UTC)","is_admin":false,"is_reviewer":false,"languages":[{"lang_id":640,"lang_iso":"en","lang_name":"English","is_writable":false}],"admin_rights":[]},{"user_id":20181,"email":"bodrovis@protonmail.com","fullname":"Ilya","created_at":"2018-08-21
+        17:35:25 (Etc\/UTC)","is_admin":true,"is_reviewer":true,"languages":[{"lang_id":640,"lang_iso":"en","lang_name":"English","is_writable":true},{"lang_id":673,"lang_iso":"f_over","lang_name":"fr
+        overriden","is_writable":true},{"lang_id":597,"lang_iso":"ru","lang_name":"Russian","is_writable":true}],"admin_rights":["upload","download","tasks","contributors","screenshots","keys","languages","settings","activity","statistics"]}]}'
+    http_version: 
+  recorded_at: Fri, 07 Dec 2018 17:09:25 GMT
+recorded_with: VCR 4.0.0

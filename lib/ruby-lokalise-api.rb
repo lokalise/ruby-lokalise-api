@@ -8,7 +8,7 @@ require 'ruby-lokalise-api/connection'
 require 'ruby-lokalise-api/request'
 require 'ruby-lokalise-api/error'
 require 'ruby-lokalise-api/utils/string_utils'
-require 'ruby-lokalise-api/utils/attributes'
+require 'ruby-lokalise-api/utils/attribute_helpers'
 
 require 'ruby-lokalise-api/resources/base'
 require 'ruby-lokalise-api/resources/project'

@@ -2,28 +2,13 @@ module Lokalise
   module Resources
     class Base
       extend Lokalise::Request
-      extend Lokalise::Utils::Attributes
+      extend Lokalise::Utils::AttributeHelpers
+      include Lokalise::Utils::AttributeHelpers
 
       attr_reader :raw_data, :project_id
 
       def initialize(response)
-        # Store all attributes under instance variables
-        # ATTRIBUTES is defined inside model-specific classes
-        data_key = if self.class.const_defined? :DATA_KEY
-                     self.class.const_get :DATA_KEY
-                   else
-                     self.class.name.base_class_name
-                   end.snakecase
-
-        self.class.const_get(:ATTRIBUTES).each do |attr|
-          value = if response['content'].key?(data_key) && response['content'][data_key].is_a?(Hash)
-                    response['content'][data_key][attr]
-                  else
-                    response['content'][attr]
-                  end
-
-          instance_variable_set "@#{attr}", value
-        end
+        populate_attributes_for response['content']
 
         @raw_data = response['content']
         @project_id = response['content']['project_id']
@@ -44,38 +29,19 @@ module Lokalise
         end
 
         def create(token, endpoint_ids, params, object_key = nil)
-          r = post(endpoint(*endpoint_ids),
-                   token,
-                   body_from(params, object_key))
-          model_class = name.base_class_name
-          data_key = if const_defined? :DATA_KEY
-                       const_get :DATA_KEY
-                     else
-                       model_class
-                     end
-          if r['content'].key?(data_key.snakecase + 's')
-            Module.const_get("Lokalise::Collections::#{model_class}").new r, self.class
-          else
-            new r
-          end
+          response = post(endpoint(*endpoint_ids),
+                          token,
+                          body_from(params, object_key))
+
+          object_from response
         end
 
         def update(token, endpoint_ids, resource_id, params, object_key = nil)
-          r = put("#{endpoint(*endpoint_ids)}/#{resource_id}",
-                  token,
-                  body_from(params, object_key))
+          response = put("#{endpoint(*endpoint_ids)}/#{resource_id}",
+                         token,
+                         body_from(params, object_key))
 
-          model_class = name.base_class_name
-          data_key = if const_defined? :DATA_KEY
-                       const_get :DATA_KEY
-                     else
-                       model_class
-                     end
-          if r['content'].key?(data_key.snakecase + 's')
-            Module.const_get("Lokalise::Collections::#{model_class}").new r, self.class
-          else
-            new r
-          end
+          object_from response
         end
 
         # Destroys records by given ids. resource_id may be a string or a hash with an array of ids
@@ -96,6 +62,35 @@ module Lokalise
 
           params = [params] unless params.is_a?(Array)
           Hash[object_key, params]
+        end
+
+        def object_from(response)
+          model_class = name.base_class_name
+          data_key_plural = data_key_for model_class, true
+
+          if response['content'].key? data_key_plural
+            Module.const_get("Lokalise::Collections::#{model_class}").new response
+          else
+            new response
+          end
+        end
+      end
+
+      private
+
+      # Store all resources attributes under instance variables.
+      # ATTRIBUTES is defined inside model-specific classes
+      def populate_attributes_for(content)
+        data_key = data_key_for self.class.name.base_class_name
+
+        self.class.const_get(:ATTRIBUTES).each do |attr|
+          value = if content.key?(data_key) && content[data_key].is_a?(Hash)
+                    content[data_key][attr]
+                  else
+                    content[attr]
+                  end
+
+          instance_variable_set "@#{attr}", value
         end
       end
     end
