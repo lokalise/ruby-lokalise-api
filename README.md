@@ -3,7 +3,7 @@
 [![Gem Version](https://badge.fury.io/rb/ruby-lokalise-api.svg)](https://badge.fury.io/rb/ruby-lokalise-api)
 [![Build Status](https://travis-ci.org/lokalise/ruby-lokalise-api.svg?branch=master)](https://travis-ci.org/lokalise/ruby-lokalise-api)
 
-Official Ruby interface for the [Lokalise API](https://lokalise.co/api2docs/ruby/).
+Official opinionated Ruby interface for the [Lokalise API](https://lokalise.co/api2docs/ruby/) that represents returned data as Ruby objects.
 
 ## Index
 
@@ -55,21 +55,55 @@ require 'ruby-lokalise-api'
 
 Now the `@client` can be used to perform API requests!
 
-### Pagination
+### Objects and models
 
-All collections returned by the API (that is, bulk fetches) support [pagination](https://lokalise.co/api2docs/php/#resource-pagination). There are two common parameters available:
+Individual objects are represented as instances of Ruby classes which are called *models*. Each model responds to the methods that are named after the API object's attributes. [This file](https://github.com/lokalise/ruby-lokalise-api/blob/master/lib/ruby-lokalise-api/data/attributes.json) lists all objects and their methods.
+
+Here is an example:
+
+```ruby
+project = client.project '123'
+project.name
+project.description
+project.created_by
+```
+
+To get access to raw data returned by the API, use `#raw_data`:
+
+```ruby
+project.raw_data
+```
+
+### Collections of resources and pagination
+
+Fetching (or creating/updating) multiple objects will return a *collection* of objects. To get access to the actual data, use `#collection` method:
+
+```ruby
+project = @client.projects.collection.first # => Get the first project
+project.name
+```
+
+Bulk fetches support [pagination](https://lokalise.co/api2docs/php/#resource-pagination). There are two common parameters available:
 
 * `:limit` (defaults to `100`, maximum is `5000`) - number of records to display per page
 * `:page` (defaults  to `1`) - page to fetch
 
-A paginated collection responds to the following methods:
+```ruby
+projects = @client.projects limit: 10, page: 3 #=> Paginate by 10 records and fetch the third page
+```
+
+Collections respond to the following methods:
 
 * `#total_pages`
 * `#total_results`
 * `#results_per_page`
 * `#current_page`
 
-In order to fetch *the actual content of the collection*, use the `#content` method.
+For example:
+
+```ruby
+projects.current_page #=> 3
+```
 
 ## Available Resources
 
@@ -87,7 +121,7 @@ In order to fetch *the actual content of the collection*, use the `#content` met
                                                     ## params (hash)
                                                     ### :page and :limit
                                                     # Output:
-                                                    ## Array of comments available in the given project
+                                                    ## Collection of comments available in the given project
 ```
 
 #### Fetch key comments
@@ -101,7 +135,7 @@ In order to fetch *the actual content of the collection*, use the `#content` met
                                                     ## params (hash)
                                                     ### :page and :limit
                                                     # Output:
-                                                    ## Array of comments available for the specified key in the given project
+                                                    ## Collection of comments available for the specified key in the given project
 ```
 
 #### Create key comments
@@ -156,7 +190,7 @@ In order to fetch *the actual content of the collection*, use the `#content` met
                                                 ## params (hash)
                                                 ### :page and :limit
                                                 # Output:
-                                                ## Array of contributors in the given project
+                                                ## Collection of contributors in the given project
 ```
 
 #### Fetch a single contributor
@@ -178,7 +212,7 @@ In order to fetch *the actual content of the collection*, use the `#content` met
 ```ruby
 @client.create_contributors(project_id, params)  # Input:
                                                  ## project_id (string, required)
-                                                 ## params (array or hash, required) - parameters for the newly created contributors. Pass array of hashes to create multiple contributors, or a hash to create a single contributor
+                                                 ## params (array of hashes or hash, required) - parameters for the newly created contributors. Pass array of hashes to create multiple contributors, or a hash to create a single contributor
                                                  ### :email (string, required)
                                                  ### :fullname (string) 
                                                  ### :is_admin (boolean)
@@ -188,7 +222,7 @@ In order to fetch *the actual content of the collection*, use the `#content` met
                                                  #### :is_writable (boolean) 
                                                  ### :admin_rights (array) 
                                                  # Output:
-                                                 ## Newly created contributor
+                                                 ## Collection of newly created contributors
 ```
 
 #### Update contributor
@@ -236,7 +270,7 @@ In order to fetch *the actual content of the collection*, use the `#content` met
                                         ## params (hash)
                                         ### :page and :limit
                                         # Output:
-                                        ## Array of translation files available in the given project
+                                        ## Collection of translation files available in the given project
 ```
 
 #### Download translation files
@@ -285,7 +319,7 @@ Exports project files as a `.zip` bundle and makes them available to download (t
                                         ## params (hash)
                                         ### :page and :limit
                                         # Output:
-                                        ## Array of keys available in the given project
+                                        ## Collection of keys available in the given project
 ```
 
 #### Fetch a single project key
@@ -314,7 +348,7 @@ Exports project files as a `.zip` bundle and makes them available to download (t
                                           ### :platforms (array) - supported values are "ios", "android", "web" and "other"
 ### Find all other supported attributes at https://lokalise.co/api2docs/ruby/#transition-create-keys-post 
                                           # Output:
-                                          ## Newly created keys
+                                          ## Collection of newly created keys
 ```
 
 #### Update project key
@@ -342,7 +376,7 @@ Exports project files as a `.zip` bundle and makes them available to download (t
                                          ### :key_id (string, required)
                                          ### Find all other supported attributes at https://lokalise.co/api2docs/ruby/#transition-bulk-update-put 
                                          # Output:
-                                         ## Updated keys
+                                         ## Collection of updated keys
 ```
 
 #### Delete project key
@@ -382,7 +416,7 @@ Exports project files as a `.zip` bundle and makes them available to download (t
                                         ## params (hash)
                                         ### :page and :limit
                                         # Output:
-                                        ## Array of system languages supported by Lokalise
+                                        ## Collection of system languages supported by Lokalise
 ```
 
 #### Fetch project languages
@@ -395,7 +429,7 @@ Exports project files as a `.zip` bundle and makes them available to download (t
                                                       ## params (hash)
                                                       ### :page and :limit
                                                       # Output:
-                                                      ## Array of languages available in the given project
+                                                      ## Collection of languages available in the given project
 ```
 
 #### Fetch a single project language
@@ -417,13 +451,13 @@ Exports project files as a `.zip` bundle and makes them available to download (t
 ```ruby
 @client.create_languages(project_id, params)    # Input:
                                                 ## project_id (string, required)
-                                                ## params (array or hash, required) - contains parameter of newly created languages. Pass array of hashes to create multiple languages, or a hash to create a single language
+                                                ## params (array of hashes or hash, required) - contains parameter of newly created languages. Pass array of hashes to create multiple languages, or a hash to create a single language
                                                 ### :lang_iso (string, required)
                                                 ### :custom_iso (string) 
                                                 ### :custom_name (string)
                                                 ### :custom_plural_forms (array) - can contain only plural forms initially supported by Lokalise
                                                 # Output:
-                                                ## Newly created language
+                                                ## Collection of newly created languages
 ```
 
 #### Update project language
@@ -468,7 +502,7 @@ Exports project files as a `.zip` bundle and makes them available to download (t
                                 ### :filter_team_id (string) - load projects only for the given team
                                 ### :page and :limit
                                 # Output:
-                                ## Array of projects under the `projects` attribute 
+                                ## Collection of projects under the `projects` attribute 
 ```
 
 #### Fetch a single project
@@ -549,7 +583,7 @@ Deletes *all* keys and translations from the project.
                                               ## params (hash)
                                               ### :page and :limit
                                               # Output:
-                                              ## Array of project screenshots
+                                              ## Collection of project screenshots
 ```
 
 #### Fetch a single screenshot
@@ -579,7 +613,7 @@ Deletes *all* keys and translations from the project.
                                                    ### :key_ids (array) - attach the screenshot to key IDs specified
                                                    ### :tags (array) 
                                                    # Output:
-                                                   ## Created screenshots
+                                                   ## Collection of created screenshots
 ```
 
 #### Update screenshot
@@ -596,7 +630,7 @@ Deletes *all* keys and translations from the project.
                                                                   ### :key_ids (array) - attach the screenshot to key IDs specified
                                                                   ### :tags (array) 
                                                                   # Output:
-                                                                  ## Created screenshots
+                                                                  ## Updated screenshot
 ```
 
 #### Delete screenshot
@@ -626,7 +660,7 @@ Deletes *all* keys and translations from the project.
                                             ### :filter_title (string) - set title filter for the list 
                                             ### :page and :limit
                                             # Output:
-                                            ## Array of project snapshots
+                                            ## Collection of project snapshots
 ```
 
 #### Create snapshot
@@ -681,7 +715,7 @@ Deletes *all* keys and translations from the project.
                                         ### :filter_title (string) - set title filter for the list 
                                         ### :page and :limit
                                         # Output:
-                                        ## Array of tasks for the project
+                                        ## Collection of tasks for the project
 ```
 
 #### Fetch a single task
@@ -739,7 +773,7 @@ Deletes *all* keys and translations from the project.
                             ## params (hash)
                             ### :page and :limit
                             # Output:
-                            ## Array of projects under the `projects` attribute 
+                            ## Collection of teams
 ```
 
 ### Team users
@@ -756,7 +790,7 @@ Deletes *all* keys and translations from the project.
                                           ## params (hash)
                                           ### :page and :limit
                                           # Output:
-                                          ## Array of team users
+                                          ## Collection of team users
 ```
 
 #### Fetch a single team user
@@ -812,7 +846,7 @@ Deletes *all* keys and translations from the project.
                                                 ### :disable_references (string) - whether to disable key references. Supported values are 0 and 1
                                                 ### :page and :limit
                                                 # Output:
-                                                ## Array of translations for the project
+                                                ## Collection of translations for the project
 ```
 
 #### Fetch a single translation
