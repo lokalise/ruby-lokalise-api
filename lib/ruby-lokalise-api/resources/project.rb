@@ -2,8 +2,8 @@ module Lokalise
   module Resources
     class Project < Base
       class << self
-        def clear(token, project_id)
-          put("#{endpoint(project_id)}/empty", token)['content']
+        def clear(client, project_id)
+          put("#{endpoint(project_id)}/empty", client)['content']
         end
 
         private

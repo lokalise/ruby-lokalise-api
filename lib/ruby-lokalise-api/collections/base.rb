@@ -9,7 +9,7 @@ module Lokalise
                   :project_id
 
       def initialize(response)
-        produce_collection_for response['content']
+        produce_collection_for response
         @total_results = response['x-pagination-total-count'].to_i
         @total_pages = response['x-pagination-page-count'].to_i
         @results_per_page = response['x-pagination-limit'].to_i
@@ -18,19 +18,20 @@ module Lokalise
       end
 
       class << self
-        def all(token, params = {}, *ids)
-          new get(endpoint(*ids), token, params)
+        def all(client, params = {}, *ids)
+          new get(endpoint(*ids), client, params)
         end
       end
 
       private
 
-      def produce_collection_for(content)
+      def produce_collection_for(response)
         model_class = self.class.name.base_class_name
         data_key_plural = data_key_for model_class, true
 
-        @collection = content[data_key_plural].collect do |raw_model|
-          Module.const_get("Lokalise::Resources::#{model_class}").new 'content' => raw_model
+        @collection = response['content'][data_key_plural].collect do |raw_model|
+          Module.const_get("Lokalise::Resources::#{model_class}").new 'content' => raw_model,
+                                                                      'client' => response['client']
         end
       end
     end

@@ -4,24 +4,32 @@ module Lokalise
 
     PAGINATION_HEADERS = %w[x-pagination-total-count x-pagination-page-count x-pagination-limit x-pagination-page].freeze
 
-    def get(path, token, params = {})
-      respond connection(token).
-        get(path, params)
+    def get(path, client, params = {})
+      respond_with(
+        connection(client.token).get(path, params),
+        client
+      )
     end
 
-    def post(path, token, params = {})
-      respond connection(token).
-        post(path, MultiJson.dump(params))
+    def post(path, client, params = {})
+      respond_with(
+        connection(client.token).post(path, MultiJson.dump(params)),
+        client
+      )
     end
 
-    def put(path, token, params = {})
-      respond connection(token).
-        put(path, MultiJson.dump(params))
+    def put(path, client, params = {})
+      respond_with(
+        connection(client.token).put(path, MultiJson.dump(params)),
+        client
+      )
     end
 
-    def delete(path, token, params = {})
-      respond connection(token).
-        run_request(:delete, path, MultiJson.dump(params), {})
+    def delete(path, client, params = {})
+      respond_with(
+        connection(client.token).run_request(:delete, path, MultiJson.dump(params), {}),
+        client
+      )
       # TODO: current version of Faraday does not allow to pass DELETE body request
       # As soon as this PR https://github.com/lostisland/faraday/issues/693 is merged,
       # replace above with:
@@ -30,10 +38,13 @@ module Lokalise
 
     private
 
-    def respond(response)
+    def respond_with(response, client)
       body = MultiJson.load response.body
       respond_with_error(response.status, body) if body.respond_to?(:has_key?) && body.key?('error')
-      response.headers.keep_if { |k, _v| PAGINATION_HEADERS.include?(k) }.merge(content: body)
+      response.
+        headers.
+        keep_if { |k, _v| PAGINATION_HEADERS.include?(k) }.
+        merge(content: body, client: client)
     end
 
     def respond_with_error(code, body)

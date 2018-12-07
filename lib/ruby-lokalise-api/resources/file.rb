@@ -2,18 +2,18 @@ module Lokalise
   module Resources
     class File < Base
       class << self
-        def download(token, project_id, params)
-          up_down token, endpoint(project_id), params, 'download'
+        def download(client, project_id, params)
+          up_down client, endpoint(project_id), params, 'download'
         end
 
-        def upload(token, project_id, params)
-          up_down token, endpoint(project_id), params, 'upload'
+        def upload(client, project_id, params)
+          up_down client, endpoint(project_id), params, 'upload'
         end
 
         private
 
-        def up_down(token, path, params, action)
-          post "#{path}/#{action}", token, params
+        def up_down(client, path, params, action)
+          post("#{path}/#{action}", client, params)['content']
         end
 
         def endpoint(project_id)

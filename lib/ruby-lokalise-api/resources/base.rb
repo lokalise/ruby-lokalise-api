@@ -5,13 +5,14 @@ module Lokalise
       extend Lokalise::Utils::AttributeHelpers
       include Lokalise::Utils::AttributeHelpers
 
-      attr_reader :raw_data, :project_id
+      attr_reader :raw_data, :project_id, :client
 
       def initialize(response)
         populate_attributes_for response['content']
 
         @raw_data = response['content']
         @project_id = response['content']['project_id']
+        @client = response['client']
       end
 
       class << self
@@ -22,34 +23,34 @@ module Lokalise
           super
         end
 
-        def find(token, endpoint_ids, resource_id = '', params = {})
+        def find(client, endpoint_ids, resource_id = '', params = {})
           new get("#{endpoint(*endpoint_ids)}/#{resource_id}",
-                  token,
+                  client,
                   params)
         end
 
-        def create(token, endpoint_ids, params, object_key = nil)
+        def create(client, endpoint_ids, params, object_key = nil)
           response = post(endpoint(*endpoint_ids),
-                          token,
+                          client,
                           body_from(params, object_key))
 
           object_from response
         end
 
-        def update(token, endpoint_ids, resource_id, params, object_key = nil)
+        def update(client, endpoint_ids, resource_id, params, object_key = nil)
           response = put("#{endpoint(*endpoint_ids)}/#{resource_id}",
-                         token,
+                         client,
                          body_from(params, object_key))
 
           object_from response
         end
 
         # Destroys records by given ids. resource_id may be a string or a hash with an array of ids
-        def destroy(token, endpoint_ids, resource_id)
+        def destroy(client, endpoint_ids, resource_id)
           if resource_id.is_a?(Hash)
-            delete path, token, resource_id
+            delete path, client, resource_id
           else
-            delete "#{endpoint(*endpoint_ids)}/#{resource_id}", token
+            delete "#{endpoint(*endpoint_ids)}/#{resource_id}", client
           end['content']
         end
 
