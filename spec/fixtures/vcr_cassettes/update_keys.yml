@@ -1,0 +1,72 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://api.lokalise.co/api2/projects/803826145ba90b42d5d860.46800099/keys/
+    body:
+      encoding: UTF-8
+      string: '{"keys":[{"key_id":15519770,"description":"bulk updated"},{"key_id":15305182,"tags":["bulk","upd"]}]}'
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - ruby-lokalise-api gem/1.0.0.pre1
+      X-api-token:
+      - "<LOKALISE_TOKEN>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx
+      date:
+      - Sun, 09 Dec 2018 18:10:38 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - close
+      vary:
+      - Accept-Encoding
+      set-cookie:
+      - PHPSESSID=771ea4f2bd4cf54a966de6fed85a6581; path=/; HttpOnly, locale=en_US;
+        expires=Tue, 08-Jan-2019 18:10:38 GMT; Max-Age=2592000; path=/; secure
+      expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      cache-control:
+      - no-store, no-cache, must-revalidate, no-store, no-cache
+      pragma:
+      - no-cache, no-cache
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      strict-transport-security:
+      - max-age=31536000
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-headers:
+      - Content-Type
+    body:
+      encoding: ASCII-8BIT
+      string: '{"project_id":"803826145ba90b42d5d860.46800099","keys":[{"key_id":15305182,"created_at":"2018-12-03
+        19:11:30 (Etc\/UTC)","key_name":{"ios":"test","android":"test","web":"test","other":"test"},"filenames":{"ios":"","android":"","web":"rspec.yml","other":""},"description":"","platforms":["web"],"tags":["bulk","upd"],"comments":[{"comment_id":800631,"key_id":15305182,"comment":"demo
+        comment","added_by":20181,"added_by_email":"bodrovis@protonmail.com","added_at":"2018-12-07
+        16:48:51 (Etc\/UTC)"},{"comment_id":800632,"key_id":15305182,"comment":"from
+        rspec","added_by":20181,"added_by_email":"bodrovis@protonmail.com","added_at":"2018-12-07
+        16:48:51 (Etc\/UTC)"}],"screenshots":[],"translations":[{"translation_id":77852857,"key_id":15305182,"language_iso":"ru","translation":"translation","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2018-12-09
+        18:41:13 (Etc\/UTC)","is_reviewed":false,"reviewed_by":0,"is_fuzzy":false,"words":1},{"translation_id":77852856,"key_id":15305182,"language_iso":"en","translation":"en","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2018-12-03
+        19:11:31 (Etc\/UTC)","is_reviewed":false,"reviewed_by":0,"is_fuzzy":false,"words":1},{"translation_id":77852858,"key_id":15305182,"language_iso":"f_over","translation":"","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2018-12-03
+        19:11:31 (Etc\/UTC)","is_reviewed":false,"reviewed_by":0,"is_fuzzy":true,"words":0}],"is_plural":false,"plural_name":"","is_hidden":false,"is_archived":false,"context":"","base_words":1,"char_limit":0,"custom_attributes":""},{"key_id":15519770,"created_at":"2018-12-09
+        19:02:48 (Etc\/UTC)","key_name":{"ios":"updated_rspec_k","android":"updated_rspec_k","web":"updated_rspec_k","other":"updated_rspec_k"},"filenames":{"ios":"","android":"","web":"","other":""},"description":"bulk
+        updated","platforms":["ios"],"tags":[],"comments":[],"screenshots":[],"translations":[{"translation_id":79607515,"key_id":15519770,"language_iso":"ru","translation":"","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2018-12-09
+        19:02:48 (Etc\/UTC)","is_reviewed":false,"reviewed_by":0,"is_fuzzy":false,"words":0},{"translation_id":79607514,"key_id":15519770,"language_iso":"en","translation":"","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2018-12-09
+        19:02:48 (Etc\/UTC)","is_reviewed":false,"reviewed_by":0,"is_fuzzy":false,"words":0},{"translation_id":79607516,"key_id":15519770,"language_iso":"f_over","translation":"","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2018-12-09
+        19:02:48 (Etc\/UTC)","is_reviewed":false,"reviewed_by":0,"is_fuzzy":false,"words":0}],"is_plural":false,"plural_name":"","is_hidden":false,"is_archived":false,"context":"","base_words":0,"char_limit":0,"custom_attributes":""}],"errors":[]}'
+    http_version: 
+  recorded_at: Sun, 09 Dec 2018 18:10:37 GMT
+recorded_with: VCR 4.0.0

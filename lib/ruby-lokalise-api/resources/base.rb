@@ -47,10 +47,11 @@ module Lokalise
 
         # Destroys records by given ids. resource_id may be a string or a hash with an array of ids
         def destroy(client, endpoint_ids, resource_id)
+          path = endpoint(*endpoint_ids).to_s
           if resource_id.is_a?(Hash)
             delete path, client, resource_id
           else
-            delete "#{endpoint(*endpoint_ids)}/#{resource_id}", client
+            delete "#{path}/#{resource_id}", client
           end['content']
         end
 
