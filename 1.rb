@@ -6,7 +6,8 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'ruby-lokalise-api'
 
 @client = Lokalise.client ENV['LOKALISE_API_TOKEN']
-puts @client.create_keys('803826145ba90b42d5d860.46800099', key_name: 'another_k', platforms: %w[ios]).inspect
+puts @client.create_comments('803826145ba90b42d5d860.46800099', '15519786',
+                             comment: 'rspec comment').inspect
 # puts @client.create_comments('803826145ba90b42d5d860.46800099', '13207975',
 #                              {
 #                                comment: 'demo'

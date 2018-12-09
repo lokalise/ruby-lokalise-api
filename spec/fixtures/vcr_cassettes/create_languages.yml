@@ -1,0 +1,60 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.lokalise.co/api2/projects/803826145ba90b42d5d860.46800099/languages
+    body:
+      encoding: UTF-8
+      string: '{"languages":[{"lang_iso":"ab","custom_name":"rspec lang"}]}'
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - ruby-lokalise-api gem/1.0.0.pre1
+      X-api-token:
+      - "<LOKALISE_TOKEN>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx
+      date:
+      - Sun, 09 Dec 2018 18:30:58 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - close
+      vary:
+      - Accept-Encoding
+      set-cookie:
+      - PHPSESSID=57f90642e5c694b3dbf5b6e2f0aa2d2a; path=/; HttpOnly, locale=en_US;
+        expires=Tue, 08-Jan-2019 18:30:58 GMT; Max-Age=2592000; path=/; secure
+      expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      cache-control:
+      - no-store, no-cache, must-revalidate, no-store, no-cache
+      pragma:
+      - no-cache, no-cache
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      strict-transport-security:
+      - max-age=31536000
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-headers:
+      - Content-Type
+    body:
+      encoding: ASCII-8BIT
+      string: '{"project_id":"803826145ba90b42d5d860.46800099","languages":[{"lang_id":894,"lang_iso":"ab","lang_name":"rspec
+        lang","is_rtl":false,"plural_forms":null}],"errors":[]}'
+    http_version: 
+  recorded_at: Sun, 09 Dec 2018 18:30:57 GMT
+recorded_with: VCR 4.0.0

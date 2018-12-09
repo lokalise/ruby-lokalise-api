@@ -1,6 +1,5 @@
 module Lokalise
   class Error < StandardError
-    # :nocov:
     ClientError = Class.new(self)
     ServerError = Class.new(self)
 
@@ -32,12 +31,11 @@ module Lokalise
       503 => Lokalise::Error::ServiceUnavailable,
       504 => Lokalise::Error::GatewayTimeout
     }.freeze
-    # :nocov:
 
     class << self
       # Create a new error from an HTTP response
       def from_response(body)
-        new(body['error']['message'].to_s)
+        new body['error']['message'].to_s
       end
     end
 

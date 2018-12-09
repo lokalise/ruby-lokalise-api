@@ -8,15 +8,7 @@ RSpec.describe Lokalise::Client do
         test_client.comments project_id, key_id
       end.collection
 
-      comment = comments.first
-
       expect(comments.count).to eq(3)
-      expect(comment.comment).to eq('test')
-      expect(comment.comment_id).to eq(767_938)
-      expect(comment.key_id).to eq(key_id)
-      expect(comment.added_by).to eq(20_181)
-      expect(comment.added_by_email).to eq('bodrovis@protonmail.com')
-      expect(comment.added_at).to eq('2018-12-03 19:11:58 (Etc/UTC)')
     end
 
     it 'should support pagination' do
@@ -31,6 +23,19 @@ RSpec.describe Lokalise::Client do
       expect(comments.current_page).to eq(2)
       expect(comments.collection.first.comment).to eq('demo comment')
     end
+  end
+
+  specify '#comment' do
+    comment = VCR.use_cassette('comment') do
+      test_client.comment project_id, '15519786', '800746'
+    end
+
+    expect(comment.comment).to eq('rspec comment')
+    expect(comment.comment_id).to eq(800_746)
+    expect(comment.key_id).to eq(15_519_786)
+    expect(comment.added_by).to eq(20_181)
+    expect(comment.added_by_email).to eq('bodrovis@protonmail.com')
+    expect(comment.added_at).to eq('2018-12-09 19:41:44 (Etc/UTC)')
   end
 
   specify '#create_comments' do
