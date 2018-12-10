@@ -2,6 +2,7 @@
 RSpec.describe Lokalise::Error do
   include Lokalise::Request
 
+  before(:each) { Lokalise.reset_client! }
   after(:each) { Lokalise.reset_client! }
 
   it 'should raise BadRequest when API token is invalid' do

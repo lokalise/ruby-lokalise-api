@@ -6,28 +6,28 @@ module Lokalise
 
     def get(path, client, params = {})
       respond_with(
-        connection(client.token).get(path, params),
+        connection(client.token).get(prepare(path), params),
         client
       )
     end
 
     def post(path, client, params = {})
       respond_with(
-        connection(client.token).post(path, MultiJson.dump(params)),
+        connection(client.token).post(prepare(path), MultiJson.dump(params)),
         client
       )
     end
 
     def put(path, client, params = {})
       respond_with(
-        connection(client.token).put(path, MultiJson.dump(params)),
+        connection(client.token).put(prepare(path), MultiJson.dump(params)),
         client
       )
     end
 
     def delete(path, client, params = {})
       respond_with(
-        connection(client.token).run_request(:delete, path, MultiJson.dump(params), {}),
+        connection(client.token).run_request(:delete, prepare(path), MultiJson.dump(params), {}),
         client
       )
       # TODO: current version of Faraday does not allow to pass DELETE body request
@@ -37,6 +37,10 @@ module Lokalise
     end
 
     private
+
+    def prepare(path)
+      path.gsub /\/\//, '/'
+    end
 
     def respond_with(response, client)
       body = MultiJson.load response.body
