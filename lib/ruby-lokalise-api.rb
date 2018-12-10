@@ -52,5 +52,9 @@ module Lokalise
     def client(token)
       @client ||= Lokalise::Client.new token
     end
+
+    def reset_client!
+      @client = nil
+    end
   end
 end

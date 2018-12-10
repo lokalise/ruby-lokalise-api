@@ -18,8 +18,10 @@ module Lokalise
       class << self
         def inherited(subclass)
           klass_attributes = attributes_for subclass
-          subclass.const_set :ATTRIBUTES, klass_attributes
-          attr_reader(*klass_attributes)
+          subclass.class_exec do
+            const_set :ATTRIBUTES, klass_attributes
+            attr_reader(*klass_attributes)
+          end
           super
         end
 

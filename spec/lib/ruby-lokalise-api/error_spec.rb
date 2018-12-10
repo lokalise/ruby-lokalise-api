@@ -2,6 +2,8 @@
 RSpec.describe Lokalise::Error do
   include Lokalise::Request
 
+  after(:each) { Lokalise.reset_client! }
+
   it 'should raise BadRequest when API token is invalid' do
     expect do
       VCR.use_cassette('error_invalid_token') do
