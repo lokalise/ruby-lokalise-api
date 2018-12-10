@@ -7,6 +7,10 @@ module Lokalise
       # Most class names correspond to resource names (eg, `Project`, `Team`)
       # but some may differ (`ProjectComment` corresponds to `Comment` resource).
       # The resource name is in lowercase, with underscores as separators.
+      #
+      # @return [String]
+      # @param model_class [String]
+      # @param plural [Boolean] Should the returned value be pluralized?
       def data_key_for(model_class, plural = false)
         data_key = if Module.const_defined? "Lokalise::Resources::#{model_class}::DATA_KEY"
                      Module.const_get "Lokalise::Resources::#{model_class}::DATA_KEY"
@@ -20,6 +24,8 @@ module Lokalise
       end
 
       # Loads attributes for the given resource based on its name
+      #
+      # @return [Array<String>]
       def attributes_for(klass)
         @attributes ||= begin
           YAML.load_file(File.expand_path('../data/attributes.json', __dir__)).freeze
@@ -32,6 +38,8 @@ module Lokalise
       private
 
       # Unify some resources' names (eg, `ProjectComment` and `KeyComment` have the same attributes which are stored under `comment`)
+      #
+      # @return [String]
       def unify(name)
         UNIFIED_RESOURCES.each do |u_a|
           return u_a if name.match?(/#{u_a}/)

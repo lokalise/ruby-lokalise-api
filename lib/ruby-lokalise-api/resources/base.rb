@@ -16,6 +16,10 @@ module Lokalise
       end
 
       class << self
+        # Dynamically add attribute readers for each inherited class.
+        # Attributes are defined in the `data/attributes.json` file.
+        # Also set the `ATTRIBUTES` constant to assign values to each attribute later when
+        # the response arrives from the API
         def inherited(subclass)
           klass_attributes = attributes_for subclass
           subclass.class_exec do
@@ -25,12 +29,14 @@ module Lokalise
           super
         end
 
+        # Fetches a single record
         def find(client, endpoint_ids, resource_id = '', params = {})
           new get("#{endpoint(*endpoint_ids)}/#{resource_id}",
                   client,
                   params)
         end
 
+        # Creates one or multiple records
         def create(client, endpoint_ids, params, object_key = nil)
           response = post(endpoint(*endpoint_ids),
                           client,
@@ -39,6 +45,7 @@ module Lokalise
           object_from response
         end
 
+        # Updates one or multiple records
         def update(client, endpoint_ids, resource_id, params, object_key = nil)
           response = put("#{endpoint(*endpoint_ids)}/#{resource_id}",
                          client,
@@ -47,7 +54,12 @@ module Lokalise
           object_from response
         end
 
-        # Destroys records by given ids. resource_id may be a string or a hash with an array of ids
+        # Destroys records by given ids
+        #
+        # @param client [Lokalise::Client]
+        # @return [Hash]
+        # @param endpoint_ids [String, Integer, Array]
+        # @param resource_id [String, Integer, Hash<Array>]
         def destroy(client, endpoint_ids, resource_id)
           path = endpoint(*endpoint_ids).to_s
           if resource_id.is_a?(Hash)
@@ -59,8 +71,10 @@ module Lokalise
 
         private
 
-        # Converts `params` to hash with arrays under the `object_key` key
+        # Converts `params` to hash with arrays under the `object_key` key.
         # Used in bulk operations
+        #
+        # @return [Hash]
         def body_from(params, object_key)
           return params unless object_key
 
@@ -68,6 +82,7 @@ module Lokalise
           Hash[object_key, params]
         end
 
+        # Instantiates a new resource or collection based on the given response
         def object_from(response)
           model_class = name.base_class_name
           data_key_plural = data_key_for model_class, true
@@ -82,8 +97,8 @@ module Lokalise
 
       private
 
-      # Store all resources attributes under instance variables.
-      # ATTRIBUTES is defined inside model-specific classes
+      # Store all resources attributes under the corresponding instance variables.
+      # `ATTRIBUTES` is defined inside resource-specific classes
       def populate_attributes_for(content)
         data_key = data_key_for self.class.name.base_class_name
 

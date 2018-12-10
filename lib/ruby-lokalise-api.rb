@@ -1,7 +1,6 @@
 require 'faraday'
 require 'multi_json'
 require 'yaml'
-require 'pry'
 
 require 'ruby-lokalise-api/version'
 require 'ruby-lokalise-api/connection'
@@ -53,6 +52,7 @@ module Lokalise
       @client ||= Lokalise::Client.new token
     end
 
+    # Reset the currently set client
     def reset_client!
       @client = nil
     end

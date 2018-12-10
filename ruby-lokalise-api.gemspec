@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.authors               = ['Ilya Bodrov']
   spec.email                 = ['golosizpru@gmail.com']
   spec.summary               = 'Ruby interface to the Lokalise API'
-  spec.description           = 'Ruby client for the Lokalise platform API allowing to work with translations, projects, users and more'
+  spec.description           = 'Opinionated Ruby client for the Lokalise platform API allowing to work with translations, projects, users and other resources as with Ruby objects.'
   spec.homepage              = 'https://github.com/lokalise/ruby-lokalise-api'
   spec.license               = 'MIT'
   spec.platform              = Gem::Platform::RUBY
@@ -23,7 +23,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'multi_json',                    '~> 1.12'
 
   spec.add_development_dependency 'dotenv',                    '~> 2.5'
-  spec.add_development_dependency 'pry',                       '~> 0.12.2'
   spec.add_development_dependency 'rake',                      '~> 12.1'
   spec.add_development_dependency 'rspec',                     '~> 3.6'
   spec.add_development_dependency 'rubocop',                   '~> 0.60'

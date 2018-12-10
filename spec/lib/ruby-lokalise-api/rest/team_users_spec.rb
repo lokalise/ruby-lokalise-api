@@ -6,9 +6,10 @@ RSpec.describe Lokalise::Client do
     it 'should return all team_users' do
       team_users = VCR.use_cassette('team_users') do
         test_client.team_users team_id
-      end.collection
+      end
 
-      expect(team_users.count).to eq(4)
+      expect(team_users.collection.count).to eq(4)
+      expect(team_users.team_id).to eq(team_id)
     end
 
     it 'should support pagination' do
