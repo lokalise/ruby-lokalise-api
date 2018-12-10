@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://api.lokalise.co/api2/projects/803826145ba90b42d5d860.46800099/translations/80015147
+    body:
+      encoding: UTF-8
+      string: '{"translation":"rspec trans","is_reviewed":true}'
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - ruby-lokalise-api gem/1.0.0.pre1
+      X-api-token:
+      - "<LOKALISE_TOKEN>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx
+      date:
+      - Mon, 10 Dec 2018 18:04:09 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - close
+      vary:
+      - Accept-Encoding
+      set-cookie:
+      - PHPSESSID=6af39bf3cf8d0af5eeaf3560c108d5b9; path=/; HttpOnly, locale=en_US;
+        expires=Wed, 09-Jan-2019 18:04:08 GMT; Max-Age=2592000; path=/; secure
+      expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      cache-control:
+      - no-store, no-cache, must-revalidate, no-store, no-cache
+      pragma:
+      - no-cache, no-cache
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      strict-transport-security:
+      - max-age=31536000
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-headers:
+      - Content-Type
+    body:
+      encoding: ASCII-8BIT
+      string: '{"project_id":"803826145ba90b42d5d860.46800099","translation":{"translation_id":80015147,"key_id":15571975,"language_iso":"en","translation":"rspec
+        trans","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2018-12-10
+        19:04:08 (Etc\/UTC)","is_reviewed":true,"reviewed_by":0,"is_fuzzy":false,"words":2}}'
+    http_version: 
+  recorded_at: Mon, 10 Dec 2018 18:04:08 GMT
+recorded_with: VCR 4.0.0

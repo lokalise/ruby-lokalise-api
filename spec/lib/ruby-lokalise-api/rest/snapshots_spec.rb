@@ -1,6 +1,6 @@
 RSpec.describe Lokalise::Client do
   let(:project_id) { '803826145ba90b42d5d860.46800099' }
-  let(:snapshot_id) { 27881 }
+  let(:snapshot_id) { 27_881 }
 
   describe '#snapshots' do
     it 'should return all snapshots' do
@@ -14,7 +14,7 @@ RSpec.describe Lokalise::Client do
       expect(snapshot.title).to eq('test')
       expect(snapshot.snapshot_id).to eq(snapshot_id)
       expect(snapshot.created_at).to eq('2018-12-10 17:01:48 (Etc/UTC)')
-      expect(snapshot.created_by).to eq(20181)
+      expect(snapshot.created_by).to eq(20_181)
       expect(snapshot.created_by_email).to eq('bodrovis@protonmail.com')
     end
 

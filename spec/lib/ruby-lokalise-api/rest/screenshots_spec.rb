@@ -1,6 +1,6 @@
 RSpec.describe Lokalise::Client do
   let(:project_id) { '803826145ba90b42d5d860.46800099' }
-  let(:screenshot_id) { 115185 }
+  let(:screenshot_id) { 115_185 }
 
   describe '#screenshots' do
     it 'should return all screenshots' do
@@ -48,7 +48,7 @@ RSpec.describe Lokalise::Client do
 
       expect(screenshot.title).to eq('rspec screen')
       expect(screenshot.url).to include('amazonaws.com')
-    rescue => e
+    rescue StandardError => e
       puts e
     ensure
       file.close
@@ -57,12 +57,12 @@ RSpec.describe Lokalise::Client do
 
   specify '#update_screenshot' do
     screenshot = VCR.use_cassette('update_screenshot') do
-      test_client.update_screenshot project_id, screenshot_id, tags: %w(demo rspec),
-                                    description: 'demo desc'
+      test_client.update_screenshot project_id, screenshot_id, tags: %w[demo rspec],
+                                                               description: 'demo desc'
     end
 
     expect(screenshot.screenshot_id).to eq(screenshot_id)
-    expect(screenshot.screenshot_tags).to eq(%w(demo rspec))
+    expect(screenshot.screenshot_tags).to eq(%w[demo rspec])
     expect(screenshot.description).to eq('demo desc')
   end
 
