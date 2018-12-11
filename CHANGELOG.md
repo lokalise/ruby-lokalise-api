@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.1.0
+## 1.1.0 (11-Dec-18)
 
 * Added methods to work with pagination (`next_page?`, `last_page?`, `prev_page?`, `first_page?`, `next_page`, `prev_page`)
 
