@@ -1,3 +1,4 @@
+require 'pry'
 module Lokalise
   module Collections
     class Base
@@ -6,27 +7,73 @@ module Lokalise
       include Lokalise::Utils::AttributeHelpers
 
       attr_reader :raw_data, :total_pages, :total_results, :results_per_page, :current_page, :collection,
-                  :project_id, :team_id
+                  :project_id, :team_id, :request_params, :client, :ids
 
-      def initialize(response)
+      def initialize(response, params = {}, *ids)
         produce_collection_for response
-        @total_results = response['x-pagination-total-count'].to_i
-        @total_pages = response['x-pagination-page-count'].to_i
-        @results_per_page = response['x-pagination-limit'].to_i
-        @current_page = response['x-pagination-page'].to_i
+        populate_pagination_data_for response
         # Project and team id may not be present in some cases
         @project_id = response['content']['project_id']
         @team_id = response['content']['team_id']
+        @request_params = params
+        @client = response['client']
+        @ids = ids
       end
 
       class << self
         # Performs a batch query fetching multiple records
         def all(client, params = {}, *ids)
-          new get(endpoint(*ids), client, params)
+          new get(endpoint(*ids), client, params),
+              params, *ids
         end
       end
 
+      # @return [Boolean]
+      def next_page?
+        @current_page.positive? && @current_page < @total_pages
+      end
+
+      # @return [Boolean]
+      def last_page?
+        !next_page?
+      end
+
+      # @return [Boolean]
+      def prev_page?
+        @current_page > 1
+      end
+
+      # @return [Boolean]
+      def first_page?
+        !prev_page?
+      end
+
+      def next_page
+        return nil if last_page?
+
+        fetch_page @current_page + 1
+      end
+
+      def prev_page
+        return nil if first_page?
+
+        fetch_page @current_page - 1
+      end
+
       private
+
+      def populate_pagination_data_for(response)
+        @total_results = response['x-pagination-total-count'].to_i
+        @total_pages = response['x-pagination-page-count'].to_i
+        @results_per_page = response['x-pagination-limit'].to_i
+        @current_page = response['x-pagination-page'].to_i
+      end
+
+      def fetch_page(page_num)
+        self.class.all @client,
+                       @request_params.merge(page: page_num),
+                       *@ids
+      end
 
       # Dynamically produces collection of resources based on the given response
       # Collection example: `{ "content": {"comments": [ ... ]} }`

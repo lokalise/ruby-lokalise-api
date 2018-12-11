@@ -28,6 +28,11 @@ RSpec.describe Lokalise::Client do
       expect(snapshots.total_pages).to eq(2)
       expect(snapshots.results_per_page).to eq(1)
       expect(snapshots.current_page).to eq(2)
+
+      expect(snapshots.next_page?).to eq(false)
+      expect(snapshots.last_page?).to eq(true)
+      expect(snapshots.prev_page?).to eq(true)
+      expect(snapshots.first_page?).to eq(false)
     end
   end
 

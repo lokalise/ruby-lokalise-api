@@ -24,6 +24,9 @@ RSpec.describe Lokalise::Client do
       expect(files.total_pages).to eq(1)
       expect(files.results_per_page).to eq(1)
       expect(files.current_page).to eq(1)
+
+      expect(files.next_page).to be_nil
+      expect(files.prev_page).to be_nil
     end
   end
 

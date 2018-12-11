@@ -39,7 +39,7 @@ module Lokalise
     private
 
     def prepare(path)
-      path.gsub /\/\//, '/'
+      path.gsub %r{//}, '/'
     end
 
     def respond_with(response, client)

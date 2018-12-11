@@ -99,11 +99,29 @@ Collections respond to the following methods:
 * `#total_results`
 * `#results_per_page`
 * `#current_page`
+* `#next_page?`
+* `#last_page?`
+* `#prev_page?`
+* `#first_page?`
 
 For example:
 
 ```ruby
 projects.current_page #=> 3
+projects.last_page? #=> true, this is the last page and there are no more projects available
+```
+
+On top of that, you may easily fetch the next or the previous page of the collection by using:
+
+* `#next_page`
+* `#prev_page`
+
+These methods return instances of the same collection class or `nil` if the next/previous page is unavailable. Methods respect the parameters you've initially passed:
+
+```ruby
+translations = @client.translations 'project_id', limit: 4, page: 2, disable_references: 0 # => we passed three parameters here
+
+translations.prev_page # => will load the previous page while preserving the `limit` and `disable_references` params
 ```
 
 ## Available Resources

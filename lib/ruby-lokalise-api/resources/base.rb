@@ -42,7 +42,7 @@ module Lokalise
                           client,
                           body_from(params, object_key))
 
-          object_from response
+          object_from response, params, endpoint_ids
         end
 
         # Updates one or multiple records
@@ -51,7 +51,7 @@ module Lokalise
                          client,
                          body_from(params, object_key))
 
-          object_from response
+          object_from response, params, endpoint_ids
         end
 
         # Destroys records by given ids
@@ -83,12 +83,14 @@ module Lokalise
         end
 
         # Instantiates a new resource or collection based on the given response
-        def object_from(response)
+        def object_from(response, params, endpoint_ids)
           model_class = name.base_class_name
           data_key_plural = data_key_for model_class, true
 
           if response['content'].key? data_key_plural
-            Module.const_get("Lokalise::Collections::#{model_class}").new response
+            Module.const_get("Lokalise::Collections::#{model_class}").new response,
+                                                                          params,
+                                                                          endpoint_ids
           else
             new response
           end

@@ -22,6 +22,11 @@ RSpec.describe Lokalise::Client do
       expect(keys.total_pages).to eq(1)
       expect(keys.results_per_page).to eq(1)
       expect(keys.current_page).to eq(1)
+
+      expect(keys.next_page?).to eq(false)
+      expect(keys.last_page?).to eq(true)
+      expect(keys.prev_page?).to eq(false)
+      expect(keys.first_page?).to eq(true)
     end
   end
 
@@ -85,10 +90,14 @@ RSpec.describe Lokalise::Client do
           tags: %w[bulk upd]
         }
       ]
-    end.collection
+    end
 
-    first_key = keys.first
-    second_key = keys[1]
+    # `update_keys` returns a collection but it should not be paginated
+    expect(keys.next_page?).to eq(false)
+    expect(keys.prev_page?).to eq(false)
+
+    first_key = keys.collection.first
+    second_key = keys.collection[1]
 
     expect(first_key.key_id).to eq(key_id)
     expect(first_key.key_name['ios']).to eq('test')

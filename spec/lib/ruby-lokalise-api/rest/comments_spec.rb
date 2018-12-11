@@ -22,6 +22,14 @@ RSpec.describe Lokalise::Client do
       expect(comments.results_per_page).to eq(1)
       expect(comments.current_page).to eq(2)
       expect(comments.collection.first.comment).to eq('demo comment')
+
+      expect(comments.next_page?).to eq(true)
+      expect(comments.last_page?).to eq(false)
+      expect(comments.prev_page?).to eq(true)
+      expect(comments.first_page?).to eq(false)
+
+      expect(comments.ids).to include(project_id, key_id)
+      expect(comments.client).to be_an_instance_of(Lokalise::Client)
     end
   end
 

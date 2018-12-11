@@ -13,7 +13,7 @@ RSpec.describe Lokalise::Client do
 
     it 'should support pagination' do
       translations = VCR.use_cassette('all_translations_pagination') do
-        test_client.translations project_id, limit: 4, page: 2
+        test_client.translations project_id, limit: 4, page: 2, disable_references: 0
       end
 
       expect(translations.collection.count).to eq(4)
@@ -21,6 +21,37 @@ RSpec.describe Lokalise::Client do
       expect(translations.total_pages).to eq(3)
       expect(translations.results_per_page).to eq(4)
       expect(translations.current_page).to eq(2)
+      expect(translations.request_params[:page]).to eq(2)
+      expect(translations.request_params[:disable_references]).to eq(0)
+      expect(translations.ids).to eq([project_id])
+
+      next_page_trans = VCR.use_cassette('translations_next_page') do
+        translations.next_page
+      end
+
+      expect(next_page_trans).to be_an_instance_of(Lokalise::Collections::Translation)
+      expect(next_page_trans.client).to be_an_instance_of(Lokalise::Client)
+      expect(next_page_trans.request_params[:page]).to eq(3)
+      expect(next_page_trans.request_params[:disable_references]).to eq(0)
+      expect(next_page_trans.total_results).to eq(9)
+      expect(next_page_trans.current_page).to eq(3)
+      expect(next_page_trans.ids).to eq([project_id])
+      expect(next_page_trans.next_page?).to eq(false)
+      expect(next_page_trans.prev_page?).to eq(true)
+
+      prev_page_trans = VCR.use_cassette('translations_prev_page') do
+        translations.prev_page
+      end
+
+      expect(prev_page_trans).to be_an_instance_of(Lokalise::Collections::Translation)
+      expect(prev_page_trans.client).to be_an_instance_of(Lokalise::Client)
+      expect(prev_page_trans.request_params[:page]).to eq(1)
+      expect(next_page_trans.request_params[:disable_references]).to eq(0)
+      expect(prev_page_trans.total_results).to eq(9)
+      expect(prev_page_trans.current_page).to eq(1)
+      expect(prev_page_trans.next_page?).to eq(true)
+      expect(prev_page_trans.prev_page?).to eq(false)
+      expect(prev_page_trans.ids).to eq([project_id])
     end
   end
 

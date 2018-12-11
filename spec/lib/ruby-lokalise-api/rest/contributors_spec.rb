@@ -22,6 +22,11 @@ RSpec.describe Lokalise::Client do
       expect(contributors.total_pages).to eq(2)
       expect(contributors.results_per_page).to eq(1)
       expect(contributors.current_page).to eq(2)
+
+      expect(contributors.next_page?).to eq(false)
+      expect(contributors.last_page?).to eq(true)
+      expect(contributors.prev_page?).to eq(true)
+      expect(contributors.first_page?).to eq(false)
     end
   end
 
