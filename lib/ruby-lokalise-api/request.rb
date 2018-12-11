@@ -47,8 +47,9 @@ module Lokalise
       respond_with_error(response.status, body) if body.respond_to?(:has_key?) && body.key?('error')
       response.
         headers.
+        to_h.
         keep_if { |k, _v| PAGINATION_HEADERS.include?(k) }.
-        merge(content: body, client: client)
+        merge('content' => body, 'client' => client)
     end
 
     def respond_with_error(code, body)

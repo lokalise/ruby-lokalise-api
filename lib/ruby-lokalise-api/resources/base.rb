@@ -7,6 +7,10 @@ module Lokalise
 
       attr_reader :raw_data, :project_id, :client
 
+      # Initializes a new resource based on the response
+      #
+      # @param response [Hash]
+      # @return [Lokalise::Resources::Base]
       def initialize(response)
         populate_attributes_for response['content']
 

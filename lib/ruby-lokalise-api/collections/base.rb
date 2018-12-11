@@ -1,4 +1,3 @@
-require 'pry'
 module Lokalise
   module Collections
     class Base
@@ -6,9 +5,15 @@ module Lokalise
       extend Lokalise::Utils::AttributeHelpers
       include Lokalise::Utils::AttributeHelpers
 
-      attr_reader :raw_data, :total_pages, :total_results, :results_per_page, :current_page, :collection,
+      attr_reader :total_pages, :total_results, :results_per_page, :current_page, :collection,
                   :project_id, :team_id, :request_params, :client, :ids
 
+      # Initializes a new collection based on the response
+      #
+      # @param response [Hash]
+      # @param params [Hash]
+      # @param ids [Array, Integer, String]
+      # @return [Lokalise::Collections::Base]
       def initialize(response, params = {}, *ids)
         produce_collection_for response
         populate_pagination_data_for response
