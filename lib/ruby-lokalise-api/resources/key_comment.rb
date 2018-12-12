@@ -4,10 +4,10 @@ module Lokalise
       DATA_KEY = 'Comment'.freeze
 
       class << self
-        private
-
-        def endpoint(project_id, key_id)
-          "projects/#{project_id}/keys/#{key_id}/comments"
+        def endpoint(project_id, key_id, comment_id = nil)
+          path_from projects: project_id,
+                    keys: key_id,
+                    comments: comment_id
         end
       end
     end

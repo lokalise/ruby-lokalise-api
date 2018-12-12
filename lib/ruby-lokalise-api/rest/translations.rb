@@ -7,7 +7,7 @@ module Lokalise
     # @param project_id [String]
     # @param params [Hash]
     def translations(project_id, params = {})
-      Lokalise::Collections::Translation.all self, params, project_id
+      c_r Lokalise::Collections::Translation, :all, project_id, params
     end
 
     # Returns translation of the given project
@@ -18,7 +18,7 @@ module Lokalise
     # @param translation_id [String, Integer]
     # @param params [Hash]
     def translation(project_id, translation_id, params = {})
-      Lokalise::Resources::Translation.find self, project_id, translation_id, params
+      c_r Lokalise::Resources::Translation, :find, [project_id, translation_id], params
     end
 
     # Updates translation of the given project
@@ -29,7 +29,7 @@ module Lokalise
     # @param translation_id [String, Integer]
     # @param params [Hash]
     def update_translation(project_id, translation_id, params)
-      Lokalise::Resources::Translation.update self, project_id, translation_id, params
+      c_r Lokalise::Resources::Translation, :update, [project_id, translation_id], params
     end
   end
 end

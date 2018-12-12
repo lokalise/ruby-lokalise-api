@@ -2,10 +2,8 @@ module Lokalise
   module Collections
     class SystemLanguage < Base
       class << self
-        private
-
         def endpoint(*_args)
-          'system/languages'
+          path_from system: 'languages'
         end
       end
     end

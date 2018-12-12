@@ -2,10 +2,9 @@ module Lokalise
   module Resources
     class Task < Base
       class << self
-        private
-
-        def endpoint(project_id)
-          "projects/#{project_id}/tasks"
+        def endpoint(project_id, task_id = nil)
+          path_from projects: project_id,
+                    tasks: task_id
         end
       end
     end

@@ -1,6 +1,7 @@
 require 'faraday'
 require 'multi_json'
 require 'yaml'
+require 'addressable'
 
 require 'ruby-lokalise-api/version'
 require 'ruby-lokalise-api/connection'
@@ -8,6 +9,7 @@ require 'ruby-lokalise-api/request'
 require 'ruby-lokalise-api/error'
 require 'ruby-lokalise-api/utils/string_utils'
 require 'ruby-lokalise-api/utils/attribute_helpers'
+require 'ruby-lokalise-api/utils/endpoint_helpers'
 
 require 'ruby-lokalise-api/resources/base'
 require 'ruby-lokalise-api/resources/project'

@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
   spec.extra_rdoc_files = ['README.md']
   spec.require_paths    = ['lib']
 
+  spec.add_dependency 'addressable',                   '~> 2.5'
   spec.add_dependency 'faraday',                       '~> 0.13'
   spec.add_dependency 'multi_json',                    '~> 1.12'
 

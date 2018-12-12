@@ -7,7 +7,7 @@ module Lokalise
     # @param project_id [String]
     # @param params [Hash]
     def files(project_id, params = {})
-      Lokalise::Collections::File.all self, params, project_id
+      c_r Lokalise::Collections::File, :all, project_id, params
     end
 
     # Exports translation files as .zip bundle, uploads them to Amazon S3 and returns a URL to the generated bundle. The URL is valid for a year
@@ -17,7 +17,7 @@ module Lokalise
     # @param project_id [String]
     # @param params [Hash]
     def download_files(project_id, params)
-      Lokalise::Resources::File.download self, project_id, params
+      c_r Lokalise::Resources::File, :download, [project_id, 'download'], params
     end
 
     # Imports translation file to the given project. File data must base64-encoded
@@ -27,7 +27,7 @@ module Lokalise
     # @param project_id [String]
     # @param params [Hash]
     def upload_file(project_id, params)
-      Lokalise::Resources::File.upload self, project_id, params
+      c_r Lokalise::Resources::File, :upload, [project_id, 'upload'], params
     end
   end
 end

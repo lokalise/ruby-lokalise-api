@@ -2,10 +2,9 @@ module Lokalise
   module Resources
     class Screenshot < Base
       class << self
-        private
-
-        def endpoint(project_id)
-          "projects/#{project_id}/screenshots"
+        def endpoint(project_id, screenshot_id = nil)
+          path_from projects: project_id,
+                    screenshots: screenshot_id
         end
       end
     end

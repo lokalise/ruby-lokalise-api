@@ -8,7 +8,7 @@ module Lokalise
     # @param key_id [String, Integer]
     # @param comment_id [String, Integer]
     def comment(project_id, key_id, comment_id)
-      Lokalise::Resources::KeyComment.find self, [project_id, key_id], comment_id
+      c_r Lokalise::Resources::KeyComment, :find, [project_id, key_id, comment_id]
     end
 
     # Returns all comments for all keys inside the given project
@@ -18,7 +18,7 @@ module Lokalise
     # @param project_id [String]
     # @param params [Hash]
     def project_comments(project_id, params = {})
-      Lokalise::Collections::ProjectComment.all self, params, project_id
+      c_r Lokalise::Collections::ProjectComment, :all, project_id, params
     end
 
     # Returns all comments for the given key inside the given project
@@ -29,7 +29,7 @@ module Lokalise
     # @param key_id [String, Integer]
     # @param params [Hash]
     def comments(project_id, key_id, params = {})
-      Lokalise::Collections::KeyComment.all self, params, project_id, key_id
+      c_r Lokalise::Collections::KeyComment, :all, [project_id, key_id], params
     end
 
     # Creates one or more comments for the given key inside the given project
@@ -40,7 +40,7 @@ module Lokalise
     # @param key_id [String, Integer]
     # @param params [Hash, Array<Hash>]
     def create_comments(project_id, key_id, params)
-      Lokalise::Resources::KeyComment.create self, [project_id, key_id], params, :comments
+      c_r Lokalise::Resources::KeyComment, :create, [project_id, key_id], params, :comments
     end
 
     # Deletes comment for the given key inside the given project
@@ -51,7 +51,7 @@ module Lokalise
     # @param key_id [String, Integer]
     # @param comment_id [String, Integer]
     def delete_comment(project_id, key_id, comment_id)
-      Lokalise::Resources::KeyComment.destroy self, [project_id, key_id], comment_id
+      c_r Lokalise::Resources::KeyComment, :destroy, [project_id, key_id, comment_id]
     end
   end
 end

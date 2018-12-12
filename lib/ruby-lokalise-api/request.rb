@@ -1,3 +1,4 @@
+require 'pry'
 module Lokalise
   module Request
     include Lokalise::Connection
@@ -38,18 +39,26 @@ module Lokalise
 
     private
 
+    # Get rid of double slashes in the `path` and leading slash
     def prepare(path)
-      path.gsub %r{//}, '/'
+      path.gsub(%r{\A/}, '').gsub %r{//}, '/'
     end
 
     def respond_with(response, client)
       body = MultiJson.load response.body
+      uri = Addressable::URI.parse response.env.url
       respond_with_error(response.status, body) if body.respond_to?(:has_key?) && body.key?('error')
+      extract_headers_from(response).
+        merge('content' => body,
+              'client' => client,
+              'path' => uri.path.gsub(%r{/api2/}, ''))
+    end
+
+    def extract_headers_from(response)
       response.
         headers.
         to_h.
-        keep_if { |k, _v| PAGINATION_HEADERS.include?(k) }.
-        merge('content' => body, 'client' => client)
+        keep_if { |k, _v| PAGINATION_HEADERS.include?(k) }
     end
 
     def respond_with_error(code, body)

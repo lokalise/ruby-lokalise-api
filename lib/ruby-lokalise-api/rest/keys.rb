@@ -7,7 +7,7 @@ module Lokalise
     # @param project_id [String]
     # @param params [Hash]
     def keys(project_id, params = {})
-      Lokalise::Collections::Key.all self, params, project_id
+      c_r Lokalise::Collections::Key, :all, project_id, params
     end
 
     # Returns a single translation key for the given project
@@ -18,7 +18,7 @@ module Lokalise
     # @param key_id [String, Integer]
     # @param params [Hash]
     def key(project_id, key_id, params = {})
-      Lokalise::Resources::Key.find self, project_id, key_id, params
+      c_r Lokalise::Resources::Key, :find, [project_id, key_id], params
     end
 
     # Creates one or more translation keys for the given project
@@ -28,7 +28,7 @@ module Lokalise
     # @param project_id [String]
     # @param params [Hash, Array<Hash>]
     def create_keys(project_id, params = {})
-      Lokalise::Resources::Key.create self, project_id, params, :keys
+      c_r Lokalise::Resources::Key, :create, project_id, params, :keys
     end
 
     # Updates translation key for the given project
@@ -39,7 +39,7 @@ module Lokalise
     # @param key_id [String, Integer]
     # @param params [Hash]
     def update_key(project_id, key_id, params = {})
-      Lokalise::Resources::Key.update self, project_id, key_id, params
+      c_r Lokalise::Resources::Key, :update, [project_id, key_id], params
     end
 
     # Updates one or multiple translation keys for the given project
@@ -49,7 +49,7 @@ module Lokalise
     # @param project_id [String]
     # @param params [Hash, Array<Hash>]
     def update_keys(project_id, params)
-      Lokalise::Resources::Key.update self, project_id, nil, params, :keys
+      c_r Lokalise::Resources::Key, :update, project_id, params, :keys
     end
 
     # Deletes translation key for the given project
@@ -59,7 +59,7 @@ module Lokalise
     # @param project_id [String]
     # @param key_id [String, Integer]
     def delete_key(project_id, key_id)
-      Lokalise::Resources::Key.destroy self, project_id, key_id
+      c_r Lokalise::Resources::Key, :destroy, [project_id, key_id]
     end
 
     # Deletes one or multiple translation keys for the given project
@@ -69,7 +69,7 @@ module Lokalise
     # @param project_id [String]
     # @param key_ids [String, Integer, Array<String>, Array<Integer>]
     def delete_keys(project_id, key_ids)
-      Lokalise::Resources::Key.destroy self, project_id, keys: key_ids
+      c_r Lokalise::Resources::Key, :destroy, project_id, key_ids, :keys
     end
   end
 end

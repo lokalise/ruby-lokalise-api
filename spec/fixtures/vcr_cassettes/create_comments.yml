@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.lokalise.co/api2/projects/803826145ba90b42d5d860.46800099/keys/15305182/comments
+    uri: https://api.lokalise.co/api2/projects/803826145ba90b42d5d860.46800099/keys/15305182/comments/
     body:
       encoding: UTF-8
       string: '{"comments":[{"comment":"demo comment"},{"comment":"from rspec"}]}'

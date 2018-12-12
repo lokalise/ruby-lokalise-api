@@ -7,7 +7,7 @@ module Lokalise
     # @param project_id [String]
     # @param params [Hash]
     def screenshots(project_id, params = {})
-      Lokalise::Collections::Screenshot.all self, params, project_id
+      c_r Lokalise::Collections::Screenshot, :all, project_id, params
     end
 
     # Returns a single screenshot for the given project
@@ -17,7 +17,7 @@ module Lokalise
     # @param project_id [String]
     # @param screenshot_id [String, Integer]
     def screenshot(project_id, screenshot_id)
-      Lokalise::Resources::Screenshot.find self, project_id, screenshot_id
+      c_r Lokalise::Resources::Screenshot, :find, [project_id, screenshot_id]
     end
 
     # Creates one or more screenshots for the given project
@@ -27,7 +27,7 @@ module Lokalise
     # @param project_id [String]
     # @param params [Hash]
     def create_screenshots(project_id, params = {})
-      Lokalise::Resources::Screenshot.create self, project_id, params, :screenshots
+      c_r Lokalise::Resources::Screenshot, :create, project_id, params, :screenshots
     end
 
     # Updates screenshot
@@ -38,7 +38,7 @@ module Lokalise
     # @param screenshot_id [String, Integer]
     # @param params [Hash]
     def update_screenshot(project_id, screenshot_id, params = {})
-      Lokalise::Resources::Screenshot.update self, project_id, screenshot_id, params
+      c_r Lokalise::Resources::Screenshot, :update, [project_id, screenshot_id], params
     end
 
     # Deletes screenshot
@@ -48,7 +48,7 @@ module Lokalise
     # @param project_id [String]
     # @param screenshot_id [String, Integer]
     def delete_screenshot(project_id, screenshot_id)
-      Lokalise::Resources::Screenshot.destroy self, project_id, screenshot_id
+      c_r Lokalise::Resources::Screenshot, :destroy, [project_id, screenshot_id]
     end
   end
 end

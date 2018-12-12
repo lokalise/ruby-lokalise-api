@@ -23,7 +23,6 @@ RSpec.describe Lokalise::Client do
       expect(translations.current_page).to eq(2)
       expect(translations.request_params[:page]).to eq(2)
       expect(translations.request_params[:disable_references]).to eq(0)
-      expect(translations.ids).to eq([project_id])
 
       next_page_trans = VCR.use_cassette('translations_next_page') do
         translations.next_page
@@ -35,7 +34,6 @@ RSpec.describe Lokalise::Client do
       expect(next_page_trans.request_params[:disable_references]).to eq(0)
       expect(next_page_trans.total_results).to eq(9)
       expect(next_page_trans.current_page).to eq(3)
-      expect(next_page_trans.ids).to eq([project_id])
       expect(next_page_trans.next_page?).to eq(false)
       expect(next_page_trans.prev_page?).to eq(true)
 
@@ -51,7 +49,6 @@ RSpec.describe Lokalise::Client do
       expect(prev_page_trans.current_page).to eq(1)
       expect(prev_page_trans.next_page?).to eq(true)
       expect(prev_page_trans.prev_page?).to eq(false)
-      expect(prev_page_trans.ids).to eq([project_id])
     end
   end
 

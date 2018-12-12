@@ -4,8 +4,9 @@ module Lokalise
       extend Lokalise::Request
       extend Lokalise::Utils::AttributeHelpers
       include Lokalise::Utils::AttributeHelpers
+      extend Lokalise::Utils::EndpointHelpers
 
-      attr_reader :raw_data, :project_id, :client
+      attr_reader :raw_data, :project_id, :client, :path
 
       # Initializes a new resource based on the response
       #
@@ -17,6 +18,7 @@ module Lokalise
         @raw_data = response['content']
         @project_id = response['content']['project_id']
         @client = response['client']
+        @path = response['path']
       end
 
       class << self
@@ -34,67 +36,39 @@ module Lokalise
         end
 
         # Fetches a single record
-        def find(client, endpoint_ids, resource_id = '', params = {})
-          new get("#{endpoint(*endpoint_ids)}/#{resource_id}",
-                  client,
-                  params)
+        def find(client, path, params = {})
+          new get(path, client, params)
         end
 
         # Creates one or multiple records
-        def create(client, endpoint_ids, params, object_key = nil)
-          response = post(endpoint(*endpoint_ids),
-                          client,
-                          body_from(params, object_key))
+        def create(client, path, params)
+          response = post path, client, params
 
-          object_from response, params, endpoint_ids
+          object_from response, params
         end
 
         # Updates one or multiple records
-        def update(client, endpoint_ids, resource_id, params, object_key = nil)
-          response = put("#{endpoint(*endpoint_ids)}/#{resource_id}",
-                         client,
-                         body_from(params, object_key))
+        def update(client, path, params)
+          response = put path, client, params
 
-          object_from response, params, endpoint_ids
+          object_from response, params
         end
 
         # Destroys records by given ids
-        #
-        # @param client [Lokalise::Client]
-        # @return [Hash]
-        # @param endpoint_ids [String, Integer, Array]
-        # @param resource_id [String, Integer, Hash<Array>]
-        def destroy(client, endpoint_ids, resource_id)
-          path = endpoint(*endpoint_ids).to_s
-          if resource_id.is_a?(Hash)
-            delete path, client, resource_id
-          else
-            delete "#{path}/#{resource_id}", client
-          end['content']
+        def destroy(client, path, params = {})
+          delete(path, client, params)['content']
         end
 
         private
 
-        # Converts `params` to hash with arrays under the `object_key` key.
-        # Used in bulk operations
-        #
-        # @return [Hash]
-        def body_from(params, object_key)
-          return params unless object_key
-
-          params = [params] unless params.is_a?(Array)
-          Hash[object_key, params]
-        end
-
         # Instantiates a new resource or collection based on the given response
-        def object_from(response, params, endpoint_ids)
+        def object_from(response, params)
           model_class = name.base_class_name
           data_key_plural = data_key_for model_class, true
 
           if response['content'].key? data_key_plural
             Module.const_get("Lokalise::Collections::#{model_class}").new response,
-                                                                          params,
-                                                                          endpoint_ids
+                                                                          params
           else
             new response
           end

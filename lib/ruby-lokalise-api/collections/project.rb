@@ -2,10 +2,8 @@ module Lokalise
   module Collections
     class Project < Base
       class << self
-        private
-
         def endpoint(*_args)
-          'projects'
+          path_from projects: nil
         end
       end
     end

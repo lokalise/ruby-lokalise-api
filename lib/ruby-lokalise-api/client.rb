@@ -18,5 +18,23 @@ module Lokalise
     def initialize(token)
       @token = token
     end
+
+    def construct_request(klass, method, endpoint_ids, params = {}, object_key = nil)
+      path = klass.endpoint(*endpoint_ids)
+      klass.send method, self, path, format_params(params, object_key)
+    end
+
+    # Converts `params` to hash with arrays under the `object_key` key.
+    # Used in bulk operations
+    #
+    # @return [Hash]
+    def format_params(params, object_key)
+      return params unless object_key
+
+      params = [params] unless params.is_a?(Array)
+      Hash[object_key, params]
+    end
+
+    alias c_r construct_request
   end
 end

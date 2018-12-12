@@ -2,15 +2,12 @@ module Lokalise
   module Resources
     class Project < Base
       class << self
-        def clear(client, project_id)
-          put("#{endpoint(project_id)}/empty", client)['content']
+        def empty(client, path, *_args)
+          put(path, client)['content']
         end
 
-        private
-
-        def endpoint(project_id = nil)
-          'projects' unless project_id
-          "projects/#{project_id}"
+        def endpoint(project_id = nil, action = nil)
+          path_from projects: [project_id, action]
         end
       end
     end

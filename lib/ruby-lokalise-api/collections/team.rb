@@ -2,10 +2,8 @@ module Lokalise
   module Collections
     class Team < Base
       class << self
-        private
-
         def endpoint(*_args)
-          'teams'
+          path_from teams: nil
         end
       end
     end

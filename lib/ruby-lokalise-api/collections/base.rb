@@ -4,6 +4,7 @@ module Lokalise
       extend Lokalise::Request
       extend Lokalise::Utils::AttributeHelpers
       include Lokalise::Utils::AttributeHelpers
+      extend Lokalise::Utils::EndpointHelpers
 
       attr_reader :total_pages, :total_results, :results_per_page, :current_page, :collection,
                   :project_id, :team_id, :request_params, :client, :ids
@@ -14,7 +15,7 @@ module Lokalise
       # @param params [Hash]
       # @param ids [Array, Integer, String]
       # @return [Lokalise::Collections::Base]
-      def initialize(response, params = {}, *ids)
+      def initialize(response, params = {})
         produce_collection_for response
         populate_pagination_data_for response
         # Project and team id may not be present in some cases
@@ -22,14 +23,14 @@ module Lokalise
         @team_id = response['content']['team_id']
         @request_params = params
         @client = response['client']
-        @ids = ids
+        @path = response['path']
       end
 
       class << self
         # Performs a batch query fetching multiple records
-        def all(client, params = {}, *ids)
-          new get(endpoint(*ids), client, params),
-              params, *ids
+        def all(client, path, params = {})
+          new get(path, client, params),
+              params
         end
       end
 
@@ -76,8 +77,8 @@ module Lokalise
 
       def fetch_page(page_num)
         self.class.all @client,
-                       @request_params.merge(page: page_num),
-                       *@ids
+                       @path,
+                       @request_params.merge(page: page_num)
       end
 
       # Dynamically produces collection of resources based on the given response

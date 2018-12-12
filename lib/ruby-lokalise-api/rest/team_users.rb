@@ -7,7 +7,7 @@ module Lokalise
     # @param team_id [String]
     # @param params [Hash]
     def team_users(team_id, params = {})
-      Lokalise::Collections::TeamUser.all self, params, team_id
+      c_r Lokalise::Collections::TeamUser, :all, team_id, params
     end
 
     # Returns team user from the given team
@@ -17,7 +17,7 @@ module Lokalise
     # @param team_id [String]
     # @param user_id [String, Integer]
     def team_user(team_id, user_id)
-      Lokalise::Resources::TeamUser.find self, team_id, user_id
+      c_r Lokalise::Resources::TeamUser, :find, [team_id, user_id]
     end
 
     # Updates team user for the given team
@@ -28,7 +28,7 @@ module Lokalise
     # @param user_id [String, Integer]
     # @param params [Hash]
     def update_team_user(team_id, user_id, params)
-      Lokalise::Resources::TeamUser.update self, team_id, user_id, params
+      c_r Lokalise::Resources::TeamUser, :update, [team_id, user_id], params
     end
 
     # Deletes team user from the given team
@@ -38,7 +38,7 @@ module Lokalise
     # @param team_id [String]
     # @param user_id [String, Integer]
     def delete_team_user(team_id, user_id)
-      Lokalise::Resources::TeamUser.destroy self, team_id, user_id
+      c_r Lokalise::Resources::TeamUser, :destroy, [team_id, user_id]
     end
   end
 end

@@ -4,10 +4,9 @@ module Lokalise
       DATA_KEY = 'Language'.freeze
 
       class << self
-        private
-
-        def endpoint(project_id)
-          "projects/#{project_id}/languages"
+        def endpoint(project_id, language_id = nil)
+          path_from projects: project_id,
+                    languages: language_id
         end
       end
     end

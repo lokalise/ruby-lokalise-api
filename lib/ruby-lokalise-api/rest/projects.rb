@@ -6,7 +6,7 @@ module Lokalise
     # @return [Lokalise::Collection::Project<Lokalise::Resources::Project>]
     # @param params [Hash]
     def projects(params = {})
-      Lokalise::Collections::Project.all self, params
+      c_r Lokalise::Collections::Project, :all, nil, params
     end
 
     # Returns a single project
@@ -15,7 +15,7 @@ module Lokalise
     # @return [Lokalise::Resources::Project]
     # @param project_id [String, Integer]
     def project(project_id)
-      Lokalise::Resources::Project.find self, nil, project_id
+      c_r Lokalise::Resources::Project, :find, project_id
     end
 
     # Creates project
@@ -24,7 +24,7 @@ module Lokalise
     # @return [Lokalise::Resources::Project]
     # @param params [Hash]
     def create_project(params)
-      Lokalise::Resources::Project.create self, nil, params
+      c_r Lokalise::Resources::Project, :create, nil, params
     end
 
     # Updates project
@@ -34,7 +34,7 @@ module Lokalise
     # @param project_id [String, Integer]
     # @param params [Hash]
     def update_project(project_id, params)
-      Lokalise::Resources::Project.update self, nil, project_id, params
+      c_r Lokalise::Resources::Project, :update, project_id, params
     end
 
     # Deletes all keys and translations from the project
@@ -43,7 +43,7 @@ module Lokalise
     # @return [Hash]
     # @param project_id [String, Integer]
     def empty_project(project_id)
-      Lokalise::Resources::Project.clear self, project_id
+      c_r Lokalise::Resources::Project, :empty, [project_id, 'empty']
     end
 
     # Deletes the project
@@ -52,7 +52,7 @@ module Lokalise
     # @return [Hash]
     # @param project_id [String, Integer]
     def delete_project(project_id)
-      Lokalise::Resources::Project.destroy self, nil, project_id
+      c_r Lokalise::Resources::Project, :destroy, project_id
     end
   end
 end

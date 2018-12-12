@@ -6,7 +6,7 @@ module Lokalise
     # @return [Lokalise::Collection::Team<Lokalise::Resources::Team>]
     # @param params [Hash]
     def teams(params = {})
-      Lokalise::Collections::Team.all self, params
+      c_r Lokalise::Collections::Team, :all, nil, params
     end
   end
 end
