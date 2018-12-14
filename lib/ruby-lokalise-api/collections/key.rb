@@ -4,7 +4,7 @@ module Lokalise
       # Destroys all keys in the collection
       # @return [Hash]
       def destroy_all
-        keys = collection.collect(&:key_id)
+        keys = collection.map(&:key_id)
         Lokalise::Resources::Key.destroy @client, @path, keys: keys
       end
 

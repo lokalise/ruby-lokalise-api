@@ -30,9 +30,9 @@ Metrics/ParameterLists:
 Style/CollectionMethods:
   Enabled: true
   PreferredMethods:
-    map:      'collect'
-    map!:     'collect!'
-    reduce:   'inject'
+    collect:  'map'
+    collect!: 'map!'
+    inject:   'reduce'
     find:     'detect'
     find_all: 'select'
 

@@ -88,7 +88,7 @@ module Lokalise
 
         # Fetch collection data and instantiate an individual resource for each object
         # We also preserve the `client` to be able to chain API methods later
-        @collection = response['content'][data_key_plural].collect do |raw_model|
+        @collection = response['content'][data_key_plural].map do |raw_model|
           Module.const_get("Lokalise::Resources::#{model_class}").new 'content' => raw_model,
                                                                       'client' => response['client'],
                                                                       'base_path' => response['path']
