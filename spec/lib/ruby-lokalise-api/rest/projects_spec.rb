@@ -1,4 +1,3 @@
-require 'pry'
 RSpec.describe Lokalise::Client do
   let(:new_project_id) { '572222075c0953fd70d492.30502628' }
 

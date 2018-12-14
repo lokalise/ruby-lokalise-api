@@ -2,7 +2,7 @@ require 'faraday'
 require 'multi_json'
 require 'yaml'
 require 'addressable'
-require 'pry'
+
 require 'ruby-lokalise-api/version'
 require 'ruby-lokalise-api/connection'
 require 'ruby-lokalise-api/request'

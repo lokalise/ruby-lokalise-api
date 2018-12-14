@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.0.0 (unreleased)
+## 2.0.0 (14-Dec-18)
 
 * Major re-write of internal stuff
 * Introduce method chaining
