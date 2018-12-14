@@ -56,7 +56,7 @@ module Lokalise
     # @return [Hash]
     # @param project_id [String]
     # @param language_id [String, Integer]
-    def delete_language(project_id, language_id)
+    def destroy_language(project_id, language_id)
       c_r Lokalise::Resources::ProjectLanguage, :destroy, [project_id, language_id]
     end
   end

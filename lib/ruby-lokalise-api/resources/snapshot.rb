@@ -1,6 +1,12 @@
 module Lokalise
   module Resources
     class Snapshot < Base
+      supports :destroy
+
+      def restore
+        self.class.restore @client, @path
+      end
+
       class << self
         def restore(client, path, *_args)
           Lokalise::Resources::Project.new post(path, client)

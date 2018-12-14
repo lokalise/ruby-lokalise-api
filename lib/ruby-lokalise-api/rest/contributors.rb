@@ -47,7 +47,7 @@ module Lokalise
     # @return [Hash]
     # @param project_id [String]
     # @param contributor_id [String, Integer]
-    def delete_contributor(project_id, contributor_id)
+    def destroy_contributor(project_id, contributor_id)
       c_r Lokalise::Resources::Contributor, :destroy, [project_id, contributor_id]
     end
   end

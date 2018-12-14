@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://api.lokalise.co/api2/projects/803826145ba90b42d5d860.46800099/tasks/4622
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - ruby-lokalise-api gem/1.1.0
+      X-api-token:
+      - "<LOKALISE_TOKEN>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx
+      date:
+      - Fri, 14 Dec 2018 17:26:14 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - close
+      vary:
+      - Accept-Encoding
+      set-cookie:
+      - PHPSESSID=2eb81f491dc3a6e7571cbd9d14300241; path=/; HttpOnly, locale=en_US;
+        expires=Sun, 13-Jan-2019 17:26:13 GMT; Max-Age=2592000; path=/; secure
+      expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      cache-control:
+      - no-store, no-cache, must-revalidate, no-store, no-cache
+      pragma:
+      - no-cache, no-cache
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      strict-transport-security:
+      - max-age=31536000
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-headers:
+      - Content-Type
+    body:
+      encoding: ASCII-8BIT
+      string: '{"project_id":"803826145ba90b42d5d860.46800099","task_deleted":true}'
+    http_version: 
+  recorded_at: Fri, 14 Dec 2018 17:26:06 GMT
+recorded_with: VCR 4.0.0

@@ -1,3 +1,4 @@
+require 'pry'
 RSpec.describe Lokalise::Client do
   let(:new_project_id) { '572222075c0953fd70d492.30502628' }
 
@@ -74,11 +75,45 @@ RSpec.describe Lokalise::Client do
     expect(response['keys_deleted']).to eq(true)
   end
 
-  specify '#delete_project' do
+  specify '#destroy_project' do
     response = VCR.use_cassette('delete_project') do
-      test_client.delete_project new_project_id
+      test_client.destroy_project new_project_id
     end
     expect(response['project_id']).to eq(new_project_id)
     expect(response['project_deleted']).to eq(true)
+  end
+
+  context 'project chained methods' do
+    it 'should support update, empty, and destroy' do
+      project = VCR.use_cassette('create_another_project') do
+        test_client.create_project name: 'chained proj'
+      end
+
+      expect(project.name).to eq('chained proj')
+
+      path = project.path
+
+      updated_project = VCR.use_cassette('update_project_chained') do
+        project.update name: 'updated!'
+      end
+
+      expect(updated_project.client).to eq(test_client)
+      expect(updated_project.name).to eq('updated!')
+      expect(updated_project.path).to eq(path)
+
+      empty_response = VCR.use_cassette('empty_project_chained') do
+        updated_project.empty
+      end
+
+      expect(empty_response['project_id']).to eq(updated_project.project_id)
+      expect(empty_response['keys_deleted']).to eq(true)
+
+      delete_response = VCR.use_cassette('delete_project_chained') do
+        updated_project.destroy
+      end
+
+      expect(delete_response['project_id']).to eq(updated_project.project_id)
+      expect(delete_response['project_deleted']).to eq(true)
+    end
   end
 end

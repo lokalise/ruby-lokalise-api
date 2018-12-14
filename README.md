@@ -75,6 +75,12 @@ To get access to raw data returned by the API, use `#raw_data`:
 project.raw_data
 ```
 
+Models support method chaining, meaning you can fetch a resource, update and delete it in one line:
+
+```ruby
+@client.project('123').update(name: 'New name').destroy
+```
+
 ### Collections of resources and pagination
 
 Fetching (or creating/updating) multiple objects will return a *collection* of objects. To get access to the actual data, use `#collection` method:
@@ -189,12 +195,19 @@ translations.prev_page # => will load the previous page while preserving the `li
 [Doc](https://lokalise.co/api2docs/ruby/#transition-delete-a-comment-delete)
 
 ```ruby
-@client.delete_comment(project_id, key_id, comment_id)    # Input:
+@client.destroy_comment(project_id, key_id, comment_id)   # Input:
                                                           ## project_id (string, required)
                                                           ## key_id (string, required) 
                                                           ## comment_id (string, required)  
                                                           # Output:
                                                           ## Hash with the project's id and "comment_deleted"=>true
+```
+
+Alternatively:
+
+```ruby
+comment = @client.comment('project_id', 'comment_id')
+comment.destroy
 ```
 
 ### Contributors
@@ -263,16 +276,30 @@ translations.prev_page # => will load the previous page while preserving the `li
                                                                  ## Updated contributor
 ```
 
+Alternatively:
+
+```ruby
+contributor = @client.contributor('project_id', 'contributor_id')
+contributor.update(params)
+```
+
 #### Delete contributor
 
 [Doc](https://lokalise.co/api2docs/ruby/#transition-delete-a-contributor-delete)
 
 ```ruby
-@client.delete_contributor(project_id, contributor_id)     # Input:
+@client.destroy_contributor(project_id, contributor_id)    # Input:
                                                            ## project_id (string, required)
                                                            ## contributor_id (string, required)
                                                            # Output:
                                                            ## Hash with the project's id and "contributor_deleted"=>true
+```
+
+Alternatively:
+
+```ruby
+contributor = @client.contributor('project_id', 'id')
+contributor.destroy
 ```
 
 ### Files
@@ -384,6 +411,13 @@ Exports project files as a `.zip` bundle and makes them available to download (t
                                                       ## Updated key
 ```
 
+Alternatively:
+
+```ruby
+key = @client.key('project_id', 'key_id')
+key.update(params)
+```
+
 #### Bulk update project keys
 
 [Doc](https://lokalise.co/api2docs/ruby/#transition-bulk-update-put)
@@ -403,11 +437,18 @@ Exports project files as a `.zip` bundle and makes them available to download (t
 [Doc](https://lokalise.co/api2docs/ruby/#transition-delete-a-key-delete)
 
 ```ruby
-@client.delete_key(project_id, key_id)  # Input:
+@client.destroy_key(project_id, key_id) # Input:
                                         ## project_id (string, required)
                                         ## key_id (string, required)  
                                         # Output:
                                         ## Hash with project_id and "key_removed" set to "true"
+```
+
+Alternatively:
+
+```ruby
+key = @client.key('project_id', 'key_id')
+key.destroy
 ```
 
 #### Bulk delete project keys
@@ -415,11 +456,18 @@ Exports project files as a `.zip` bundle and makes them available to download (t
 [Doc](https://lokalise.co/api2docs/ruby/#transition-delete-multiple-keys-delete)
 
 ```ruby
-@client.delete_keys(project_id, key_ids)  # Input:
+@client.destroy_keys(project_id, key_ids) # Input:
                                           ## project_id (string, required)
                                           ## key_ids (array, required)  
                                           # Output:
                                           ## Hash with project_id and "keys_removed" set to "true"
+```
+
+Alternatively:
+
+```ruby
+keys = @client.keys('project_id')
+keys.destroy_all # => will effectively destroy all keys in the project
 ```
 
 ### Languages
@@ -495,16 +543,30 @@ Exports project files as a `.zip` bundle and makes them available to download (t
                                                             ## Updated language
 ```
 
+Alternatively:
+
+```ruby
+language = @client.language('project_id', 'lang_id')
+language.update(params)
+```
+
 #### Delete project language
 
 [Doc](https://lokalise.co/api2docs/ruby/#transition-delete-a-language-delete)
 
 ```ruby
-@client.delete_language(project_id, language_id)     # Input:
+@client.destroy_language(project_id, language_id)    # Input:
                                                      ## project_id (string, required)
                                                      ## language_id (string, required)
                                                      # Output:
                                                      ## Hash with the project's id and "language_deleted"=>true
+```
+
+Alternatively:
+
+```ruby
+language = @client.language('project_id', 'lang_id')
+language.destroy
 ```
 
 ### Projects
@@ -564,6 +626,13 @@ Exports project files as a `.zip` bundle and makes them available to download (t
                                             ## An updated project
 ```
 
+Alternatively:
+
+```ruby
+project = @client.project('project_id')
+project.update(params)
+```
+
 #### Empty a project
 
 [Doc](https://lokalise.co/api2docs/php/#transition-empty-a-project-put)
@@ -577,15 +646,29 @@ Deletes *all* keys and translations from the project.
                                     ## A project containing its id and a `keys_deleted => true` attribute
 ```
 
+Alternatively:
+
+```ruby
+project = @client.project('project_id')
+project.empty
+```
+
 #### Delete a project
 
 [Doc](https://lokalise.co/api2docs/php/#transition-delete-a-project-delete)
 
 ```ruby
-@client.delete_project(project_id)    # Input:
+@client.destroy_project(project_id)   # Input:
                                       ## project_id (string, required)
                                       # Output:
                                       ## A project containing its id and a `project_deleted => true` attribute
+```
+
+Alternatively:
+
+```ruby
+project = @client.project('project_id')
+project.destroy
 ```
 
 ### Screenshots
@@ -652,16 +735,30 @@ Deletes *all* keys and translations from the project.
                                                                   ## Updated screenshot
 ```
 
+Alternatively:
+
+```ruby
+screenshot = @client.screenshot('project_id', 'screen_id')
+screenshot.update(params)
+```
+
 #### Delete screenshot
 
 [Doc](https://lokalise.co/api2docs/ruby/#transition-delete-a-screenshot-delete)
 
 ```ruby
-@client.delete_screenshot(project_id, screenshot_id)    # Input:
+@client.destroy_screenshot(project_id, screenshot_id)   # Input:
                                                         ## project_id (string, required)
                                                         ## screenshot_id (string, required)
                                                         # Output:
                                                         ## Hash with the project id and "screenshot_deleted" set to "true"
+```
+
+Alternatively:
+
+```ruby
+screenshot = @client.screenshot('project_id', 'screen_id')
+screenshot.destroy
 ```
 
 ### Snapshots
@@ -707,16 +804,30 @@ Deletes *all* keys and translations from the project.
                                                     ## Information about the restored project from the specified snapshot
 ```
 
+Alternatively:
+
+```ruby
+snapshot = @client.snapshots('project_id').first # you can't fetch a single snapshot
+snapshot.restore
+```
+
 #### Delete snapshot
 
 [Doc](https://lokalise.co/api2docs/ruby/#transition-delete-a-snapshot-delete)
 
 ```ruby
-@client.delete_snapshot(project_id, snapshot_id)    # Input:
+@client.destroy_snapshot(project_id, snapshot_id)   # Input:
                                                     ## project_id (string, required)
                                                     ## snapshot_id (string, required)
                                                     # Output:
                                                     ## Hash with the project id and "snapshot_deleted" set to "true"
+```
+
+Alternatively:
+
+```ruby
+snapshot = @client.snapshots('project_id').first # you can't fetch a single snapshot
+snapshot.destroy
 ```
 
 ### Tasks
@@ -773,12 +884,41 @@ Deletes *all* keys and translations from the project.
 [Doc](https://lokalise.co/api2docs/ruby/#transition-update-a-task-put)
 
 ```ruby
-@client.delete_task(project_id, task_id)   # Input:
+@client.update_task(project_id, task_id, params = {})  # Input:
+                                                       ## project_id (string, required)
+                                                       ## task_id (string or integer, required) 
+                                                       ## params (hash)
+                                                       ### Find supported params at https://lokalise.co/api2docs/ruby/#transition-update-a-task-put 
+                                                       # Output:
+                                                       ## An updated task 
+
+```
+
+Alternatively:
+
+```ruby
+task = @client.task('project_id', 'task_id')
+task.update(params)
+```
+
+#### Delete task
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-delete-a-task-delete)
+
+```ruby
+@client.destroy_task(project_id, task_id)  # Input:
                                            ## project_id (string, required)
                                            ## task_id (string, required) 
                                            # Output:
                                            ## Hash with the project id and "task_deleted" set to "true"
 
+```
+
+Alternatively:
+
+```ruby
+task = @client.task('project_id', 'task_id')
+task.destroy
 ```
 
 ### Teams
@@ -838,16 +978,30 @@ Deletes *all* keys and translations from the project.
                                                     ## Updated team user
 ```
 
+Alternatively:
+
+```ruby
+user = @client.team_user('team_id', 'user_id')
+user.update(params)
+```
+
 #### Delete team user
 
 [Doc](https://lokalise.co/api2docs/ruby/#transition-delete-a-team-user-delete)
 
 ```ruby
-@client.delete_team_user(team_id, user_id)  # Input:
+@client.destroy_team_user(team_id, user_id) # Input:
                                             ## team_id (string, required)
                                             ## user_id (string, required)
                                             # Output:
                                             ## Hash with "team_id" and "team_user_deleted" set to "true"
+```
+
+Alternatively:
+
+```ruby
+user = @client.team_user('team_id', 'user_id')
+user.destroy
 ```
 
 ### Translations
@@ -898,6 +1052,13 @@ Deletes *all* keys and translations from the project.
                                                                       ## Updated translation
 ```
 
+Alternatively:
+
+```ruby
+translation = @client.translation('project_id', 'translation_id')
+translation.update(params)
+```
+
 ## Additional Info
 
 ### Error handling
@@ -910,6 +1071,7 @@ The gem may raise the following custom exceptions:
 * `Lokalise::Error::Unauthorized` (`401`) - token is missing or incorrect
 * `Lokalise::Error::Forbidden` (`403`) - authenticated user does not have sufficient rights to perform the desired action
 * `Lokalise::Error::NotFound` (`404`) - the provided endpoint (resource) cannot be found
+* `Lokalise::Error::MethodNowAllowed` (`405`) - HTTP request with the provided verb is not supported by the endpoint
 * `Lokalise::Error::NotAcceptable` (`406`) - posted resource is malformed
 * `Lokalise::Error::Conflict` (`409`) - request conflicts with another request
 * `Lokalise::Error::Locked` (`423`) - your token is used simultaneously in multiple requests

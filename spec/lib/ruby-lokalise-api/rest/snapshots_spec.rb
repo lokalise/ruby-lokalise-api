@@ -55,12 +55,35 @@ RSpec.describe Lokalise::Client do
     expect(project.project_id).not_to eq(project_id)
   end
 
-  specify '#delete_snapshot' do
+  specify '#destroy_snapshot' do
     response = VCR.use_cassette('delete_snapshot') do
-      test_client.delete_snapshot project_id, snapshot_id
+      test_client.destroy_snapshot project_id, snapshot_id
     end
 
     expect(response['project_id']).to eq(project_id)
     expect(response['snapshot_deleted']).to eq(true)
+  end
+
+  context 'snapshot chained methods' do
+    it 'should support destroy and restore' do
+      snapshot = VCR.use_cassette('create_another_snapshot') do
+        test_client.create_snapshot project_id, title: 'chained'
+      end
+
+      expect(snapshot.title).to eq('chained')
+
+      restored_project = VCR.use_cassette('restore_snapshot_chained') do
+        snapshot.restore
+      end
+
+      expect(restored_project.name).to eq('demo phoenix copy')
+
+      delete_response = VCR.use_cassette('delete_snapshot_chained') do
+        snapshot.destroy
+      end
+
+      expect(delete_response['project_id']).to eq(project_id)
+      expect(delete_response['snapshot_deleted']).to eq(true)
+    end
   end
 end

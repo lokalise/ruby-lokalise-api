@@ -50,7 +50,7 @@ module Lokalise
     # @param project_id [String]
     # @param key_id [String, Integer]
     # @param comment_id [String, Integer]
-    def delete_comment(project_id, key_id, comment_id)
+    def destroy_comment(project_id, key_id, comment_id)
       c_r Lokalise::Resources::KeyComment, :destroy, [project_id, key_id, comment_id]
     end
   end

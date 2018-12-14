@@ -1,3 +1,4 @@
+require 'pry'
 module Lokalise
   module Resources
     class Base
@@ -18,7 +19,7 @@ module Lokalise
         @raw_data = response['content']
         @project_id = response['content']['project_id']
         @client = response['client']
-        @path = response['path']
+        @path = infer_path_from response
       end
 
       class << self
@@ -33,6 +34,19 @@ module Lokalise
             attr_reader(*klass_attributes)
           end
           super
+        end
+
+        # Defines common CRUD instance methods
+        # Usage: `supports :update, :destroy`
+        def supports(*methods)
+          methods.each do |method_name|
+            define_method method_name do |params = {}|
+              self.class.send method_name,
+                              instance_variable_get(:@client),
+                              instance_variable_get(:@path),
+                              params
+            end
+          end
         end
 
         # Fetches a single record
@@ -76,6 +90,29 @@ module Lokalise
       end
 
       private
+
+      # Generates path for the individual resource based on the path for the collection
+      def infer_path_from(response)
+        id_key = id_key_for self.class.name.base_class_name
+        data_key = data_key_for self.class.name.base_class_name
+
+        path_with_id response, id_key, data_key
+      end
+
+      def path_with_id(response, id_key, data_key)
+        # Some resources do not have ids at all
+        return nil unless response['content'].key?(id_key) || response['content'].key?(data_key)
+
+        # Content may be `{"project_id": '123', ...}` or {"snapshot": {"snapshot_id": '123', ...}}
+        id = response['content'][id_key] || response['content'][data_key][id_key]
+
+        path = response['path'] || response['base_path']
+        # If path already has id - just return it
+        return path if path.match?(/#{id}\z/)
+
+        # Otherwise this seems like a collection path, so append the resource id to it
+        path.remove_trailing_slash + "/#{id}"
+      end
 
       # Store all resources attributes under the corresponding instance variables.
       # `ATTRIBUTES` is defined inside resource-specific classes

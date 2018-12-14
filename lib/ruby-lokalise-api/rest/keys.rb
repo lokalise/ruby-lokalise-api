@@ -58,7 +58,7 @@ module Lokalise
     # @return [Hash]
     # @param project_id [String]
     # @param key_id [String, Integer]
-    def delete_key(project_id, key_id)
+    def destroy_key(project_id, key_id)
       c_r Lokalise::Resources::Key, :destroy, [project_id, key_id]
     end
 
@@ -68,7 +68,7 @@ module Lokalise
     # @return [Hash]
     # @param project_id [String]
     # @param key_ids [String, Integer, Array<String>, Array<Integer>]
-    def delete_keys(project_id, key_ids)
+    def destroy_keys(project_id, key_ids)
       c_r Lokalise::Resources::Key, :destroy, project_id, key_ids, :keys
     end
   end

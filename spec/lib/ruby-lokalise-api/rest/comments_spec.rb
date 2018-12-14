@@ -1,6 +1,7 @@
 RSpec.describe Lokalise::Client do
   let(:project_id) { '803826145ba90b42d5d860.46800099' }
   let(:key_id) { 15_305_182 }
+  let(:another_key_id) { 15_519_786 }
 
   describe '#comments' do
     it 'should return all comments' do
@@ -34,12 +35,12 @@ RSpec.describe Lokalise::Client do
 
   specify '#comment' do
     comment = VCR.use_cassette('comment') do
-      test_client.comment project_id, '15519786', '800746'
+      test_client.comment project_id, another_key_id, '800746'
     end
 
     expect(comment.comment).to eq('rspec comment')
     expect(comment.comment_id).to eq(800_746)
-    expect(comment.key_id).to eq(15_519_786)
+    expect(comment.key_id).to eq(another_key_id)
     expect(comment.added_by).to eq(20_181)
     expect(comment.added_by_email).to eq('bodrovis@protonmail.com')
     expect(comment.added_at).to eq('2018-12-09 19:41:44 (Etc/UTC)')
@@ -75,11 +76,28 @@ RSpec.describe Lokalise::Client do
     expect(comment.comment_id).to eq(767_938)
   end
 
-  specify '#delete_comment' do
+  specify '#destroy_comment' do
     response = VCR.use_cassette('delete_comment') do
-      test_client.delete_comment project_id, key_id, 767_938
+      test_client.destroy_comment project_id, key_id, 767_938
     end
     expect(response['project_id']).to eq(project_id)
     expect(response['comment_deleted']).to eq(true)
+  end
+
+  context 'comment chained methods' do
+    it 'should support destroy' do
+      comment = VCR.use_cassette('create_another_comment') do
+        test_client.create_comments project_id, another_key_id, comment: 'chained comment'
+      end.collection.first
+
+      expect(comment.comment).to eq('chained comment')
+
+      delete_response = VCR.use_cassette('delete_comment_chained') do
+        comment.destroy
+      end
+
+      expect(delete_response['project_id']).to eq(project_id)
+      expect(delete_response['comment_deleted']).to eq(true)
+    end
   end
 end

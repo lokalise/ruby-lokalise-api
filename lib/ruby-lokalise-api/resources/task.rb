@@ -1,6 +1,8 @@
 module Lokalise
   module Resources
     class Task < Base
+      supports :update, :destroy
+
       class << self
         def endpoint(project_id, task_id = nil)
           path_from projects: project_id,

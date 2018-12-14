@@ -40,18 +40,13 @@ RSpec.describe Lokalise::Client do
   end
 
   specify '#create_screenshots' do
-    file = File.open File.expand_path('spec/fixtures/screenshot_base64.txt')
-    begin
+    screenshot_from_file do |file|
       screenshot = VCR.use_cassette('create_screenshots') do
         test_client.create_screenshots project_id, data: file.read, title: 'rspec screen'
       end.collection.first
 
       expect(screenshot.title).to eq('rspec screen')
       expect(screenshot.url).to include('amazonaws.com')
-    rescue StandardError => e
-      puts e
-    ensure
-      file.close
     end
   end
 
@@ -66,11 +61,53 @@ RSpec.describe Lokalise::Client do
     expect(screenshot.description).to eq('demo desc')
   end
 
-  specify '#delete_screenshot' do
+  specify '#destroy_screenshot' do
     response = VCR.use_cassette('delete_screenshot') do
-      test_client.delete_screenshot project_id, screenshot_id
+      test_client.destroy_screenshot project_id, screenshot_id
     end
     expect(response['project_id']).to eq(project_id)
     expect(response['screenshot_deleted']).to eq(true)
+  end
+
+  context 'screenshot chained methods' do
+    it 'should support update and destroy' do
+      screenshot = screenshot_from_file do |file|
+        VCR.use_cassette('create_another_screenshot') do
+          test_client.create_screenshots project_id, data: file.read, title: 'chained screen'
+        end.collection.first
+      end
+
+      expect(screenshot.client).to eq(test_client)
+      expect(screenshot.title).to eq('chained screen')
+
+      path = screenshot.path
+
+      updated_screenshot = VCR.use_cassette('update_screenshot_chained') do
+        screenshot.update title: 'updated!'
+      end
+
+      expect(updated_screenshot.client).to eq(test_client)
+      expect(updated_screenshot.title).to eq('updated!')
+      expect(updated_screenshot.screenshot_id).to eq(screenshot.screenshot_id)
+      expect(updated_screenshot.path).to eq(path)
+
+      delete_response = VCR.use_cassette('delete_screenshot_chained') do
+        updated_screenshot.destroy
+      end
+
+      expect(delete_response['project_id']).to eq(project_id)
+      expect(delete_response['screenshot_deleted']).to eq(true)
+    end
+  end
+end
+
+def screenshot_from_file
+  file = File.open File.expand_path('spec/fixtures/screenshot_base64.txt')
+  begin
+    yield file
+  rescue StandardError => e
+    puts e
+  ensure
+    file.close
   end
 end

@@ -36,7 +36,7 @@ module Lokalise
     # @return [Hash]
     # @param project_id [String]
     # @param snapshot_id [String, Integer]
-    def delete_snapshot(project_id, snapshot_id)
+    def destroy_snapshot(project_id, snapshot_id)
       c_r Lokalise::Resources::Snapshot, :destroy, [project_id, snapshot_id]
     end
   end

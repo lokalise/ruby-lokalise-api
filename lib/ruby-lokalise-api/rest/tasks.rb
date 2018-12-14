@@ -47,7 +47,7 @@ module Lokalise
     # @return [Hash]
     # @param project_id [String]
     # @param task_id [String, Integer]
-    def delete_task(project_id, task_id)
+    def destroy_task(project_id, task_id)
       c_r Lokalise::Resources::Task, :destroy, [project_id, task_id]
     end
   end

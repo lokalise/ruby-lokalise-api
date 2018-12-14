@@ -1,3 +1,4 @@
+require 'pry'
 module Lokalise
   module Utils
     module AttributeHelpers
@@ -12,15 +13,21 @@ module Lokalise
       # @param model_class [String]
       # @param plural [Boolean] Should the returned value be pluralized?
       def data_key_for(model_class, plural = false)
-        data_key = if Module.const_defined? "Lokalise::Resources::#{model_class}::DATA_KEY"
-                     Module.const_get "Lokalise::Resources::#{model_class}::DATA_KEY"
-                   else
-                     model_class
-                   end.snakecase
+        data_key = get_key 'DATA_KEY', model_class
 
         return data_key unless plural
 
         data_key + 's'
+      end
+
+      # Returns key used to determine resource id (for example `user_id` or `project_id`).
+      # Most ids corresponds to resources' class names, but some may differ (for instance,
+      # `Contributor` has  `user_id` attribute).
+      #
+      # @return [String]
+      # @param model_class [String]
+      def id_key_for(model_class)
+        get_key('ID_KEY', model_class) + '_id'
       end
 
       # Loads attributes for the given resource based on its name
@@ -36,6 +43,14 @@ module Lokalise
       end
 
       private
+
+      def get_key(name, model_class)
+        if Module.const_defined? "Lokalise::Resources::#{model_class}::#{name}"
+          Module.const_get "Lokalise::Resources::#{model_class}::#{name}"
+        else
+          model_class
+        end.snakecase
+      end
 
       # Unify some resources' names (eg, `ProjectComment` and `KeyComment` have the same attributes which are stored under `comment`)
       #

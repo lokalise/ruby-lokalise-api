@@ -1,6 +1,12 @@
 module Lokalise
   module Resources
     class Project < Base
+      supports :update, :destroy
+
+      def empty
+        self.class.empty @client, @path + '/empty'
+      end
+
       class << self
         def empty(client, path, *_args)
           put(path, client)['content']

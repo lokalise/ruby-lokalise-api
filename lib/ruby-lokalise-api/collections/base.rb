@@ -7,13 +7,12 @@ module Lokalise
       extend Lokalise::Utils::EndpointHelpers
 
       attr_reader :total_pages, :total_results, :results_per_page, :current_page, :collection,
-                  :project_id, :team_id, :request_params, :client, :ids
+                  :project_id, :team_id, :request_params, :client, :path
 
       # Initializes a new collection based on the response
       #
       # @param response [Hash]
       # @param params [Hash]
-      # @param ids [Array, Integer, String]
       # @return [Lokalise::Collections::Base]
       def initialize(response, params = {})
         produce_collection_for response
@@ -91,7 +90,8 @@ module Lokalise
         # We also preserve the `client` to be able to chain API methods later
         @collection = response['content'][data_key_plural].collect do |raw_model|
           Module.const_get("Lokalise::Resources::#{model_class}").new 'content' => raw_model,
-                                                                      'client' => response['client']
+                                                                      'client' => response['client'],
+                                                                      'base_path' => response['path']
         end
       end
     end

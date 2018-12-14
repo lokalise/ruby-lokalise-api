@@ -74,11 +74,44 @@ RSpec.describe Lokalise::Client do
     expect(contributor.languages.length).to eq(1)
   end
 
-  specify '#delete_contributor' do
+  specify '#destroy_contributor' do
     response = VCR.use_cassette('delete_contributor') do
-      test_client.delete_contributor project_id, contributor_id
+      test_client.destroy_contributor project_id, contributor_id
     end
     expect(response['project_id']).to eq(project_id)
     expect(response['contributor_deleted']).to eq(true)
+  end
+
+  context 'contributor chained methods' do
+    it 'should support update and destroy' do
+      contributor = VCR.use_cassette('create_another_contributor') do
+        test_client.create_contributors project_id,
+                                        email: 'demo@test.com',
+                                        fullname: 'chained',
+                                        languages: [{lang_iso: 'en'}]
+      end.collection.first
+
+      expect(contributor.client).to eq(test_client)
+      expect(contributor.fullname).to eq('chained')
+
+      id = contributor.user_id
+      path = contributor.path
+
+      updated_contributor = VCR.use_cassette('update_contributor_chained') do
+        contributor.update fullname: 'updated!'
+      end
+
+      expect(updated_contributor.client).to eq(test_client)
+      expect(updated_contributor.fullname).to eq('updated!')
+      expect(updated_contributor.user_id).to eq(id)
+      expect(updated_contributor.path).to eq(path)
+
+      delete_response = VCR.use_cassette('delete_contributor_chained') do
+        updated_contributor.destroy
+      end
+
+      expect(delete_response['project_id']).to eq(project_id)
+      expect(delete_response['contributor_deleted']).to eq(true)
+    end
   end
 end

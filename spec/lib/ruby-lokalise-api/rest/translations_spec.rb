@@ -1,6 +1,7 @@
 RSpec.describe Lokalise::Client do
   let(:project_id) { '803826145ba90b42d5d860.46800099' }
   let(:translation_id) { 80_015_147 }
+  let(:another_translation_id) { 82_070_312 }
 
   describe '#translations' do
     it 'should return all translations' do
@@ -78,5 +79,21 @@ RSpec.describe Lokalise::Client do
     expect(translation.translation_id).to eq(translation_id)
     expect(translation.translation).to eq('rspec trans')
     expect(translation.is_reviewed).to eq(true)
+  end
+
+  context 'translation chained methods' do
+    it 'should support update' do
+      translation = VCR.use_cassette('another_translation') do
+        test_client.translation project_id, another_translation_id
+      end
+
+      updated_translation = VCR.use_cassette('update_translation_chained') do
+        translation.update translation: 'chained updated'
+      end
+
+      expect(updated_translation.client).to eq(test_client)
+      expect(updated_translation.translation).to eq('chained updated')
+      expect(updated_translation.translation_id).to eq(translation.translation_id)
+    end
   end
 end

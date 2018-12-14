@@ -81,11 +81,40 @@ RSpec.describe Lokalise::Client do
     expect(language.plural_forms).to eq(%w[one])
   end
 
-  specify '#delete_language' do
+  specify '#destroy_language' do
     response = VCR.use_cassette('delete_language') do
-      test_client.delete_language project_id, new_language_id
+      test_client.destroy_language project_id, new_language_id
     end
     expect(response['project_id']).to eq(project_id)
     expect(response['language_deleted']).to eq(true)
+  end
+
+  context 'project language chained methods' do
+    it 'should support update and destroy' do
+      language = VCR.use_cassette('create_another_language') do
+        test_client.create_languages project_id, lang_iso: 'ab', custom_name: 'chained lang'
+      end.collection.first
+
+      expect(language.client).to eq(test_client)
+      expect(language.lang_name).to eq('chained lang')
+
+      path = language.path
+
+      updated_language = VCR.use_cassette('update_language_chained') do
+        language.update lang_name: 'updated!'
+      end
+
+      expect(updated_language.client).to eq(test_client)
+      expect(updated_language.lang_name).to eq('updated!')
+      expect(updated_language.lang_id).to eq(language.lang_id)
+      expect(updated_language.path).to eq(path)
+
+      delete_response = VCR.use_cassette('delete_language_chained') do
+        updated_language.destroy
+      end
+
+      expect(delete_response['project_id']).to eq(project_id)
+      expect(delete_response['language_deleted']).to eq(true)
+    end
   end
 end

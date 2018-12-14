@@ -79,11 +79,47 @@ RSpec.describe Lokalise::Client do
     expect(task.auto_close_task).to eq(true)
   end
 
-  specify '#delete_task' do
+  specify '#destroy_task' do
     response = VCR.use_cassette('delete_task') do
-      test_client.delete_task project_id, task_id
+      test_client.destroy_task project_id, task_id
     end
     expect(response['project_id']).to eq(project_id)
     expect(response['task_deleted']).to eq(true)
+  end
+
+  context 'task chained methods' do
+    it 'should support update and destroy' do
+      task = VCR.use_cassette('create_another_task') do
+        test_client.create_task project_id, title: 'chained',
+                                            keys: [key_id],
+                                            languages: [
+                                              {
+                                                language_iso: 'ru',
+                                                users: ['20181']
+                                              }
+                                            ]
+      end
+
+      expect(task.client).to eq(test_client)
+      expect(task.title).to eq('chained')
+
+      path = task.path
+
+      updated_task = VCR.use_cassette('update_task_chained') do
+        task.update title: 'updated!'
+      end
+
+      expect(updated_task.client).to eq(test_client)
+      expect(updated_task.title).to eq('updated!')
+      expect(updated_task.task_id).to eq(task.task_id)
+      expect(updated_task.path).to eq(path)
+
+      delete_response = VCR.use_cassette('delete_task_chained') do
+        updated_task.destroy
+      end
+
+      expect(delete_response['project_id']).to eq(project_id)
+      expect(delete_response['task_deleted']).to eq(true)
+    end
   end
 end

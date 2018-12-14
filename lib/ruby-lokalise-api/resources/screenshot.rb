@@ -1,6 +1,8 @@
 module Lokalise
   module Resources
     class Screenshot < Base
+      supports :update, :destroy
+
       class << self
         def endpoint(project_id, screenshot_id = nil)
           path_from projects: project_id,

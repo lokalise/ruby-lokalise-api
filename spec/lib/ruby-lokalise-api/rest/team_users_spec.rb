@@ -1,6 +1,7 @@
 RSpec.describe Lokalise::Client do
   let(:team_id) { 176_692 }
   let(:team_user_id) { 25_953 }
+  let(:another_user_id) { 26_265 }
 
   describe '#team_users' do
     it 'should return all team_users' do
@@ -46,11 +47,33 @@ RSpec.describe Lokalise::Client do
     expect(team_user.role).to eq('admin')
   end
 
-  specify '#delete_team_user' do
+  specify '#destroy_team_user' do
     response = VCR.use_cassette('delete_team_user') do
-      test_client.delete_team_user team_id, team_user_id
+      test_client.destroy_team_user team_id, team_user_id
     end
     expect(response['team_id']).to eq(team_id)
     expect(response['team_user_deleted']).to eq(true)
+  end
+
+  context 'team user chained methods' do
+    it 'should support update and destroy' do
+      team_user = VCR.use_cassette('another_team_user') do
+        test_client.team_user team_id, another_user_id
+      end
+
+      updated_team_user = VCR.use_cassette('update_team_user_chained') do
+        team_user.update role: 'admin'
+      end
+
+      expect(updated_team_user.client).to eq(test_client)
+      expect(updated_team_user.role).to eq('admin')
+
+      delete_response = VCR.use_cassette('delete_team_user_chained') do
+        updated_team_user.destroy
+      end
+
+      expect(delete_response['team_id']).to eq(team_id)
+      expect(delete_response['team_user_deleted']).to eq(true)
+    end
   end
 end

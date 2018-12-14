@@ -108,21 +108,72 @@ RSpec.describe Lokalise::Client do
     expect(second_key.description).to eq('bulk updated')
   end
 
-  specify '#delete_key' do
+  specify '#destroy_key' do
     response = VCR.use_cassette('delete_key') do
-      test_client.delete_key project_id, '15519771'
+      test_client.destroy_key project_id, '15519771'
     end
 
     expect(response['project_id']).to eq(project_id)
     expect(response['key_removed']).to eq(true)
   end
 
-  specify '#delete_keys' do
+  specify '#destroy_keys' do
     response = VCR.use_cassette('delete_keys') do
-      test_client.delete_keys project_id, [new_key_id, key_id]
+      test_client.destroy_keys project_id, [new_key_id, key_id]
     end
 
     expect(response['project_id']).to eq(project_id)
     expect(response['keys_removed']).to eq(true)
+  end
+
+  context 'key chained methods' do
+    it 'should support update and destroy' do
+      key = VCR.use_cassette('create_another_key') do
+        test_client.create_keys project_id, key_name: 'chained_k', platforms: %w[ios]
+      end.collection.first
+
+      expect(key.key_name['ios']).to eq('chained_k')
+
+      path = key.path
+
+      updated_key = VCR.use_cassette('update_key_chained') do
+        key.update key_name: 'updated!'
+      end
+
+      expect(updated_key.client).to eq(test_client)
+      expect(updated_key.key_name['ios']).to eq('updated!')
+      expect(updated_key.path).to eq(path)
+
+      delete_response = VCR.use_cassette('delete_key_chained') do
+        updated_key.destroy
+      end
+
+      expect(delete_response['project_id']).to eq(project_id)
+      expect(delete_response['key_removed']).to eq(true)
+    end
+  end
+
+  context 'keys collection chained methods' do
+    it 'should support destroy_all' do
+      keys = VCR.use_cassette('create_keys_collection') do
+        test_client.create_keys project_id, [
+          {
+            key_name: 'key_collect1', platforms: %w[ios]
+          },
+          {
+            key_name: 'key_collect2', platforms: %w[ios]
+          }
+        ]
+      end
+
+      expect(keys.collection.length).to eq(2)
+
+      delete_response = VCR.use_cassette('delete_all_keys_chained') do
+        keys.destroy_all
+      end
+
+      expect(delete_response['project_id']).to eq(project_id)
+      expect(delete_response['keys_removed']).to eq(true)
+    end
   end
 end

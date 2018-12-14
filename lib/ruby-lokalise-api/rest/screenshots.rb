@@ -47,7 +47,7 @@ module Lokalise
     # @return [Hash]
     # @param project_id [String]
     # @param screenshot_id [String, Integer]
-    def delete_screenshot(project_id, screenshot_id)
+    def destroy_screenshot(project_id, screenshot_id)
       c_r Lokalise::Resources::Screenshot, :destroy, [project_id, screenshot_id]
     end
   end

@@ -18,4 +18,8 @@ class String
   def base_class_name
     split('::').last
   end
+
+  def remove_trailing_slash
+    gsub %r{/\z}, ''
+  end
 end

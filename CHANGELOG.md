@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0 (unreleased)
+
+* Major re-write of internal stuff
+* Introduce method chaining
+* Rename all `#delete` interface methods to `#destroy`
+
 ## 1.1.0 (11-Dec-18)
 
 * Added methods to work with pagination (`next_page?`, `last_page?`, `prev_page?`, `first_page?`, `next_page`, `prev_page`)

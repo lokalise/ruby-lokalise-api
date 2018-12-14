@@ -37,7 +37,7 @@ module Lokalise
     # @return [Lokalise::Resources::TeamUser]
     # @param team_id [String]
     # @param user_id [String, Integer]
-    def delete_team_user(team_id, user_id)
+    def destroy_team_user(team_id, user_id)
       c_r Lokalise::Resources::TeamUser, :destroy, [team_id, user_id]
     end
   end

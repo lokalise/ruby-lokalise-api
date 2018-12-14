@@ -51,7 +51,7 @@ module Lokalise
     # @see https://lokalise.co/api2docs/ruby/#transition-delete-a-project-delete
     # @return [Hash]
     # @param project_id [String, Integer]
-    def delete_project(project_id)
+    def destroy_project(project_id)
       c_r Lokalise::Resources::Project, :destroy, project_id
     end
   end
