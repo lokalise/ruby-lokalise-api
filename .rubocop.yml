@@ -35,6 +35,7 @@ Style/CollectionMethods:
     inject:   'reduce'
     find:     'detect'
     find_all: 'select'
+    delete:   'gsub'
 
 Style/Documentation:
   Enabled: false

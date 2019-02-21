@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.1 (21-Feb-19)
+
+* Bump dependencies
+* Use more direct approach to sending `DELETE` requests with bodies. It seems like Faraday team [decided to abandon the idea of writing delete request one-liners](https://github.com/lostisland/faraday/issues/693#issuecomment-466086832), so we'll stick with another approach
+
 ## 2.0.0 (14-Dec-18)
 
 * Major re-write of internal stuff
