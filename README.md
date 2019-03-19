@@ -582,7 +582,7 @@ language.destroy
 
 ```ruby
 @client.orders(team_id, params = {})  # Input:
-#                                     ## team_id (integer, string, required)
+                                      ## team_id (integer, string, required)
                                       ## params (hash)
                                       ### :page and :limit
                                       # Output:

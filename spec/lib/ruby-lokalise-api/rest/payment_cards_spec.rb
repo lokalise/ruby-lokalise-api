@@ -61,4 +61,16 @@ RSpec.describe Lokalise::Client do
     expect(result['card_deleted']).to eq(true)
     expect(result['card_id']).to eq(card_id)
   end
+
+  it 'should support chained destroy' do
+    card = VCR.use_cassette('payment_card') do
+      test_client.payment_card card_id
+    end
+    result = VCR.use_cassette('destroy_payment_card') do
+      card.destroy
+    end
+
+    expect(result['card_deleted']).to eq(true)
+    expect(result['card_id']).to eq(card_id)
+  end
 end
