@@ -48,6 +48,31 @@
     "is_rtl",
     "plural_forms"
   ],
+  "order": [
+    "order_id",
+    "project_id",
+    "card_id",
+    "status",
+    "created_at",
+    "created_by",
+    "created_by_email",
+    "source_language_iso",
+    "target_language_isos",
+    "keys",
+    "source_words",
+    "provider_slug",
+    "translation_style",
+    "translation_tier",
+    "translation_tier_name",
+    "briefing",
+    "total"
+  ],
+  "payment_card": [
+    "card_id",
+    "last4",
+    "brand",
+    "created_at"
+  ],
   "project": [
     "project_id",
     "name",
@@ -123,5 +148,15 @@
     "is_fuzzy",
     "is_reviewed",
     "words"
+  ],
+  "translation_provider": [
+    "provider_id",
+    "name",
+    "slug",
+    "price_pair_min",
+    "website_url",
+    "description",
+    "tiers",
+    "pairs"
   ]
 }

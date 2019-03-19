@@ -18,6 +18,8 @@ Official opinionated Ruby interface for the [Lokalise API](https://lokalise.co/a
   + [Files](#files)
   + [Keys](#keys)
   + [Languages](#languages)
+  + [Orders](#orders)
+  + [Payment cards](#payment-cards)
   + [Projects](#projects)
   + [Screenshots](#screenshots)
   + [Snapshots](#snapshots)
@@ -25,6 +27,7 @@ Official opinionated Ruby interface for the [Lokalise API](https://lokalise.co/a
   + [Teams](#teams)
   + [Team users](#team-users)
   + [Translations](#translations)
+  + [Translation Providers](#translation-providers)
 * [Additional Info](#additional-info)
   + [Error handling](#error-handling)
   + [API Rate Limits](#api-rate-limits)
@@ -569,6 +572,119 @@ language = @client.language('project_id', 'lang_id')
 language.destroy
 ```
 
+### Orders
+
+[Order attributes](https://lokalise.co/api2docs/curl/#object-orders)
+
+#### Fetch order collection
+
+[Doc](https://lokalise.co/api2docs/curl/#transition-list-all-orders-get)
+
+```ruby
+@client.orders(team_id, params = {})  # Input:
+#                                     ## team_id (integer, string, required)
+                                      ## params (hash)
+                                      ### :page and :limit
+                                      # Output:
+                                      ## Collection of orders for the given team
+```
+
+#### Fetch a single order
+
+[Doc](https://lokalise.co/api2docs/curl/#transition-retrieve-an-order-get)
+
+```ruby
+@client.order(team_id, order_id)  # Input:
+                                  ## team_id (string, integer, required)
+                                  ## order_id (string, required)
+                                  # Output:
+                                  ## A single order
+```
+
+#### Create an order
+
+[Doc](https://lokalise.co/api2docs/curl/#transition-create-an-order-post)
+
+```ruby
+@client.create_order(team_id, params)  # Input:
+                                       ## team_id (string, integer, required)
+                                       ## params (hash, required)
+                                       ### project_id (string, required)
+                                       ### card_id (integer, string, required) - card to process payment
+                                       ### briefing (string, required)
+                                       ### source_language_iso (string, required) 
+                                       ### target_language_isos (array of strings, required)
+                                       ### keys (array of integers, required) - keys to include in the order
+                                       ### provider_slug (string, required)
+                                       ### translation_tier (integer, required) 
+                                       ### dry_run (boolean) - return the response without actually placing an order. Useful for price estimation. Default is `false`
+                                       ### translation_style (string) - only for gengo provider. Available values are `formal`, `informal`, `business`, `friendly`. Defaults to `friendly`. 
+                                       # Output:
+                                       ## A newly created order
+
+```
+
+### Payment cards
+
+[Payment card attributes](https://lokalise.co/api2docs/ruby/#object-payment-cards)
+
+#### Fetch payment card collection
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-list-all-cards-get)
+
+```ruby
+@client.payment_cards(params = {})    # Input:
+                                      ## params (hash)
+                                      ### :page and :limit
+                                      # Output:
+                                      ## Collection of payment cards under the `payment_cards` attribute 
+```
+
+#### Fetch a single payment card
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-retrieve-a-card-get)
+
+```ruby
+@client.payment_card(card_id)     # Input:
+                                  ## card_id (string, required)
+                                  # Output:
+                                  ## A single payment card
+```
+
+#### Create a payment card
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-create-a-card-post)
+
+```ruby
+@client.create_payment_card(params)   # Input:
+                                      ## params (hash, required)
+                                      ### number (integer, string, required) - card number
+                                      ### cvc (integer, required) - 3-digit card CVV (CVC)
+                                      ### exp_month (integer, required) - card expiration month (1 - 12)
+                                      ### exp_year (integer, required) - card expiration year (for example, 2019)
+                                      # Output:
+                                      ## A newly created payment card 
+
+```
+
+#### Delete a payment card
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-delete-a-card-delete)
+
+```ruby
+@client.destroy_payment_card(card_id)   # Input:
+                                        ## card_id (integer, string, required)
+                                        # Output:
+                                        ## Hash containing card id and `card_deleted => true` attribute
+```
+
+Alternatively:
+
+```ruby
+card = @client.payment_card('card_id')
+card.destroy
+```
+
 ### Projects
 
 [Project attributes](https://lokalise.co/api2docs/php/#object-projects)
@@ -1057,6 +1173,35 @@ Alternatively:
 ```ruby
 translation = @client.translation('project_id', 'translation_id')
 translation.update(params)
+```
+
+### Translation Providers
+
+[Translation provider attributes](https://lokalise.co/api2docs/ruby/#object-translation-providers)
+
+#### Fetch translations
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-list-all-providers-get)
+
+```ruby
+@client.translation_providers(team_id, params = {})   # Input:
+                                                      ## team_id (string, required)
+                                                      ## params (hash)
+                                                      ### :page and :limit
+                                                      # Output:
+                                                      ## Collection of providers for the team
+```
+
+#### Fetch a single translation
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-retrieve-a-provider-get)
+
+```ruby
+@client.translation_provider(team_id, provider_id)  # Input:
+                                                    ## team_id (string, required)
+                                                    ## provider_id (string, required) 
+                                                    # Output:
+                                                    ## Single provider for the team
 ```
 
 ## Additional Info

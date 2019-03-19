@@ -1,3 +1,4 @@
+require 'pry'
 module Lokalise
   module Resources
     class Base
@@ -102,8 +103,8 @@ module Lokalise
         # Some resources do not have ids at all
         return nil unless response['content'].key?(id_key) || response['content'].key?(data_key)
 
-        # Content may be `{"project_id": '123', ...}` or {"snapshot": {"snapshot_id": '123', ...}}
-        id = response['content'][id_key] || response['content'][data_key][id_key]
+        # ID of the resource
+        id = id_from response, id_key, data_key
 
         path = response['path'] || response['base_path']
         # If path already has id - just return it
@@ -111,6 +112,16 @@ module Lokalise
 
         # Otherwise this seems like a collection path, so append the resource id to it
         path.remove_trailing_slash + "/#{id}"
+      end
+
+      def id_from(response, id_key, data_key)
+        # Content may be `{"project_id": '123', ...}` or {"snapshot": {"snapshot_id": '123', ...}}
+        # Sometimes there is an `id_key` but it has a value of `null`
+        # (for example when we do not place the actual order but only check its price).
+        # Therefore we must explicitly check if the key is present
+        return response['content'][id_key] if response['content'].key?(id_key)
+
+        response['content'][data_key][id_key]
       end
 
       # Store all resources attributes under the corresponding instance variables.

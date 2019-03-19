@@ -1,0 +1,60 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.lokalise.co/api2/payment_cards/?limit=1&page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - ruby-lokalise-api gem/2.0.1
+      X-api-token:
+      - "<LOKALISE_TOKEN>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx
+      date:
+      - Tue, 19 Mar 2019 17:50:16 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - close
+      vary:
+      - Accept-Encoding
+      set-cookie:
+      - PHPSESSID=58b3d7224bd884f313dee63e78e3c31c; expires=Sat, 18-May-2019 17:50:16
+        GMT; Max-Age=5184000; path=/; secure; HttpOnly
+      expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      cache-control:
+      - no-store, no-cache, must-revalidate, no-store, no-cache
+      pragma:
+      - no-cache, no-cache
+      x-pagination-total-count:
+      - '1'
+      x-pagination-page-count:
+      - '1'
+      x-pagination-limit:
+      - '1'
+      x-pagination-page:
+      - '1'
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-headers:
+      - Content-Type
+    body:
+      encoding: ASCII-8BIT
+      string: '{"user_id":20181,"payment_cards":[{"card_id":1774,"last4":"0358","brand":"Visa","created_at":"2019-03-19
+        17:49:07 (Etc\/UTC)"}]}'
+    http_version: 
+  recorded_at: Tue, 19 Mar 2019 17:50:14 GMT
+recorded_with: VCR 4.0.0

@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.0 (19-Mar-19)
+
+* Add support for `Order`, `TranslationProvider`, and `PaymentCard` endpoints
+
 ## 2.0.1 (21-Feb-19)
 
 * Bump dependencies

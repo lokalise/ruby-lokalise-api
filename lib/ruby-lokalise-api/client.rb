@@ -10,6 +10,9 @@ require 'ruby-lokalise-api/rest/team_users'
 require 'ruby-lokalise-api/rest/tasks'
 require 'ruby-lokalise-api/rest/snapshots'
 require 'ruby-lokalise-api/rest/screenshots'
+require 'ruby-lokalise-api/rest/orders'
+require 'ruby-lokalise-api/rest/payment_cards'
+require 'ruby-lokalise-api/rest/translation_providers'
 
 module Lokalise
   class Client

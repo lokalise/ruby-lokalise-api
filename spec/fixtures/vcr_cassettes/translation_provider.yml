@@ -1,0 +1,303 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.lokalise.co/api2/teams/176692/translation_providers/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - ruby-lokalise-api gem/2.0.1
+      X-api-token:
+      - "<LOKALISE_TOKEN>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx
+      date:
+      - Tue, 19 Mar 2019 17:58:56 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - close
+      vary:
+      - Accept-Encoding
+      set-cookie:
+      - PHPSESSID=3fd1eb0d4612b30f268c373a8723aff8; expires=Sat, 18-May-2019 17:58:56
+        GMT; Max-Age=5184000; path=/; secure; HttpOnly
+      expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      cache-control:
+      - no-store, no-cache, must-revalidate, no-store, no-cache
+      pragma:
+      - no-cache, no-cache
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-headers:
+      - Content-Type
+    body:
+      encoding: ASCII-8BIT
+      string: '{"provider_id":1,"name":"Gengo","slug":"gengo","price_pair_min":"0.00","website_url":"https:\/\/gengo.com","description":"At
+        Gengo, our mission is to provide language services to everyone and connect
+        a global community. Our network of over 18,000 translators are tested and
+        qualified to meet stringent project standards. Translators are based around
+        the world and in every timezone, which enables us to support over 35 languages
+        and work towards the Gengo mission.","tiers":[{"tier_id":1,"title":"Native
+        speaker"},{"tier_id":2,"title":"Professional translator"}],"pairs":[{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"ru","from_lang_name":"Russian","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"ru","from_lang_name":"Russian","to_lang_iso":"en_US","to_lang_name":"English
+        (United States)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"ru_RU","from_lang_name":"Russian
+        (Russia)","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"ru_RU","from_lang_name":"Russian
+        (Russia)","to_lang_iso":"en_US","to_lang_name":"English (United States)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"ru","to_lang_name":"Russian"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"ru_RU","to_lang_name":"Russian
+        (Russia)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"zh_TW","to_lang_name":"Chinese
+        Traditional"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"zh_CN","to_lang_name":"Chinese
+        Simplified"},{"tier_id":1,"price_per_word":"0.03","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"en_GB","to_lang_name":"English
+        (United Kingdom)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"ja","to_lang_name":"Japanese"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"es_419","to_lang_name":"Spanish
+        (Latin America)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"es_ES","to_lang_name":"Spanish
+        (Spain)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"de","to_lang_name":"German"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"de_DE","to_lang_name":"German
+        (Germany)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"fr","to_lang_name":"French"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"fr_CA","to_lang_name":"French
+        (Canada)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"fr_FR","to_lang_name":"French
+        (France)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"pt_PT","to_lang_name":"Portuguese
+        (Portugal)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"pt_BR","to_lang_name":"Portuguese
+        (Brazil)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"ar","to_lang_name":"Arabic"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"ar_AE","to_lang_name":"Arabic
+        (United Arab Emirates)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"ko","to_lang_name":"Korean"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"it","to_lang_name":"Italian"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"it_IT","to_lang_name":"Italian
+        (Italy)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"nl","to_lang_name":"Dutch"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"nl_NL","to_lang_name":"Dutch
+        (Netherlands)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"tr","to_lang_name":"Turkish"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"pl","to_lang_name":"Polish"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"ms","to_lang_name":"Malay"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"th","to_lang_name":"Thai"},{"tier_id":1,"price_per_word":"0.09","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"sv","to_lang_name":"Swedish"},{"tier_id":1,"price_per_word":"0.09","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"sv_SE","to_lang_name":"Swedish
+        (Sweden)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"id","to_lang_name":"Indonesian"},{"tier_id":1,"price_per_word":"0.09","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"no","to_lang_name":"Norwegian"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"el","to_lang_name":"Greek"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"el_GR","to_lang_name":"Greek
+        (Greece)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"cs","to_lang_name":"Czech"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"he","to_lang_name":"Hebrew"},{"tier_id":1,"price_per_word":"0.09","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"da","to_lang_name":"Danish"},{"tier_id":1,"price_per_word":"0.09","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"fi","to_lang_name":"Finnish"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"uk","to_lang_name":"Ukrainian"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"ro","to_lang_name":"Romanian"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"ro_RO","to_lang_name":"Romanian
+        (Romania)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"hu","to_lang_name":"Hungarian"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"vi","to_lang_name":"Vietnamese"},{"tier_id":1,"price_per_word":"0.03","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"hi_IN","to_lang_name":"Hindi
+        (India)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"bg_BG","to_lang_name":"Bulgarian
+        (Bulgaria)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"bg","to_lang_name":"Bulgarian"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"sr","to_lang_name":"Serbian"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"sk","to_lang_name":"Slovak"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"es","to_lang_name":"Spanish"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"pt","to_lang_name":"Portuguese"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"tl","to_lang_name":"Tagalog"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"es_419","from_lang_name":"Spanish
+        (Latin America)","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":1,"price_per_word":"0.03","from_lang_iso":"es_419","from_lang_name":"Spanish
+        (Latin America)","to_lang_iso":"es_ES","to_lang_name":"Spanish (Spain)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"es_419","from_lang_name":"Spanish
+        (Latin America)","to_lang_iso":"en_US","to_lang_name":"English (United States)"},{"tier_id":1,"price_per_word":"0.03","from_lang_iso":"es_419","from_lang_name":"Spanish
+        (Latin America)","to_lang_iso":"es","to_lang_name":"Spanish"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"es_ES","from_lang_name":"Spanish
+        (Spain)","to_lang_iso":"en_GB","to_lang_name":"English (United Kingdom)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"es_ES","from_lang_name":"Spanish
+        (Spain)","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"es_ES","from_lang_name":"Spanish
+        (Spain)","to_lang_iso":"en_US","to_lang_name":"English (United States)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"de","from_lang_name":"German","to_lang_iso":"en_GB","to_lang_name":"English
+        (United Kingdom)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"de","from_lang_name":"German","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"de","from_lang_name":"German","to_lang_iso":"fr","to_lang_name":"French"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"de","from_lang_name":"German","to_lang_iso":"fr_FR","to_lang_name":"French
+        (France)"},{"tier_id":1,"price_per_word":"0.09","from_lang_iso":"de","from_lang_name":"German","to_lang_iso":"nl","to_lang_name":"Dutch"},{"tier_id":1,"price_per_word":"0.09","from_lang_iso":"de","from_lang_name":"German","to_lang_iso":"nl_NL","to_lang_name":"Dutch
+        (Netherlands)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"de","from_lang_name":"German","to_lang_iso":"en_US","to_lang_name":"English
+        (United States)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"de_DE","from_lang_name":"German
+        (Germany)","to_lang_iso":"en_GB","to_lang_name":"English (United Kingdom)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"de_DE","from_lang_name":"German
+        (Germany)","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"de_DE","from_lang_name":"German
+        (Germany)","to_lang_iso":"fr","to_lang_name":"French"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"de_DE","from_lang_name":"German
+        (Germany)","to_lang_iso":"fr_FR","to_lang_name":"French (France)"},{"tier_id":1,"price_per_word":"0.09","from_lang_iso":"de_DE","from_lang_name":"German
+        (Germany)","to_lang_iso":"nl","to_lang_name":"Dutch"},{"tier_id":1,"price_per_word":"0.09","from_lang_iso":"de_DE","from_lang_name":"German
+        (Germany)","to_lang_iso":"nl_NL","to_lang_name":"Dutch (Netherlands)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"de_DE","from_lang_name":"German
+        (Germany)","to_lang_iso":"en_US","to_lang_name":"English (United States)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"fr","from_lang_name":"French","to_lang_iso":"en_GB","to_lang_name":"English
+        (United Kingdom)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"fr","from_lang_name":"French","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"fr","from_lang_name":"French","to_lang_iso":"de","to_lang_name":"German"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"fr","from_lang_name":"French","to_lang_iso":"de_DE","to_lang_name":"German
+        (Germany)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"fr","from_lang_name":"French","to_lang_iso":"en_US","to_lang_name":"English
+        (United States)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"fr_CA","from_lang_name":"French
+        (Canada)","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"fr_CA","from_lang_name":"French
+        (Canada)","to_lang_iso":"en_US","to_lang_name":"English (United States)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"fr_FR","from_lang_name":"French
+        (France)","to_lang_iso":"en_GB","to_lang_name":"English (United Kingdom)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"fr_FR","from_lang_name":"French
+        (France)","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"fr_FR","from_lang_name":"French
+        (France)","to_lang_iso":"de","to_lang_name":"German"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"fr_FR","from_lang_name":"French
+        (France)","to_lang_iso":"de_DE","to_lang_name":"German (Germany)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"fr_FR","from_lang_name":"French
+        (France)","to_lang_iso":"en_US","to_lang_name":"English (United States)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"pt_PT","from_lang_name":"Portuguese
+        (Portugal)","to_lang_iso":"en_GB","to_lang_name":"English (United Kingdom)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"pt_PT","from_lang_name":"Portuguese
+        (Portugal)","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"pt_PT","from_lang_name":"Portuguese
+        (Portugal)","to_lang_iso":"en_US","to_lang_name":"English (United States)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"pt_BR","from_lang_name":"Portuguese
+        (Brazil)","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"pt_BR","from_lang_name":"Portuguese
+        (Brazil)","to_lang_iso":"en_US","to_lang_name":"English (United States)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"it","from_lang_name":"Italian","to_lang_iso":"en_GB","to_lang_name":"English
+        (United Kingdom)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"it","from_lang_name":"Italian","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"it","from_lang_name":"Italian","to_lang_iso":"en_US","to_lang_name":"English
+        (United States)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"it_IT","from_lang_name":"Italian
+        (Italy)","to_lang_iso":"en_GB","to_lang_name":"English (United Kingdom)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"it_IT","from_lang_name":"Italian
+        (Italy)","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"it_IT","from_lang_name":"Italian
+        (Italy)","to_lang_iso":"en_US","to_lang_name":"English (United States)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"nl","from_lang_name":"Dutch","to_lang_iso":"en_GB","to_lang_name":"English
+        (United Kingdom)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"nl","from_lang_name":"Dutch","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"nl","from_lang_name":"Dutch","to_lang_iso":"en_US","to_lang_name":"English
+        (United States)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"nl_NL","from_lang_name":"Dutch
+        (Netherlands)","to_lang_iso":"en_GB","to_lang_name":"English (United Kingdom)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"nl_NL","from_lang_name":"Dutch
+        (Netherlands)","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"nl_NL","from_lang_name":"Dutch
+        (Netherlands)","to_lang_iso":"en_US","to_lang_name":"English (United States)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"pl","from_lang_name":"Polish","to_lang_iso":"en_GB","to_lang_name":"English
+        (United Kingdom)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"pl","from_lang_name":"Polish","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"pl","from_lang_name":"Polish","to_lang_iso":"en_US","to_lang_name":"English
+        (United States)"},{"tier_id":1,"price_per_word":"0.09","from_lang_iso":"sv","from_lang_name":"Swedish","to_lang_iso":"en_GB","to_lang_name":"English
+        (United Kingdom)"},{"tier_id":1,"price_per_word":"0.09","from_lang_iso":"sv_SE","from_lang_name":"Swedish
+        (Sweden)","to_lang_iso":"en_GB","to_lang_name":"English (United Kingdom)"},{"tier_id":1,"price_per_word":"0.09","from_lang_iso":"no","from_lang_name":"Norwegian","to_lang_iso":"en_GB","to_lang_name":"English
+        (United Kingdom)"},{"tier_id":1,"price_per_word":"0.09","from_lang_iso":"da","from_lang_name":"Danish","to_lang_iso":"en_GB","to_lang_name":"English
+        (United Kingdom)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"ru","to_lang_name":"Russian"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"ru_RU","to_lang_name":"Russian (Russia)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"zh_TW","to_lang_name":"Chinese Traditional"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"zh_CN","to_lang_name":"Chinese Simplified"},{"tier_id":1,"price_per_word":"0.03","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"en_GB","to_lang_name":"English (United Kingdom)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"ja","to_lang_name":"Japanese"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"es_419","to_lang_name":"Spanish (Latin America)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"es_ES","to_lang_name":"Spanish (Spain)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"de","to_lang_name":"German"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"de_DE","to_lang_name":"German (Germany)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"fr","to_lang_name":"French"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"fr_CA","to_lang_name":"French (Canada)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"fr_FR","to_lang_name":"French (France)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"pt_PT","to_lang_name":"Portuguese (Portugal)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"pt_BR","to_lang_name":"Portuguese (Brazil)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"ar","to_lang_name":"Arabic"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"ar_AE","to_lang_name":"Arabic (United Arab
+        Emirates)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"ko","to_lang_name":"Korean"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"it","to_lang_name":"Italian"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"it_IT","to_lang_name":"Italian (Italy)"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"nl","to_lang_name":"Dutch"},{"tier_id":1,"price_per_word":"0.07","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"nl_NL","to_lang_name":"Dutch (Netherlands)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"tr","to_lang_name":"Turkish"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"pl","to_lang_name":"Polish"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"ms","to_lang_name":"Malay"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"th","to_lang_name":"Thai"},{"tier_id":1,"price_per_word":"0.09","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"sv","to_lang_name":"Swedish"},{"tier_id":1,"price_per_word":"0.09","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"sv_SE","to_lang_name":"Swedish (Sweden)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"id","to_lang_name":"Indonesian"},{"tier_id":1,"price_per_word":"0.09","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"no","to_lang_name":"Norwegian"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"el","to_lang_name":"Greek"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"el_GR","to_lang_name":"Greek (Greece)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"cs","to_lang_name":"Czech"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"he","to_lang_name":"Hebrew"},{"tier_id":1,"price_per_word":"0.09","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"da","to_lang_name":"Danish"},{"tier_id":1,"price_per_word":"0.09","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"fi","to_lang_name":"Finnish"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"uk","to_lang_name":"Ukrainian"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"ro","to_lang_name":"Romanian"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"ro_RO","to_lang_name":"Romanian (Romania)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"hu","to_lang_name":"Hungarian"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"vi","to_lang_name":"Vietnamese"},{"tier_id":1,"price_per_word":"0.03","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"hi_IN","to_lang_name":"Hindi (India)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"bg_BG","to_lang_name":"Bulgarian (Bulgaria)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"bg","to_lang_name":"Bulgarian"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"sr","to_lang_name":"Serbian"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"sk","to_lang_name":"Slovak"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"es","to_lang_name":"Spanish"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"pt","to_lang_name":"Portuguese"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"tl","to_lang_name":"Tagalog"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"es","from_lang_name":"Spanish","to_lang_iso":"en_GB","to_lang_name":"English
+        (United Kingdom)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"es","from_lang_name":"Spanish","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"es","from_lang_name":"Spanish","to_lang_iso":"en_US","to_lang_name":"English
+        (United States)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"pt","from_lang_name":"Portuguese","to_lang_iso":"en_GB","to_lang_name":"English
+        (United Kingdom)"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"pt","from_lang_name":"Portuguese","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":1,"price_per_word":"0.05","from_lang_iso":"pt","from_lang_name":"Portuguese","to_lang_iso":"en_US","to_lang_name":"English
+        (United States)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"ru","from_lang_name":"Russian","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"ru","from_lang_name":"Russian","to_lang_iso":"en_US","to_lang_name":"English
+        (United States)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"ru_RU","from_lang_name":"Russian
+        (Russia)","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"ru_RU","from_lang_name":"Russian
+        (Russia)","to_lang_iso":"en_US","to_lang_name":"English (United States)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"ru","to_lang_name":"Russian"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"ru_RU","to_lang_name":"Russian
+        (Russia)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"zh_TW","to_lang_name":"Chinese
+        Traditional"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"zh_CN","to_lang_name":"Chinese
+        Simplified"},{"tier_id":2,"price_per_word":"0.06","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"en_GB","to_lang_name":"English
+        (United Kingdom)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"ja","to_lang_name":"Japanese"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"es_419","to_lang_name":"Spanish
+        (Latin America)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"es_ES","to_lang_name":"Spanish
+        (Spain)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"de","to_lang_name":"German"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"de_DE","to_lang_name":"German
+        (Germany)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"fr","to_lang_name":"French"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"fr_CA","to_lang_name":"French
+        (Canada)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"fr_FR","to_lang_name":"French
+        (France)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"pt_PT","to_lang_name":"Portuguese
+        (Portugal)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"pt_BR","to_lang_name":"Portuguese
+        (Brazil)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"ar","to_lang_name":"Arabic"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"ar_AE","to_lang_name":"Arabic
+        (United Arab Emirates)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"ko","to_lang_name":"Korean"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"it","to_lang_name":"Italian"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"it_IT","to_lang_name":"Italian
+        (Italy)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"nl","to_lang_name":"Dutch"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"nl_NL","to_lang_name":"Dutch
+        (Netherlands)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"tr","to_lang_name":"Turkish"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"pl","to_lang_name":"Polish"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"ms","to_lang_name":"Malay"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"th","to_lang_name":"Thai"},{"tier_id":2,"price_per_word":"0.15","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"sv","to_lang_name":"Swedish"},{"tier_id":2,"price_per_word":"0.15","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"sv_SE","to_lang_name":"Swedish
+        (Sweden)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"id","to_lang_name":"Indonesian"},{"tier_id":2,"price_per_word":"0.15","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"no","to_lang_name":"Norwegian"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"el","to_lang_name":"Greek"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"el_GR","to_lang_name":"Greek
+        (Greece)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"cs","to_lang_name":"Czech"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"he","to_lang_name":"Hebrew"},{"tier_id":2,"price_per_word":"0.15","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"da","to_lang_name":"Danish"},{"tier_id":2,"price_per_word":"0.15","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"fi","to_lang_name":"Finnish"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"uk","to_lang_name":"Ukrainian"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"ro","to_lang_name":"Romanian"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"ro_RO","to_lang_name":"Romanian
+        (Romania)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"hu","to_lang_name":"Hungarian"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"vi","to_lang_name":"Vietnamese"},{"tier_id":2,"price_per_word":"0.05","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"hi_IN","to_lang_name":"Hindi
+        (India)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"bg_BG","to_lang_name":"Bulgarian
+        (Bulgaria)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"bg","to_lang_name":"Bulgarian"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"sr","to_lang_name":"Serbian"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"sk","to_lang_name":"Slovak"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"es","to_lang_name":"Spanish"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"pt","to_lang_name":"Portuguese"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en","from_lang_name":"English","to_lang_iso":"tl","to_lang_name":"Tagalog"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"es_419","from_lang_name":"Spanish
+        (Latin America)","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"es_419","from_lang_name":"Spanish
+        (Latin America)","to_lang_iso":"en_US","to_lang_name":"English (United States)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"es_ES","from_lang_name":"Spanish
+        (Spain)","to_lang_iso":"en_GB","to_lang_name":"English (United Kingdom)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"es_ES","from_lang_name":"Spanish
+        (Spain)","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"es_ES","from_lang_name":"Spanish
+        (Spain)","to_lang_iso":"en_US","to_lang_name":"English (United States)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"de","from_lang_name":"German","to_lang_iso":"en_GB","to_lang_name":"English
+        (United Kingdom)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"de","from_lang_name":"German","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"de","from_lang_name":"German","to_lang_iso":"fr","to_lang_name":"French"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"de","from_lang_name":"German","to_lang_iso":"fr_FR","to_lang_name":"French
+        (France)"},{"tier_id":2,"price_per_word":"0.15","from_lang_iso":"de","from_lang_name":"German","to_lang_iso":"nl","to_lang_name":"Dutch"},{"tier_id":2,"price_per_word":"0.15","from_lang_iso":"de","from_lang_name":"German","to_lang_iso":"nl_NL","to_lang_name":"Dutch
+        (Netherlands)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"de","from_lang_name":"German","to_lang_iso":"en_US","to_lang_name":"English
+        (United States)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"de_DE","from_lang_name":"German
+        (Germany)","to_lang_iso":"en_GB","to_lang_name":"English (United Kingdom)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"de_DE","from_lang_name":"German
+        (Germany)","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"de_DE","from_lang_name":"German
+        (Germany)","to_lang_iso":"fr","to_lang_name":"French"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"de_DE","from_lang_name":"German
+        (Germany)","to_lang_iso":"fr_FR","to_lang_name":"French (France)"},{"tier_id":2,"price_per_word":"0.15","from_lang_iso":"de_DE","from_lang_name":"German
+        (Germany)","to_lang_iso":"nl","to_lang_name":"Dutch"},{"tier_id":2,"price_per_word":"0.15","from_lang_iso":"de_DE","from_lang_name":"German
+        (Germany)","to_lang_iso":"nl_NL","to_lang_name":"Dutch (Netherlands)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"de_DE","from_lang_name":"German
+        (Germany)","to_lang_iso":"en_US","to_lang_name":"English (United States)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"fr","from_lang_name":"French","to_lang_iso":"en_GB","to_lang_name":"English
+        (United Kingdom)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"fr","from_lang_name":"French","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"fr","from_lang_name":"French","to_lang_iso":"de","to_lang_name":"German"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"fr","from_lang_name":"French","to_lang_iso":"de_DE","to_lang_name":"German
+        (Germany)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"fr","from_lang_name":"French","to_lang_iso":"en_US","to_lang_name":"English
+        (United States)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"fr_CA","from_lang_name":"French
+        (Canada)","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"fr_CA","from_lang_name":"French
+        (Canada)","to_lang_iso":"en_US","to_lang_name":"English (United States)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"fr_FR","from_lang_name":"French
+        (France)","to_lang_iso":"en_GB","to_lang_name":"English (United Kingdom)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"fr_FR","from_lang_name":"French
+        (France)","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"fr_FR","from_lang_name":"French
+        (France)","to_lang_iso":"de","to_lang_name":"German"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"fr_FR","from_lang_name":"French
+        (France)","to_lang_iso":"de_DE","to_lang_name":"German (Germany)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"fr_FR","from_lang_name":"French
+        (France)","to_lang_iso":"en_US","to_lang_name":"English (United States)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"pt_PT","from_lang_name":"Portuguese
+        (Portugal)","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"pt_PT","from_lang_name":"Portuguese
+        (Portugal)","to_lang_iso":"en_US","to_lang_name":"English (United States)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"pt_BR","from_lang_name":"Portuguese
+        (Brazil)","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"pt_BR","from_lang_name":"Portuguese
+        (Brazil)","to_lang_iso":"en_US","to_lang_name":"English (United States)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"it","from_lang_name":"Italian","to_lang_iso":"en_GB","to_lang_name":"English
+        (United Kingdom)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"it","from_lang_name":"Italian","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"it","from_lang_name":"Italian","to_lang_iso":"en_US","to_lang_name":"English
+        (United States)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"it_IT","from_lang_name":"Italian
+        (Italy)","to_lang_iso":"en_GB","to_lang_name":"English (United Kingdom)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"it_IT","from_lang_name":"Italian
+        (Italy)","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"it_IT","from_lang_name":"Italian
+        (Italy)","to_lang_iso":"en_US","to_lang_name":"English (United States)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"nl","from_lang_name":"Dutch","to_lang_iso":"en_GB","to_lang_name":"English
+        (United Kingdom)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"nl","from_lang_name":"Dutch","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"nl","from_lang_name":"Dutch","to_lang_iso":"en_US","to_lang_name":"English
+        (United States)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"nl_NL","from_lang_name":"Dutch
+        (Netherlands)","to_lang_iso":"en_GB","to_lang_name":"English (United Kingdom)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"nl_NL","from_lang_name":"Dutch
+        (Netherlands)","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"nl_NL","from_lang_name":"Dutch
+        (Netherlands)","to_lang_iso":"en_US","to_lang_name":"English (United States)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"pl","from_lang_name":"Polish","to_lang_iso":"en_GB","to_lang_name":"English
+        (United Kingdom)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"pl","from_lang_name":"Polish","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"pl","from_lang_name":"Polish","to_lang_iso":"en_US","to_lang_name":"English
+        (United States)"},{"tier_id":2,"price_per_word":"0.15","from_lang_iso":"sv","from_lang_name":"Swedish","to_lang_iso":"en_GB","to_lang_name":"English
+        (United Kingdom)"},{"tier_id":2,"price_per_word":"0.15","from_lang_iso":"sv_SE","from_lang_name":"Swedish
+        (Sweden)","to_lang_iso":"en_GB","to_lang_name":"English (United Kingdom)"},{"tier_id":2,"price_per_word":"0.15","from_lang_iso":"no","from_lang_name":"Norwegian","to_lang_iso":"en_GB","to_lang_name":"English
+        (United Kingdom)"},{"tier_id":2,"price_per_word":"0.15","from_lang_iso":"da","from_lang_name":"Danish","to_lang_iso":"en_GB","to_lang_name":"English
+        (United Kingdom)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"ru","to_lang_name":"Russian"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"ru_RU","to_lang_name":"Russian (Russia)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"zh_TW","to_lang_name":"Chinese Traditional"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"zh_CN","to_lang_name":"Chinese Simplified"},{"tier_id":2,"price_per_word":"0.06","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"en_GB","to_lang_name":"English (United Kingdom)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"ja","to_lang_name":"Japanese"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"es_419","to_lang_name":"Spanish (Latin America)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"es_ES","to_lang_name":"Spanish (Spain)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"de","to_lang_name":"German"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"de_DE","to_lang_name":"German (Germany)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"fr","to_lang_name":"French"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"fr_CA","to_lang_name":"French (Canada)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"fr_FR","to_lang_name":"French (France)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"pt_PT","to_lang_name":"Portuguese (Portugal)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"pt_BR","to_lang_name":"Portuguese (Brazil)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"ar","to_lang_name":"Arabic"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"ar_AE","to_lang_name":"Arabic (United Arab
+        Emirates)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"ko","to_lang_name":"Korean"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"it","to_lang_name":"Italian"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"it_IT","to_lang_name":"Italian (Italy)"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"nl","to_lang_name":"Dutch"},{"tier_id":2,"price_per_word":"0.13","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"nl_NL","to_lang_name":"Dutch (Netherlands)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"tr","to_lang_name":"Turkish"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"pl","to_lang_name":"Polish"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"ms","to_lang_name":"Malay"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"th","to_lang_name":"Thai"},{"tier_id":2,"price_per_word":"0.15","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"sv","to_lang_name":"Swedish"},{"tier_id":2,"price_per_word":"0.15","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"sv_SE","to_lang_name":"Swedish (Sweden)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"id","to_lang_name":"Indonesian"},{"tier_id":2,"price_per_word":"0.15","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"no","to_lang_name":"Norwegian"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"el","to_lang_name":"Greek"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"el_GR","to_lang_name":"Greek (Greece)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"cs","to_lang_name":"Czech"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"he","to_lang_name":"Hebrew"},{"tier_id":2,"price_per_word":"0.15","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"da","to_lang_name":"Danish"},{"tier_id":2,"price_per_word":"0.15","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"fi","to_lang_name":"Finnish"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"uk","to_lang_name":"Ukrainian"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"ro","to_lang_name":"Romanian"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"ro_RO","to_lang_name":"Romanian (Romania)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"hu","to_lang_name":"Hungarian"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"vi","to_lang_name":"Vietnamese"},{"tier_id":2,"price_per_word":"0.05","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"hi_IN","to_lang_name":"Hindi (India)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"bg_BG","to_lang_name":"Bulgarian (Bulgaria)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"bg","to_lang_name":"Bulgarian"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"sr","to_lang_name":"Serbian"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"sk","to_lang_name":"Slovak"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"es","to_lang_name":"Spanish"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"pt","to_lang_name":"Portuguese"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"en_US","from_lang_name":"English
+        (United States)","to_lang_iso":"tl","to_lang_name":"Tagalog"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"es","from_lang_name":"Spanish","to_lang_iso":"en_GB","to_lang_name":"English
+        (United Kingdom)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"es","from_lang_name":"Spanish","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"es","from_lang_name":"Spanish","to_lang_iso":"en_US","to_lang_name":"English
+        (United States)"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"pt","from_lang_name":"Portuguese","to_lang_iso":"en","to_lang_name":"English"},{"tier_id":2,"price_per_word":"0.11","from_lang_iso":"pt","from_lang_name":"Portuguese","to_lang_iso":"en_US","to_lang_name":"English
+        (United States)"}]}'
+    http_version: 
+  recorded_at: Tue, 19 Mar 2019 17:58:54 GMT
+recorded_with: VCR 4.0.0
