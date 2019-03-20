@@ -13,14 +13,14 @@ RSpec.describe Lokalise::Client do
 
     it 'should support pagination' do
       providers = VCR.use_cassette('all_translation_providers_pagination') do
-        test_client.translation_providers team_id, limit: 2, page: 1
+        test_client.translation_providers team_id, limit: 1, page: 2
       end
 
       expect(providers.collection.count).to eq(1)
-      expect(providers.total_results).to eq(3)
+      expect(providers.total_results).to eq(2)
       expect(providers.total_pages).to eq(2)
-      expect(providers.results_per_page).to eq(2)
-      expect(providers.current_page).to eq(1)
+      expect(providers.results_per_page).to eq(1)
+      expect(providers.current_page).to eq(2)
     end
   end
 
