@@ -27,7 +27,10 @@ module Lokalise
 
     def delete(path, client, params = {})
       respond_with(
+        # Rubocop tries to replace `delete` with `gsub` but that's a different method here!
+        # rubocop:disable Style/CollectionMethods
         connection(client.token).delete(prepare(path)) do |req|
+          # rubocop:enable Style/CollectionMethods
           req.body = MultiJson.dump(params)
         end,
         client
