@@ -28,14 +28,15 @@ RSpec.describe Lokalise::Client do
 
   specify '#team_user' do
     team_user = VCR.use_cassette('team_user') do
-      test_client.team_user team_id, team_user_id
+      test_client.team_user team_id, '20181'
     end
 
-    expect(team_user.user_id).to eq(team_user_id)
-    expect(team_user.email).to eq('rspec@test.com')
-    expect(team_user.fullname).to eq('Rspec test')
-    expect(team_user.created_at).to eq('2018-12-07 18:21:24 (Etc/UTC)')
-    expect(team_user.role).to eq('member')
+    expect(team_user.user_id).to eq(20_181)
+    expect(team_user.email).to eq('bodrovis@protonmail.com')
+    expect(team_user.fullname).to eq('Ilya B')
+    expect(team_user.created_at).to eq('2018-08-21 15:35:25 (Etc/UTC)')
+    expect(team_user.created_at_timestamp).to eq(1_534_865_725)
+    expect(team_user.role).to eq('owner')
   end
 
   specify '#update_team_user' do

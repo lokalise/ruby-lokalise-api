@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.lokalise.co/api2/projects/803826145ba90b42d5d860.46800099/languages/
+    uri: https://api.lokalise.co/api2/projects/803826145ba90b42d5d860.46800099/languages
     body:
       encoding: UTF-8
       string: '{"languages":[{"lang_iso":"ab","custom_name":"chained lang"}]}'

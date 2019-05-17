@@ -10,7 +10,7 @@ http_interactions:
       Accept:
       - application/json
       User-Agent:
-      - ruby-lokalise-api gem/1.0.0.pre1
+      - ruby-lokalise-api gem/2.1.0
       X-api-token:
       - "<LOKALISE_TOKEN>"
   response:
@@ -21,7 +21,7 @@ http_interactions:
       server:
       - nginx
       date:
-      - Mon, 10 Dec 2018 17:03:15 GMT
+      - Fri, 17 May 2019 17:11:08 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -31,24 +31,16 @@ http_interactions:
       vary:
       - Accept-Encoding
       set-cookie:
-      - PHPSESSID=25dc5ab4b24f316c7ff5aa32c098545e; path=/; HttpOnly, locale=en_US;
-        expires=Wed, 09-Jan-2019 17:03:15 GMT; Max-Age=2592000; path=/; secure
+      - PHPSESSID=306d5a67506ccdafe430e9ba65045b9f; expires=Tue, 16-Jul-2019 17:11:08
+        GMT; Max-Age=5184000; path=/; secure; HttpOnly
       expires:
       - Thu, 19 Nov 1981 08:52:00 GMT
       cache-control:
       - no-store, no-cache, must-revalidate, no-store, no-cache
       pragma:
       - no-cache, no-cache
-      x-content-type-options:
-      - nosniff
-      x-frame-options:
-      - deny
-      x-xss-protection:
-      - 1; mode=block
-      strict-transport-security:
-      - max-age=31536000
       x-pagination-total-count:
-      - '2'
+      - '1'
       x-pagination-page-count:
       - '1'
       x-pagination-limit:
@@ -61,9 +53,9 @@ http_interactions:
       - Content-Type
     body:
       encoding: ASCII-8BIT
-      string: '{"project_id":"803826145ba90b42d5d860.46800099","snapshots":[{"snapshot_id":27881,"title":"test","created_by":20181,"created_by_email":"bodrovis@protonmail.com","created_at":"2018-12-10
-        17:01:48 (Etc\/UTC)"},{"snapshot_id":27882,"title":"test rspec","created_by":20181,"created_by_email":"bodrovis@protonmail.com","created_at":"2018-12-10
-        17:02:04 (Etc\/UTC)"}]}'
+      string: '{"project_id":"803826145ba90b42d5d860.46800099","snapshots":[{"snapshot_id":27882,"title":"test
+        rspec","created_by":20181,"created_by_email":"bodrovis@protonmail.com","created_at":"2018-12-10
+        17:02:04 (Etc\/UTC)","created_at_timestamp":1544461324}]}'
     http_version: 
-  recorded_at: Mon, 10 Dec 2018 17:03:15 GMT
+  recorded_at: Fri, 17 May 2019 17:10:56 GMT
 recorded_with: VCR 4.0.0

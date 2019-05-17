@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.lokalise.co/api2/projects/
+    uri: https://api.lokalise.co/api2/projects
     body:
       encoding: UTF-8
       string: '{"name":"rspec proj","description":"demo project for rspec"}'

@@ -5,7 +5,8 @@
     "comment",
     "added_by",
     "added_by_email",
-    "added_at"
+    "added_at",
+    "added_at_timestamp"
   ],
   "contributor": [
     "user_id",
@@ -15,7 +16,8 @@
     "is_admin",
     "is_reviewer",
     "languages",
-    "admin_rights"
+    "admin_rights",
+    "created_at_timestamp"
   ],
   "file": [
     "filename",
@@ -39,7 +41,8 @@
     "context",
     "base_words",
     "char_limit",
-    "custom_attributes"
+    "custom_attributes",
+    "created_at_timestamp"
   ],
   "language": [
     "lang_id",
@@ -65,13 +68,15 @@
     "translation_tier",
     "translation_tier_name",
     "briefing",
-    "total"
+    "total",
+    "created_at_timestamp"
   ],
   "payment_card": [
     "card_id",
     "last4",
     "brand",
-    "created_at"
+    "created_at",
+    "created_at_timestamp"
   ],
   "project": [
     "project_id",
@@ -80,7 +85,12 @@
     "created_at",
     "created_by",
     "created_by_email",
-    "team_id"
+    "team_id",
+    "created_at_timestamp",
+    "base_language_id",
+    "base_language_iso",
+    "settings",
+    "statistics"
   ],
   "screenshot": [
     "screenshot_id",
@@ -90,14 +100,17 @@
     "description",
     "screenshot_tags",
     "width",
-    "height"
+    "height",
+    "created_at",
+    "created_at_timestamp"
   ],
   "snapshot": [
     "snapshot_id",
     "title",
     "created_at",
     "created_by",
-    "created_by_email"
+    "created_by_email",
+    "created_at_timestamp"
   ],
   "task": [
     "task_id",
@@ -106,19 +119,23 @@
     "status",
     "progress",
     "due_date",
+    "due_date_timestamp",
     "keys_count",
     "words_count",
     "created_at",
+    "created_at_timestamp",
     "created_by",
     "created_by_email",
     "can_be_parent",
     "task_type",
     "parent_task_id",
     "closing_tags",
+    "do_lock_translations",
     "languages",
     "auto_close_languages",
     "auto_close_task",
     "completed_at",
+    "completed_at_timestamp",
     "completed_by",
     "completed_by_email"
   ],
@@ -128,20 +145,23 @@
     "created_at",
     "plan",
     "quota_usage",
-    "quota_allowed"
+    "quota_allowed",
+    "created_at_timestamp"
   ],
   "team_user": [
     "user_id",
     "email",
     "fullname",
     "created_at",
-    "role"
+    "role",
+    "created_at_timestamp"
   ],
   "translation": [
     "translation_id",
     "key_id",
     "language_iso",
     "modified_at",
+    "modified_at_timestamp",
     "modified_by",
     "modified_by_email",
     "translation",

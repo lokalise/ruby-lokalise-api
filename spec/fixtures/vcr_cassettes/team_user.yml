@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.lokalise.co/api2/teams/176692/users/25953
+    uri: https://api.lokalise.co/api2/teams/176692/users/20181
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       Accept:
       - application/json
       User-Agent:
-      - ruby-lokalise-api gem/1.0.0.pre1
+      - ruby-lokalise-api gem/2.1.0
       X-api-token:
       - "<LOKALISE_TOKEN>"
   response:
@@ -21,7 +21,7 @@ http_interactions:
       server:
       - nginx
       date:
-      - Mon, 10 Dec 2018 17:54:13 GMT
+      - Fri, 17 May 2019 17:26:26 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -31,30 +31,22 @@ http_interactions:
       vary:
       - Accept-Encoding
       set-cookie:
-      - PHPSESSID=ebd2ed646262d3855363f585e490a475; path=/; HttpOnly, locale=en_US;
-        expires=Wed, 09-Jan-2019 17:54:13 GMT; Max-Age=2592000; path=/; secure
+      - PHPSESSID=b803e00de68f603908a1e6cea7af1e81; expires=Tue, 16-Jul-2019 17:26:26
+        GMT; Max-Age=5184000; path=/; secure; HttpOnly
       expires:
       - Thu, 19 Nov 1981 08:52:00 GMT
       cache-control:
       - no-store, no-cache, must-revalidate, no-store, no-cache
       pragma:
       - no-cache, no-cache
-      x-content-type-options:
-      - nosniff
-      x-frame-options:
-      - deny
-      x-xss-protection:
-      - 1; mode=block
-      strict-transport-security:
-      - max-age=31536000
       access-control-allow-origin:
       - "*"
       access-control-allow-headers:
       - Content-Type
     body:
       encoding: ASCII-8BIT
-      string: '{"team_id":176692,"team_user":{"user_id":25953,"email":"rspec@test.com","fullname":"Rspec
-        test","created_at":"2018-12-07 18:21:24 (Etc\/UTC)","role":"member"}}'
+      string: '{"team_id":176692,"team_user":{"user_id":20181,"email":"bodrovis@protonmail.com","fullname":"Ilya
+        B","created_at":"2018-08-21 15:35:25 (Etc\/UTC)","created_at_timestamp":1534865725,"role":"owner"}}'
     http_version: 
-  recorded_at: Mon, 10 Dec 2018 17:54:12 GMT
+  recorded_at: Fri, 17 May 2019 17:26:14 GMT
 recorded_with: VCR 4.0.0

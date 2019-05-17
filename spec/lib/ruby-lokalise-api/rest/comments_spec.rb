@@ -43,7 +43,8 @@ RSpec.describe Lokalise::Client do
     expect(comment.key_id).to eq(another_key_id)
     expect(comment.added_by).to eq(20_181)
     expect(comment.added_by_email).to eq('bodrovis@protonmail.com')
-    expect(comment.added_at).to eq('2018-12-09 19:41:44 (Etc/UTC)')
+    expect(comment.added_at).to eq('2018-12-09 18:41:44 (Etc/UTC)')
+    expect(comment.added_at_timestamp).to eq(1_544_380_904)
   end
 
   specify '#create_comments' do

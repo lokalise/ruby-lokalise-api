@@ -10,12 +10,13 @@ RSpec.describe Lokalise::Client do
 
       snapshot = snapshots.first
 
-      expect(snapshots.count).to eq(2)
-      expect(snapshot.title).to eq('test')
-      expect(snapshot.snapshot_id).to eq(snapshot_id)
-      expect(snapshot.created_at).to eq('2018-12-10 17:01:48 (Etc/UTC)')
+      expect(snapshots.count).to eq(1)
+      expect(snapshot.title).to eq('test rspec')
+      expect(snapshot.snapshot_id).to eq(27_882)
+      expect(snapshot.created_at).to eq('2018-12-10 17:02:04 (Etc/UTC)')
       expect(snapshot.created_by).to eq(20_181)
       expect(snapshot.created_by_email).to eq('bodrovis@protonmail.com')
+      expect(snapshot.created_at_timestamp).to eq(1_544_461_324)
     end
 
     it 'should support pagination' do

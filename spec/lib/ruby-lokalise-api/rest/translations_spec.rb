@@ -14,16 +14,18 @@ RSpec.describe Lokalise::Client do
 
     it 'should support pagination' do
       translations = VCR.use_cassette('all_translations_pagination') do
-        test_client.translations project_id, limit: 4, page: 2, disable_references: 0
+        test_client.translations project_id, limit: 4, page: 2, disable_references: 0,
+                                             filter_is_reviewed: 0
       end
 
       expect(translations.collection.count).to eq(4)
-      expect(translations.total_results).to eq(9)
-      expect(translations.total_pages).to eq(3)
+      expect(translations.total_results).to eq(187)
+      expect(translations.total_pages).to eq(47)
       expect(translations.results_per_page).to eq(4)
       expect(translations.current_page).to eq(2)
       expect(translations.request_params[:page]).to eq(2)
       expect(translations.request_params[:disable_references]).to eq(0)
+      expect(translations.request_params[:filter_is_reviewed]).to eq(0)
 
       next_page_trans = VCR.use_cassette('translations_next_page') do
         translations.next_page
@@ -33,9 +35,9 @@ RSpec.describe Lokalise::Client do
       expect(next_page_trans.client).to be_an_instance_of(Lokalise::Client)
       expect(next_page_trans.request_params[:page]).to eq(3)
       expect(next_page_trans.request_params[:disable_references]).to eq(0)
-      expect(next_page_trans.total_results).to eq(9)
+      expect(next_page_trans.total_results).to eq(187)
       expect(next_page_trans.current_page).to eq(3)
-      expect(next_page_trans.next_page?).to eq(false)
+      expect(next_page_trans.next_page?).to eq(true)
       expect(next_page_trans.prev_page?).to eq(true)
 
       prev_page_trans = VCR.use_cassette('translations_prev_page') do
@@ -46,7 +48,7 @@ RSpec.describe Lokalise::Client do
       expect(prev_page_trans.client).to be_an_instance_of(Lokalise::Client)
       expect(prev_page_trans.request_params[:page]).to eq(1)
       expect(next_page_trans.request_params[:disable_references]).to eq(0)
-      expect(prev_page_trans.total_results).to eq(9)
+      expect(prev_page_trans.total_results).to eq(187)
       expect(prev_page_trans.current_page).to eq(1)
       expect(prev_page_trans.next_page?).to eq(true)
       expect(prev_page_trans.prev_page?).to eq(false)
@@ -61,13 +63,14 @@ RSpec.describe Lokalise::Client do
     expect(translation.translation_id).to eq(translation_id)
     expect(translation.key_id).to eq(15_571_975)
     expect(translation.language_iso).to eq('en')
-    expect(translation.modified_at).to eq('2018-12-10 19:04:08 (Etc/UTC)')
+    expect(translation.modified_at).to eq('2019-03-26 16:41:31 (Etc/UTC)')
+    expect(translation.modified_at_timestamp).to eq(1_553_618_491)
     expect(translation.modified_by).to eq(20_181)
     expect(translation.modified_by_email).to eq('bodrovis@protonmail.com')
-    expect(translation.translation).to eq('rspec trans')
+    expect(translation.translation).to eq('RSpec is a testing suite')
     expect(translation.is_fuzzy).to eq(false)
-    expect(translation.is_reviewed).to eq(true)
-    expect(translation.words).to eq(2)
+    expect(translation.is_reviewed).to eq(false)
+    expect(translation.words).to eq(5)
   end
 
   specify '#update_translation' do

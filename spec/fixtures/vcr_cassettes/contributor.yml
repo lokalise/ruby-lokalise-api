@@ -10,7 +10,7 @@ http_interactions:
       Accept:
       - application/json
       User-Agent:
-      - ruby-lokalise-api gem/1.0.0.pre1
+      - ruby-lokalise-api gem/2.1.0
       X-api-token:
       - "<LOKALISE_TOKEN>"
   response:
@@ -21,7 +21,7 @@ http_interactions:
       server:
       - nginx
       date:
-      - Fri, 07 Dec 2018 17:14:16 GMT
+      - Fri, 17 May 2019 17:02:46 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -31,31 +31,27 @@ http_interactions:
       vary:
       - Accept-Encoding
       set-cookie:
-      - PHPSESSID=6ab564cbed6c80632d2bed2c8cdd43dd; path=/; HttpOnly, locale=en_US;
-        expires=Sun, 06-Jan-2019 17:14:15 GMT; Max-Age=2592000; path=/; secure
+      - PHPSESSID=c7e7b38b39cf48f8034a7a68b57c141f; expires=Tue, 16-Jul-2019 17:02:46
+        GMT; Max-Age=5184000; path=/; secure; HttpOnly
       expires:
       - Thu, 19 Nov 1981 08:52:00 GMT
       cache-control:
       - no-store, no-cache, must-revalidate, no-store, no-cache
       pragma:
       - no-cache, no-cache
-      x-content-type-options:
-      - nosniff
-      x-frame-options:
-      - deny
-      x-xss-protection:
-      - 1; mode=block
-      strict-transport-security:
-      - max-age=31536000
       access-control-allow-origin:
       - "*"
       access-control-allow-headers:
       - Content-Type
     body:
       encoding: ASCII-8BIT
-      string: '{"project_id":"803826145ba90b42d5d860.46800099","contributor":{"user_id":20181,"email":"bodrovis@protonmail.com","fullname":"Ilya","created_at":"2018-08-21
-        17:35:25 (Etc\/UTC)","is_admin":true,"is_reviewer":true,"languages":[{"lang_id":640,"lang_iso":"en","lang_name":"English","is_writable":true},{"lang_id":673,"lang_iso":"f_over","lang_name":"fr
-        overriden","is_writable":true},{"lang_id":597,"lang_iso":"ru","lang_name":"Russian","is_writable":true}],"admin_rights":["upload","download","tasks","contributors","screenshots","keys","languages","settings","activity","statistics"]}}'
+      string: '{"project_id":"803826145ba90b42d5d860.46800099","contributor":{"user_id":20181,"email":"bodrovis@protonmail.com","fullname":"Ilya
+        B","created_at":"2018-08-21 15:35:25 (Etc\/UTC)","created_at_timestamp":1534865725,"is_admin":true,"is_reviewer":true,"languages":[{"lang_id":803,"lang_iso":"sq","lang_name":"Albanian","is_writable":true},{"lang_id":731,"lang_iso":"ar_001","lang_name":"Arabic
+        (World)","is_writable":true},{"lang_id":934,"lang_iso":"bm","lang_name":"Bambara","is_writable":true},{"lang_id":764,"lang_iso":"ca","lang_name":"Catalan","is_writable":true},{"lang_id":601,"lang_iso":"zh_TW","lang_name":"Chinese
+        Traditional","is_writable":true},{"lang_id":10111,"lang_iso":"custom_111","lang_name":"Custom
+        Language 111","is_writable":true},{"lang_id":640,"lang_iso":"en","lang_name":"English","is_writable":true},{"lang_id":1055,"lang_iso":"en-us","lang_name":"English
+        (United States)","is_writable":true},{"lang_id":673,"lang_iso":"f_over","lang_name":"fr
+        overriden","is_writable":true},{"lang_id":597,"lang_iso":"ru","lang_name":"Russian","is_writable":true},{"lang_id":1056,"lang_iso":"es","lang_name":"Spanish","is_writable":true}],"admin_rights":["upload","download","tasks","contributors","screenshots","keys","languages","settings","activity","statistics"]}}'
     http_version: 
-  recorded_at: Fri, 07 Dec 2018 17:14:08 GMT
+  recorded_at: Fri, 17 May 2019 17:02:34 GMT
 recorded_with: VCR 4.0.0

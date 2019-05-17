@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.lokalise.co/api2/projects/803826145ba90b42d5d860.46800099/translations?disable_references=0&limit=4&page=3
+    uri: https://api.lokalise.co/api2/projects/803826145ba90b42d5d860.46800099/translations?disable_references=0&filter_is_reviewed=0&limit=4&page=3
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       Accept:
       - application/json
       User-Agent:
-      - ruby-lokalise-api gem/1.0.1
+      - ruby-lokalise-api gem/2.1.0
       X-api-token:
       - "<LOKALISE_TOKEN>"
   response:
@@ -21,7 +21,7 @@ http_interactions:
       server:
       - nginx
       date:
-      - Tue, 11 Dec 2018 16:15:46 GMT
+      - Fri, 17 May 2019 16:54:08 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -31,26 +31,18 @@ http_interactions:
       vary:
       - Accept-Encoding
       set-cookie:
-      - PHPSESSID=3de3022340f2741ec51764257cf4e3fb; path=/; HttpOnly, locale=en_US;
-        expires=Thu, 10-Jan-2019 16:15:46 GMT; Max-Age=2592000; path=/; secure
+      - PHPSESSID=651dc4812a70b4d6942a96daa78552a6; expires=Tue, 16-Jul-2019 16:54:08
+        GMT; Max-Age=5184000; path=/; secure; HttpOnly
       expires:
       - Thu, 19 Nov 1981 08:52:00 GMT
       cache-control:
       - no-store, no-cache, must-revalidate, no-store, no-cache
       pragma:
       - no-cache, no-cache
-      x-content-type-options:
-      - nosniff
-      x-frame-options:
-      - deny
-      x-xss-protection:
-      - 1; mode=block
-      strict-transport-security:
-      - max-age=31536000
       x-pagination-total-count:
-      - '9'
+      - '187'
       x-pagination-page-count:
-      - '3'
+      - '47'
       x-pagination-limit:
       - '4'
       x-pagination-page:
@@ -61,8 +53,13 @@ http_interactions:
       - Content-Type
     body:
       encoding: ASCII-8BIT
-      string: '{"project_id":"803826145ba90b42d5d860.46800099","translations":[{"translation_id":80015152,"key_id":15571976,"language_iso":"f_over","translation":"","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2018-12-10
-        18:36:41 (Etc\/UTC)","is_reviewed":false,"reviewed_by":0,"is_fuzzy":false,"words":0}]}'
+      string: '{"project_id":"803826145ba90b42d5d860.46800099","translations":[{"translation_id":114304556,"key_id":20988547,"language_iso":"ru","translation":"\u042f
+        \u0437\u043d\u0430\u044e JS!","modified_by":33599,"modified_by_email":"twilight_church@list.ru","modified_at":"2019-05-13
+        16:08:01 (Etc\/UTC)","modified_at_timestamp":1557763681,"is_reviewed":true,"reviewed_by":33599,"is_fuzzy":false,"words":3},{"translation_id":114304604,"key_id":20988554,"language_iso":"ru","translation":"\u0414\u043e\u0431\u0440\u043e
+        \u043f\u043e\u0436\u0430\u043b\u043e\u0432\u0430\u0442\u044c, [%1$s:username]!","modified_by":33599,"modified_by_email":"twilight_church@list.ru","modified_at":"2019-05-13
+        16:00:41 (Etc\/UTC)","modified_at_timestamp":1557763241,"is_reviewed":false,"reviewed_by":0,"is_fuzzy":false,"words":2},{"translation_id":114306163,"key_id":20988567,"language_iso":"ru","translation":"","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2019-04-16
+        12:08:50 (Etc\/UTC)","modified_at_timestamp":1555416530,"is_reviewed":false,"reviewed_by":0,"is_fuzzy":false,"words":0},{"translation_id":114306173,"key_id":20988568,"language_iso":"ru","translation":"","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2019-04-16
+        12:08:56 (Etc\/UTC)","modified_at_timestamp":1555416536,"is_reviewed":false,"reviewed_by":0,"is_fuzzy":false,"words":0}]}'
     http_version: 
-  recorded_at: Tue, 11 Dec 2018 16:15:44 GMT
+  recorded_at: Fri, 17 May 2019 16:53:56 GMT
 recorded_with: VCR 4.0.0

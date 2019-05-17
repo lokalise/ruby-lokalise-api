@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: put
-    uri: https://api.lokalise.co/api2/projects/572222075c0953fd70d492.30502628/
+    uri: https://api.lokalise.co/api2/projects/572222075c0953fd70d492.30502628
     body:
       encoding: UTF-8
       string: '{"name":"rspec proj updated","description":"updated project for rspec"}'

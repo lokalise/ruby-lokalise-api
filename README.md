@@ -1132,7 +1132,7 @@ user.destroy
 @client.translations(project_id, params = {})   # Input:
                                                 ## project_id (string, required)
                                                 ## params (hash)
-                                                ### :disable_references (string) - whether to disable key references. Supported values are 0 and 1
+                                                ### Find full list in the docs
                                                 ### :page and :limit
                                                 # Output:
                                                 ## Collection of translations for the project

@@ -27,30 +27,34 @@ RSpec.describe Lokalise::Client do
 
   specify '#task' do
     task = VCR.use_cassette('task') do
-      test_client.task project_id, task_id
+      test_client.task project_id, '11925'
     end
 
-    expect(task.task_id).to eq(task_id)
-    expect(task.title).to eq('another rspec key')
-    expect(task.description).to eq('desc here')
-    expect(task.status).to eq('created')
-    expect(task.progress).to eq(0)
+    expect(task.task_id).to eq(11_925)
+    expect(task.title).to eq('Demo review')
+    expect(task.description).to eq('')
+    expect(task.status).to eq('in progress')
+    expect(task.progress).to eq(1)
     expect(task.due_date).to eq(nil)
-    expect(task.keys_count).to eq(1)
-    expect(task.words_count).to eq(0)
-    expect(task.created_at).to eq('2018-12-10 18:37:02 (Etc/UTC)')
+    expect(task.due_date_timestamp).to eq(nil)
+    expect(task.keys_count).to eq(16)
+    expect(task.words_count).to eq(275)
+    expect(task.created_at).to eq('2019-05-13 16:15:26 (Etc/UTC)')
+    expect(task.created_at_timestamp).to eq(1_557_764_126)
     expect(task.created_by).to eq(20_181)
     expect(task.created_by_email).to eq('bodrovis@protonmail.com')
     expect(task.can_be_parent).to eq(true)
-    expect(task.task_type).to eq('translation')
+    expect(task.task_type).to eq('review')
     expect(task.parent_task_id).to eq(nil)
     expect(task.closing_tags).to eq([])
-    expect(task.languages.first['language_iso']).to eq('ru')
+    expect(task.languages.first['language_iso']).to eq('sq')
     expect(task.auto_close_languages).to eq(true)
     expect(task.auto_close_task).to eq(true)
     expect(task.completed_by).to eq(nil)
     expect(task.completed_by_email).to eq(nil)
     expect(task.completed_at).to eq(nil)
+    expect(task.completed_at_timestamp).to eq(nil)
+    expect(task.do_lock_translations).to eq(false)
   end
 
   specify '#create_task' do

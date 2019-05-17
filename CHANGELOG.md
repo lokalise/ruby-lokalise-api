@@ -1,4 +1,9 @@
 # Changelog
+## 2.1.1 (17-May-19)
+
+* Incorporate API updates (new attributes, mostly creation and update timestamps)
+* Remove trailing slash from request URLs
+* Updated cassettes and target Rubies (for Travis)
 
 ## 2.1.0 (19-Mar-19)
 

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.lokalise.co/api2/payment_cards/
+    uri: https://api.lokalise.co/api2/payment_cards
     body:
       encoding: UTF-8
       string: '{"number":"4242424242424242","cvc":"123","exp_month":1,"exp_year":2030}'

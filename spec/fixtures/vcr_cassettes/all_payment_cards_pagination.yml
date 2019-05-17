@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.lokalise.co/api2/payment_cards/?limit=1&page=1
+    uri: https://api.lokalise.co/api2/payment_cards?limit=1&page=1
     body:
       encoding: US-ASCII
       string: ''

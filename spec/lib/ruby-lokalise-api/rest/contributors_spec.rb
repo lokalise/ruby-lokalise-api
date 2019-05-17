@@ -37,12 +37,13 @@ RSpec.describe Lokalise::Client do
 
     expect(contributor.user_id).to eq(20_181)
     expect(contributor.email).to eq('bodrovis@protonmail.com')
-    expect(contributor.fullname).to eq('Ilya')
-    expect(contributor.created_at).to eq('2018-08-21 17:35:25 (Etc/UTC)')
+    expect(contributor.fullname).to eq('Ilya B')
+    expect(contributor.created_at).to eq('2018-08-21 15:35:25 (Etc/UTC)')
     expect(contributor.is_admin).to eq(true)
     expect(contributor.is_reviewer).to eq(true)
-    expect(contributor.languages.first['lang_id']).to eq(640)
+    expect(contributor.languages.first['lang_id']).to eq(803)
     expect(contributor.admin_rights.first).to eq('upload')
+    expect(contributor.created_at_timestamp).to eq(1_534_865_725)
   end
 
   specify '#create_contributors' do

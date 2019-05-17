@@ -39,9 +39,14 @@ RSpec.describe Lokalise::Client do
     expect(project.name).to eq('demo phoenix')
     expect(project.team_id).to eq(176_692)
     expect(project.description).to eq('')
-    expect(project.created_at).to eq('2018-09-24 18:05:22 (Etc/UTC)')
+    expect(project.created_at).to eq('2018-09-24 16:05:22 (Etc/UTC)')
     expect(project.created_by).to eq(20_181)
     expect(project.created_by_email).to eq('bodrovis@protonmail.com')
+    expect(project.created_at_timestamp).to eq(1_537_805_122)
+    expect(project.base_language_id).to eq(640)
+    expect(project.base_language_iso).to eq('en')
+    expect(project.settings['per_platform_key_names']).to eq(false)
+    expect(project.statistics['progress_total']).to eq(18)
   end
 
   specify '#create_project' do
