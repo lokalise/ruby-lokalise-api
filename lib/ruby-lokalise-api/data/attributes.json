@@ -156,6 +156,16 @@
     "role",
     "created_at_timestamp"
   ],
+  "team_user_group": [
+    "group_id",
+    "name",
+    "permissions",
+    "created_at",
+    "created_at_timestamp",
+    "team_id",
+    "projects",
+    "members"
+  ],
   "translation": [
     "translation_id",
     "key_id",

@@ -41,7 +41,7 @@ module Lokalise
 
     # Get rid of double slashes in the `path`, leading and trailing slash
     def prepare(path)
-      path.gsub(%r{\A/}, '').gsub(%r{//}, '/').gsub(%r{/\z}, '')
+      path.gsub(%r{\A/}, '').gsub(%r{//}, '/').gsub(%r{/+\z}, '')
     end
 
     def respond_with(response, client)

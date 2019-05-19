@@ -35,15 +35,19 @@ module Lokalise
           super
         end
 
-        # Defines common CRUD instance methods
-        # Usage: `supports :update, :destroy`
+        # Defines CRUD instance methods. In the simplest case it delegates work to the
+        # class method. In more complex case it is possible to specify sub-path and the
+        # class method name to call.
+        # Usage: `supports :update, :destroy, [:complex_method, '/sub/path', :update]`
         def supports(*methods)
-          methods.each do |method_name|
+          methods.each do |m_data|
+            method_name, sub_path, c_method = m_data.is_a?(Array) ? m_data : [m_data, '', m_data]
             define_method method_name do |params = {}|
-              self.class.send method_name,
-                              instance_variable_get(:@client),
-                              instance_variable_get(:@path),
-                              params
+              path = instance_variable_get(:@path)
+              # If there's a sub_path, preserve the initial path to allow further chaining
+              params = params.merge(_initial_path: path) if sub_path
+              self.class.send c_method, instance_variable_get(:@client),
+                              path + sub_path, params
             end
           end
         end
@@ -78,17 +82,31 @@ module Lokalise
         def object_from(response, params)
           model_class = name.base_class_name
           data_key_plural = data_key_for model_class, true
+          # Preserve the initial path to allow chaining
+          response['path'] = params.delete(:_initial_path) if params.key?(:_initial_path)
 
-          if response['content'].key? data_key_plural
-            Module.const_get("Lokalise::Collections::#{model_class}").new response,
-                                                                          params
+          if response['content'].key?(data_key_plural)
+            produce_collection model_class, response, params
           else
-            new response
+            produce_resource model_class, response
           end
         end
-      end
 
-      private
+        def produce_resource(model_class, response)
+          data_key_singular = data_key_for model_class
+
+          if response['content'].key? data_key_singular
+            data = response['content'].delete data_key_singular
+            response['content'].merge! data
+          end
+
+          new response
+        end
+
+        def produce_collection(model_class, response, params)
+          Module.const_get("Lokalise::Collections::#{model_class}").new(response, params)
+        end
+      end
 
       # Generates path for the individual resource based on the path for the collection
       def infer_path_from(response)

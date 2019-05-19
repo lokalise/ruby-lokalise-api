@@ -11,8 +11,8 @@ module Lokalise
       # @return [String]
       # @param model_class [String]
       # @param plural [Boolean] Should the returned value be pluralized?
-      def data_key_for(model_class, plural = false)
-        data_key = get_key 'DATA_KEY', model_class
+      def data_key_for(model_class, plural = false, collection = false)
+        data_key = get_key 'DATA_KEY', model_class, collection
 
         return data_key unless plural
 
@@ -43,8 +43,10 @@ module Lokalise
 
       private
 
-      def get_key(name, model_class)
-        if Module.const_defined? "Lokalise::Resources::#{model_class}::#{name}"
+      def get_key(name, model_class, collection = false)
+        if collection && Module.const_defined?("Lokalise::Collections::#{model_class}::#{name}")
+          Module.const_get "Lokalise::Collections::#{model_class}::#{name}"
+        elsif Module.const_defined? "Lokalise::Resources::#{model_class}::#{name}"
           Module.const_get "Lokalise::Resources::#{model_class}::#{name}"
         else
           model_class

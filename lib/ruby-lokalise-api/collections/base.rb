@@ -84,7 +84,7 @@ module Lokalise
       # Collection example: `{ "content": {"comments": [ ... ]} }`
       def produce_collection_for(response)
         model_class = self.class.name.base_class_name
-        data_key_plural = data_key_for model_class, true
+        data_key_plural = data_key_for model_class, true, true
 
         # Fetch collection data and instantiate an individual resource for each object
         # We also preserve the `client` to be able to chain API methods later

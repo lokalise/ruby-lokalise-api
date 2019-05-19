@@ -13,6 +13,7 @@ require 'ruby-lokalise-api/rest/screenshots'
 require 'ruby-lokalise-api/rest/orders'
 require 'ruby-lokalise-api/rest/payment_cards'
 require 'ruby-lokalise-api/rest/translation_providers'
+require 'ruby-lokalise-api/rest/team_user_group'
 
 module Lokalise
   class Client

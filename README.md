@@ -26,6 +26,7 @@ Official opinionated Ruby interface for the [Lokalise API](https://lokalise.co/a
   + [Tasks](#tasks)
   + [Teams](#teams)
   + [Team users](#team-users)
+  + [Team user groups](#team-user-groups)
   + [Translations](#translations)
   + [Translation Providers](#translation-providers)
 * [Additional Info](#additional-info)
@@ -1073,11 +1074,11 @@ task.destroy
 [Doc](https://lokalise.co/api2docs/ruby/#transition-retrieve-a-team-user-get)
 
 ```ruby
-@client.team_user(team_id, user_id)  # Input:
-                                          ## team_id (string, required)
-                                          ## user_id (string, required)
-                                          # Output:
-                                          ## Team user
+@client.team_user(team_id, user_id) # Input:
+                                    ## team_id (string, required)
+                                    ## user_id (string, required)
+                                    # Output:
+                                    ## Team user
 ```
 
 #### Update team user
@@ -1118,6 +1119,168 @@ Alternatively:
 ```ruby
 user = @client.team_user('team_id', 'user_id')
 user.destroy
+```
+
+### Team user groups
+
+[Team user group attributes](https://lokalise.co/api2docs/ruby/#object-team-user-groups)
+
+#### Fetch team user groups
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-list-all-groups-get)
+
+```ruby
+@client.team_user_groups(team_id, params = {})  # Input:
+                                                ## team_id (string, required)
+                                                ## params (hash)
+                                                ### :page and :limit
+                                                # Output:
+                                                ## Collection of team user groups
+```
+
+#### Fetch a single group
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-retrieve-a-group-get)
+
+```ruby
+@client.team_user_group(team_id, group_id)  # Input:
+                                            ## team_id (string, required)
+                                            ## group_id (string, required)
+                                            # Output:
+                                            ## Group
+```
+
+#### Create group
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-create-a-group-post)
+
+```ruby
+@client.create_team_user_group(team_id, params) # Input:
+                                                ## team_id (string, required)
+                                                ## params (hash, required):
+                                                ### :name (string, required)
+                                                ### :is_reviewer (boolean, required)
+                                                ### :is_admin (boolean, required)
+                                                ### :admin_rights (array) - required only if is_admin is true
+                                                ### :languages (array of hashes) - required if is_admin is false
+                                                # Output:
+                                                ## Updated group
+```
+
+#### Update group
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-update-a-group-put)
+
+```ruby
+@client.update_team_user_group(team_id, group_id, params) # Input:
+                                                          ## team_id (string, required)
+                                                          ## group_id (string, required)
+                                                          ## params (hash, required):
+                                                          ### :name (string, required)
+                                                          ### :is_reviewer (boolean, required)
+                                                          ### :is_admin (boolean, required)
+                                                          ### :admin_rights (array) - required only if is_admin is true
+                                                          ### :languages (array of hashes) - required if is_admin is false
+                                                          # Output:
+                                                          ## Updated group
+```
+
+Alternatively:
+
+```ruby
+group = @client.team_user_group('team_id', 'group_id')
+group.update(params)
+```
+
+#### Add projects to group
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-add-projects-to-group-put)
+
+```ruby
+@client.add_projects_to_group(team_id, group_id, project_ids) # Input:
+                                                              ## team_id (string, required)
+                                                              ## group_id (string, required)
+                                                              ## project_ids (string or array, required) - project ids that you would like to add to this group
+```
+
+Alternatively:
+
+```ruby
+group = @client.team_user_group('team_id', 'group_id')
+group.add_projects projects: [project_id1, project_id2]
+```
+
+#### Remove projects from group
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-remove-projects-from-group-put)
+
+```ruby
+@client.remove_projects_from_group(team_id, group_id, project_ids)  # Input:
+                                                                    ## team_id (string, required)
+                                                                    ## group_id (string, required)
+                                                                    ## project_ids (string or array, required) - project ids that you would like to remove from this group
+```
+
+Alternatively:
+
+```ruby
+group = @client.team_user_group('team_id', 'group_id')
+group.remove_projects projects: [project_id1, project_id2]
+```
+
+#### Add users (members) to group
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-add-members-to-group-put)
+
+```ruby
+@client.add_users_to_group(team_id, group_id, user_ids) # Input:
+                                                        ## team_id (string, required)
+                                                        ## group_id (string, required)
+                                                        ## user_ids (string or array, required) - user ids that you would like to add to this group
+```
+
+Alternatively:
+
+```ruby
+group = @client.team_user_group('team_id', 'group_id')
+group.add_users users: [user_id1, user_id2]
+```
+
+#### Remove users (members) from group
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-remove-members-from-group-put)
+
+```ruby
+@client.remove_users_from_group(team_id, group_id, user_ids)  # Input:
+                                                              ## team_id (string, required)
+                                                              ## group_id (string, required)
+                                                              ## user_ids (string or array, required) - user ids that you would like to add to this group
+```
+
+Alternatively:
+
+```ruby
+group = @client.team_user_group('team_id', 'group_id')
+group.remove_users users: [user_id1, user_id2]
+```
+
+#### Destroy group
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-delete-a-group-delete)
+
+```ruby
+@client.destroy_team_user_group(team_id, group_id)  # Input:
+                                                    ## team_id (string, required)
+                                                    ## group_id (string, required)
+                                                    # Output:
+                                                    ## Hash with "team_id" and "group_deleted" set to "true"
+```
+
+Alternatively:
+
+```ruby
+group = @client.team_user_group('team_id', 'group_id')
+group.destroy
 ```
 
 ### Translations
