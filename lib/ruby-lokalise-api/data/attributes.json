@@ -137,7 +137,8 @@
     "completed_at",
     "completed_at_timestamp",
     "completed_by",
-    "completed_by_email"
+    "completed_by_email",
+    "custom_translation_status_ids"
   ],
   "team": [
     "team_id",
@@ -177,7 +178,8 @@
     "translation",
     "is_fuzzy",
     "is_reviewed",
-    "words"
+    "words",
+    "custom_translation_statuses"
   ],
   "translation_provider": [
     "provider_id",

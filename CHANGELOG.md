@@ -1,4 +1,10 @@
 # Changelog
+
+## 2.3.0 (unreleased)
+
+* Incorporated latest API changes
+* Added support for [`CustomTranslationStatus` endpoint](https://lokalise.co/api2docs/curl/#resource-custom-translation-statuses)
+
 ## 2.2.0 (19-May-19)
 
 * Added support for [`TeamUserGroup` endpoint](https://lokalise.co/api2docs/ruby/#resource-team-user-groups)

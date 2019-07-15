@@ -31,7 +31,7 @@ RSpec.describe Lokalise::Client do
     end
 
     expect(task.task_id).to eq(11_925)
-    expect(task.title).to eq('Demo review')
+    expect(task.title).to eq('node updated')
     expect(task.description).to eq('')
     expect(task.status).to eq('in progress')
     expect(task.progress).to eq(1)
@@ -55,6 +55,7 @@ RSpec.describe Lokalise::Client do
     expect(task.completed_at).to eq(nil)
     expect(task.completed_at_timestamp).to eq(nil)
     expect(task.do_lock_translations).to eq(false)
+    expect(task.custom_translation_status_ids).to eq([])
   end
 
   specify '#create_task' do

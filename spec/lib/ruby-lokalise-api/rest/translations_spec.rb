@@ -71,6 +71,7 @@ RSpec.describe Lokalise::Client do
     expect(translation.is_fuzzy).to eq(false)
     expect(translation.is_reviewed).to eq(false)
     expect(translation.words).to eq(5)
+    expect(translation.custom_translation_statuses).to eq([])
   end
 
   specify '#update_translation' do
