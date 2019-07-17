@@ -1393,10 +1393,10 @@ translation.update(params)
 
 ```ruby
 @client.translation_status(project_id, status_id) # Input:
-                                                      ## project_id (string, required)
-                                                      ## status_id (string or integer, required)
-                                                      # Output:
-                                                      ## Translation status inside the given project
+                                                  ## project_id (string, required)
+                                                  ## status_id (string or integer, required)
+                                                  # Output:
+                                                  ## Translation status inside the given project
 ```
 
 #### Create translation status
