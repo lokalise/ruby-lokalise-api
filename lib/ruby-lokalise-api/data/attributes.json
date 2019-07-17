@@ -19,6 +19,11 @@
     "admin_rights",
     "created_at_timestamp"
   ],
+  "custom_translation_status": [
+    "status_id",
+    "title",
+    "color"
+  ],
   "file": [
     "filename",
     "key_count"

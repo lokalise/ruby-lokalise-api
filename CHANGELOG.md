@@ -1,9 +1,9 @@
 # Changelog
 
-## 2.3.0 (unreleased)
+## 2.3.0 (17-July-19)
 
 * Incorporated latest API changes
-* Added support for [`CustomTranslationStatus` endpoint](https://lokalise.co/api2docs/curl/#resource-custom-translation-statuses)
+* Added support for [`TranslationStatus` endpoint](https://lokalise.co/api2docs/ruby/#resource-translation-statuses)
 
 ## 2.2.0 (19-May-19)
 

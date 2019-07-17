@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.lokalise.co/api2/projects/803826145ba90b42d5d860.46800099/custom_translation_statuses
+    body:
+      encoding: UTF-8
+      string: '{"title":"Reviewed by doctors","color":"#f2d600"}'
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - ruby-lokalise-api gem/2.2.0
+      X-api-token:
+      - "<LOKALISE_TOKEN>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx
+      date:
+      - Wed, 17 Jul 2019 16:22:53 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - close
+      vary:
+      - Accept-Encoding
+      set-cookie:
+      - PHPSESSID=30e45c2f866c05f09ac989bc190aeae5; expires=Sun, 15-Sep-2019 16:22:52
+        GMT; Max-Age=5184000; path=/; secure; HttpOnly
+      expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      cache-control:
+      - no-store, no-cache, must-revalidate, no-store, no-cache
+      pragma:
+      - no-cache, no-cache
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-headers:
+      - Content-Type
+    body:
+      encoding: ASCII-8BIT
+      string: '{"project_id":"803826145ba90b42d5d860.46800099","custom_translation_status":{"status_id":126,"title":"Reviewed
+        by doctors","color":"#f2d600"}}'
+    http_version: 
+  recorded_at: Wed, 17 Jul 2019 16:22:26 GMT
+recorded_with: VCR 5.0.0

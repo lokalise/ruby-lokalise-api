@@ -1,0 +1,60 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.lokalise.co/api2/projects/803826145ba90b42d5d860.46800099/custom_translation_statuses
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - ruby-lokalise-api gem/2.2.0
+      X-api-token:
+      - "<LOKALISE_TOKEN>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx
+      date:
+      - Wed, 17 Jul 2019 16:26:00 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - close
+      vary:
+      - Accept-Encoding
+      set-cookie:
+      - PHPSESSID=3e71b9b8c2c510f826099b9be957328e; expires=Sun, 15-Sep-2019 16:26:00
+        GMT; Max-Age=5184000; path=/; secure; HttpOnly
+      expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      cache-control:
+      - no-store, no-cache, must-revalidate, no-store, no-cache
+      pragma:
+      - no-cache, no-cache
+      x-pagination-total-count:
+      - '3'
+      x-pagination-page-count:
+      - '1'
+      x-pagination-limit:
+      - '100'
+      x-pagination-page:
+      - '1'
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-headers:
+      - Content-Type
+    body:
+      encoding: ASCII-8BIT
+      string: '{"project_id":"803826145ba90b42d5d860.46800099","custom_translation_statuses":[{"status_id":128,"title":"random","color":"#0079bf"},{"status_id":126,"title":"Reviewed
+        by doctors","color":"#f2d600"},{"status_id":127,"title":"tested","color":"#61bd4f"}]}'
+    http_version: 
+  recorded_at: Wed, 17 Jul 2019 16:25:33 GMT
+recorded_with: VCR 5.0.0

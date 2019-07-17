@@ -30,6 +30,7 @@ require 'ruby-lokalise-api/resources/order'
 require 'ruby-lokalise-api/resources/payment_card'
 require 'ruby-lokalise-api/resources/translation_provider'
 require 'ruby-lokalise-api/resources/team_user_group'
+require 'ruby-lokalise-api/resources/custom_translation_status'
 
 require 'ruby-lokalise-api/collections/base'
 require 'ruby-lokalise-api/collections/project'
@@ -50,6 +51,7 @@ require 'ruby-lokalise-api/collections/order'
 require 'ruby-lokalise-api/collections/payment_card'
 require 'ruby-lokalise-api/collections/translation_provider'
 require 'ruby-lokalise-api/collections/team_user_group'
+require 'ruby-lokalise-api/collections/custom_translation_status'
 
 require 'ruby-lokalise-api/client'
 
