@@ -1,6 +1,7 @@
 module Lokalise
   module Request
     include Lokalise::Connection
+    include Lokalise::JsonHandler
 
     PAGINATION_HEADERS = %w[x-pagination-total-count x-pagination-page-count x-pagination-limit x-pagination-page].freeze
 
@@ -13,14 +14,14 @@ module Lokalise
 
     def post(path, client, params = {})
       respond_with(
-        connection(client.token).post(prepare(path), MultiJson.dump(params)),
+        connection(client.token).post(prepare(path), custom_dump(params)),
         client
       )
     end
 
     def put(path, client, params = {})
       respond_with(
-        connection(client.token).put(prepare(path), MultiJson.dump(params)),
+        connection(client.token).put(prepare(path), custom_dump(params)),
         client
       )
     end
@@ -31,7 +32,7 @@ module Lokalise
         # rubocop:disable Style/CollectionMethods
         connection(client.token).delete(prepare(path)) do |req|
           # rubocop:enable Style/CollectionMethods
-          req.body = MultiJson.dump(params)
+          req.body = custom_dump params
         end,
         client
       )
@@ -45,7 +46,7 @@ module Lokalise
     end
 
     def respond_with(response, client)
-      body = MultiJson.load response.body
+      body = custom_load response.body
       uri = Addressable::URI.parse response.env.url
       respond_with_error(response.status, body) if body.respond_to?(:has_key?) && body.key?('error')
       extract_headers_from(response).

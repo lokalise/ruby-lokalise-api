@@ -22,9 +22,9 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'addressable',                   '~> 2.5'
   spec.add_dependency 'faraday',                       '~> 0.13'
-  spec.add_dependency 'multi_json',                    '~> 1.12'
 
   spec.add_development_dependency 'dotenv',                    '~> 2.5'
+  spec.add_development_dependency 'oj',                        '~> 3.8'
   spec.add_development_dependency 'rake',                      '~> 12.1'
   spec.add_development_dependency 'rspec',                     '~> 3.6'
   spec.add_development_dependency 'rubocop',                   '~> 0.60'

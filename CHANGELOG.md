@@ -1,6 +1,10 @@
 # Changelog
 
-## 2.3.0 (17-July-19)
+## 2.4.0 (31-Jul-19)
+
+* Remove MultiJson dependency and allow to use a custom JSON parser
+
+## 2.3.0 (17-Jul-19)
 
 * Incorporated latest API changes
 * Added support for [`TranslationStatus` endpoint](https://lokalise.co/api2docs/ruby/#resource-translation-statuses)

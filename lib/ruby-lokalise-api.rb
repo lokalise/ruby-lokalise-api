@@ -1,9 +1,9 @@
 require 'faraday'
-require 'multi_json'
 require 'yaml'
 require 'addressable'
 
 require 'ruby-lokalise-api/version'
+require 'ruby-lokalise-api/json_handler'
 require 'ruby-lokalise-api/connection'
 require 'ruby-lokalise-api/request'
 require 'ruby-lokalise-api/error'

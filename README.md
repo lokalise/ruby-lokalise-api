@@ -1462,12 +1462,36 @@ As long as Lokalise supports only very limited array of color hexadecimal codes 
 
 ```ruby
 @client.translation_status_colors(project_id) # Input:
-                                                          ## project_id (string, required)
-                                                          # Output:
-                                                          ## Array of color codes in HEX format
+                                              ## project_id (string, required)
+                                              # Output:
+                                              ## Array of color codes in HEX format
 ```
 
 ## Additional Info
+
+### Customizing JSON parser
+
+This gem used to rely on [MultiJson](https://github.com/intridea/multi_json) but it is not maintained anymore. By default we are using a [built-in JSON module](https://ruby-doc.org/stdlib-2.0.0/libdoc/json/rdoc/JSON.html) but you may utilize any other parser by overriding `#custom_dump` and `#custom_load` methods inside `Lokalise::JsonHandler` module.
+
+For example, to use [Oj](https://github.com/ohler55/oj) you would do the following:
+
+```ruby
+require 'oj'
+
+module Lokalise
+  module JsonHandler  
+    # This method accepts a Ruby object and must return a JSON string
+    def custom_dump(obj)
+      Oj.dump obj
+    end
+
+    # This method accepts JSON and must return Ruby object
+    def custom_load(obj)
+      Oj.load obj
+    end
+  end
+end
+```
 
 ### Error handling
 
