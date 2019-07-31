@@ -2,7 +2,7 @@
 
 ## 2.4.0 (31-Jul-19)
 
-* Remove MultiJson dependency and allow to use a custom JSON parser
+* Remove MultiJson dependency and allow to use a [custom JSON parser](https://github.com/lokalise/ruby-lokalise-api#customizing-json-parser)
 
 ## 2.3.0 (17-Jul-19)
 
