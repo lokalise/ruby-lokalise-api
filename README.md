@@ -31,6 +31,7 @@ Official opinionated Ruby interface for the [Lokalise API](https://lokalise.co/a
   + [Translation Providers](#translation-providers)
   + [Translation Statuses](#translation-statuses)
 * [Additional Info](#additional-info)
+  + [Customizing JSON parser](#customizing-json-parser)
   + [Error handling](#error-handling)
   + [API Rate Limits](#api-rate-limits)
 * [Running Tests](#running-tests)
