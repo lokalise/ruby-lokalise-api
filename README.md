@@ -31,6 +31,7 @@ Official opinionated Ruby interface for the [Lokalise API](https://lokalise.co/a
   + [Translation Providers](#translation-providers)
   + [Translation Statuses](#translation-statuses)
 * [Additional Info](#additional-info)
+  + [Customizing request](#customizing-request)
   + [Customizing JSON parser](#customizing-json-parser)
   + [Error handling](#error-handling)
   + [API Rate Limits](#api-rate-limits)
@@ -60,7 +61,7 @@ require 'ruby-lokalise-api'
 @client = Lokalise.client 'YOUR_TOKEN_HERE'
 ```
 
-Now the `@client` can be used to perform API requests!
+Now the `@client` can be used to perform API requests! Learn more about additional options in the [Customizing request section](#customizing-request).
 
 ### Objects and models
 
@@ -1469,6 +1470,41 @@ As long as Lokalise supports only very limited array of color hexadecimal codes 
 ```
 
 ## Additional Info
+
+### Customizing Request
+
+#### Choosing Adapter
+
+This library utilizes [Faraday](https://lostisland.github.io/faraday) to perform requests. The default adapter is built-in [Net::HTTP](https://ruby-doc.org/stdlib-2.6.3/libdoc/net/http/rdoc/Net/HTTP.html) but you may customize it as needed.
+
+For example, to use [Excon](https://github.com/excon/excon):
+
+```ruby
+require 'excon' # somewhere in your code
+
+Faraday.default_adapter = :excon
+```
+
+All supported adapters are listed [on Faraday official website](https://lostisland.github.io/faraday/adapters/).
+
+#### Setting Timeouts
+
+Request timeouts may be adjusted during client initialization:
+
+```ruby
+@client = Lokalise.client('YOUR_TOKEN', open_timeout: 100, timeout: 500)
+@client.open_timeout # => 100
+@client.timeout # => 500
+```
+
+Both values are in *seconds*. They can be adjusted later with simple accessors:
+
+```ruby
+@client.open_timeout = 200
+@client.timeout = 600
+@client.open_timeout # => 200
+@client.timeout # => 600
+```
 
 ### Customizing JSON parser
 

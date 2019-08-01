@@ -60,8 +60,10 @@ module Lokalise
     # Initializes a new Client object
     #
     # @return [Lokalise::Client]
-    def client(token)
-      @client ||= Lokalise::Client.new token
+    # @param token [String]
+    # @param params [Hash]
+    def client(token, params = {})
+      @client ||= Lokalise::Client.new token, params
     end
 
     # Reset the currently set client

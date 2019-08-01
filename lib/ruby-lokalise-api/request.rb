@@ -7,21 +7,21 @@ module Lokalise
 
     def get(path, client, params = {})
       respond_with(
-        connection(client.token).get(prepare(path), params),
+        connection(client).get(prepare(path), params),
         client
       )
     end
 
     def post(path, client, params = {})
       respond_with(
-        connection(client.token).post(prepare(path), custom_dump(params)),
+        connection(client).post(prepare(path), custom_dump(params)),
         client
       )
     end
 
     def put(path, client, params = {})
       respond_with(
-        connection(client.token).put(prepare(path), custom_dump(params)),
+        connection(client).put(prepare(path), custom_dump(params)),
         client
       )
     end
@@ -30,7 +30,7 @@ module Lokalise
       respond_with(
         # Rubocop tries to replace `delete` with `gsub` but that's a different method here!
         # rubocop:disable Style/CollectionMethods
-        connection(client.token).delete(prepare(path)) do |req|
+        connection(client).delete(prepare(path)) do |req|
           # rubocop:enable Style/CollectionMethods
           req.body = custom_dump params
         end,

@@ -1,5 +1,5 @@
 module TestClient
-  def test_client(token = nil)
-    Lokalise.client(token || ENV['LOKALISE_API_TOKEN'])
+  def test_client(token = nil, params = {})
+    Lokalise.client(token || ENV['LOKALISE_API_TOKEN'], params)
   end
 end

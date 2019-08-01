@@ -19,9 +19,12 @@ require 'ruby-lokalise-api/rest/custom_translation_statuses'
 module Lokalise
   class Client
     attr_reader :token
+    attr_accessor :timeout, :open_timeout
 
-    def initialize(token)
+    def initialize(token, params = {})
       @token = token
+      @timeout = params.fetch(:timeout) { nil }
+      @open_timeout = params.fetch(:open_timeout) { nil }
     end
 
     def construct_request(klass, method, endpoint_ids, params = {}, object_key = nil)
