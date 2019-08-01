@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.5.0 (01-Aug-19)
+
+* Added `:timeout` and `:open_timeout` options for the client [to customize request timeouts](https://github.com/lokalise/ruby-lokalise-api#setting-timeouts)
+* [Added explanations](https://github.com/lokalise/ruby-lokalise-api#choosing-adapter) on how to change a default adapter
+
 ## 2.4.0 (31-Jul-19)
 
 * Remove MultiJson dependency and allow to use a [custom JSON parser](https://github.com/lokalise/ruby-lokalise-api#customizing-json-parser)
