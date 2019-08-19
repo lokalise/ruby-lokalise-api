@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.6.0 (Unreleased)
+
+* Added [`Webhook` endpoint](https://lokalise.co/api2docs/curl/#resource-webhooks) (thanks to [@snkashis](https://github.com/snkashis) for help!)
+
 ## 2.5.0 (01-Aug-19)
 
 * Added `:timeout` and `:open_timeout` options for the client [to customize request timeouts](https://github.com/lokalise/ruby-lokalise-api#setting-timeouts)

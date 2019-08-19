@@ -197,10 +197,10 @@
     "pairs"
   ],
   "webhook": [
-      "webhook_id",
-      "url",
-      "secret",
-      "events",
-      "event_lang_map"
-    ]
+    "webhook_id",
+    "url",
+    "secret",
+    "events",
+    "event_lang_map"
+  ]
 }

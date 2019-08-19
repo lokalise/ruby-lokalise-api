@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://api.lokalise.co/api2/projects/803826145ba90b42d5d860.46800099/webhooks/b345ccc6499920c490e8f4fe9487b1378dbf1dbf
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - ruby-lokalise-api gem/2.5.0
+      X-api-token:
+      - "<LOKALISE_TOKEN>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx
+      date:
+      - Mon, 19 Aug 2019 20:05:19 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - close
+      vary:
+      - Accept-Encoding
+      set-cookie:
+      - PHPSESSID=9a84179bb1b4e3b11afb7689e08b3dfe; expires=Fri, 18-Oct-2019 20:05:19
+        GMT; Max-Age=5184000; path=/; secure; HttpOnly
+      expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      cache-control:
+      - no-store, no-cache, must-revalidate, no-store, no-cache
+      pragma:
+      - no-cache, no-cache
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-headers:
+      - Content-Type
+    body:
+      encoding: ASCII-8BIT
+      string: '{"project_id":"803826145ba90b42d5d860.46800099","webhook_deleted":true}'
+    http_version: 
+  recorded_at: Mon, 19 Aug 2019 20:05:19 GMT
+recorded_with: VCR 5.0.0

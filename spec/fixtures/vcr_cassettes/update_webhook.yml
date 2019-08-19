@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://api.lokalise.co/api2/projects/803826145ba90b42d5d860.46800099/webhooks/b345ccc6499920c490e8f4fe9487b1378dbf1dbf
+    body:
+      encoding: UTF-8
+      string: '{"url":"http://ihaz.cheezburger"}'
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - ruby-lokalise-api gem/2.5.0
+      X-api-token:
+      - "<LOKALISE_TOKEN>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx
+      date:
+      - Mon, 19 Aug 2019 20:02:54 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - close
+      vary:
+      - Accept-Encoding
+      set-cookie:
+      - PHPSESSID=2b4e2ad74fa14c3db9a09788fa3af337; expires=Fri, 18-Oct-2019 20:02:54
+        GMT; Max-Age=5184000; path=/; secure; HttpOnly
+      expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      cache-control:
+      - no-store, no-cache, must-revalidate, no-store, no-cache
+      pragma:
+      - no-cache, no-cache
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-headers:
+      - Content-Type
+    body:
+      encoding: ASCII-8BIT
+      string: '{"project_id":"803826145ba90b42d5d860.46800099","webhook":{"webhook_id":"b345ccc6499920c490e8f4fe9487b1378dbf1dbf","url":"http:\/\/ihaz.cheezburger","secret":"fd3a2ceab9e2e9d4f68f40b7c199a273e19492f8","events":["project.imported","project.exported"],"event_lang_map":[]}}'
+    http_version: 
+  recorded_at: Mon, 19 Aug 2019 20:02:54 GMT
+recorded_with: VCR 5.0.0

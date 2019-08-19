@@ -1446,7 +1446,7 @@ status.update(params)
                                                           ## project_id (string, required)
                                                           ## status_id (string or integer, required)
                                                           # Output:
-                                                          ## Translation status inside the given project
+                                                          ## Result of the delete operation
 ```
 
 Alternatively:
@@ -1467,6 +1467,92 @@ As long as Lokalise supports only very limited array of color hexadecimal codes 
                                               ## project_id (string, required)
                                               # Output:
                                               ## Array of color codes in HEX format
+```
+
+### Webhooks
+
+[Webhook attributes](https://lokalise.co/api2docs/ruby/#object-webhooks)
+
+#### Fetch webhooks
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-list-all-webhooks-get)
+
+```ruby
+@client.webhooks(project_id, params = {}) # Input:
+                                          ## project_id (string, required)
+                                          ## params (hash)
+                                          ### :page and :limit
+                                          # Output:
+                                          ## Collection of webhooks for the project
+```
+
+#### Fetch a single webhook
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-retrieve-a-webhook-get)
+
+```ruby
+@client.webhook(project_id, webhook_id)   # Input:
+                                          ## project_id (string, required)
+                                          ## webhook_id (string or integer, required)
+                                          # Output:
+                                          ## Webhook for the given project
+```
+
+#### Create webhook
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-create-a-webhook-post)
+
+```ruby
+@client.create_webhook(project_id, params)    # Input:
+                                              ## project_id (string, required)
+                                              ## params (hash, required)
+                                              ### :url (string, required) - webhook URL
+                                              ### :events (array, required) - events to subscribe to. Check the API docs to find the list of supported events
+                                              ### :event_lang_map (array) - map the event with an array of languages iso codes
+                                              # Output:
+                                              ## Created webhook
+```
+
+#### Update webhook
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-update-a-webhook-put)
+
+```ruby
+@client.update_webhook(project_id, webhook_id, params)    # Input:
+                                                          ## project_id (string, required)
+                                                          ## webhook_id (string or integer, required)
+                                                          ## params (hash)
+                                                          ### :url (string) - webhook URL
+                                                          ### :events (array) - events to subscribe to. Check the API docs to find the list of supported events
+                                                          ### :event_lang_map (array) - map the event with an array of languages iso codes
+                                                          # Output:
+                                                          ## Updated webhook
+```
+
+Alternatively:
+
+```ruby
+webhook = @client.webhook(project_id, webhook_id)
+webhook.update(params)
+```
+
+#### Delete webhook
+
+[Doc](https://lokalise.co/api2docs/ruby/#transition-delete-a-webhook-delete)
+
+```ruby
+@client.destroy_webhook(project_id, webhook_id)   # Input:
+                                                  ## project_id (string, required)
+                                                  ## webhook_id (string or integer, required)
+                                                  # Output:
+                                                  ## Result of the delete operation
+```
+
+Alternatively:
+
+```ruby
+webhook = @client.webhook(project_id, webhook_id)
+webhook.destroy
 ```
 
 ## Additional Info
