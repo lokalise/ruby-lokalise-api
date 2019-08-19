@@ -30,6 +30,7 @@ Official opinionated Ruby interface for the [Lokalise API](https://lokalise.co/a
   + [Translations](#translations)
   + [Translation Providers](#translation-providers)
   + [Translation Statuses](#translation-statuses)
+  + [Webhooks](#webhooks)
 * [Additional Info](#additional-info)
   + [Customizing request](#customizing-request)
   + [Customizing JSON parser](#customizing-json-parser)
