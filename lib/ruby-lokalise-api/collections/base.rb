@@ -53,12 +53,14 @@ module Lokalise
         !prev_page?
       end
 
+      # @return [Integer]
       def next_page
         return nil if last_page?
 
         fetch_page @current_page + 1
       end
 
+      # @return [Integer]
       def prev_page
         return nil if first_page?
 
@@ -74,6 +76,7 @@ module Lokalise
         @current_page = response['x-pagination-page'].to_i
       end
 
+      # Gets the specified page
       def fetch_page(page_num)
         self.class.all @client,
                        @path,

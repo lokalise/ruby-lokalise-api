@@ -16,6 +16,7 @@ module Lokalise
 
     private
 
+    # Allows to customize request params per-client
     def request_params_for(client)
       {request: {timeout: client.timeout, open_timeout: client.open_timeout}}
     end

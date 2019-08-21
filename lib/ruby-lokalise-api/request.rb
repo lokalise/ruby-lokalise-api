@@ -3,6 +3,7 @@ module Lokalise
     include Lokalise::Connection
     include Lokalise::JsonHandler
 
+    # Lokalise returns pagination info in special headers
     PAGINATION_HEADERS = %w[x-pagination-total-count x-pagination-page-count x-pagination-limit x-pagination-page].freeze
 
     def get(path, client, params = {})
@@ -55,6 +56,7 @@ module Lokalise
               'path' => uri.path.gsub(%r{/api2/}, ''))
     end
 
+    # Get only pagination headers
     def extract_headers_from(response)
       response.
         headers.

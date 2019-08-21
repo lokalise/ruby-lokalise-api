@@ -127,7 +127,7 @@ module Lokalise
         # If path already has id - just return it
         return path if path.match?(/#{id}\z/)
 
-        # Otherwise this seems like a collection path, so append the resource id to it
+        # Otherwise this looks like a collection path, so append the resource id to it
         path.remove_trailing_slash + "/#{id}"
       end
 
