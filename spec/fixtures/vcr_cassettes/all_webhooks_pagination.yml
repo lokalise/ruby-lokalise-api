@@ -21,7 +21,7 @@ http_interactions:
       server:
       - nginx
       date:
-      - Mon, 19 Aug 2019 19:43:32 GMT
+      - Wed, 21 Aug 2019 12:03:28 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -31,7 +31,7 @@ http_interactions:
       vary:
       - Accept-Encoding
       set-cookie:
-      - PHPSESSID=5d75b66e8c5f4b7cb8285c16969c829c; expires=Fri, 18-Oct-2019 19:43:32
+      - PHPSESSID=0c19e8f391e53a063177f87f2b280fa4; expires=Sun, 20-Oct-2019 12:03:28
         GMT; Max-Age=5184000; path=/; secure; HttpOnly
       expires:
       - Thu, 19 Nov 1981 08:52:00 GMT
@@ -39,6 +39,14 @@ http_interactions:
       - no-store, no-cache, must-revalidate, no-store, no-cache
       pragma:
       - no-cache, no-cache
+      x-pagination-total-count:
+      - '3'
+      x-pagination-page-count:
+      - '3'
+      x-pagination-limit:
+      - '1'
+      x-pagination-page:
+      - '2'
       access-control-allow-origin:
       - "*"
       access-control-allow-headers:
@@ -47,5 +55,5 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"project_id":"803826145ba90b42d5d860.46800099","webhooks":[{"webhook_id":"c7eb7e6e3c2fb2b26d0b64d0de083a5a71675b3d","url":"https:\/\/canihaz.hook","secret":"a62450cd9eeca8dfc84f3c0cf9b7a6a370267d6f","events":["project.snapshot","project.imported","project.exported","project.languages.added","project.language.removed","project.language.settings_changed","project.translation.updated"],"event_lang_map":[{"event":"project.translation.updated","lang_iso_codes":["sq","ar_001","bm","ca","custom_1","nl","en","en-us","f_over","ru","es"]}]}]}'
     http_version: 
-  recorded_at: Mon, 19 Aug 2019 19:43:32 GMT
+  recorded_at: Wed, 21 Aug 2019 12:03:23 GMT
 recorded_with: VCR 5.0.0

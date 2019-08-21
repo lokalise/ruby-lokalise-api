@@ -9,7 +9,7 @@ RSpec.describe Lokalise::Client do
         test_client.webhooks project_id
       end.collection
 
-      expect(webhooks.count).to eq(2)
+      expect(webhooks.count).to eq(3)
       expect(webhooks.first.url).to eq('https://serios.webhook')
     end
 
@@ -19,10 +19,10 @@ RSpec.describe Lokalise::Client do
       end
 
       expect(webhooks.collection.count).to eq(1)
-      # expect(webhooks.total_results).to eq(2)
-      # expect(webhooks.total_pages).to eq(2)
-      # expect(webhooks.results_per_page).to eq(1)
-      # expect(webhooks.current_page).to eq(2)
+      expect(webhooks.total_results).to eq(3)
+      expect(webhooks.total_pages).to eq(3)
+      expect(webhooks.results_per_page).to eq(1)
+      expect(webhooks.current_page).to eq(2)
     end
   end
 
