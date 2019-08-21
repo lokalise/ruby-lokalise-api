@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.6.0 (Unreleased)
+## 2.6.0 (21-Aug-19)
 
 * Added [`Webhook` endpoint](https://lokalise.co/api2docs/curl/#resource-webhooks) (thanks to [@snkashis](https://github.com/snkashis) for help!)
 
