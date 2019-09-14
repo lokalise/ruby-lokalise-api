@@ -3,7 +3,7 @@
 [![Gem Version](https://badge.fury.io/rb/ruby-lokalise-api.svg)](https://badge.fury.io/rb/ruby-lokalise-api)
 [![Build Status](https://travis-ci.org/lokalise/ruby-lokalise-api.svg?branch=master)](https://travis-ci.org/lokalise/ruby-lokalise-api)
 
-Official opinionated Ruby interface for the [Lokalise API](https://lokalise.co/api2docs/ruby/) that represents returned data as Ruby objects.
+Official opinionated Ruby interface for the [Lokalise API](https://lokalise.com/api2docs/ruby/) that represents returned data as Ruby objects.
 
 ## Index
 
@@ -52,7 +52,7 @@ $ gem install ruby-lokalise-api
 
 ### Initializing the Client
 
-In order to perform API requests, you require a special token that can be obtained in your [personal profile](https://lokalise.co/profile#apitokens) (*API tokens* section). Note that the owner of the token must have admin access rights.
+In order to perform API requests, you require a special token that can be obtained in your [personal profile](https://lokalise.com/profile#apitokens) (*API tokens* section). Note that the owner of the token must have admin access rights.
 
 After you've obtained the token, initialize the client:
 
@@ -98,7 +98,7 @@ project = @client.projects.collection.first # => Get the first project
 project.name
 ```
 
-Bulk fetches support [pagination](https://lokalise.co/api2docs/php/#resource-pagination). There are two common parameters available:
+Bulk fetches support [pagination](https://lokalise.com/api2docs/php/#resource-pagination). There are two common parameters available:
 
 * `:limit` (defaults to `100`, maximum is `5000`) - number of records to display per page
 * `:page` (defaults  to `1`) - page to fetch
@@ -142,11 +142,11 @@ translations.prev_page # => will load the previous page while preserving the `li
 
 ### Comments
 
-[Comments attributes](https://lokalise.co/api2docs/ruby/#resource-comments)
+[Comments attributes](https://lokalise.com/api2docs/ruby/#resource-comments)
 
 #### Fetch project comments
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-list-project-comments-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-list-project-comments-get)
 
 ```ruby
 @client.project_comments(project_id, params = {})   # Input:
@@ -159,7 +159,7 @@ translations.prev_page # => will load the previous page while preserving the `li
 
 #### Fetch key comments
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-list-key-comments-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-list-key-comments-get)
 
 ```ruby
 @client.comments(project_id, key_id, params = {})   # Input:
@@ -173,7 +173,7 @@ translations.prev_page # => will load the previous page while preserving the `li
 
 #### Create key comments
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-create-comments-post)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-create-comments-post)
 
 ```ruby
 @client.create_comments(project_id, key_id, params)   # Input:
@@ -187,7 +187,7 @@ translations.prev_page # => will load the previous page while preserving the `li
 
 #### Fetch key comment
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-retrieve-a-comment-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-retrieve-a-comment-get)
 
 ```ruby
 @client.comment(project_id, key_id, comment_id)   # Input:
@@ -200,7 +200,7 @@ translations.prev_page # => will load the previous page while preserving the `li
 
 #### Delete key comment
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-delete-a-comment-delete)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-delete-a-comment-delete)
 
 ```ruby
 @client.destroy_comment(project_id, key_id, comment_id)   # Input:
@@ -222,7 +222,7 @@ comment.destroy
 
 #### Fetch contributors
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-list-all-contributors-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-list-all-contributors-get)
 
 ```ruby
 @client.contributors(project_id, params = {})   # Input:
@@ -235,7 +235,7 @@ comment.destroy
 
 #### Fetch a single contributor
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-retrieve-a-contributor-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-retrieve-a-contributor-get)
 
 ```ruby
 @client.contributor(project_id, contributor_id)   # Input:
@@ -247,7 +247,7 @@ comment.destroy
 
 #### Create contributors
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-create-contributors-post)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-create-contributors-post)
 
 ```ruby
 @client.create_contributors(project_id, params)  # Input:
@@ -267,7 +267,7 @@ comment.destroy
 
 #### Update contributor
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-update-a-contributor-put)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-update-a-contributor-put)
 
 ```ruby
 @client.update_contributor(project_id, contributor_id, params)   # Input:
@@ -293,7 +293,7 @@ contributor.update(params)
 
 #### Delete contributor
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-delete-a-contributor-delete)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-delete-a-contributor-delete)
 
 ```ruby
 @client.destroy_contributor(project_id, contributor_id)    # Input:
@@ -312,11 +312,11 @@ contributor.destroy
 
 ### Files
 
-[File attributes](https://lokalise.co/api2docs/ruby/#object-files)
+[File attributes](https://lokalise.com/api2docs/ruby/#object-files)
 
 #### Fetch translation files
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-list-all-files-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-list-all-files-get)
 
 ```ruby
 @client.files(project_id, params = {})  # Input:
@@ -329,7 +329,7 @@ contributor.destroy
 
 #### Download translation files
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-download-files-post)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-download-files-post)
 
 Exports project files as a `.zip` bundle and makes them available to download (the link is valid for 12 months).
 
@@ -338,14 +338,14 @@ Exports project files as a `.zip` bundle and makes them available to download (t
                                         ## project_id (string, required)
                                         ## params (hash, required)
                                         ### :format (string, required) - one of the file formats supported by Lokalise (json, xml, po etc).
-                                        ### Find the list of other supported params at https://lokalise.co/api2docs/ruby/#transition-download-files-post 
+                                        ### Find the list of other supported params at https://lokalise.com/api2docs/ruby/#transition-download-files-post 
                                         # Output:
                                         ## Hash with the project id and a "bundle_url" link
 ```
 
 #### Upload translation file
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-upload-a-file-post)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-upload-a-file-post)
 
 ```ruby
 @client.upload_file(project_id, params) # Input:
@@ -354,18 +354,18 @@ Exports project files as a `.zip` bundle and makes them available to download (t
                                         ### :data (string, required) - base64-encoded data (the format must be supported by Lokalise)
                                         ### :filename (string, required)
                                         ### :lang_iso (string, required) 
-                                        ### Find the list of other supported params at https://lokalise.co/api2docs/ruby/#transition-upload-a-file-post
+                                        ### Find the list of other supported params at https://lokalise.com/api2docs/ruby/#transition-upload-a-file-post
                                         # Output:
                                         ## Hash with information about the upload
 ```
 
 ### Keys
 
-[Key attributes](https://lokalise.co/api2docs/ruby/#object-keys)
+[Key attributes](https://lokalise.com/api2docs/ruby/#object-keys)
 
 #### Fetch project keys
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-list-all-keys-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-list-all-keys-get)
 
 ```ruby
 @client.keys(project_id, params = {})   # Input:
@@ -378,7 +378,7 @@ Exports project files as a `.zip` bundle and makes them available to download (t
 
 #### Fetch a single project key
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-retrieve-a-key-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-retrieve-a-key-get)
 
 ```ruby
 @client.key(project_id, key_id, params = {})    # Input:
@@ -392,7 +392,7 @@ Exports project files as a `.zip` bundle and makes them available to download (t
 
 #### Create project keys
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-create-keys-post)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-create-keys-post)
 
 ```ruby
 @client.create_keys(project_id, params)   # Input:
@@ -400,21 +400,21 @@ Exports project files as a `.zip` bundle and makes them available to download (t
                                           ## params (array of hashes or hash, required)
                                           ### :key_name (string or hash, required) - for projects with enabled per-platform key names, pass hash with "ios", "android", "web" and "other" params.
                                           ### :platforms (array) - supported values are "ios", "android", "web" and "other"
-### Find all other supported attributes at https://lokalise.co/api2docs/ruby/#transition-create-keys-post 
+### Find all other supported attributes at https://lokalise.com/api2docs/ruby/#transition-create-keys-post 
                                           # Output:
                                           ## Collection of newly created keys
 ```
 
 #### Update project key
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-update-a-key-put)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-update-a-key-put)
 
 ```ruby
 @client.update_key(project_id, key_id, params = {})   # Input:
                                                       ## project_id (string, required)
                                                       ## key_id (string, required)  
                                                       ## params (hash)
-                                                      ### Find a list of supported attributes at https://lokalise.co/api2docs/ruby/#transition-update-a-key-put
+                                                      ### Find a list of supported attributes at https://lokalise.com/api2docs/ruby/#transition-update-a-key-put
                                                       # Output:
                                                       ## Updated key
 ```
@@ -428,21 +428,21 @@ key.update(params)
 
 #### Bulk update project keys
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-bulk-update-put)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-bulk-update-put)
 
 ```ruby
 @client.update_keys(project_id, params)  # Input:
                                          ## project_id (string, required)
                                          ## params (hash or array of hashes, required)
                                          ### :key_id (string, required)
-                                         ### Find all other supported attributes at https://lokalise.co/api2docs/ruby/#transition-bulk-update-put 
+                                         ### Find all other supported attributes at https://lokalise.com/api2docs/ruby/#transition-bulk-update-put 
                                          # Output:
                                          ## Collection of updated keys
 ```
 
 #### Delete project key
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-delete-a-key-delete)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-delete-a-key-delete)
 
 ```ruby
 @client.destroy_key(project_id, key_id) # Input:
@@ -461,7 +461,7 @@ key.destroy
 
 #### Bulk delete project keys
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-delete-multiple-keys-delete)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-delete-multiple-keys-delete)
 
 ```ruby
 @client.destroy_keys(project_id, key_ids) # Input:
@@ -480,11 +480,11 @@ keys.destroy_all # => will effectively destroy all keys in the project
 
 ### Languages
 
-[Language attributes](https://lokalise.co/api2docs/ruby/#object-languages)
+[Language attributes](https://lokalise.com/api2docs/ruby/#object-languages)
 
 #### Fetch system languages
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-list-system-languages-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-list-system-languages-get)
 
 ```ruby
 @client.system_languages(params = {})   # Input:
@@ -496,7 +496,7 @@ keys.destroy_all # => will effectively destroy all keys in the project
 
 #### Fetch project languages
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-list-project-languages-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-list-project-languages-get)
 
 ```ruby
 @client.project_languages(project_id, params = {})    # Input:
@@ -509,7 +509,7 @@ keys.destroy_all # => will effectively destroy all keys in the project
 
 #### Fetch a single project language
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-retrieve-a-language-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-retrieve-a-language-get)
 
 ```ruby
 @client.language(project_id, language_id)     # Input:
@@ -521,7 +521,7 @@ keys.destroy_all # => will effectively destroy all keys in the project
 
 #### Create project languages
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-create-languages-post)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-create-languages-post)
 
 ```ruby
 @client.create_languages(project_id, params)    # Input:
@@ -537,7 +537,7 @@ keys.destroy_all # => will effectively destroy all keys in the project
 
 #### Update project language
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-update-a-language-put)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-update-a-language-put)
 
 ```ruby
 @client.update_language(project_id, language_id, params)    # Input:
@@ -560,7 +560,7 @@ language.update(params)
 
 #### Delete project language
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-delete-a-language-delete)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-delete-a-language-delete)
 
 ```ruby
 @client.destroy_language(project_id, language_id)    # Input:
@@ -579,11 +579,11 @@ language.destroy
 
 ### Orders
 
-[Order attributes](https://lokalise.co/api2docs/curl/#object-orders)
+[Order attributes](https://lokalise.com/api2docs/curl/#object-orders)
 
 #### Fetch order collection
 
-[Doc](https://lokalise.co/api2docs/curl/#transition-list-all-orders-get)
+[Doc](https://lokalise.com/api2docs/curl/#transition-list-all-orders-get)
 
 ```ruby
 @client.orders(team_id, params = {})  # Input:
@@ -596,7 +596,7 @@ language.destroy
 
 #### Fetch a single order
 
-[Doc](https://lokalise.co/api2docs/curl/#transition-retrieve-an-order-get)
+[Doc](https://lokalise.com/api2docs/curl/#transition-retrieve-an-order-get)
 
 ```ruby
 @client.order(team_id, order_id)  # Input:
@@ -608,7 +608,7 @@ language.destroy
 
 #### Create an order
 
-[Doc](https://lokalise.co/api2docs/curl/#transition-create-an-order-post)
+[Doc](https://lokalise.com/api2docs/curl/#transition-create-an-order-post)
 
 ```ruby
 @client.create_order(team_id, params)  # Input:
@@ -631,11 +631,11 @@ language.destroy
 
 ### Payment cards
 
-[Payment card attributes](https://lokalise.co/api2docs/ruby/#object-payment-cards)
+[Payment card attributes](https://lokalise.com/api2docs/ruby/#object-payment-cards)
 
 #### Fetch payment card collection
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-list-all-cards-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-list-all-cards-get)
 
 ```ruby
 @client.payment_cards(params = {})    # Input:
@@ -647,7 +647,7 @@ language.destroy
 
 #### Fetch a single payment card
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-retrieve-a-card-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-retrieve-a-card-get)
 
 ```ruby
 @client.payment_card(card_id)     # Input:
@@ -658,7 +658,7 @@ language.destroy
 
 #### Create a payment card
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-create-a-card-post)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-create-a-card-post)
 
 ```ruby
 @client.create_payment_card(params)   # Input:
@@ -674,7 +674,7 @@ language.destroy
 
 #### Delete a payment card
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-delete-a-card-delete)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-delete-a-card-delete)
 
 ```ruby
 @client.destroy_payment_card(card_id)   # Input:
@@ -692,11 +692,11 @@ card.destroy
 
 ### Projects
 
-[Project attributes](https://lokalise.co/api2docs/php/#object-projects)
+[Project attributes](https://lokalise.com/api2docs/php/#object-projects)
 
 #### Fetch projects collection
 
-[Doc](https://lokalise.co/api2docs/php/#transition-list-all-projects-get)
+[Doc](https://lokalise.com/api2docs/php/#transition-list-all-projects-get)
 
 ```ruby
 @client.projects(params = {})   # Input:
@@ -709,7 +709,7 @@ card.destroy
 
 #### Fetch a single project
 
-[Doc](https://lokalise.co/api2docs/php/#transition-retrieve-a-project-get)
+[Doc](https://lokalise.com/api2docs/php/#transition-retrieve-a-project-get)
 
 ```ruby
 @client.project(project_id)     # Input:
@@ -720,7 +720,7 @@ card.destroy
 
 #### Create a project
 
-[Doc](https://lokalise.co/api2docs/php/#transition-create-a-project-post)
+[Doc](https://lokalise.com/api2docs/php/#transition-create-a-project-post)
 
 ```ruby
 @client.create_project(params)  # Input:
@@ -735,7 +735,7 @@ card.destroy
 
 #### Update a project
 
-[Doc](https://lokalise.co/api2docs/php/#transition-update-a-project-put)
+[Doc](https://lokalise.com/api2docs/php/#transition-update-a-project-put)
 
 ```ruby
 @client.update_project(project_id, params)  # Input:
@@ -756,7 +756,7 @@ project.update(params)
 
 #### Empty a project
 
-[Doc](https://lokalise.co/api2docs/php/#transition-empty-a-project-put)
+[Doc](https://lokalise.com/api2docs/php/#transition-empty-a-project-put)
 
 Deletes *all* keys and translations from the project.
 
@@ -776,7 +776,7 @@ project.empty
 
 #### Delete a project
 
-[Doc](https://lokalise.co/api2docs/php/#transition-delete-a-project-delete)
+[Doc](https://lokalise.com/api2docs/php/#transition-delete-a-project-delete)
 
 ```ruby
 @client.destroy_project(project_id)   # Input:
@@ -794,11 +794,11 @@ project.destroy
 
 ### Screenshots
 
-[Screenshot attributes](https://lokalise.co/api2docs/ruby/#resource-screenshots)
+[Screenshot attributes](https://lokalise.com/api2docs/ruby/#resource-screenshots)
 
 #### Fetch screenshots
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-list-all-screenshots-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-list-all-screenshots-get)
 
 ```ruby
 @client.screenshots(project_id, params = {})  # Input:
@@ -811,7 +811,7 @@ project.destroy
 
 #### Fetch a single screenshot
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-retrieve-a-screenshot-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-retrieve-a-screenshot-get)
 
 ```ruby
 @client.screeshot(project_id, screeshot_id)     # Input:
@@ -823,7 +823,7 @@ project.destroy
 
 #### Create screenshots
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-create-screenshots-post)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-create-screenshots-post)
 
 ```ruby
 @client.create_screenshots(project_id, params)     # Input:
@@ -841,7 +841,7 @@ project.destroy
 
 #### Update screenshot
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-update-a-screenshot-put)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-update-a-screenshot-put)
 
 ```ruby
 @client.update_screenshot(project_id, screenshot_id, params = {}) # Input:
@@ -865,7 +865,7 @@ screenshot.update(params)
 
 #### Delete screenshot
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-delete-a-screenshot-delete)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-delete-a-screenshot-delete)
 
 ```ruby
 @client.destroy_screenshot(project_id, screenshot_id)   # Input:
@@ -884,11 +884,11 @@ screenshot.destroy
 
 ### Snapshots
 
-[Snapshot attributes](https://lokalise.co/api2docs/ruby/#object-snapshots)
+[Snapshot attributes](https://lokalise.com/api2docs/ruby/#object-snapshots)
 
 #### Fetch snapshots
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-list-all-snapshots-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-list-all-snapshots-get)
 
 ```ruby
 @client.snapshots(project_id, params = {})  # Input:
@@ -902,7 +902,7 @@ screenshot.destroy
 
 #### Create snapshot
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-create-a-snapshot-post)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-create-a-snapshot-post)
 
 ```ruby
 @client.create_snapshot(project_id, params = {})  # Input:
@@ -915,7 +915,7 @@ screenshot.destroy
 
 #### Restore snapshot
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-restore-a-snapshot-post)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-restore-a-snapshot-post)
 
 ```ruby
 @client.restore_snapshot(project_id, snapshot_id)   # Input:
@@ -934,7 +934,7 @@ snapshot.restore
 
 #### Delete snapshot
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-delete-a-snapshot-delete)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-delete-a-snapshot-delete)
 
 ```ruby
 @client.destroy_snapshot(project_id, snapshot_id)   # Input:
@@ -953,11 +953,11 @@ snapshot.destroy
 
 ### Tasks
 
-[Task attributes](https://lokalise.co/api2docs/ruby/#resource-tasks)
+[Task attributes](https://lokalise.com/api2docs/ruby/#resource-tasks)
 
 #### Fetch tasks
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-list-all-tasks-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-list-all-tasks-get)
 
 ```ruby
 @client.tasks(project_id, params = {})  # Input:
@@ -971,7 +971,7 @@ snapshot.destroy
 
 #### Fetch a single task
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-retrieve-a-task-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-retrieve-a-task-get)
 
 ```ruby
 @client.task(project_id, task_id, params = {})  # Input:
@@ -983,7 +983,7 @@ snapshot.destroy
 
 #### Create task
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-create-a-task-post)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-create-a-task-post)
 
 ```ruby
 @client.create_task(project_id, params)  # Input:
@@ -994,7 +994,7 @@ snapshot.destroy
                                          ### languages (array of hashes, required)
                                          #### language_iso (string)
                                          #### users (array) - list of users identifiers, assigned to work on the language 
-                                         ### Find other supported options at https://lokalise.co/api2docs/ruby/#transition-create-a-task-post 
+                                         ### Find other supported options at https://lokalise.com/api2docs/ruby/#transition-create-a-task-post 
                                          # Output:
                                          ## A newly created task 
 
@@ -1002,14 +1002,14 @@ snapshot.destroy
 
 #### Update task
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-update-a-task-put)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-update-a-task-put)
 
 ```ruby
 @client.update_task(project_id, task_id, params = {})  # Input:
                                                        ## project_id (string, required)
                                                        ## task_id (string or integer, required) 
                                                        ## params (hash)
-                                                       ### Find supported params at https://lokalise.co/api2docs/ruby/#transition-update-a-task-put 
+                                                       ### Find supported params at https://lokalise.com/api2docs/ruby/#transition-update-a-task-put 
                                                        # Output:
                                                        ## An updated task 
 
@@ -1024,7 +1024,7 @@ task.update(params)
 
 #### Delete task
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-delete-a-task-delete)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-delete-a-task-delete)
 
 ```ruby
 @client.destroy_task(project_id, task_id)  # Input:
@@ -1046,7 +1046,7 @@ task.destroy
 
 #### Fetch teams
 
-[Doc](https://lokalise.co/api2docs/ruby/#resource-teams)
+[Doc](https://lokalise.com/api2docs/ruby/#resource-teams)
 
 ```ruby
 @client.teams(params = {})  # Input:
@@ -1058,11 +1058,11 @@ task.destroy
 
 ### Team users
 
-[Team user attributes](https://lokalise.co/api2docs/ruby/#object-team-users)
+[Team user attributes](https://lokalise.com/api2docs/ruby/#object-team-users)
 
 #### Fetch team users
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-list-all-team-users-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-list-all-team-users-get)
 
 ```ruby
 @client.team_users(team_id, params = {})  # Input:
@@ -1075,7 +1075,7 @@ task.destroy
 
 #### Fetch a single team user
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-retrieve-a-team-user-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-retrieve-a-team-user-get)
 
 ```ruby
 @client.team_user(team_id, user_id) # Input:
@@ -1087,7 +1087,7 @@ task.destroy
 
 #### Update team user
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-update-a-team-user-put)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-update-a-team-user-put)
 
 ```ruby
 @client.update_team_user(team_id, user_id, params)  # Input:
@@ -1108,7 +1108,7 @@ user.update(params)
 
 #### Delete team user
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-delete-a-team-user-delete)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-delete-a-team-user-delete)
 
 ```ruby
 @client.destroy_team_user(team_id, user_id) # Input:
@@ -1127,11 +1127,11 @@ user.destroy
 
 ### Team user groups
 
-[Team user group attributes](https://lokalise.co/api2docs/ruby/#object-team-user-groups)
+[Team user group attributes](https://lokalise.com/api2docs/ruby/#object-team-user-groups)
 
 #### Fetch team user groups
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-list-all-groups-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-list-all-groups-get)
 
 ```ruby
 @client.team_user_groups(team_id, params = {})  # Input:
@@ -1144,7 +1144,7 @@ user.destroy
 
 #### Fetch a single group
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-retrieve-a-group-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-retrieve-a-group-get)
 
 ```ruby
 @client.team_user_group(team_id, group_id)  # Input:
@@ -1156,7 +1156,7 @@ user.destroy
 
 #### Create group
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-create-a-group-post)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-create-a-group-post)
 
 ```ruby
 @client.create_team_user_group(team_id, params) # Input:
@@ -1173,7 +1173,7 @@ user.destroy
 
 #### Update group
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-update-a-group-put)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-update-a-group-put)
 
 ```ruby
 @client.update_team_user_group(team_id, group_id, params) # Input:
@@ -1198,7 +1198,7 @@ group.update(params)
 
 #### Add projects to group
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-add-projects-to-group-put)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-add-projects-to-group-put)
 
 ```ruby
 @client.add_projects_to_group(team_id, group_id, project_ids) # Input:
@@ -1216,7 +1216,7 @@ group.add_projects projects: [project_id1, project_id2]
 
 #### Remove projects from group
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-remove-projects-from-group-put)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-remove-projects-from-group-put)
 
 ```ruby
 @client.remove_projects_from_group(team_id, group_id, project_ids)  # Input:
@@ -1234,7 +1234,7 @@ group.remove_projects projects: [project_id1, project_id2]
 
 #### Add users (members) to group
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-add-members-to-group-put)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-add-members-to-group-put)
 
 ```ruby
 @client.add_users_to_group(team_id, group_id, user_ids) # Input:
@@ -1252,7 +1252,7 @@ group.add_users users: [user_id1, user_id2]
 
 #### Remove users (members) from group
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-remove-members-from-group-put)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-remove-members-from-group-put)
 
 ```ruby
 @client.remove_users_from_group(team_id, group_id, user_ids)  # Input:
@@ -1270,7 +1270,7 @@ group.remove_users users: [user_id1, user_id2]
 
 #### Destroy group
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-delete-a-group-delete)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-delete-a-group-delete)
 
 ```ruby
 @client.destroy_team_user_group(team_id, group_id)  # Input:
@@ -1289,11 +1289,11 @@ group.destroy
 
 ### Translations
 
-[Translation attributes](https://lokalise.co/api2docs/ruby/#resource-translations)
+[Translation attributes](https://lokalise.com/api2docs/ruby/#resource-translations)
 
 #### Fetch translations
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-list-all-translations-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-list-all-translations-get)
 
 ```ruby
 @client.translations(project_id, params = {})   # Input:
@@ -1307,7 +1307,7 @@ group.destroy
 
 #### Fetch a single translation
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-retrieve-a-translation-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-retrieve-a-translation-get)
 
 ```ruby
 @client.translation(project_id, translation_id, params = {})   # Input:
@@ -1321,7 +1321,7 @@ group.destroy
 
 #### Update translation
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-update-a-translation-put)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-update-a-translation-put)
 
 ```ruby
 @client.update_translation(project_id, translation_id, params = {})   # Input:
@@ -1344,11 +1344,11 @@ translation.update(params)
 
 ### Translation Providers
 
-[Translation provider attributes](https://lokalise.co/api2docs/ruby/#object-translation-providers)
+[Translation provider attributes](https://lokalise.com/api2docs/ruby/#object-translation-providers)
 
 #### Fetch translations
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-list-all-providers-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-list-all-providers-get)
 
 ```ruby
 @client.translation_providers(team_id, params = {})   # Input:
@@ -1361,7 +1361,7 @@ translation.update(params)
 
 #### Fetch a single translation
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-retrieve-a-provider-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-retrieve-a-provider-get)
 
 ```ruby
 @client.translation_provider(team_id, provider_id)  # Input:
@@ -1373,13 +1373,13 @@ translation.update(params)
 
 ### Translation Statuses
 
-[Translation Status attributes](https://lokalise.co/api2docs/ruby/#object-translation-statuses)
+[Translation Status attributes](https://lokalise.com/api2docs/ruby/#object-translation-statuses)
 
 *Custom translation statuses must be enabled for the project before using this endpoint!* It can be done in the project settings.
 
 #### Fetch translation statuses
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-list-all-custom-translation-statuses-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-list-all-custom-translation-statuses-get)
 
 ```ruby
 @client.translation_statuses(project_id, params = {}) # Input:
@@ -1392,7 +1392,7 @@ translation.update(params)
 
 #### Fetch a single translation status
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-retrieve-a-custom-translation-status-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-retrieve-a-custom-translation-status-get)
 
 ```ruby
 @client.translation_status(project_id, status_id) # Input:
@@ -1404,7 +1404,7 @@ translation.update(params)
 
 #### Create translation status
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-create-a-custom-translation-status-post)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-create-a-custom-translation-status-post)
 
 ```ruby
 @client.create_translation_status(project_id, params) # Input:
@@ -1418,7 +1418,7 @@ translation.update(params)
 
 #### Update translation status
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-update-a-custom-translation-status-put)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-update-a-custom-translation-status-put)
 
 ```ruby
 @client.update_translation_status(project_id, status_id, params)  # Input:
@@ -1440,7 +1440,7 @@ status.update(params)
 
 #### Delete translation status
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-delete-a-custom-translation-status-delete)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-delete-a-custom-translation-status-delete)
 
 ```ruby
 @client.destroy_translation_status(project_id, status_id) # Input:
@@ -1459,7 +1459,7 @@ status.destroy
 
 #### Supported color codes for translation statuses
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-retrieve-available-colors-for-custom-translation-statuses-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-retrieve-available-colors-for-custom-translation-statuses-get)
 
 As long as Lokalise supports only very limited array of color hexadecimal codes for custom translation statuses, this method can be used to fetch all permitted values.
 
@@ -1472,11 +1472,11 @@ As long as Lokalise supports only very limited array of color hexadecimal codes 
 
 ### Webhooks
 
-[Webhook attributes](https://lokalise.co/api2docs/ruby/#object-webhooks)
+[Webhook attributes](https://lokalise.com/api2docs/ruby/#object-webhooks)
 
 #### Fetch webhooks
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-list-all-webhooks-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-list-all-webhooks-get)
 
 ```ruby
 @client.webhooks(project_id, params = {}) # Input:
@@ -1489,7 +1489,7 @@ As long as Lokalise supports only very limited array of color hexadecimal codes 
 
 #### Fetch a single webhook
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-retrieve-a-webhook-get)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-retrieve-a-webhook-get)
 
 ```ruby
 @client.webhook(project_id, webhook_id)   # Input:
@@ -1501,7 +1501,7 @@ As long as Lokalise supports only very limited array of color hexadecimal codes 
 
 #### Create webhook
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-create-a-webhook-post)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-create-a-webhook-post)
 
 ```ruby
 @client.create_webhook(project_id, params)    # Input:
@@ -1516,7 +1516,7 @@ As long as Lokalise supports only very limited array of color hexadecimal codes 
 
 #### Update webhook
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-update-a-webhook-put)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-update-a-webhook-put)
 
 ```ruby
 @client.update_webhook(project_id, webhook_id, params)    # Input:
@@ -1539,7 +1539,7 @@ webhook.update(params)
 
 #### Delete webhook
 
-[Doc](https://lokalise.co/api2docs/ruby/#transition-delete-a-webhook-delete)
+[Doc](https://lokalise.com/api2docs/ruby/#transition-delete-a-webhook-delete)
 
 ```ruby
 @client.destroy_webhook(project_id, webhook_id)   # Input:
@@ -1619,7 +1619,7 @@ end
 
 ### Error handling
 
-[Error codes](https://lokalise.co/api2docs/curl/#resource-errors)
+[Error codes](https://lokalise.com/api2docs/curl/#resource-errors)
 
 The gem may raise the following custom exceptions:
 
@@ -1639,7 +1639,7 @@ The gem may raise the following custom exceptions:
 
 ### API Rate Limits
 
-Lokalise does not [rate-limit API requests](https://lokalise.co/api2docs/ruby/#resource-rate-limits), however retain a right to decline the service in case of excessive use. Only one concurrent request per token is allowed. To ensure data consistency, it is not recommended to access the same project simultaneously using multiple tokens.
+Lokalise does not [rate-limit API requests](https://lokalise.com/api2docs/ruby/#resource-rate-limits), however retain a right to decline the service in case of excessive use. Only one concurrent request per token is allowed. To ensure data consistency, it is not recommended to access the same project simultaneously using multiple tokens.
 
 ## Running Tests
 
