@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.6.1 (21-Aug-19)
+
+* Update dependencies
+* Update tests for the latest Faraday (0.16)
+
 ## 2.6.0 (21-Aug-19)
 
 * Added [`Webhook` endpoint](https://lokalise.co/api2docs/curl/#resource-webhooks) (thanks to [@snkashis](https://github.com/snkashis) for help!)
