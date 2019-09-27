@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.6.1 (21-Aug-19)
+## 2.6.1 (27-Sep-19)
 
 * Update dependencies
 * Update tests for the latest Faraday (0.16)
