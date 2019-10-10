@@ -1,4 +1,3 @@
-require 'pry'
 RSpec.describe Lokalise::Connection do
   include described_class
 
