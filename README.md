@@ -1346,7 +1346,7 @@ translation.update(params)
 
 [Translation provider attributes](https://lokalise.com/api2docs/curl/#object-translation-providers)
 
-#### Fetch translations
+#### Fetch translation providers
 
 [Doc](https://lokalise.com/api2docs/curl/#transition-list-all-providers-get)
 
@@ -1359,7 +1359,7 @@ translation.update(params)
                                                       ## Collection of providers for the team
 ```
 
-#### Fetch a single translation
+#### Fetch a single translation provider
 
 [Doc](https://lokalise.com/api2docs/curl/#transition-retrieve-a-provider-get)
 
