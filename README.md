@@ -1,4 +1,4 @@
-# Lokalise API 2.0 official Ruby interface
+# Lokalise API v2 official Ruby interface
 
 [![Gem Version](https://badge.fury.io/rb/ruby-lokalise-api.svg)](https://badge.fury.io/rb/ruby-lokalise-api)
 [![Build Status](https://travis-ci.org/lokalise/ruby-lokalise-api.svg?branch=master)](https://travis-ci.org/lokalise/ruby-lokalise-api)
