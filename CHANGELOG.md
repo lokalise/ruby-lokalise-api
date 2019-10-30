@@ -25,11 +25,11 @@
 ## 2.3.0 (17-Jul-19)
 
 * Incorporated latest API changes
-* Added support for [`TranslationStatus` endpoint](https://lokalise.co/api2docs/ruby/#resource-translation-statuses)
+* Added support for [`TranslationStatus` endpoint](https://lokalise.co/api2docs/curl/#resource-translation-statuses)
 
 ## 2.2.0 (19-May-19)
 
-* Added support for [`TeamUserGroup` endpoint](https://lokalise.co/api2docs/ruby/#resource-team-user-groups)
+* Added support for [`TeamUserGroup` endpoint](https://lokalise.co/api2docs/curl/#resource-team-user-groups)
 * Enhancements to method chaining
 
 ## 2.1.1 (17-May-19)

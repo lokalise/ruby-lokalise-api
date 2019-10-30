@@ -14,6 +14,7 @@ Official opinionated Ruby interface for the [Lokalise API](https://lokalise.com/
   + [Collections of resources and pagination](#collections-of-resources-and-pagination)
   + [Branching](#branching)
 * [Available Resources](#available-resources)
+  + [Branches](#branches)
   + [Comments](#comments)
   + [Contributors](#contributors)
   + [Files](#files)
@@ -148,6 +149,74 @@ If you are using [project branching feature](https://docs.lokalise.com/en/articl
 ```
 
 ## Available Resources
+
+### Branches
+
+[Branches attributes](https://lokalise.com/api2docs/curl/#resource-branches)
+
+#### Fetch branches
+
+[Doc](https://lokalise.com/api2docs/curl/#transition-list-all-branches-get)
+
+```ruby
+@client.branches(project_id, params = {})   # Input:
+                                            ## project_id (string, required)
+                                            ## params (hash)
+                                            ### :page and :limit
+                                            # Output:
+                                            ## Collection of comments available in the branches project
+```
+
+#### Fetch branch
+
+[Doc](https://lokalise.com/api2docs/curl/#transition-retrieve-a-branch-get)
+
+```ruby
+@client.branch(project_id, branch_id)   # Input:
+                                        ## project_id (string, required)
+                                        ## branch_id (string or integer, required) 
+                                        # Output:
+                                        ## Branch inside the given project
+```
+
+#### Create branch
+
+[Doc](https://lokalise.com/api2docs/curl/#transition-retrieve-a-branch-get)
+
+```ruby
+@client.create_branch(project_id, params)   # Input:
+                                            ## project_id (string, required)
+                                            ## params (hash, required):
+                                            ### :name (string) - name of the branch 
+                                            # Output:
+                                            ## Created branch
+```
+
+#### Update branch
+
+[Doc](https://lokalise.com/api2docs/curl/#transition-update-a-branch-put)
+
+```ruby
+@client.update_branch(project_id, branch_id, params)    # Input:
+                                                        ## project_id (string, required)
+                                                        ## branch_id (string or integer, required)  
+                                                        ## params (hash, required):
+                                                        ### :name (string) - name of the branch 
+                                                        # Output:
+                                                        ## Updated branch
+```
+
+#### Delete branch
+
+[Doc](https://lokalise.com/api2docs/curl/#transition-delete-a-branch-delete)
+
+```ruby
+@client.destroy_branch(project_id, branch_id)   # Input:
+                                                ## project_id (string, required)
+                                                ## branch_id (string or integer, required) 
+                                                # Output:
+                                                ## Hash with the project's id and "branch_deleted"=>true
+```
 
 ### Comments
 

@@ -1,4 +1,12 @@
 {
+  "branch": [
+    "branch_id",
+    "name",
+    "created_at",
+    "created_at_timestamp",
+    "created_by",
+    "created_by_email"
+  ],
   "comment": [
     "comment_id",
     "key_id",

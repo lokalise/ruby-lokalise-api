@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://api.lokalise.co/api2/projects/803826145ba90b42d5d860.46800099/branches/41306
+    body:
+      encoding: UTF-8
+      string: '{"_initial_path":"projects/803826145ba90b42d5d860.46800099/branches/41306"}'
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - ruby-lokalise-api gem/2.7.0
+      X-api-token:
+      - "<LOKALISE_TOKEN>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx
+      date:
+      - Wed, 30 Oct 2019 14:47:10 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - close
+      vary:
+      - Accept-Encoding
+      pragma:
+      - no-cache
+      cache-control:
+      - no-store, no-cache
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-headers:
+      - Content-Type
+    body:
+      encoding: ASCII-8BIT
+      string: '{"project_id":"803826145ba90b42d5d860.46800099","branch_deleted":true}'
+    http_version: 
+  recorded_at: Wed, 30 Oct 2019 14:47:04 GMT
+recorded_with: VCR 5.0.0
