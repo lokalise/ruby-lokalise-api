@@ -12,6 +12,7 @@ Official opinionated Ruby interface for the [Lokalise API](https://lokalise.com/
   + [Initializing the Client](#initializing-the-client)
   + [Objects and models](#objects-and-models)
   + [Collections of resources and pagination](#collections-of-resources-and-pagination)
+  + [Branching](#branching)
 * [Available Resources](#available-resources)
   + [Comments](#comments)
   + [Contributors](#contributors)
@@ -136,6 +137,14 @@ These methods return instances of the same collection class or `nil` if the next
 translations = @client.translations 'project_id', limit: 4, page: 2, disable_references: 0 # => we passed three parameters here
 
 translations.prev_page # => will load the previous page while preserving the `limit` and `disable_references` params
+```
+
+### Branching
+
+If you are using [project branching feature](https://docs.lokalise.com/en/articles/3391861-project-branching), simply add branch name separated by semicolon to your project ID in any endpoint to access the branch. For example, in order to access `new-feature` branch for the project with an id `123abcdef.01`:
+
+```ruby
+@client.files '123abcdef.01:new-feature'
 ```
 
 ## Available Resources
