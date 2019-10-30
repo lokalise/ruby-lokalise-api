@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.7.0 (30-Oct-19)
+
+* Added [`Branch` endpoint](https://lokalise.co/api2docs/curl/#resource-branches)
+
 ## 2.6.1 (27-Sep-19)
 
 * Update dependencies
