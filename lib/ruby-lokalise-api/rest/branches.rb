@@ -50,5 +50,16 @@ module Lokalise
     def destroy_branch(project_id, branch_id)
       c_r Lokalise::Resources::Branch, :destroy, [project_id, branch_id]
     end
+
+    # Merges a branch in the project
+    #
+    # @see https://lokalise.com/api2docs/curl/#transition-merge-a-branch-post
+    # @return [Hash]
+    # @param project_id [String]
+    # @param branch_id [String, Integer]
+    # @param params [Hash]
+    def merge_branch(project_id, branch_id, params = {})
+      c_r Lokalise::Resources::Branch, :merge, [project_id, branch_id, :merge], params
+    end
   end
 end

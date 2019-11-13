@@ -206,6 +206,13 @@ If you are using [project branching feature](https://docs.lokalise.com/en/articl
                                                         ## Updated branch
 ```
 
+Alternatively:
+
+```ruby
+branch = @client.branch('project_id', 'branch_id')
+branch.update params
+```
+
 #### Delete branch
 
 [Doc](https://lokalise.com/api2docs/curl/#transition-delete-a-branch-delete)
@@ -216,6 +223,33 @@ If you are using [project branching feature](https://docs.lokalise.com/en/articl
                                                 ## branch_id (string or integer, required) 
                                                 # Output:
                                                 ## Hash with the project's id and "branch_deleted"=>true
+```
+
+Alternatively:
+
+```ruby
+branch = @client.branch('project_id', 'branch_id')
+branch.destroy
+```
+
+#### Merge branch
+
+[Doc](https://lokalise.com/api2docs/curl/#transition-merge-a-branch-post)
+
+```ruby
+@client.merge_branch(project_id, branch_id, params) # Input:
+                                                    ## project_id (string, required)
+                                                    ## branch_id (string or integer, required) 
+                                                    ## params (hash) 
+                                                    # Output:
+                                                    ## Hash with the project's id, "branch_merged"=>true, and branch attributes
+```
+
+Alternatively:
+
+```ruby
+branch = @client.branch('project_id', 'branch_id')
+branch.merge params
 ```
 
 ### Comments

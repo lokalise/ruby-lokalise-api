@@ -63,7 +63,45 @@ RSpec.describe Lokalise::Client do
     expect(response['branch_deleted']).to eq(true)
   end
 
+  specify '#merge_branch' do
+    branch = VCR.use_cassette('create_branch_to_merge') do
+      test_client.create_branch project_id, name: 'merge-me'
+    end
+
+    expect(branch.name).to eq('merge-me')
+
+    branch_id = branch.branch_id
+
+    response = VCR.use_cassette('merge_branch') do
+      test_client.merge_branch project_id, branch_id, force_conflict_resolve_using: 'master'
+    end
+
+    expect(response['project_id']).to eq(project_id)
+    expect(response['branch_merged']).to eq(true)
+    expect(response['branch']['branch_id']).to eq(branch_id)
+    expect(response['branch']['name']).to eq(branch.name)
+  end
+
   context 'branch chained methods' do
+    it 'should support merge' do
+      branch = VCR.use_cassette('create_branch_to_merge2') do
+        test_client.create_branch project_id, name: 'merge-me-plz'
+      end
+
+      expect(branch.name).to eq('merge-me-plz')
+
+      branch_id = branch.branch_id
+
+      response = VCR.use_cassette('merge_branch_chained') do
+        branch.merge force_conflict_resolve_using: 'master'
+      end
+
+      expect(response['project_id']).to eq(project_id)
+      expect(response['branch_merged']).to eq(true)
+      expect(response['branch']['branch_id']).to eq(branch_id)
+      expect(response['branch']['name']).to eq(branch.name)
+    end
+
     it 'should support update and destroy' do
       branch = VCR.use_cassette('create_another_branch') do
         test_client.create_branch project_id, name: 'ruby-second-branch'

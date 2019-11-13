@@ -3,10 +3,22 @@ module Lokalise
     class Branch < Base
       supports :update, :destroy
 
+      def merge(params = {})
+        self.class.merge @client, self.class.endpoint(project_id, branch_id, :merge), params
+      end
+
       class << self
-        def endpoint(project_id, branch_id = nil)
-          path_from projects: project_id,
-                    branches: branch_id
+        def merge(client, path, params, *_args)
+          post(path, client, params)['content']
+        end
+
+        def endpoint(project_id, branch_id = nil, action = nil)
+          params = {projects: project_id,
+                    branches: branch_id}
+
+          params[:merge] = '' if action == :merge
+
+          path_from params
         end
       end
     end

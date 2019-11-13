@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.8.0 (13-Nov-19)
+
+* Added methods to [merge branches](https://lokalise.com/api2docs/curl/#transition-merge-a-branch-post):
+  + `branch.merge params`
+  + `client.merge_branch project_id, branch_id, params`
+
 ## 2.7.0 (30-Oct-19)
 
 * Added [`Branch` endpoint](https://lokalise.co/api2docs/curl/#resource-branches)
