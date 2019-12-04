@@ -4,7 +4,7 @@ RSpec.describe Lokalise::Client do
   let(:another_key_id) { 15_519_786 }
 
   describe '#comments' do
-    it 'should return all comments' do
+    it 'returns all comments' do
       comments = VCR.use_cassette('all_comments') do
         test_client.comments project_id, key_id
       end.collection
@@ -12,7 +12,7 @@ RSpec.describe Lokalise::Client do
       expect(comments.count).to eq(3)
     end
 
-    it 'should support pagination' do
+    it 'supports pagination' do
       comments = VCR.use_cassette('all_comments_pagination') do
         test_client.comments project_id, key_id, limit: 1, page: 2
       end
@@ -29,7 +29,7 @@ RSpec.describe Lokalise::Client do
       expect(comments.prev_page?).to eq(true)
       expect(comments.first_page?).to eq(false)
 
-      expect(comments.client).to be_an_instance_of(Lokalise::Client)
+      expect(comments.client).to be_an_instance_of(described_class)
     end
   end
 
@@ -86,7 +86,7 @@ RSpec.describe Lokalise::Client do
   end
 
   context 'comment chained methods' do
-    it 'should support destroy' do
+    it 'supports destroy' do
       comment = VCR.use_cassette('create_another_comment') do
         test_client.create_comments project_id, another_key_id, comment: 'chained comment'
       end.collection.first

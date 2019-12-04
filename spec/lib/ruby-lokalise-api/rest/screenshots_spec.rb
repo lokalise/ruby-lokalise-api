@@ -3,7 +3,7 @@ RSpec.describe Lokalise::Client do
   let(:screenshot_id) { 115_185 }
 
   describe '#screenshots' do
-    it 'should return all screenshots' do
+    it 'returns all screenshots' do
       screenshots = VCR.use_cassette('all_screenshots') do
         test_client.screenshots project_id
       end.collection
@@ -11,7 +11,7 @@ RSpec.describe Lokalise::Client do
       expect(screenshots.count).to eq(1)
     end
 
-    it 'should support pagination' do
+    it 'supports pagination' do
       screenshots = VCR.use_cassette('all_screenshots_pagination') do
         test_client.screenshots project_id, limit: 1, page: 1
       end
@@ -70,7 +70,7 @@ RSpec.describe Lokalise::Client do
   end
 
   context 'screenshot chained methods' do
-    it 'should support update and destroy' do
+    it 'supports update and destroy' do
       screenshot = screenshot_from_file do |file|
         VCR.use_cassette('create_another_screenshot') do
           test_client.create_screenshots project_id, data: file.read, title: 'chained screen'

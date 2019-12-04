@@ -2,7 +2,7 @@ RSpec.describe Lokalise::Client do
   let(:project_id) { '803826145ba90b42d5d860.46800099' }
 
   describe '#files' do
-    it 'should return all files' do
+    it 'returns all files' do
       files = VCR.use_cassette('files') do
         test_client.files project_id
       end.collection
@@ -14,7 +14,7 @@ RSpec.describe Lokalise::Client do
       expect(file.key_count).to eq(1)
     end
 
-    it 'should support pagination' do
+    it 'supports pagination' do
       files = VCR.use_cassette('all_files_pagination') do
         test_client.files project_id, limit: 1, page: 1
       end

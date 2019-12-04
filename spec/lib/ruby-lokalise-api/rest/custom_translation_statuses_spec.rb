@@ -4,7 +4,7 @@ RSpec.describe Lokalise::Client do
   let(:new_status_id) { 126 }
 
   describe '#translation_statuses' do
-    it 'should return all statuses' do
+    it 'returns all statuses' do
       statuses = VCR.use_cassette('all_translation_statuses') do
         test_client.translation_statuses project_id
       end.collection
@@ -13,7 +13,7 @@ RSpec.describe Lokalise::Client do
       expect(statuses.first.status_id).to eq(status_id)
     end
 
-    it 'should support pagination' do
+    it 'supports pagination' do
       statuses = VCR.use_cassette('all_translation_statuses_pagination') do
         test_client.translation_statuses project_id, limit: 1, page: 2
       end
@@ -86,7 +86,7 @@ RSpec.describe Lokalise::Client do
   end
 
   context 'translation status chained methods' do
-    it 'should support update and destroy' do
+    it 'supports update and destroy' do
       status = VCR.use_cassette('create_another_translation_status') do
         test_client.create_translation_status project_id,
                                               title: 'rspec',

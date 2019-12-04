@@ -4,7 +4,7 @@ RSpec.describe Lokalise::Client do
   let(:another_user_id) { 26_265 }
 
   describe '#team_users' do
-    it 'should return all team_users' do
+    it 'returns all team_users' do
       team_users = VCR.use_cassette('team_users') do
         test_client.team_users team_id
       end
@@ -13,7 +13,7 @@ RSpec.describe Lokalise::Client do
       expect(team_users.team_id).to eq(team_id)
     end
 
-    it 'should support pagination' do
+    it 'supports pagination' do
       team_users = VCR.use_cassette('all_team_users_pagination') do
         test_client.team_users team_id, limit: 1, page: 3
       end
@@ -57,7 +57,7 @@ RSpec.describe Lokalise::Client do
   end
 
   context 'team user chained methods' do
-    it 'should support update and destroy' do
+    it 'supports update and destroy' do
       team_user = VCR.use_cassette('another_team_user') do
         test_client.team_user team_id, another_user_id
       end

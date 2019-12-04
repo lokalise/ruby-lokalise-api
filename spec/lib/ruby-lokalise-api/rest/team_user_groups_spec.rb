@@ -8,7 +8,7 @@ RSpec.describe Lokalise::Client do
   let(:user_id) { 35_554 }
 
   describe '#team_user_groups' do
-    it 'should return all team_user_groups' do
+    it 'returns all team_user_groups' do
       team_user_groups = VCR.use_cassette('team_user_groups') do
         test_client.team_user_groups team_id
       end
@@ -17,7 +17,7 @@ RSpec.describe Lokalise::Client do
       expect(team_user_groups.team_id).to eq(team_id)
     end
 
-    it 'should support pagination' do
+    it 'supports pagination' do
       team_users = VCR.use_cassette('team_user_groups_pagination') do
         test_client.team_user_groups team_id, limit: 1, page: 2
       end
@@ -122,7 +122,7 @@ RSpec.describe Lokalise::Client do
   end
 
   context 'team user group chained methods' do
-    it 'should support update and destroy' do
+    it 'supports update and destroy' do
       group = VCR.use_cassette('another_team_user_group') do
         test_client.team_user_group team_id, third_group_id
       end
@@ -145,7 +145,7 @@ RSpec.describe Lokalise::Client do
       expect(response['group_deleted']).to eq(true)
     end
 
-    it 'should support project management' do
+    it 'supports project management' do
       group = VCR.use_cassette('team_user_group') do
         test_client.team_user_group team_id, group_id
       end
@@ -167,7 +167,7 @@ RSpec.describe Lokalise::Client do
       expect(group.projects).not_to include(another_project_id)
     end
 
-    it 'should support users management' do
+    it 'supports users management' do
       group = VCR.use_cassette('team_user_group') do
         test_client.team_user_group team_id, group_id
       end

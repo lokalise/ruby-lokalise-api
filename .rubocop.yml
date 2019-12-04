@@ -1,4 +1,6 @@
-require: rubocop-performance
+require:
+ - rubocop-performance
+ - rubocop-rspec
 
 AllCops:
   TargetRubyVersion: 2.4
@@ -59,3 +61,18 @@ Style/TrailingCommaInArrayLiteral:
 
 Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: 'no_comma'
+
+RSpec/MultipleExpectations:
+  Max: 30
+
+RSpec/ExampleLength:
+  Max: 35
+
+RSpec/FilePath:
+  Enabled: false
+
+RSpec/ContextWording:
+  Enabled: false
+
+RSpec/MessageSpies:
+  EnforcedStyle: receive

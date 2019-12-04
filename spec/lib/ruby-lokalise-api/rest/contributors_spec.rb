@@ -3,7 +3,7 @@ RSpec.describe Lokalise::Client do
   let(:contributor_id) { 25_953 }
 
   describe '#contributors' do
-    it 'should return all contributors' do
+    it 'returns all contributors' do
       contributors = VCR.use_cassette('all_contributors') do
         test_client.contributors project_id
       end.collection
@@ -12,7 +12,7 @@ RSpec.describe Lokalise::Client do
       expect(contributors.first.fullname).to eq('John Doe')
     end
 
-    it 'should support pagination' do
+    it 'supports pagination' do
       contributors = VCR.use_cassette('all_contributors_pagination') do
         test_client.contributors project_id, limit: 1, page: 2
       end
@@ -84,7 +84,7 @@ RSpec.describe Lokalise::Client do
   end
 
   context 'contributor chained methods' do
-    it 'should support update and destroy' do
+    it 'supports update and destroy' do
       contributor = VCR.use_cassette('create_another_contributor') do
         test_client.create_contributors project_id,
                                         email: 'demo@test.com',

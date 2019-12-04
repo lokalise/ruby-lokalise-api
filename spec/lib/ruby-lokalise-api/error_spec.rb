@@ -1,10 +1,11 @@
 RSpec.describe Lokalise::Error do
   include Lokalise::Request
 
-  before(:each) { Lokalise.reset_client! }
-  after(:all) { Lokalise.reset_client! }
+  before { Lokalise.reset_client! }
 
-  it 'should raise BadRequest when API token is invalid' do
+  after { Lokalise.reset_client! }
+
+  it 'raises BadRequest when API token is invalid' do
     expect do
       VCR.use_cassette('error_invalid_token') do
         get 'projects', Lokalise.client('invalid')
@@ -12,7 +13,7 @@ RSpec.describe Lokalise::Error do
     end.to raise_error(Lokalise::Error::BadRequest)
   end
 
-  it 'should raise NotFound when the provided path cannot be found' do
+  it 'raises NotFound when the provided path cannot be found' do
     expect do
       VCR.use_cassette('error_not_found') do
         get 'invalid_path', test_client

@@ -1,8 +1,9 @@
 RSpec.describe Lokalise::Connection do
   include described_class
 
-  before(:each) { Lokalise.reset_client! }
-  after(:all) do
+  before { Lokalise.reset_client! }
+
+  after do
     Lokalise.reset_client!
     Faraday.default_adapter = :net_http
   end
@@ -14,7 +15,7 @@ RSpec.describe Lokalise::Connection do
     expect(conn.headers['X-api-token']).to eq(test_client.token)
   end
 
-  it 'should allow to customize timeouts' do
+  it 'allows to customize timeouts' do
     custom_client = Lokalise.client(ENV['LOKALISE_API_TOKEN'],
                                     open_timeout: 100, timeout: 500)
     conn = connection custom_client
@@ -29,7 +30,7 @@ RSpec.describe Lokalise::Connection do
     expect(another_conn.options.open_timeout).to eq(200)
   end
 
-  it 'should be possible to customize adapter' do
+  it 'is possible to customize adapter' do
     conn = connection test_client
     expect(conn.builder.handlers).to include(Faraday::Adapter::NetHttp)
 

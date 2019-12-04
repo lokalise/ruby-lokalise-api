@@ -4,7 +4,7 @@ RSpec.describe Lokalise::Client do
   let(:new_language_id) { 894 }
 
   describe '#system_languages' do
-    it 'should return all system languages' do
+    it 'returns all system languages' do
       languages = VCR.use_cassette('all_system_languages') do
         test_client.system_languages
       end.collection
@@ -13,7 +13,7 @@ RSpec.describe Lokalise::Client do
       expect(languages.first.lang_iso).to eq('ab')
     end
 
-    it 'should support pagination' do
+    it 'supports pagination' do
       languages = VCR.use_cassette('all_system_languages_pagination') do
         test_client.system_languages limit: 10, page: 3
       end
@@ -27,7 +27,7 @@ RSpec.describe Lokalise::Client do
   end
 
   describe '#project_languages' do
-    it 'should return all project languages' do
+    it 'returns all project languages' do
       languages = VCR.use_cassette('all_project_languages') do
         test_client.project_languages project_id
       end.collection
@@ -36,7 +36,7 @@ RSpec.describe Lokalise::Client do
       expect(languages.first.lang_iso).to eq('en')
     end
 
-    it 'should support pagination' do
+    it 'supports pagination' do
       languages = VCR.use_cassette('all_project_languages_pagination') do
         test_client.project_languages project_id, limit: 1, page: 2
       end
@@ -90,7 +90,7 @@ RSpec.describe Lokalise::Client do
   end
 
   context 'project language chained methods' do
-    it 'should support update and destroy' do
+    it 'supports update and destroy' do
       language = VCR.use_cassette('create_another_language') do
         test_client.create_languages project_id, lang_iso: 'ab', custom_name: 'chained lang'
       end.collection.first

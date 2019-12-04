@@ -4,7 +4,7 @@ RSpec.describe Lokalise::Client do
   let(:new_webhook_id) { 'b345ccc6499920c490e8f4fe9487b1378dbf1dbf' }
 
   describe '#webhooks' do
-    it 'should return all webhooks' do
+    it 'returns all webhooks' do
       webhooks = VCR.use_cassette('webhooks') do
         test_client.webhooks project_id
       end.collection
@@ -13,7 +13,7 @@ RSpec.describe Lokalise::Client do
       expect(webhooks.first.url).to eq('https://serios.webhook')
     end
 
-    it 'should support pagination' do
+    it 'supports pagination' do
       webhooks = VCR.use_cassette('all_webhooks_pagination') do
         test_client.webhooks project_id, limit: 1, page: 2
       end

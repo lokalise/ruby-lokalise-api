@@ -4,7 +4,7 @@ RSpec.describe Lokalise::Client do
   let(:task_id) { 4387 }
 
   describe '#tasks' do
-    it 'should return all tasks' do
+    it 'returns all tasks' do
       tasks = VCR.use_cassette('all_tasks') do
         test_client.tasks project_id
       end.collection
@@ -12,7 +12,7 @@ RSpec.describe Lokalise::Client do
       expect(tasks.count).to eq(3)
     end
 
-    it 'should support pagination' do
+    it 'supports pagination' do
       tasks = VCR.use_cassette('all_tasks_pagination') do
         test_client.tasks project_id, limit: 2, page: 2
       end
@@ -93,7 +93,7 @@ RSpec.describe Lokalise::Client do
   end
 
   context 'task chained methods' do
-    it 'should support update and destroy' do
+    it 'supports update and destroy' do
       task = VCR.use_cassette('create_another_task') do
         test_client.create_task project_id, title: 'chained',
                                             keys: [key_id],

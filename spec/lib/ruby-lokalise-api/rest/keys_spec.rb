@@ -4,7 +4,7 @@ RSpec.describe Lokalise::Client do
   let(:new_key_id) { 15_519_770 }
 
   describe '#keys' do
-    it 'should return all keys' do
+    it 'returns all keys' do
       keys = VCR.use_cassette('all_keys') do
         test_client.keys project_id
       end.collection
@@ -12,7 +12,7 @@ RSpec.describe Lokalise::Client do
       expect(keys.count).to eq(1)
     end
 
-    it 'should support pagination' do
+    it 'supports pagination' do
       keys = VCR.use_cassette('all_keys_pagination') do
         test_client.keys project_id, limit: 1, page: 1
       end
@@ -127,7 +127,7 @@ RSpec.describe Lokalise::Client do
   end
 
   context 'key chained methods' do
-    it 'should support update and destroy' do
+    it 'supports update and destroy' do
       key = VCR.use_cassette('create_another_key') do
         test_client.create_keys project_id, key_name: 'chained_k', platforms: %w[ios]
       end.collection.first
@@ -154,7 +154,7 @@ RSpec.describe Lokalise::Client do
   end
 
   context 'keys collection chained methods' do
-    it 'should support destroy_all' do
+    it 'supports destroy_all' do
       keys = VCR.use_cassette('create_keys_collection') do
         test_client.create_keys project_id, [
           {

@@ -2,7 +2,7 @@ RSpec.describe Lokalise::Client do
   let(:new_project_id) { '572222075c0953fd70d492.30502628' }
 
   describe '#projects' do
-    it 'should return all projects' do
+    it 'returns all projects' do
       projects = VCR.use_cassette('all_projects') do
         test_client.projects
       end.collection
@@ -12,7 +12,7 @@ RSpec.describe Lokalise::Client do
       expect(project.name).to eq('demo phoenix')
     end
 
-    it 'should support pagination' do
+    it 'supports pagination' do
       projects = VCR.use_cassette('all_projects_pagination') do
         test_client.projects limit: 1, page: 2
       end
@@ -88,7 +88,7 @@ RSpec.describe Lokalise::Client do
   end
 
   context 'project chained methods' do
-    it 'should support update, empty, and destroy' do
+    it 'supports update, empty, and destroy' do
       project = VCR.use_cassette('create_another_project') do
         test_client.create_project name: 'chained proj'
       end

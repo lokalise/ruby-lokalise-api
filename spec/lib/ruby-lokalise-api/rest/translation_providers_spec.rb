@@ -2,7 +2,7 @@ RSpec.describe Lokalise::Client do
   let(:team_id) { 176_692 }
 
   describe '#translation_providers' do
-    it 'should return all providers' do
+    it 'returns all providers' do
       providers = VCR.use_cassette('all_translation_providers') do
         test_client.translation_providers team_id
       end.collection
@@ -11,7 +11,7 @@ RSpec.describe Lokalise::Client do
       expect(providers.first.slug).to eq('gengo')
     end
 
-    it 'should support pagination' do
+    it 'supports pagination' do
       providers = VCR.use_cassette('all_translation_providers_pagination') do
         test_client.translation_providers team_id, limit: 1, page: 2
       end

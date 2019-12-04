@@ -1,6 +1,6 @@
 require 'oj'
 
-RSpec.describe 'Custom JSON parser' do
+RSpec.describe Lokalise::JsonHandler do
   let(:loaded_json) do
     {'projects' => [{'project_id' => '547879415c01a0e6e0b855.29978928',
                      'name' => 'demo phoenix copy',
@@ -25,7 +25,8 @@ RSpec.describe 'Custom JSON parser' do
     '{":name":"rspec proj",":description":"demo project for rspec"}'
   end
 
-  before :all do
+  # rubocop:disable RSpec/LeakyConstantDeclaration
+  before do
     module Lokalise
       module JsonHandler
         def custom_dump(obj)
@@ -39,7 +40,7 @@ RSpec.describe 'Custom JSON parser' do
     end
   end
 
-  after :all do
+  after do
     module Lokalise
       module JsonHandler
         def custom_dump(obj)
@@ -52,8 +53,9 @@ RSpec.describe 'Custom JSON parser' do
       end
     end
   end
+  # rubocop:enable RSpec/LeakyConstantDeclaration
 
-  it 'should allow to customize #load' do
+  it 'allows to customize #load' do
     expect(Oj).to receive(:load).and_return(loaded_json)
     expect(JSON).not_to receive(:parse)
     projects = VCR.use_cassette('all_projects_pagination') do
@@ -65,7 +67,7 @@ RSpec.describe 'Custom JSON parser' do
     expect(projects.collection.first.name).to eq('demo phoenix copy')
   end
 
-  it 'should allow to customize #dump' do
+  it 'allows to customize #dump' do
     expect(Oj).to receive(:dump).and_return(dumped_json)
     expect(JSON).not_to receive(:dump)
     project = VCR.use_cassette('new_project') do

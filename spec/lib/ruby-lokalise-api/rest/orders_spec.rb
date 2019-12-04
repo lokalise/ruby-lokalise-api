@@ -6,7 +6,7 @@ RSpec.describe Lokalise::Client do
   let(:card_id) { 1774 }
 
   describe '#orders' do
-    it 'should return all orders' do
+    it 'returns all orders' do
       orders = VCR.use_cassette('all_orders') do
         test_client.orders team_id
       end.collection
@@ -15,7 +15,7 @@ RSpec.describe Lokalise::Client do
       expect(orders.first.order_id).to eq(order_id)
     end
 
-    it 'should support pagination' do
+    it 'supports pagination' do
       orders = VCR.use_cassette('all_orders_pagination') do
         test_client.orders team_id, limit: 1, page: 1
       end

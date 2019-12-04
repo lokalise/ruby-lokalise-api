@@ -2,7 +2,7 @@ RSpec.describe Lokalise::Client do
   let(:card_id) { 1773 }
 
   describe '#payment_cards' do
-    it 'should return all payment cards' do
+    it 'returns all payment cards' do
       cards = VCR.use_cassette('all_payment_cards') do
         test_client.payment_cards
       end.collection
@@ -12,7 +12,7 @@ RSpec.describe Lokalise::Client do
       expect(card.last4).to eq('0358')
     end
 
-    it 'should support pagination' do
+    it 'supports pagination' do
       cards = VCR.use_cassette('all_payment_cards_pagination') do
         test_client.payment_cards limit: 1, page: 1
       end
@@ -62,7 +62,7 @@ RSpec.describe Lokalise::Client do
     expect(result['card_id']).to eq(card_id)
   end
 
-  it 'should support chained destroy' do
+  it 'supports chained destroy' do
     card = VCR.use_cassette('payment_card') do
       test_client.payment_card card_id
     end

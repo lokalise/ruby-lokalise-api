@@ -3,7 +3,7 @@ RSpec.describe Lokalise::Client do
   let(:branch_id) { 41_302 }
 
   describe '#branches' do
-    it 'should return all branches' do
+    it 'returns all branches' do
       branches = VCR.use_cassette('all_branches') do
         test_client.branches project_id
       end.collection
@@ -11,7 +11,7 @@ RSpec.describe Lokalise::Client do
       expect(branches.count).to eq(1)
     end
 
-    it 'should support pagination' do
+    it 'supports pagination' do
       branches = VCR.use_cassette('all_branches_pagination') do
         test_client.branches project_id, limit: 1, page: 1
       end
@@ -83,7 +83,7 @@ RSpec.describe Lokalise::Client do
   end
 
   context 'branch chained methods' do
-    it 'should support merge' do
+    it 'supports merge' do
       branch = VCR.use_cassette('create_branch_to_merge2') do
         test_client.create_branch project_id, name: 'merge-me-plz'
       end
@@ -102,7 +102,7 @@ RSpec.describe Lokalise::Client do
       expect(response['branch']['name']).to eq(branch.name)
     end
 
-    it 'should support update and destroy' do
+    it 'supports update and destroy' do
       branch = VCR.use_cassette('create_another_branch') do
         test_client.create_branch project_id, name: 'ruby-second-branch'
       end

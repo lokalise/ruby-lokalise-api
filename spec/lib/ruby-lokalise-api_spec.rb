@@ -8,22 +8,23 @@ RSpec.describe Lokalise do
 
   specify '.reset_client!' do
     expect(test_client).to be_an_instance_of(Lokalise::Client)
-    Lokalise.reset_client!
-    current_client = Lokalise.instance_variable_get '@client'
+    described_class.reset_client!
+    current_client = described_class.instance_variable_get '@client'
     expect(current_client).to be_nil
   end
 
-  context 'client params' do
-    before(:each) { Lokalise.reset_client! }
-    after(:all) { Lokalise.reset_client! }
+  context 'with client params' do
+    before { described_class.reset_client! }
 
-    it 'should be possible to customize timeout' do
-      custom_client = Lokalise.client(ENV['LOKALISE_API_TOKEN'], timeout: 600)
+    after { described_class.reset_client! }
+
+    it 'is possible to customize timeout' do
+      custom_client = described_class.client(ENV['LOKALISE_API_TOKEN'], timeout: 600)
       expect(custom_client.timeout).to eq(600)
     end
 
-    it 'should be possible to customize open timeout' do
-      custom_client = Lokalise.client(ENV['LOKALISE_API_TOKEN'], open_timeout: 100)
+    it 'is possible to customize open timeout' do
+      custom_client = described_class.client(ENV['LOKALISE_API_TOKEN'], open_timeout: 100)
       expect(custom_client.open_timeout).to eq(100)
     end
   end

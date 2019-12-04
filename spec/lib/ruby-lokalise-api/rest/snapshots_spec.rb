@@ -3,7 +3,7 @@ RSpec.describe Lokalise::Client do
   let(:snapshot_id) { 27_881 }
 
   describe '#snapshots' do
-    it 'should return all snapshots' do
+    it 'returns all snapshots' do
       snapshots = VCR.use_cassette('all_snapshots') do
         test_client.snapshots project_id
       end.collection
@@ -19,7 +19,7 @@ RSpec.describe Lokalise::Client do
       expect(snapshot.created_at_timestamp).to eq(1_544_461_324)
     end
 
-    it 'should support pagination' do
+    it 'supports pagination' do
       snapshots = VCR.use_cassette('all_snapshots_pagination') do
         test_client.snapshots project_id, limit: 1, page: 2
       end
@@ -66,7 +66,7 @@ RSpec.describe Lokalise::Client do
   end
 
   context 'snapshot chained methods' do
-    it 'should support destroy and restore' do
+    it 'supports destroy and restore' do
       snapshot = VCR.use_cassette('create_another_snapshot') do
         test_client.create_snapshot project_id, title: 'chained'
       end
