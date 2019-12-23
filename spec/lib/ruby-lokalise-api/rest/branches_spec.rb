@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Lokalise::Client do
   let(:project_id) { '803826145ba90b42d5d860.46800099' }
   let(:branch_id) { 41_302 }
@@ -82,7 +84,7 @@ RSpec.describe Lokalise::Client do
     expect(response['branch']['name']).to eq(branch.name)
   end
 
-  context 'branch chained methods' do
+  context 'when branch methods are chained' do
     it 'supports merge' do
       branch = VCR.use_cassette('create_branch_to_merge2') do
         test_client.create_branch project_id, name: 'merge-me-plz'

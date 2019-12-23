@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe String do
   let(:snake_result) { 'snake_case' }
   let(:bc_result) { 'Klass' }

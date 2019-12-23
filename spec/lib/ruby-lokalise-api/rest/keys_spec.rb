@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Lokalise::Client do
   let(:project_id) { '803826145ba90b42d5d860.46800099' }
   let(:key_id) { 15_305_182 }
@@ -126,7 +128,7 @@ RSpec.describe Lokalise::Client do
     expect(response['keys_removed']).to eq(true)
   end
 
-  context 'key chained methods' do
+  context 'when key methods are chained' do
     it 'supports update and destroy' do
       key = VCR.use_cassette('create_another_key') do
         test_client.create_keys project_id, key_name: 'chained_k', platforms: %w[ios]
@@ -153,7 +155,7 @@ RSpec.describe Lokalise::Client do
     end
   end
 
-  context 'keys collection chained methods' do
+  context 'when keys collection methods are chained' do
     it 'supports destroy_all' do
       keys = VCR.use_cassette('create_keys_collection') do
         test_client.create_keys project_id, [

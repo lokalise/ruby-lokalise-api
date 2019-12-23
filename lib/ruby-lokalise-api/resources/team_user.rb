@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module Lokalise
   module Resources
     class TeamUser < Base
-      ID_KEY = 'user'.freeze
+      ID_KEY = 'user'
       supports :update, :destroy
 
       class << self

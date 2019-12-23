@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Lokalise do
   specify '.client' do
     expect(test_client).to be_an_instance_of(Lokalise::Client)

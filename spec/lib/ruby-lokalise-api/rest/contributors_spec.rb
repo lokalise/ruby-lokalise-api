@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Lokalise::Client do
   let(:project_id) { '803826145ba90b42d5d860.46800099' }
   let(:contributor_id) { 25_953 }
@@ -83,7 +85,7 @@ RSpec.describe Lokalise::Client do
     expect(response['contributor_deleted']).to eq(true)
   end
 
-  context 'contributor chained methods' do
+  context 'when contributor methods are chained' do
     it 'supports update and destroy' do
       contributor = VCR.use_cassette('create_another_contributor') do
         test_client.create_contributors project_id,

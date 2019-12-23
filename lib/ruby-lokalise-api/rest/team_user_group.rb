@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Lokalise
   class Client
     # Returns all team user groups for the given team

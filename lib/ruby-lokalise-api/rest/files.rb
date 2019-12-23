@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Lokalise
   class Client
     # Returns all translation files for the given project

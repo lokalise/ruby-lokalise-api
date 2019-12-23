@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Lokalise::Client do
   let(:project_id) { '803826145ba90b42d5d860.46800099' }
   let(:snapshot_id) { 27_881 }
@@ -65,7 +67,7 @@ RSpec.describe Lokalise::Client do
     expect(response['snapshot_deleted']).to eq(true)
   end
 
-  context 'snapshot chained methods' do
+  context 'when snapshot methods are chained' do
     it 'supports destroy and restore' do
       snapshot = VCR.use_cassette('create_another_snapshot') do
         test_client.create_snapshot project_id, title: 'chained'

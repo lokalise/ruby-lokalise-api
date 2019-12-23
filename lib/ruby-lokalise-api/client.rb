@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'ruby-lokalise-api/rest/branches'
 require 'ruby-lokalise-api/rest/languages'
 require 'ruby-lokalise-api/rest/teams'

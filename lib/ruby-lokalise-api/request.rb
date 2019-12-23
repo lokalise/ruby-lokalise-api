@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Lokalise
   module Request
     include Lokalise::Connection

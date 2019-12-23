@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Lokalise::Client do
   let(:new_project_id) { '572222075c0953fd70d492.30502628' }
 
@@ -87,7 +89,7 @@ RSpec.describe Lokalise::Client do
     expect(response['project_deleted']).to eq(true)
   end
 
-  context 'project chained methods' do
+  context 'when project methods are chained' do
     it 'supports update, empty, and destroy' do
       project = VCR.use_cassette('create_another_project') do
         test_client.create_project name: 'chained proj'

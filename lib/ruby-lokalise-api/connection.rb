@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module Lokalise
   module Connection
-    BASE_URL = 'https://api.lokalise.co/api2/'.freeze
+    BASE_URL = 'https://api.lokalise.co/api2/'
 
     def connection(client)
       options = {

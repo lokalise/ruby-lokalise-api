@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Lokalise
   class Client
     # Returns a single comment for the given key

@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module Lokalise
   module Collections
     class TeamUserGroup < Base
-      DATA_KEY = 'UserGroup'.freeze
+      DATA_KEY = 'UserGroup'
 
       class << self
         def endpoint(team_id, *_args)

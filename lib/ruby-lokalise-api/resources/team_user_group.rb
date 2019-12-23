@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module Lokalise
   module Resources
     class TeamUserGroup < Base
-      DATA_KEY = 'Group'.freeze
-      ID_KEY = 'group'.freeze
+      DATA_KEY = 'Group'
+      ID_KEY = 'group'
       supports :update, :destroy,
                [:add_projects, '/projects/add', :update],
                [:remove_projects, '/projects/remove', :update],

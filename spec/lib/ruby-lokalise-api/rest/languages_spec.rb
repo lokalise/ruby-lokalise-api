@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Lokalise::Client do
   let(:project_id) { '803826145ba90b42d5d860.46800099' }
   let(:language_id) { 640 }
@@ -89,7 +91,7 @@ RSpec.describe Lokalise::Client do
     expect(response['language_deleted']).to eq(true)
   end
 
-  context 'project language chained methods' do
+  context 'when project language methods are chained' do
     it 'supports update and destroy' do
       language = VCR.use_cassette('create_another_language') do
         test_client.create_languages project_id, lang_iso: 'ab', custom_name: 'chained lang'

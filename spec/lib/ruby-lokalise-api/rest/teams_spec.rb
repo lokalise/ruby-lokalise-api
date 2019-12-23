@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Lokalise::Client do
   specify '#teams' do
     teams = VCR.use_cassette('teams') do

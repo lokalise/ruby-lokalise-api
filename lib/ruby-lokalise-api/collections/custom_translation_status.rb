@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module Lokalise
   module Collections
     class CustomTranslationStatus < Base
-      DATA_KEY_PLURAL = 'CustomTranslationStatuses'.freeze
+      DATA_KEY_PLURAL = 'CustomTranslationStatuses'
 
       class << self
         def endpoint(project_id, *_args)

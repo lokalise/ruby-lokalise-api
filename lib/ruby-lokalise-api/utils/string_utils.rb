@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Initial code taken from Facets gem by Rubyworks
 # https://github.com/rubyworks/facets/blob/master/lib/core/facets/string/snakecase.rb
 

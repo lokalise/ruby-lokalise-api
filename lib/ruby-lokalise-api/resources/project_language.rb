@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module Lokalise
   module Resources
     class ProjectLanguage < Base
-      DATA_KEY = 'Language'.freeze
-      ID_KEY = 'lang'.freeze
+      DATA_KEY = 'Language'
+      ID_KEY = 'lang'
       supports :update, :destroy
 
       class << self

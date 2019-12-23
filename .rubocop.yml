@@ -44,9 +44,6 @@ Style/CollectionMethods:
 Style/Documentation:
   Enabled: false
 
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
 Layout/DotPosition:
   EnforcedStyle: trailing
 
@@ -69,9 +66,6 @@ RSpec/ExampleLength:
   Max: 35
 
 RSpec/FilePath:
-  Enabled: false
-
-RSpec/ContextWording:
   Enabled: false
 
 RSpec/MessageSpies:

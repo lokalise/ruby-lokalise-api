@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Lokalise::Client do
   let(:project_id) { '803826145ba90b42d5d860.46800099' }
   let(:key_id) { 15_571_976 }
@@ -92,7 +94,7 @@ RSpec.describe Lokalise::Client do
     expect(response['task_deleted']).to eq(true)
   end
 
-  context 'task chained methods' do
+  context 'when task methods are chained' do
     it 'supports update and destroy' do
       task = VCR.use_cassette('create_another_task') do
         test_client.create_task project_id, title: 'chained',

@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module Lokalise
   module Resources
     class CustomTranslationStatus < Base
-      ID_KEY = 'status'.freeze
+      ID_KEY = 'status'
       supports :update, :destroy
 
       class << self

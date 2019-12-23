@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Lokalise::Client do
   let(:project_id) { '803826145ba90b42d5d860.46800099' }
   let(:status_id) { 128 }
@@ -85,7 +87,7 @@ RSpec.describe Lokalise::Client do
     expect(response).to include('#f2d600')
   end
 
-  context 'translation status chained methods' do
+  context 'when translation status methods are chained' do
     it 'supports update and destroy' do
       status = VCR.use_cassette('create_another_translation_status') do
         test_client.create_translation_status project_id,

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Lokalise::Client do
   let(:team_id) { 176_692 }
   let(:team_user_id) { 25_953 }
@@ -56,7 +58,7 @@ RSpec.describe Lokalise::Client do
     expect(response['team_user_deleted']).to eq(true)
   end
 
-  context 'team user chained methods' do
+  context 'when team user methods are chained' do
     it 'supports update and destroy' do
       team_user = VCR.use_cassette('another_team_user') do
         test_client.team_user team_id, another_user_id

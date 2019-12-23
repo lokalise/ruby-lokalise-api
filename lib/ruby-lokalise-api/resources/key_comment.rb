@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module Lokalise
   module Resources
     class KeyComment < Base
-      DATA_KEY = 'Comment'.freeze
-      ID_KEY = 'comment'.freeze
+      DATA_KEY = 'Comment'
+      ID_KEY = 'comment'
       supports :destroy
 
       class << self

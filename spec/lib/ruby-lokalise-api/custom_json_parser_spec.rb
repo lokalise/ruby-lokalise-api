@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'oj'
 
 RSpec.describe Lokalise::JsonHandler do

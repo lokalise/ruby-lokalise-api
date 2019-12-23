@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Lokalise::Client do
   let(:team_id) { 176_692 }
   let(:group_id) { 515 }
@@ -121,7 +123,7 @@ RSpec.describe Lokalise::Client do
     expect(group.members).to be_empty
   end
 
-  context 'team user group chained methods' do
+  context 'when team user group methods are chained' do
     it 'supports update and destroy' do
       group = VCR.use_cassette('another_team_user_group') do
         test_client.team_user_group team_id, third_group_id

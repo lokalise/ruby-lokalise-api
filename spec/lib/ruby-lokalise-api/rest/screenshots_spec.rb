@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Lokalise::Client do
   let(:project_id) { '803826145ba90b42d5d860.46800099' }
   let(:screenshot_id) { 115_185 }
@@ -69,7 +71,7 @@ RSpec.describe Lokalise::Client do
     expect(response['screenshot_deleted']).to eq(true)
   end
 
-  context 'screenshot chained methods' do
+  context 'when screenshot methods are chained' do
     it 'supports update and destroy' do
       screenshot = screenshot_from_file do |file|
         VCR.use_cassette('create_another_screenshot') do

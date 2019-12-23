@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Lokalise
   class Error < StandardError
     ClientError = Class.new(self)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Lokalise::Client do
   let(:project_id) { '803826145ba90b42d5d860.46800099' }
   let(:key_id) { 15_305_182 }
@@ -85,7 +87,7 @@ RSpec.describe Lokalise::Client do
     expect(response['comment_deleted']).to eq(true)
   end
 
-  context 'comment chained methods' do
+  context 'when comment methods are chained' do
     it 'supports destroy' do
       comment = VCR.use_cassette('create_another_comment') do
         test_client.create_comments project_id, another_key_id, comment: 'chained comment'

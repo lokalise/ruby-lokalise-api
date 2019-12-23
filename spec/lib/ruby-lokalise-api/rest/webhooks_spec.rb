@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Lokalise::Client do
   let(:project_id) { '803826145ba90b42d5d860.46800099' }
   let(:webhook_id) { 'c7eb7e6e3c2fb2b26d0b64d0de083a5a71675b3d' }
