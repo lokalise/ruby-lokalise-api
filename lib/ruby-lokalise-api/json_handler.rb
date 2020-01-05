@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'json'
+
 module Lokalise
   module JsonHandler
     # JSON custom parser. Uses built-in JSON by default but can be overridden to any other parser

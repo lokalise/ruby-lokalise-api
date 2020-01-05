@@ -34,12 +34,12 @@ RSpec.describe Lokalise::Connection do
 
   it 'is possible to customize adapter' do
     conn = connection test_client
-    expect(conn.builder.handlers).to include(Faraday::Adapter::NetHttp)
+    expect(conn.builder.adapter).to eq(Faraday::Adapter::NetHttp)
 
     Faraday.default_adapter = :excon
 
     another_conn = connection test_client
-    expect(another_conn.builder.handlers).to include(Faraday::Adapter::Excon)
-    expect(conn.builder.handlers).to include(Faraday::Adapter::NetHttp)
+    expect(another_conn.builder.adapter).to eq(Faraday::Adapter::Excon)
+    expect(conn.builder.adapter).to eq(Faraday::Adapter::NetHttp)
   end
 end

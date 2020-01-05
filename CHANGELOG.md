@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.9.0 (05-Jan-20)
+
+* Fixed a couple of bugs
+* Updated Faraday to version 1
+
 ## 2.8.0 (13-Nov-19)
 
 * Added methods to [merge branches](https://lokalise.com/api2docs/curl/#transition-merge-a-branch-post):
