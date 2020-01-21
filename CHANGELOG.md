@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.9.0.1 (21-Jan-20)
+
+* Make JSON dependency version less strict
+* Test against Ruby 2.7.0
+
 ## 2.9.0 (05-Jan-20)
 
 * Fixed a couple of bugs
