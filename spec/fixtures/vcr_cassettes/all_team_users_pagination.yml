@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.lokalise.co/api2/teams/176692/users?limit=1&page=3
+    uri: https://api.lokalise.com/api2/teams/176692/users?limit=1&page=3
     body:
       encoding: US-ASCII
       string: ''

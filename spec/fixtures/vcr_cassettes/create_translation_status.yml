@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.lokalise.co/api2/projects/803826145ba90b42d5d860.46800099/custom_translation_statuses
+    uri: https://api.lokalise.com/api2/projects/803826145ba90b42d5d860.46800099/custom_translation_statuses
     body:
       encoding: UTF-8
       string: '{"title":"Reviewed by doctors","color":"#f2d600"}'

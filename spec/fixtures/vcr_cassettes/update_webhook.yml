@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: put
-    uri: https://api.lokalise.co/api2/projects/803826145ba90b42d5d860.46800099/webhooks/b345ccc6499920c490e8f4fe9487b1378dbf1dbf
+    uri: https://api.lokalise.com/api2/projects/803826145ba90b42d5d860.46800099/webhooks/b345ccc6499920c490e8f4fe9487b1378dbf1dbf
     body:
       encoding: UTF-8
       string: '{"url":"http://ihaz.cheezburger"}'

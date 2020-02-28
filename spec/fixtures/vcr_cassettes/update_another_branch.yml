@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: put
-    uri: https://api.lokalise.co/api2/projects/803826145ba90b42d5d860.46800099/branches/41306
+    uri: https://api.lokalise.com/api2/projects/803826145ba90b42d5d860.46800099/branches/41306
     body:
       encoding: UTF-8
       string: '{"name":"updated-ruby-second-branch","_initial_path":"projects/803826145ba90b42d5d860.46800099/branches/41306"}'

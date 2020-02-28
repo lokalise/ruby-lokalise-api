@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.lokalise.co/api2/system/languages?limit=10&page=3
+    uri: https://api.lokalise.com/api2/system/languages?limit=10&page=3
     body:
       encoding: US-ASCII
       string: ''

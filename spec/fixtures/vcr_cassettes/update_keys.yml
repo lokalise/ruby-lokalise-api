@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: put
-    uri: https://api.lokalise.co/api2/projects/803826145ba90b42d5d860.46800099/keys
+    uri: https://api.lokalise.com/api2/projects/803826145ba90b42d5d860.46800099/keys
     body:
       encoding: UTF-8
       string: '{"keys":[{"key_id":15519770,"description":"bulk updated"},{"key_id":15305182,"tags":["bulk","upd"]}]}'

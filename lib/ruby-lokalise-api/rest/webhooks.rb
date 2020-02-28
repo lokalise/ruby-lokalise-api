@@ -52,5 +52,16 @@ module Lokalise
     def destroy_webhook(project_id, webhook_id)
       c_r Lokalise::Resources::Webhook, :destroy, [project_id, webhook_id]
     end
+
+    # Regenerates secret for the given webhook
+    #
+    # @see https://lokalise.com/api2docs/curl/#transition-regenerate-a-webhook-secret-patch
+    # @return [Hash]
+    # @param project_id [String]
+    # @param webhook_id [String, Integer]
+    def regenerate_webhook_secret(project_id, webhook_id)
+      c_r Lokalise::Resources::Webhook, :regenerate_secret,
+          [project_id, webhook_id, 'secret', 'regenerate']
+    end
   end
 end

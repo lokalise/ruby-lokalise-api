@@ -4,6 +4,7 @@ RSpec.describe Lokalise::Client do
   let(:project_id) { '803826145ba90b42d5d860.46800099' }
   let(:webhook_id) { 'c7eb7e6e3c2fb2b26d0b64d0de083a5a71675b3d' }
   let(:new_webhook_id) { 'b345ccc6499920c490e8f4fe9487b1378dbf1dbf' }
+  let(:serious_webhook_id) { '795565582e5ab15a59bb68156c7e2e9eaa1e8d1a' }
 
   describe '#webhooks' do
     it 'returns all webhooks' do
@@ -72,5 +73,41 @@ RSpec.describe Lokalise::Client do
 
     expect(response['project_id']).to eq(project_id)
     expect(response['webhook_deleted']).to eq(true)
+  end
+
+  specify '#regenerate_webhook_secret' do
+    response = VCR.use_cassette('regenerate_webhook_secret') do
+      test_client.regenerate_webhook_secret project_id,
+                                            serious_webhook_id
+    end
+
+    expect(response['project_id']).to eq(project_id)
+    expect(response['secret']).not_to be_nil
+  end
+
+  context 'when webhook chained methods are used' do
+    it 'supports regenerate_webhook_secret' do
+      webhook = VCR.use_cassette('webhook_2') do
+        test_client.webhook project_id, serious_webhook_id
+      end
+
+      expect(webhook.webhook_id).to eq(serious_webhook_id)
+
+      response = VCR.use_cassette('regenerate_webhook_secret_2') do
+        webhook.regenerate_secret
+      end
+
+      expect(response['project_id']).to eq(project_id)
+      expect(response['secret']).not_to be_nil
+    end
+
+    it 'supports update and destroy' do
+      webhook = VCR.use_cassette('webhook_2') do
+        test_client.webhook project_id, serious_webhook_id
+      end
+
+      expect(webhook).to respond_to(:update)
+      expect(webhook).to respond_to(:destroy)
+    end
   end
 end

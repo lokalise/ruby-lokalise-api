@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.lokalise.co/api2/teams/176692/groups
+    uri: https://api.lokalise.com/api2/teams/176692/groups
     body:
       encoding: UTF-8
       string: '{"name":"RSpec group","is_reviewer":false,"is_admin":false,"languages":{"reference":[],"contributable":[640]}}'

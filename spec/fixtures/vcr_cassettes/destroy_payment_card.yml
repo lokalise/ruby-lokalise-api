@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://api.lokalise.co/api2/payment_cards/1773
+    uri: https://api.lokalise.com/api2/payment_cards/1773
     body:
       encoding: UTF-8
       string: "{}"

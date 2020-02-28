@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.lokalise.co/api2/invalid_path
+    uri: https://api.lokalise.com/api2/invalid_path
     body:
       encoding: US-ASCII
       string: ''

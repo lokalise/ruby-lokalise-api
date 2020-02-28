@@ -29,6 +29,13 @@ module Lokalise
       )
     end
 
+    def patch(path, client, params = {})
+      respond_with(
+        connection(client).patch(prepare(path), params.any? ? custom_dump(params) : nil),
+        client
+      )
+    end
+
     def delete(path, client, params = {})
       respond_with(
         # Rubocop tries to replace `delete` with `gsub` but that's a different method here!

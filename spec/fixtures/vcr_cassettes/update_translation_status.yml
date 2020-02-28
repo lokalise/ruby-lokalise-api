@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: put
-    uri: https://api.lokalise.co/api2/projects/803826145ba90b42d5d860.46800099/custom_translation_statuses/126
+    uri: https://api.lokalise.com/api2/projects/803826145ba90b42d5d860.46800099/custom_translation_statuses/126
     body:
       encoding: UTF-8
       string: '{"title":"Reviewed by rubyists","color":"#c377e0"}'

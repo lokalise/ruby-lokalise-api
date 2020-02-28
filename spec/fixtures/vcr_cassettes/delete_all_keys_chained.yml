@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://api.lokalise.co/api2/projects/803826145ba90b42d5d860.46800099/keys
+    uri: https://api.lokalise.com/api2/projects/803826145ba90b42d5d860.46800099/keys
     body:
       encoding: UTF-8
       string: '{"keys":[15815825,15815826]}'

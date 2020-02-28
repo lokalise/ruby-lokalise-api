@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://api.lokalise.co/api2/teams/176692/groups/689
+    uri: https://api.lokalise.com/api2/teams/176692/groups/689
     body:
       encoding: UTF-8
       string: "{}"

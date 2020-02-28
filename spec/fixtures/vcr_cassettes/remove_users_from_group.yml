@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: put
-    uri: https://api.lokalise.co/api2/teams/176692/groups/689/members/remove
+    uri: https://api.lokalise.com/api2/teams/176692/groups/689/members/remove
     body:
       encoding: UTF-8
       string: '{"users":[35554]}'

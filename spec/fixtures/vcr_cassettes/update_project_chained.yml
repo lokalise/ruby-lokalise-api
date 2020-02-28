@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: put
-    uri: https://api.lokalise.co/api2/projects/186050335c13d673e9c638.47201999
+    uri: https://api.lokalise.com/api2/projects/186050335c13d673e9c638.47201999
     body:
       encoding: UTF-8
       string: '{"name":"updated!"}'

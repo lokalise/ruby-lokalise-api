@@ -2,7 +2,7 @@
 
 module Lokalise
   module Connection
-    BASE_URL = 'https://api.lokalise.co/api2/'
+    BASE_URL = 'https://api.lokalise.com/api2/'
 
     def connection(client)
       options = {

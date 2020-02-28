@@ -1669,6 +1669,25 @@ webhook = @client.webhook(project_id, webhook_id)
 webhook.destroy
 ```
 
+#### Regenerate webhook secret
+
+[Doc](https://lokalise.com/api2docs/curl/#transition-regenerate-a-webhook-secret-patch)
+
+```ruby
+@client.regenerate_webhook_secret(project_id, webhook_id) # Input:
+                                                          ## project_id (string, required)
+                                                          ## webhook_id (string or integer, required)
+                                                          # Output:
+                                                          ## Hash containing `project_id` and new `secret`
+```
+
+Alternatively:
+
+```ruby
+webhook = @client.webhook(project_id, webhook_id)
+webhook.regenerate_secret
+```
+
 ## Additional Info
 
 ### Customizing Request

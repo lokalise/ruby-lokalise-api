@@ -5,10 +5,18 @@ module Lokalise
     class Webhook < Base
       supports :update, :destroy
 
+      def regenerate_secret
+        self.class.regenerate_secret @client, @path + '/secret/regenerate'
+      end
+
       class << self
-        def endpoint(project_id, webhook_id = nil)
+        def regenerate_secret(client, path, *_args)
+          patch(path, client)['content']
+        end
+
+        def endpoint(project_id, webhook_id = nil, *actions)
           path_from projects: project_id,
-                    webhooks: webhook_id
+                    webhooks: [webhook_id, *actions]
         end
       end
     end

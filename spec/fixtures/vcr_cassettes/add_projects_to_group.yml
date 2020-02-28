@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: put
-    uri: https://api.lokalise.co/api2/teams/176692/groups/689/projects/add
+    uri: https://api.lokalise.com/api2/teams/176692/groups/689/projects/add
     body:
       encoding: UTF-8
       string: '{"projects":["605317925c13e4ecb36a79.94825279"]}'

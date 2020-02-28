@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.lokalise.co/api2/teams/176692/orders
+    uri: https://api.lokalise.com/api2/teams/176692/orders
     body:
       encoding: UTF-8
       string: '{"project_id":"803826145ba90b42d5d860.46800099","card_id":1774,"briefing":"Some

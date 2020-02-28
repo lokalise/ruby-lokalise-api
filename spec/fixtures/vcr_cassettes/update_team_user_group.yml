@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: put
-    uri: https://api.lokalise.co/api2/teams/176692/groups/690
+    uri: https://api.lokalise.com/api2/teams/176692/groups/690
     body:
       encoding: UTF-8
       string: '{"name":"updated rspec","is_admin":true,"is_reviewer":true}'

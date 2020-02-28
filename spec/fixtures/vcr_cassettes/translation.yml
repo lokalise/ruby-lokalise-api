@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.lokalise.co/api2/projects/803826145ba90b42d5d860.46800099/translations/80015147
+    uri: https://api.lokalise.com/api2/projects/803826145ba90b42d5d860.46800099/translations/80015147
     body:
       encoding: US-ASCII
       string: ''

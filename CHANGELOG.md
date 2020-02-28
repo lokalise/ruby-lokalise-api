@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.10.0 (28-Feb-20)
+
+* Added methods to [regenerate webhook secret](https://lokalise.com/api2docs/curl/#transition-regenerate-a-webhook-secret-patch):
+  + `@client.regenerate_webhook_secret(project_id, webhook_id)`
+  + `webhook.regenerate_secret`
+* API base URL is now `https://api.lokalise.com/api2/` instead of `https://api.lokalise.co/api2/`
+
 ## 2.9.0.1 (21-Jan-20)
 
 * Make JSON dependency version less strict

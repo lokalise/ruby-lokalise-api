@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.lokalise.co/api2/projects/803826145ba90b42d5d860.46800099/files/upload
+    uri: https://api.lokalise.com/api2/projects/803826145ba90b42d5d860.46800099/files/upload
     body:
       encoding: UTF-8
       string: '{"data":"ZnI6DQogIHRlc3Q6IHRyYW5zbGF0aW9u","filename":"rspec.yml","lang_iso":"ru"}'
