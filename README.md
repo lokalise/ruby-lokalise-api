@@ -18,7 +18,7 @@ Official opinionated Ruby interface for the [Lokalise API](https://lokalise.com/
   + [Branches](#branches)
   + [Comments](#comments)
   + [Contributors](#contributors)
-  + [Files](#files)
+  + [Files](#translation-files)
   + [Keys](#keys)
   + [Languages](#languages)
   + [Orders](#orders)
@@ -423,7 +423,7 @@ contributor = @client.contributor('project_id', 'id')
 contributor.destroy
 ```
 
-### Files
+### Translation files
 
 [File attributes](https://lokalise.com/api2docs/curl/#object-files)
 
