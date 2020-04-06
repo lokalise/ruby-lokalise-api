@@ -79,3 +79,9 @@ RSpec/FilePath:
 
 RSpec/MessageSpies:
   EnforcedStyle: receive
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true

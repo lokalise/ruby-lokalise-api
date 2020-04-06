@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+* Test against more recent Rubies
+
 ## 2.10.0 (28-Feb-20)
 
 * Added methods to [regenerate webhook secret](https://lokalise.com/api2docs/curl/#transition-regenerate-a-webhook-secret-patch):
