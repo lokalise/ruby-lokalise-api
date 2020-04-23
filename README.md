@@ -1607,7 +1607,7 @@ As long as Lokalise supports only very limited array of color hexadecimal codes 
 ```ruby
 @client.webhook(project_id, webhook_id)   # Input:
                                           ## project_id (string, required)
-                                          ## webhook_id (string or integer, required)
+                                          ## webhook_id (string, required)
                                           # Output:
                                           ## Webhook for the given project
 ```
@@ -1634,7 +1634,7 @@ As long as Lokalise supports only very limited array of color hexadecimal codes 
 ```ruby
 @client.update_webhook(project_id, webhook_id, params)    # Input:
                                                           ## project_id (string, required)
-                                                          ## webhook_id (string or integer, required)
+                                                          ## webhook_id (string, required)
                                                           ## params (hash)
                                                           ### :url (string) - webhook URL
                                                           ### :events (array) - events to subscribe to. Check the API docs to find the list of supported events
@@ -1657,7 +1657,7 @@ webhook.update(params)
 ```ruby
 @client.destroy_webhook(project_id, webhook_id)   # Input:
                                                   ## project_id (string, required)
-                                                  ## webhook_id (string or integer, required)
+                                                  ## webhook_id (string, required)
                                                   # Output:
                                                   ## Result of the delete operation
 ```
@@ -1676,7 +1676,7 @@ webhook.destroy
 ```ruby
 @client.regenerate_webhook_secret(project_id, webhook_id) # Input:
                                                           ## project_id (string, required)
-                                                          ## webhook_id (string or integer, required)
+                                                          ## webhook_id (string, required)
                                                           # Output:
                                                           ## Hash containing `project_id` and new `secret`
 ```
