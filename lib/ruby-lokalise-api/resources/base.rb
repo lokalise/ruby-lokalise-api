@@ -87,7 +87,7 @@ module Lokalise
         # Filters out internal attributes that should not be sent to Lokalise
         def prepare_params(params)
           filter_attrs = %i[_initial_path]
-          params.filter { |attr| !filter_attrs.include?(attr) }
+          params.reject { |key, _v| filter_attrs.include?(key) }
         end
 
         # Instantiates a new resource or collection based on the given response
