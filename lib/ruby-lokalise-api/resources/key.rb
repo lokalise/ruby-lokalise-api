@@ -3,7 +3,7 @@
 module Lokalise
   module Resources
     class Key < Base
-      supports :update, :destroy
+      supports :update, :destroy, [:reload_data, '', :find]
 
       class << self
         def endpoint(project_id, key_id = nil)

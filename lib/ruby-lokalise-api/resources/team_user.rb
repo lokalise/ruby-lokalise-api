@@ -4,7 +4,7 @@ module Lokalise
   module Resources
     class TeamUser < Base
       ID_KEY = 'user'
-      supports :update, :destroy
+      supports :update, :destroy, [:reload_data, '', :find]
 
       class << self
         def endpoint(team_id, team_user_id = nil)

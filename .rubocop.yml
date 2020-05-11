@@ -4,6 +4,7 @@ require:
 
 AllCops:
   TargetRubyVersion: 2.6
+  NewCops: enable
 
 Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
@@ -25,7 +26,10 @@ Metrics/MethodLength:
   Max: 10
 
 Metrics/ModuleLength:
-  Max: 100
+  Max: 120
+
+Metrics/ClassLength:
+  Max: 120
 
 Metrics/ParameterLists:
   Max: 5
@@ -79,15 +83,3 @@ RSpec/FilePath:
 
 RSpec/MessageSpies:
   EnforcedStyle: receive
-
-Lint/RaiseException:
-  Enabled: true
-
-Lint/StructNewOverride:
-  Enabled: true
-
-Layout/SpaceAroundMethodCallOperator:
-  Enabled: true
-
-Style/ExponentialNotation:
-  Enabled: true

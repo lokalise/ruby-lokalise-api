@@ -3,7 +3,7 @@
 module Lokalise
   module Resources
     class Webhook < Base
-      supports :update, :destroy
+      supports :update, :destroy, [:reload_data, '', :find]
 
       def regenerate_secret
         self.class.regenerate_secret @client, @path + '/secret/regenerate'

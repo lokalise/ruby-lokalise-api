@@ -58,6 +58,18 @@ RSpec.describe Lokalise::Client do
     expect(key.base_words).to eq(1)
   end
 
+  specify '#reload_data' do
+    key = VCR.use_cassette('key') do
+      test_client.key project_id, key_id, disable_references: 0
+    end
+
+    reloaded_key = VCR.use_cassette('key') do
+      key.reload_data disable_references: 0
+    end
+
+    expect(reloaded_key.key_id).to eq(key.key_id)
+  end
+
   specify '#create_keys' do
     keys = VCR.use_cassette('create_keys') do
       test_client.create_keys project_id, key_name: 'rspec_k', platforms: %w[ios]

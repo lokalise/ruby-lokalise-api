@@ -8,7 +8,7 @@ module Lokalise
       include Lokalise::Utils::AttributeHelpers
       extend Lokalise::Utils::EndpointHelpers
 
-      attr_reader :raw_data, :project_id, :client, :path
+      attr_reader :raw_data, :project_id, :client, :path, :branch
 
       # Initializes a new resource based on the response.
       # `endpoint_generator` is used in cases when a new instance is generated
@@ -23,14 +23,15 @@ module Lokalise
 
         @raw_data = response['content']
         @project_id = response['content']['project_id']
+        @branch = response['content']['branch']
         @client = response['client']
         @path = infer_path_from response, endpoint_generator
       end
 
       class << self
-        # Dynamically add attribute readers for each inherited class.
+        # Dynamically adds attribute readers for each inherited class.
         # Attributes are defined in the `data/attributes.json` file.
-        # Also set the `ATTRIBUTES` constant to assign values to each attribute later when
+        # Also sets the `ATTRIBUTES` constant to assign values to each attribute later when
         # the response arrives from the API
         def inherited(subclass)
           klass_attributes = attributes_for subclass
@@ -47,7 +48,8 @@ module Lokalise
         # Usage: `supports :update, :destroy, [:complex_method, '/sub/path', :update]`
         def supports(*methods)
           methods.each do |m_data|
-            method_name, sub_path, c_method = m_data.is_a?(Array) ? m_data : [m_data, '', m_data]
+            method_name, sub_path, c_method =
+              m_data.is_a?(Array) ? m_data : [m_data, '', m_data]
             define_method method_name do |params = {}|
               path = instance_variable_get(:@path)
               # If there's a sub_path, preserve the initial path to allow further chaining
@@ -66,14 +68,12 @@ module Lokalise
         # Creates one or multiple records
         def create(client, path, params)
           response = post path, client, prepare_params(params)
-
           object_from response, params
         end
 
         # Updates one or multiple records
         def update(client, path, params)
           response = put path, client, prepare_params(params)
-
           object_from response, params
         end
 
@@ -86,8 +86,8 @@ module Lokalise
 
         # Filters out internal attributes that should not be sent to Lokalise
         def prepare_params(params)
-          filter_attrs = %i(_initial_path)
-          params.filter {|attr| !filter_attrs.include?(attr)}
+          filter_attrs = %i[_initial_path]
+          params.filter { |attr| !filter_attrs.include?(attr) }
         end
 
         # Instantiates a new resource or collection based on the given response
@@ -95,9 +95,7 @@ module Lokalise
           model_class = name.base_class_name
           data_key_plural = data_key_for model_class, true
           # Preserve the initial path to allow chaining
-          if params.key?(:_initial_path)
-            response['path'] = params.delete(:_initial_path)
-          end
+          response['path'] = params.delete(:_initial_path) if params.key?(:_initial_path)
 
           if response['content'].key?(data_key_plural)
             produce_collection model_class, response, params
@@ -108,7 +106,6 @@ module Lokalise
 
         def produce_resource(model_class, response)
           data_key_singular = data_key_for model_class
-
           if response['content'].key? data_key_singular
             data = response['content'].delete data_key_singular
             response['content'].merge! data
@@ -132,16 +129,14 @@ module Lokalise
 
       def path_with_id(response, id_key, data_key, endpoint_generator = nil)
         # Some resources do not have ids at all
-        unless response['content'].key?(id_key) || response['content'].key?(data_key)
-          return nil
-        end
+        return nil unless response['content'].key?(id_key) || response['content'].key?(data_key)
 
         # ID of the resource
         id = id_from response, id_key, data_key
 
         # If `endpoint_generator` is present, generate a new path
         # based on the fetched id
-        if endpoint_generator && !id.empty?
+        if endpoint_generator
           path = endpoint_generator.call project_id, id
           return path.remove_trailing_slash
         end

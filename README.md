@@ -24,6 +24,7 @@ Official opinionated Ruby interface for the [Lokalise API](https://lokalise.com/
   + [Orders](#orders)
   + [Payment cards](#payment-cards)
   + [Projects](#projects)
+  + [Queued processes](#queued-processes)
   + [Screenshots](#screenshots)
   + [Snapshots](#snapshots)
   + [Tasks](#tasks)
@@ -80,6 +81,14 @@ project.description
 project.created_by
 ```
 
+Many resources have common methods like `project_id` and `branch`:
+
+```ruby
+webhook = client.webhook project_id, '123.abc'
+webhook.project_id
+webhook.branch
+```
+
 To get access to raw data returned by the API, use `#raw_data`:
 
 ```ruby
@@ -90,6 +99,18 @@ Models support method chaining, meaning you can fetch a resource, update and del
 
 ```ruby
 @client.project('123').update(name: 'New name').destroy
+```
+
+#### Reloading data
+
+Most of the resources can be reloaded using the `reload_data` method. This method will fetch the latest data for the resource:
+
+```ruby
+project = client.project '123'
+# do something else...
+# project might be updated via UI, so load new data:
+reloaded_project = project.reload_data
+# now `reloaded_project` has fresh data from the API
 ```
 
 ### Collections of resources and pagination
@@ -175,7 +196,7 @@ If you are using [project branching feature](https://docs.lokalise.com/en/articl
 ```ruby
 @client.branch(project_id, branch_id)   # Input:
                                         ## project_id (string, required)
-                                        ## branch_id (string or integer, required) 
+                                        ## branch_id (string or integer, required)
                                         # Output:
                                         ## Branch inside the given project
 ```
@@ -188,7 +209,7 @@ If you are using [project branching feature](https://docs.lokalise.com/en/articl
 @client.create_branch(project_id, params)   # Input:
                                             ## project_id (string, required)
                                             ## params (hash, required):
-                                            ### :name (string) - name of the branch 
+                                            ### :name (string) - name of the branch
                                             # Output:
                                             ## Created branch
 ```
@@ -200,9 +221,9 @@ If you are using [project branching feature](https://docs.lokalise.com/en/articl
 ```ruby
 @client.update_branch(project_id, branch_id, params)    # Input:
                                                         ## project_id (string, required)
-                                                        ## branch_id (string or integer, required)  
+                                                        ## branch_id (string or integer, required)
                                                         ## params (hash, required):
-                                                        ### :name (string) - name of the branch 
+                                                        ### :name (string) - name of the branch
                                                         # Output:
                                                         ## Updated branch
 ```
@@ -221,7 +242,7 @@ branch.update params
 ```ruby
 @client.destroy_branch(project_id, branch_id)   # Input:
                                                 ## project_id (string, required)
-                                                ## branch_id (string or integer, required) 
+                                                ## branch_id (string or integer, required)
                                                 # Output:
                                                 ## Hash with the project's id and "branch_deleted"=>true
 ```
@@ -240,8 +261,8 @@ branch.destroy
 ```ruby
 @client.merge_branch(project_id, branch_id, params) # Input:
                                                     ## project_id (string, required)
-                                                    ## branch_id (string or integer, required) 
-                                                    ## params (hash) 
+                                                    ## branch_id (string or integer, required)
+                                                    ## params (hash)
                                                     # Output:
                                                     ## Hash with the project's id, "branch_merged"=>true, and branch attributes
 ```
@@ -277,7 +298,7 @@ branch.merge params
 ```ruby
 @client.comments(project_id, key_id, params = {})   # Input:
                                                     ## project_id (string, required)
-                                                    ## key_id (string, required) 
+                                                    ## key_id (string, required)
                                                     ## params (hash)
                                                     ### :page and :limit
                                                     # Output:
@@ -291,7 +312,7 @@ branch.merge params
 ```ruby
 @client.create_comments(project_id, key_id, params)   # Input:
                                                       ## project_id (string, required)
-                                                      ## key_id (string, required)  
+                                                      ## key_id (string, required)
                                                       ## params (array or hash, required) - contains parameter of newly created comments. Pass array of hashes to create multiple comments, or a hash to create a single comment
                                                       ### :comment (string, required)
                                                       # Output:
@@ -305,8 +326,8 @@ branch.merge params
 ```ruby
 @client.comment(project_id, key_id, comment_id)   # Input:
                                                   ## project_id (string, required)
-                                                  ## key_id (string, required) 
-                                                  ## comment_id (string, required)  
+                                                  ## key_id (string, required)
+                                                  ## comment_id (string, required)
                                                   # Output:
                                                   ## Comment for the key in the given project
 ```
@@ -318,8 +339,8 @@ branch.merge params
 ```ruby
 @client.destroy_comment(project_id, key_id, comment_id)   # Input:
                                                           ## project_id (string, required)
-                                                          ## key_id (string, required) 
-                                                          ## comment_id (string, required)  
+                                                          ## key_id (string, required)
+                                                          ## comment_id (string, required)
                                                           # Output:
                                                           ## Hash with the project's id and "comment_deleted"=>true
 ```
@@ -367,13 +388,13 @@ comment.destroy
                                                  ## project_id (string, required)
                                                  ## params (array of hashes or hash, required) - parameters for the newly created contributors. Pass array of hashes to create multiple contributors, or a hash to create a single contributor
                                                  ### :email (string, required)
-                                                 ### :fullname (string) 
+                                                 ### :fullname (string)
                                                  ### :is_admin (boolean)
                                                  ### :is_reviewer (boolean)
                                                  ### :languages (array of hashes, required if "is_admin" set to false) - possible languages attributes:
                                                  #### :lang_iso (string, required)
-                                                 #### :is_writable (boolean) 
-                                                 ### :admin_rights (array) 
+                                                 #### :is_writable (boolean)
+                                                 ### :admin_rights (array)
                                                  # Output:
                                                  ## Collection of newly created contributors
 ```
@@ -385,14 +406,14 @@ comment.destroy
 ```ruby
 @client.update_contributor(project_id, contributor_id, params)   # Input:
                                                                  ## project_id (string, required)
-                                                                 ## contributor_id (string, required) 
+                                                                 ## contributor_id (string, required)
                                                                  ## params (hash, required)
                                                                  ### :is_admin (boolean)
                                                                  ### :is_reviewer (boolean)
                                                                  ### :languages (array of hashes) - possible languages attributes:
                                                                  #### :lang_iso (string, required)
-                                                                 #### :is_writable (boolean) 
-                                                                 ### :admin_rights (array) 
+                                                                 #### :is_writable (boolean)
+                                                                 ### :admin_rights (array)
                                                                  # Output:
                                                                  ## Updated contributor
 ```
@@ -451,12 +472,79 @@ Exports project files as a `.zip` bundle and makes them available to download (t
                                         ## project_id (string, required)
                                         ## params (hash, required)
                                         ### :format (string, required) - one of the file formats supported by Lokalise (json, xml, po etc).
-                                        ### Find the list of other supported params at https://lokalise.com/api2docs/curl/#transition-download-files-post 
+                                        ### Find the list of other supported params at https://lokalise.com/api2docs/curl/#transition-download-files-post
                                         # Output:
                                         ## Hash with the project id and a "bundle_url" link
 ```
 
-#### Upload translation file
+#### Upload translation file - background
+
+[Doc](https://lokalise.com/api2docs/curl/#transition-upload-a-file-post)
+
+Starting from 9 May 2020, **background uploading is the preferred method of importing translation files**. To enable it, simply set the `queue` option to `true`.
+
+```ruby
+@client.upload_file(project_id, params) # Input:
+                                        ## project_id (string, required)
+                                        ## params (hash, required)
+                                        ### :data (string, required) - base64-encoded data (the format must be supported by Lokalise)
+                                        ### :filename (string, required)
+                                        ### :lang_iso (string, required)
+                                        ### :queue (boolean) - perform upload in the background rather than doing it synchronously.
+                                        ### Find the list of other supported params at https://lokalise.com/api2docs/curl/#transition-upload-a-file-post
+                                        # Output:
+                                        ## QueuedProcess resource
+```
+
+When the `queue` option is set to `true`, a [`QueuedProcess`](#queued-processes) resource will be returned. This resource contains a status of the import job, a URL to manually check the status, and some other attributes:
+
+```ruby
+queued_process = @client.upload_file project_id,
+                                     data: 'Base-64 encoded data... ZnI6DQogI...',
+                                     filename: 'my_file.yml',
+                                     lang_iso: 'en',
+                                     queue: true # make sure to upload in the background
+
+queued_process.status # => 'queued'
+queued_process.url # => 'api2/projects/PROJECT_ID/processes/file-import/PROCESS_ID'
+```
+
+Your job is to periodically reload data for the queued process and check the `status` attribute:
+
+```ruby
+reloaded_process = queued_process.reload_data # loads new data from the API
+reloaded_process.status # => 'finished'
+```
+
+Alternatively, you may use the `queued_process` method:
+
+```ruby
+reloaded_process = @client.queued_process project_id, queued_process.process_id, 'file-import'
+```
+
+It is up to you to decide how to poll API for changes (remember that larger files will take more time to be imported), but here's a simple example:
+
+```ruby
+def uploaded?(process)
+  5.times do # try to check the status 5 times
+    queued_process = queued_process.reload_data # load new data
+    return(true) if queued_process.status == 'finished' # return true is the upload has finished
+    sleep 1 # wait for 1 second
+  end
+
+  return false # if all 5 checks failed, return false (probably something is wrong)
+end
+
+queued_process = @client.upload_file project_id,
+                                     data: 'Base-64 encoded data... ZnI6DQogI...',
+                                     filename: 'my_file.yml',
+                                     lang_iso: 'en'
+uploaded? queued_process
+```
+
+#### Upload translation file - synchronous
+
+**Set `queue` option to `false` in order to perform a synchronous upload. Please note that synchronous importing of translation files is deprecated and will be removed in summer 2020!**
 
 [Doc](https://lokalise.com/api2docs/curl/#transition-upload-a-file-post)
 
@@ -466,7 +554,8 @@ Exports project files as a `.zip` bundle and makes them available to download (t
                                         ## params (hash, required)
                                         ### :data (string, required) - base64-encoded data (the format must be supported by Lokalise)
                                         ### :filename (string, required)
-                                        ### :lang_iso (string, required) 
+                                        ### :lang_iso (string, required)
+                                        ### :queue (boolean) - perform upload in the background rather than doing it synchronously.
                                         ### Find the list of other supported params at https://lokalise.com/api2docs/curl/#transition-upload-a-file-post
                                         # Output:
                                         ## Hash with information about the upload
@@ -496,7 +585,7 @@ Exports project files as a `.zip` bundle and makes them available to download (t
 ```ruby
 @client.key(project_id, key_id, params = {})    # Input:
                                                 ## project_id (string, required)
-                                                ## key_id (string, required) 
+                                                ## key_id (string, required)
                                                 ## params (hash)
                                                 ### :disable_references (string) - possible values are "1" and "0".
                                                 # Output:
@@ -513,7 +602,7 @@ Exports project files as a `.zip` bundle and makes them available to download (t
                                           ## params (array of hashes or hash, required)
                                           ### :key_name (string or hash, required) - for projects with enabled per-platform key names, pass hash with "ios", "android", "web" and "other" params.
                                           ### :platforms (array) - supported values are "ios", "android", "web" and "other"
-### Find all other supported attributes at https://lokalise.com/api2docs/curl/#transition-create-keys-post 
+### Find all other supported attributes at https://lokalise.com/api2docs/curl/#transition-create-keys-post
                                           # Output:
                                           ## Collection of newly created keys
 ```
@@ -525,7 +614,7 @@ Exports project files as a `.zip` bundle and makes them available to download (t
 ```ruby
 @client.update_key(project_id, key_id, params = {})   # Input:
                                                       ## project_id (string, required)
-                                                      ## key_id (string, required)  
+                                                      ## key_id (string, required)
                                                       ## params (hash)
                                                       ### Find a list of supported attributes at https://lokalise.com/api2docs/curl/#transition-update-a-key-put
                                                       # Output:
@@ -548,7 +637,7 @@ key.update(params)
                                          ## project_id (string, required)
                                          ## params (hash or array of hashes, required)
                                          ### :key_id (string, required)
-                                         ### Find all other supported attributes at https://lokalise.com/api2docs/curl/#transition-bulk-update-put 
+                                         ### Find all other supported attributes at https://lokalise.com/api2docs/curl/#transition-bulk-update-put
                                          # Output:
                                          ## Collection of updated keys
 ```
@@ -560,7 +649,7 @@ key.update(params)
 ```ruby
 @client.destroy_key(project_id, key_id) # Input:
                                         ## project_id (string, required)
-                                        ## key_id (string, required)  
+                                        ## key_id (string, required)
                                         # Output:
                                         ## Hash with project_id and "key_removed" set to "true"
 ```
@@ -579,7 +668,7 @@ key.destroy
 ```ruby
 @client.destroy_keys(project_id, key_ids) # Input:
                                           ## project_id (string, required)
-                                          ## key_ids (array, required)  
+                                          ## key_ids (array, required)
                                           # Output:
                                           ## Hash with project_id and "keys_removed" set to "true"
 ```
@@ -641,7 +730,7 @@ keys.destroy_all # => will effectively destroy all keys in the project
                                                 ## project_id (string, required)
                                                 ## params (array of hashes or hash, required) - contains parameter of newly created languages. Pass array of hashes to create multiple languages, or a hash to create a single language
                                                 ### :lang_iso (string, required)
-                                                ### :custom_iso (string) 
+                                                ### :custom_iso (string)
                                                 ### :custom_name (string)
                                                 ### :custom_plural_forms (array) - can contain only plural forms initially supported by Lokalise
                                                 # Output:
@@ -655,11 +744,11 @@ keys.destroy_all # => will effectively destroy all keys in the project
 ```ruby
 @client.update_language(project_id, language_id, params)    # Input:
                                                             ## project_id (string, required)
-                                                            ## language_id (string, required) 
+                                                            ## language_id (string, required)
                                                             ## params (hash, required)
                                                             ### :lang_iso (string, required)
                                                             ### :custom_name (string)
-                                                            ### :plural_forms (array) - can contain only plural forms initially supported by Lokalise 
+                                                            ### :plural_forms (array) - can contain only plural forms initially supported by Lokalise
                                                             # Output:
                                                             ## Updated language
 ```
@@ -730,13 +819,13 @@ language.destroy
                                        ### project_id (string, required)
                                        ### card_id (integer, string, required) - card to process payment
                                        ### briefing (string, required)
-                                       ### source_language_iso (string, required) 
+                                       ### source_language_iso (string, required)
                                        ### target_language_isos (array of strings, required)
                                        ### keys (array of integers, required) - keys to include in the order
                                        ### provider_slug (string, required)
-                                       ### translation_tier (integer, required) 
+                                       ### translation_tier (integer, required)
                                        ### dry_run (boolean) - return the response without actually placing an order. Useful for price estimation. Default is `false`
-                                       ### translation_style (string) - only for gengo provider. Available values are `formal`, `informal`, `business`, `friendly`. Defaults to `friendly`. 
+                                       ### translation_style (string) - only for gengo provider. Available values are `formal`, `informal`, `business`, `friendly`. Defaults to `friendly`.
                                        # Output:
                                        ## A newly created order
 
@@ -755,7 +844,7 @@ language.destroy
                                       ## params (hash)
                                       ### :page and :limit
                                       # Output:
-                                      ## Collection of payment cards under the `payment_cards` attribute 
+                                      ## Collection of payment cards under the `payment_cards` attribute
 ```
 
 #### Fetch a single payment card
@@ -781,7 +870,7 @@ language.destroy
                                       ### exp_month (integer, required) - card expiration month (1 - 12)
                                       ### exp_year (integer, required) - card expiration year (for example, 2019)
                                       # Output:
-                                      ## A newly created payment card 
+                                      ## A newly created payment card
 
 ```
 
@@ -817,7 +906,7 @@ card.destroy
                                 ### :filter_team_id (string) - load projects only for the given team
                                 ### :page and :limit
                                 # Output:
-                                ## Collection of projects under the `projects` attribute 
+                                ## Collection of projects under the `projects` attribute
 ```
 
 #### Fetch a single project
@@ -828,7 +917,7 @@ card.destroy
 @client.project(project_id)     # Input:
                                 ## project_id (string, required)
                                 # Output:
-                                ## A single project 
+                                ## A single project
 ```
 
 #### Create a project
@@ -840,9 +929,9 @@ card.destroy
                                 ## params (hash, required)
                                 ### name (string, required)
                                 ### description (string)
-                                ### team_id (integer) - you must be an admin of the chosen team. When omitted, defaults to the current team of the token's owner 
+                                ### team_id (integer) - you must be an admin of the chosen team. When omitted, defaults to the current team of the token's owner
                                 # Output:
-                                ## A newly created project 
+                                ## A newly created project
 
 ```
 
@@ -905,6 +994,46 @@ project = @client.project('project_id')
 project.destroy
 ```
 
+### Queued processes
+
+[Queued processes attributes](https://app.lokalise.com/api2docs/curl/#object-queued-processes)
+
+#### Fetch queued processes
+
+[Doc](https://app.lokalise.com/api2docs/curl/#transition-get-processes-get)
+
+```ruby
+@client.queued_processes(project_id) # Input:
+                                     ## project_id (string, required)
+                                     # Output:
+                                     ## Collection of queued processes
+```
+
+#### Fetch a single queued process
+
+[Doc](https://app.lokalise.com/api2docs/curl/#transition-get-process-get)
+
+```ruby
+@client.queued_process(project_id, process_id) # Input:
+                                               ## project_id (string, required)
+                                               ## process_id (string, required)
+                                               # Output:
+                                               ## Queued process resource
+```
+
+#### Fetched detailed info about a queued process
+
+[Doc](https://app.lokalise.com/api2docs/curl/#transition-get-detailed-process-get)
+
+```ruby
+@client.queued_process(project_id, process_id, process_type) # Input:
+                                                             ## project_id (string, required)
+                                                             ## process_id (string, required)
+                                                             ## process_type (string)
+                                                             # Output:
+                                                             ## Queued process resource with detailed info
+```
+
 ### Screenshots
 
 [Screenshot attributes](https://lokalise.com/api2docs/curl/#resource-screenshots)
@@ -931,7 +1060,7 @@ project.destroy
                                                 ## project_id (string, required)
                                                 ## screeshot_id (string, required)
                                                 # Output:
-                                                ## A single screenshot 
+                                                ## A single screenshot
 ```
 
 #### Create screenshots
@@ -943,11 +1072,11 @@ project.destroy
                                                    ## project_id (string, required)
                                                    ## params (hash or array of hashes, required)
                                                    ### :data (string, required) - the actual screenshot, base64-encoded (with leading image type "data:image/jpeg;base64,"). JPG and PNG formats are supported.
-                                                   ### :title (string) 
+                                                   ### :title (string)
                                                    ### :description (string)
                                                    ### :ocr (boolean) - recognize translations on the image and attach screenshot to all possible keys
                                                    ### :key_ids (array) - attach the screenshot to key IDs specified
-                                                   ### :tags (array) 
+                                                   ### :tags (array)
                                                    # Output:
                                                    ## Collection of created screenshots
 ```
@@ -961,10 +1090,10 @@ project.destroy
                                                                   ## project_id (string, required)
                                                                   ## screenshot_id (string, required)
                                                                   ## params (hash)
-                                                                  ### :title (string) 
+                                                                  ### :title (string)
                                                                   ### :description (string)
                                                                   ### :key_ids (array) - attach the screenshot to key IDs specified
-                                                                  ### :tags (array) 
+                                                                  ### :tags (array)
                                                                   # Output:
                                                                   ## Updated screenshot
 ```
@@ -1007,7 +1136,7 @@ screenshot.destroy
 @client.snapshots(project_id, params = {})  # Input:
                                             ## project_id (string, required)
                                             ## params (hash)
-                                            ### :filter_title (string) - set title filter for the list 
+                                            ### :filter_title (string) - set title filter for the list
                                             ### :page and :limit
                                             # Output:
                                             ## Collection of project snapshots
@@ -1076,7 +1205,7 @@ snapshot.destroy
 @client.tasks(project_id, params = {})  # Input:
                                         ## project_id (string, required)
                                         ## params (hash)
-                                        ### :filter_title (string) - set title filter for the list 
+                                        ### :filter_title (string) - set title filter for the list
                                         ### :page and :limit
                                         # Output:
                                         ## Collection of tasks for the project
@@ -1103,13 +1232,13 @@ snapshot.destroy
                                          ## project_id (string, required)
                                          ## params (hash, required)
                                          ### title (string, required)
-                                         ### keys (array) - translation key ids. Required if "parent_task_id" is not specified 
+                                         ### keys (array) - translation key ids. Required if "parent_task_id" is not specified
                                          ### languages (array of hashes, required)
                                          #### language_iso (string)
-                                         #### users (array) - list of users identifiers, assigned to work on the language 
-                                         ### Find other supported options at https://lokalise.com/api2docs/curl/#transition-create-a-task-post 
+                                         #### users (array) - list of users identifiers, assigned to work on the language
+                                         ### Find other supported options at https://lokalise.com/api2docs/curl/#transition-create-a-task-post
                                          # Output:
-                                         ## A newly created task 
+                                         ## A newly created task
 
 ```
 
@@ -1120,11 +1249,11 @@ snapshot.destroy
 ```ruby
 @client.update_task(project_id, task_id, params = {})  # Input:
                                                        ## project_id (string, required)
-                                                       ## task_id (string or integer, required) 
+                                                       ## task_id (string or integer, required)
                                                        ## params (hash)
-                                                       ### Find supported params at https://lokalise.com/api2docs/curl/#transition-update-a-task-put 
+                                                       ### Find supported params at https://lokalise.com/api2docs/curl/#transition-update-a-task-put
                                                        # Output:
-                                                       ## An updated task 
+                                                       ## An updated task
 
 ```
 
@@ -1142,7 +1271,7 @@ task.update(params)
 ```ruby
 @client.destroy_task(project_id, task_id)  # Input:
                                            ## project_id (string, required)
-                                           ## task_id (string, required) 
+                                           ## task_id (string, required)
                                            # Output:
                                            ## Hash with the project id and "task_deleted" set to "true"
 
@@ -1207,7 +1336,7 @@ task.destroy
                                                     ## team_id (string, required)
                                                     ## user_id (string, required)
                                                     ## params (hash, required):
-                                                    ### :role (string, required) - :owner, :admin, or :member 
+                                                    ### :role (string, required) - :owner, :admin, or :member
                                                     # Output:
                                                     ## Updated team user
 ```
@@ -1425,7 +1554,7 @@ group.destroy
 ```ruby
 @client.translation(project_id, translation_id, params = {})   # Input:
                                                                 ## project_id (string, required)
-                                                                ## translation_id (string, required) 
+                                                                ## translation_id (string, required)
                                                                 ## params (hash)
                                                                 ### :disable_references (string) - whether to disable key references. Supported values are 0 and 1
                                                                 # Output:
@@ -1439,11 +1568,11 @@ group.destroy
 ```ruby
 @client.update_translation(project_id, translation_id, params = {})   # Input:
                                                                       ## project_id (string, required)
-                                                                      ## translation_id (string, required) 
+                                                                      ## translation_id (string, required)
                                                                       ## params (hash, required)
                                                                       ### :translation (string or hash, required) - the actual translation. Provide hash for plural keys.
                                                                       ### :is_fuzzy (boolean)
-                                                                      ### :is_reviewed (boolean) 
+                                                                      ### :is_reviewed (boolean)
                                                                       # Output:
                                                                       ## Updated translation
 ```
@@ -1479,7 +1608,7 @@ translation.update(params)
 ```ruby
 @client.translation_provider(team_id, provider_id)  # Input:
                                                     ## team_id (string, required)
-                                                    ## provider_id (string, required) 
+                                                    ## provider_id (string, required)
                                                     # Output:
                                                     ## Single provider for the team
 ```
@@ -1735,7 +1864,7 @@ For example, to use [Oj](https://github.com/ohler55/oj) you would do the followi
 require 'oj'
 
 module Lokalise
-  module JsonHandler  
+  module JsonHandler
     # This method accepts a Ruby object and must return a JSON string
     def custom_dump(obj)
       Oj.dump obj

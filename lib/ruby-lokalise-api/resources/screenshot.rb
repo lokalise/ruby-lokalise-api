@@ -3,7 +3,7 @@
 module Lokalise
   module Resources
     class Screenshot < Base
-      supports :update, :destroy
+      supports :update, :destroy, [:reload_data, '', :find]
 
       class << self
         def endpoint(project_id, screenshot_id = nil)

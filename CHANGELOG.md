@@ -1,7 +1,27 @@
 # Changelog
 
-## 3.0.0 (Unreleased)
+## 3.0.0 (11-May-20)
 
+**Upcoming breaking change** Uploading files in the background is now a preferred method. Synchronous uploading is still supported but will be removed in the near future. Find more info [in the docs](https://github.com/lokalise/ruby-lokalise-api#upload-translation-file-background).
+
+* Added support for [background import](https://github.com/lokalise/ruby-lokalise-api#upload-translation-file-background). Background import will return a queued process with the status of the job:
+
+```ruby
+queued_process = @client.upload_file project_id,
+                                     data: 'Base-64 encoded data... ZnI6DQogI...',
+                                     filename: 'my_file.yml',
+                                     lang_iso: 'en',
+                                     queue: true # perform import in the background
+
+queued_process.status # => 'queued'
+# ...after a couple of seconds
+queued_process = queued_process.reload_data
+queued_process.status # => 'finished'
+```
+
+* Added support for [`QueuedProcess` endpoint](https://app.lokalise.com/api2docs/curl/#object-queued-processes)
+* Many resources now respond to the `reload_data` method which fetches new data from the API
+* Various code improvements
 * Test against more recent Rubies
 * Fixed documentation links in code comments
 

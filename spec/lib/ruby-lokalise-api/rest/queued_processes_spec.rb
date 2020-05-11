@@ -23,15 +23,16 @@ RSpec.describe Lokalise::Client do
       test_client.queued_process project_id, process_id
     end
 
+    expect(process.branch).to eq('master')
     expect(process.process_id).to eq(process_id)
     expect(process.type).to eq('file-import')
     expect(process.status).to eq('finished')
     expect(process.message).to eq('')
-    expect(process.created_by).to eq("20181")
-    expect(process.created_by_email).to eq("bodrovis@protonmail.com")
-    expect(process.created_at).to eq("2020-05-11 11:17:52 (Etc/UTC)")
-    expect(process.created_at_timestamp).to eq(1589195872)
-    expect(process.url).to eq("/api2/projects/803826145ba90b42d5d860.46800099/processes/file-import/4191a4e54cb6433193e75eed55359c4021e6aa91")
+    expect(process.created_by).to eq('20181')
+    expect(process.created_by_email).to eq('bodrovis@protonmail.com')
+    expect(process.created_at).to eq('2020-05-11 11:17:52 (Etc/UTC)')
+    expect(process.created_at_timestamp).to eq(1_589_195_872)
+    expect(process.url).to eq('/api2/projects/803826145ba90b42d5d860.46800099/processes/file-import/4191a4e54cb6433193e75eed55359c4021e6aa91')
   end
 
   specify '#queued_process with process type' do
@@ -43,11 +44,11 @@ RSpec.describe Lokalise::Client do
     expect(process.type).to eq('file-import')
     expect(process.status).to eq('finished')
     expect(process.message).to eq('')
-    expect(process.created_by).to eq("20181")
-    expect(process.created_by_email).to eq("bodrovis@protonmail.com")
-    expect(process.created_at).to eq("2020-05-11 11:17:52 (Etc/UTC)")
-    expect(process.created_at_timestamp).to eq(1589195872)
-    expect(process.url).to eq("/api2/projects/803826145ba90b42d5d860.46800099/processes/file-import/4191a4e54cb6433193e75eed55359c4021e6aa91")
+    expect(process.created_by).to eq('20181')
+    expect(process.created_by_email).to eq('bodrovis@protonmail.com')
+    expect(process.created_at).to eq('2020-05-11 11:17:52 (Etc/UTC)')
+    expect(process.created_at_timestamp).to eq(1_589_195_872)
+    expect(process.url).to eq('/api2/projects/803826145ba90b42d5d860.46800099/processes/file-import/4191a4e54cb6433193e75eed55359c4021e6aa91')
     expect(process.files.count).to eq(2)
     file = process.files.first
     expect(file['status']).to eq('finished')

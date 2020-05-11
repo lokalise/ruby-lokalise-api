@@ -12,7 +12,7 @@ RSpec.describe Lokalise::Error do
       VCR.use_cassette('error_unknown_code') do
         get 'projects', Lokalise.client('invalid')
       end
-    end.to raise_error(Lokalise::Error)
+    end.to raise_error(described_class)
   end
 
   it 'raises BadRequest when API token is invalid' do

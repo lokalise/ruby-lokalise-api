@@ -3,7 +3,7 @@
 module Lokalise
   module Resources
     class Project < Base
-      supports :update, :destroy
+      supports :update, :destroy, [:reload_data, '', :find]
 
       def empty
         self.class.empty @client, @path + '/empty'

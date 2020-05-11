@@ -41,6 +41,18 @@ RSpec.describe Lokalise::Client do
     expect(webhook.event_lang_map.first['event']).to eq('project.translation.updated')
   end
 
+  specify '#reload_data' do
+    webhook = VCR.use_cassette('webhook') do
+      test_client.webhook project_id, webhook_id
+    end
+
+    reloaded_webhook = VCR.use_cassette('webhook') do
+      webhook.reload_data
+    end
+
+    expect(reloaded_webhook.webhook_id).to eq(webhook.webhook_id)
+  end
+
   specify '#create_webhook' do
     webhook = VCR.use_cassette('create_webhook') do
       test_client.create_webhook project_id,
@@ -91,6 +103,7 @@ RSpec.describe Lokalise::Client do
         test_client.webhook project_id, serious_webhook_id
       end
 
+      expect(webhook.branch).to eq('master')
       expect(webhook.webhook_id).to eq(serious_webhook_id)
 
       response = VCR.use_cassette('regenerate_webhook_secret_2') do

@@ -3,7 +3,7 @@
 module Lokalise
   module Resources
     class PaymentCard < Base
-      supports :destroy
+      supports :destroy, [:reload_data, '', :find]
 
       class << self
         def endpoint(card_id = nil)
