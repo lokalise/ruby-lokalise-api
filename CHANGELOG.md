@@ -2,9 +2,9 @@
 
 ## 3.0.0 (11-May-20)
 
-**Upcoming breaking change** Uploading files in the background is now a preferred method. Synchronous uploading is still supported but will be removed in the near future. Find more info [in the docs](https://github.com/lokalise/ruby-lokalise-api#upload-translation-file-background).
+**Upcoming breaking change** Uploading files in the background is now a preferred method. Synchronous uploading is still supported but will be removed in the near future. Find more info [in the docs](https://github.com/lokalise/ruby-lokalise-api/tree/feature/SRUBY-1_background_process_support#upload-translation-file---background).
 
-* Added support for [background import](https://github.com/lokalise/ruby-lokalise-api#upload-translation-file-background). Background import will return a queued process with the status of the job:
+* Added support for [background import](https://github.com/lokalise/ruby-lokalise-api/tree/feature/SRUBY-1_background_process_support#upload-translation-file---background). Background import will return a queued process with the status of the job:
 
 ```ruby
 queued_process = @client.upload_file project_id,
