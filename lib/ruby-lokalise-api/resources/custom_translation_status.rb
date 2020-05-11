@@ -4,7 +4,7 @@ module Lokalise
   module Resources
     class CustomTranslationStatus < Base
       ID_KEY = 'status'
-      supports :update, :destroy
+      supports :update, :destroy, [:reload_data, '', :find]
 
       class << self
         def colors(client, path, *_args)

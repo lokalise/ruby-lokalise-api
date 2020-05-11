@@ -43,6 +43,18 @@ RSpec.describe Lokalise::Client do
     expect(status.color).to eq('#0079bf')
   end
 
+  specify '#reload_data' do
+    status = VCR.use_cassette('translation_status') do
+      test_client.translation_status project_id, status_id
+    end
+
+    reloaded_status = VCR.use_cassette('translation_status') do
+      status.reload_data
+    end
+
+    expect(reloaded_status.status_id).to eq(status.status_id)
+  end
+
   specify '#create_translation_status' do
     title = 'Reviewed by doctors'
     color = '#f2d600'

@@ -40,6 +40,18 @@ RSpec.describe Lokalise::Client do
     expect(branch.created_by_email).to eq('bodrovis@protonmail.com')
   end
 
+  specify '#reload_data' do
+    branch = VCR.use_cassette('branch') do
+      test_client.branch project_id, branch_id
+    end
+
+    reloaded_branch = VCR.use_cassette('branch') do
+      branch.reload_data
+    end
+
+    expect(reloaded_branch.branch_id).to eq(branch.branch_id)
+  end
+
   specify '#create_branch' do
     branch = VCR.use_cassette('create_branch') do
       test_client.create_branch project_id, name: 'ruby-branch'

@@ -4,7 +4,7 @@ module Lokalise
   class Client
     # Returns all translation files for the given project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-list-all-files-get
+    # @see https://app.lokalise.com/api2docs/curl/#transition-list-all-files-get
     # @return [Lokalise::Collection::File<Lokalise::Resources::File>]
     # @param project_id [String]
     # @param params [Hash]
@@ -14,7 +14,7 @@ module Lokalise
 
     # Exports translation files as .zip bundle, uploads them to Amazon S3 and returns a URL to the generated bundle. The URL is valid for a year
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-download-files-post
+    # @see https://app.lokalise.com/api2docs/curl/#transition-download-files-post
     # @return [Hash]
     # @param project_id [String]
     # @param params [Hash]
@@ -24,7 +24,7 @@ module Lokalise
 
     # Imports translation file to the given project. File data must base64-encoded
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-upload-a-file-post
+    # @see https://app.lokalise.com/api2docs/curl/#transition-upload-a-file-post
     # @return [Hash]
     # @param project_id [String]
     # @param params [Hash]

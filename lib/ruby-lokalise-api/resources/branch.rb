@@ -3,7 +3,7 @@
 module Lokalise
   module Resources
     class Branch < Base
-      supports :update, :destroy
+      supports :update, :destroy, [:reload_data, '', :find]
 
       def merge(params = {})
         self.class.merge @client, self.class.endpoint(project_id, branch_id, :merge), params

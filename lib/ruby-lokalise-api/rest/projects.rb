@@ -4,7 +4,7 @@ module Lokalise
   class Client
     # Returns all projects available to the user authorized with the API token
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-list-all-projects-get
+    # @see https://app.lokalise.com/api2docs/curl/#transition-list-all-projects-get
     # @return [Lokalise::Collection::Project<Lokalise::Resources::Project>]
     # @param params [Hash]
     def projects(params = {})
@@ -13,7 +13,7 @@ module Lokalise
 
     # Returns a single project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-retrieve-a-project-get
+    # @see https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-project-get
     # @return [Lokalise::Resources::Project]
     # @param project_id [String, Integer]
     def project(project_id)
@@ -22,7 +22,7 @@ module Lokalise
 
     # Creates project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-create-a-project-post
+    # @see https://app.lokalise.com/api2docs/curl/#transition-create-a-project-post
     # @return [Lokalise::Resources::Project]
     # @param params [Hash]
     def create_project(params)
@@ -31,7 +31,7 @@ module Lokalise
 
     # Updates project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-update-a-project-put
+    # @see https://app.lokalise.com/api2docs/curl/#transition-update-a-project-put
     # @return [Lokalise::Resources::Project]
     # @param project_id [String, Integer]
     # @param params [Hash]
@@ -41,7 +41,7 @@ module Lokalise
 
     # Deletes all keys and translations from the project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-empty-a-project-put
+    # @see https://app.lokalise.com/api2docs/curl/#transition-empty-a-project-put
     # @return [Hash]
     # @param project_id [String, Integer]
     def empty_project(project_id)
@@ -50,7 +50,7 @@ module Lokalise
 
     # Deletes the project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-delete-a-project-delete
+    # @see https://app.lokalise.com/api2docs/curl/#transition-delete-a-project-delete
     # @return [Hash]
     # @param project_id [String, Integer]
     def destroy_project(project_id)

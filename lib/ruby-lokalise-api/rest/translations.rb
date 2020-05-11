@@ -4,7 +4,7 @@ module Lokalise
   class Client
     # Returns all translations for the given project (ungrouped)
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-list-all-translations-get
+    # @see https://app.lokalise.com/api2docs/curl/#transition-list-all-translations-get
     # @return [Lokalise::Collection::Translation<Lokalise::Resources::Translation>]
     # @param project_id [String]
     # @param params [Hash]
@@ -14,7 +14,7 @@ module Lokalise
 
     # Returns translation of the given project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-retrieve-a-translation-get
+    # @see https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-translation-get
     # @return [Lokalise::Resources::Translation]
     # @param project_id [String]
     # @param translation_id [String, Integer]
@@ -25,7 +25,7 @@ module Lokalise
 
     # Updates translation of the given project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-update-a-translation-put
+    # @see https://app.lokalise.com/api2docs/curl/#transition-update-a-translation-put
     # @return [Lokalise::Resources::Translation]
     # @param project_id [String]
     # @param translation_id [String, Integer]

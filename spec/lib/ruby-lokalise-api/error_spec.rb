@@ -7,6 +7,14 @@ RSpec.describe Lokalise::Error do
 
   after { Lokalise.reset_client! }
 
+  it 'raises a generic error when the code is unknown' do
+    expect do
+      VCR.use_cassette('error_unknown_code') do
+        get 'projects', Lokalise.client('invalid')
+      end
+    end.to raise_error(Lokalise::Error)
+  end
+
   it 'raises BadRequest when API token is invalid' do
     expect do
       VCR.use_cassette('error_invalid_token') do

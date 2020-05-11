@@ -4,7 +4,7 @@ module Lokalise
   class Client
     # Returns all team users for the given team
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-list-all-team-users-get
+    # @see https://app.lokalise.com/api2docs/curl/#transition-list-all-team-users-get
     # @return [Lokalise::Collection::TeamUser<Lokalise::Resources::TeamUser>]
     # @param team_id [String]
     # @param params [Hash]
@@ -14,7 +14,7 @@ module Lokalise
 
     # Returns team user from the given team
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-retrieve-a-team-user-get
+    # @see https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-team-user-get
     # @return [Lokalise::Resources::TeamUser]
     # @param team_id [String]
     # @param user_id [String, Integer]
@@ -24,7 +24,7 @@ module Lokalise
 
     # Updates team user for the given team
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-update-a-team-user-put
+    # @see https://app.lokalise.com/api2docs/curl/#transition-update-a-team-user-put
     # @return [Lokalise::Resources::TeamUser]
     # @param team_id [String]
     # @param user_id [String, Integer]
@@ -35,7 +35,7 @@ module Lokalise
 
     # Deletes team user from the given team
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-delete-a-team-user-delete
+    # @see https://app.lokalise.com/api2docs/curl/#transition-delete-a-team-user-delete
     # @return [Lokalise::Resources::TeamUser]
     # @param team_id [String]
     # @param user_id [String, Integer]

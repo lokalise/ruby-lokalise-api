@@ -3,7 +3,7 @@ require:
  - rubocop-rspec
 
 AllCops:
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.6
 
 Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
@@ -84,4 +84,10 @@ Lint/RaiseException:
   Enabled: true
 
 Lint/StructNewOverride:
+  Enabled: true
+
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+Style/ExponentialNotation:
   Enabled: true

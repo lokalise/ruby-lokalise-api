@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.lokalise.com/api2/projects/803826145ba90b42d5d860.46800099/branches/41306
     body:
       encoding: UTF-8
-      string: '{"name":"updated-ruby-second-branch","_initial_path":"projects/803826145ba90b42d5d860.46800099/branches/41306"}'
+      string: '{"name":"updated-ruby-second-branch"}'
     headers:
       Accept:
       - application/json
@@ -42,6 +42,6 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"project_id":"803826145ba90b42d5d860.46800099","branch":{"branch_id":41306,"name":"updated-ruby-second-branch","created_at":"2019-10-30
         14:47:07 (Etc\/UTC)","created_at_timestamp":1572446827,"created_by":20181,"created_by_email":"bodrovis@protonmail.com"}}'
-    http_version: 
+    http_version:
   recorded_at: Wed, 30 Oct 2019 14:47:01 GMT
 recorded_with: VCR 5.0.0

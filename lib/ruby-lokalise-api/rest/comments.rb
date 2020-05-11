@@ -4,7 +4,7 @@ module Lokalise
   class Client
     # Returns a single comment for the given key
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-retrieve-a-comment-get
+    # @see https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-comment-get
     # @return [Lokalise::Resources::Comment]
     # @param project_id [String]
     # @param key_id [String, Integer]
@@ -15,7 +15,7 @@ module Lokalise
 
     # Returns all comments for all keys inside the given project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-list-project-comments-get
+    # @see https://app.lokalise.com/api2docs/curl/#transition-list-project-comments-get
     # @return [Lokalise::Collection::Comment<Lokalise::Resources::Comment>]
     # @param project_id [String]
     # @param params [Hash]
@@ -25,7 +25,7 @@ module Lokalise
 
     # Returns all comments for the given key inside the given project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-list-key-comments-get
+    # @see https://app.lokalise.com/api2docs/curl/#transition-list-key-comments-get
     # @return [Lokalise::Collection::Comment<Lokalise::Resources::Comment>]
     # @param project_id [String]
     # @param key_id [String, Integer]
@@ -36,7 +36,7 @@ module Lokalise
 
     # Creates one or more comments for the given key inside the given project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-create-comments-post
+    # @see https://app.lokalise.com/api2docs/curl/#transition-create-comments-post
     # @return [Lokalise::Collection::Comment<Lokalise::Resources::Comment>]
     # @param project_id [String]
     # @param key_id [String, Integer]
@@ -47,7 +47,7 @@ module Lokalise
 
     # Deletes comment for the given key inside the given project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-delete-a-comment-delete
+    # @see https://app.lokalise.com/api2docs/curl/#transition-delete-a-comment-delete
     # @return [Hash]
     # @param project_id [String]
     # @param key_id [String, Integer]

@@ -1,8 +1,9 @@
 # Changelog
 
-## Unreleased
+## 3.0.0 (Unreleased)
 
 * Test against more recent Rubies
+* Fixed documentation links in code comments
 
 ## 2.10.0 (28-Feb-20)
 

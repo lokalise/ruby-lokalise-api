@@ -10,17 +10,21 @@ module Lokalise
 
       attr_reader :raw_data, :project_id, :client, :path
 
-      # Initializes a new resource based on the response
+      # Initializes a new resource based on the response.
+      # `endpoint_generator` is used in cases when a new instance is generated
+      # from a different resource. For example, restoring from a snapshot
+      # creates a totally different project which should have a new path.
       #
       # @param response [Hash]
+      # @param endpoint_generator [Proc] Generate proper paths for certain resources
       # @return [Lokalise::Resources::Base]
-      def initialize(response)
+      def initialize(response, endpoint_generator = nil)
         populate_attributes_for response['content']
 
         @raw_data = response['content']
         @project_id = response['content']['project_id']
         @client = response['client']
-        @path = infer_path_from response
+        @path = infer_path_from response, endpoint_generator
       end
 
       class << self
@@ -56,36 +60,44 @@ module Lokalise
 
         # Fetches a single record
         def find(client, path, params = {})
-          new get(path, client, params)
+          new get(path, client, prepare_params(params))
         end
 
         # Creates one or multiple records
         def create(client, path, params)
-          response = post path, client, params
+          response = post path, client, prepare_params(params)
 
           object_from response, params
         end
 
         # Updates one or multiple records
         def update(client, path, params)
-          response = put path, client, params
+          response = put path, client, prepare_params(params)
 
           object_from response, params
         end
 
         # Destroys records by given ids
         def destroy(client, path, params = {})
-          delete(path, client, params)['content']
+          delete(path, client, prepare_params(params))['content']
         end
 
         private
+
+        # Filters out internal attributes that should not be sent to Lokalise
+        def prepare_params(params)
+          filter_attrs = %i(_initial_path)
+          params.filter {|attr| !filter_attrs.include?(attr)}
+        end
 
         # Instantiates a new resource or collection based on the given response
         def object_from(response, params)
           model_class = name.base_class_name
           data_key_plural = data_key_for model_class, true
           # Preserve the initial path to allow chaining
-          response['path'] = params.delete(:_initial_path) if params.key?(:_initial_path)
+          if params.key?(:_initial_path)
+            response['path'] = params.delete(:_initial_path)
+          end
 
           if response['content'].key?(data_key_plural)
             produce_collection model_class, response, params
@@ -111,19 +123,28 @@ module Lokalise
       end
 
       # Generates path for the individual resource based on the path for the collection
-      def infer_path_from(response)
+      def infer_path_from(response, endpoint_generator = nil)
         id_key = id_key_for self.class.name.base_class_name
         data_key = data_key_for self.class.name.base_class_name
 
-        path_with_id response, id_key, data_key
+        path_with_id response, id_key, data_key, endpoint_generator
       end
 
-      def path_with_id(response, id_key, data_key)
+      def path_with_id(response, id_key, data_key, endpoint_generator = nil)
         # Some resources do not have ids at all
-        return nil unless response['content'].key?(id_key) || response['content'].key?(data_key)
+        unless response['content'].key?(id_key) || response['content'].key?(data_key)
+          return nil
+        end
 
         # ID of the resource
         id = id_from response, id_key, data_key
+
+        # If `endpoint_generator` is present, generate a new path
+        # based on the fetched id
+        if endpoint_generator && !id.empty?
+          path = endpoint_generator.call project_id, id
+          return path.remove_trailing_slash
+        end
 
         path = response['path'] || response['base_path']
         # If path already has id - just return it

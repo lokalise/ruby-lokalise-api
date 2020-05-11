@@ -4,7 +4,7 @@ module Lokalise
   class Client
     # Returns all languages supported by Lokalise
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-list-system-languages-get
+    # @see https://app.lokalise.com/api2docs/curl/#transition-list-system-languages-get
     # @return [Lokalise::Collection::SystemLanguage<Lokalise::Resources::SystemLanguage>]
     # @param params [Hash]
     def system_languages(params = {})
@@ -13,7 +13,7 @@ module Lokalise
 
     # Returns all languages for the given project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-list-project-languages-get
+    # @see https://app.lokalise.com/api2docs/curl/#transition-list-project-languages-get
     # @return [Lokalise::Collection::ProjectLanguage<Lokalise::Resources::ProjectLanguage>]
     # @param project_id [String, Integer]
     # @param params [Hash]
@@ -23,7 +23,7 @@ module Lokalise
 
     # Returns a single language for the given project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-retrieve-a-language-get
+    # @see https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-language-get
     # @return [Lokalise::Resources::ProjectLanguage]
     # @param project_id [String]
     # @param language_id [String, Integer]
@@ -33,7 +33,7 @@ module Lokalise
 
     # Creates one or more language for the given project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-retrieve-a-language-get
+    # @see https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-language-get
     # @return [Lokalise::Collection::ProjectLanguage<Lokalise::Resources::ProjectLanguage>]
     # @param project_id [String]
     # @param params [Hash]
@@ -43,7 +43,7 @@ module Lokalise
 
     # Updates language for the given project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-update-a-language-put
+    # @see https://app.lokalise.com/api2docs/curl/#transition-update-a-language-put
     # @return [Lokalise::Resources::ProjectLanguage]
     # @param project_id [String]
     # @param language_id [String, Integer]
@@ -54,7 +54,7 @@ module Lokalise
 
     # Deletes language for the given project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-delete-a-language-delete
+    # @see https://app.lokalise.com/api2docs/curl/#transition-delete-a-language-delete
     # @return [Hash]
     # @param project_id [String]
     # @param language_id [String, Integer]
