@@ -529,7 +529,7 @@ def uploaded?(process)
   5.times do # try to check the status 5 times
     queued_process = queued_process.reload_data # load new data
     return(true) if queued_process.status == 'finished' # return true is the upload has finished
-    sleep 1 # wait for 1 second
+    sleep 1 # wait for 1 second, adjust this number with regards to the upload size
   end
 
   return false # if all 5 checks failed, return false (probably something is wrong)

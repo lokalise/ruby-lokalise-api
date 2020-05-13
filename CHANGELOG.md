@@ -14,7 +14,7 @@ queued_process = @client.upload_file project_id,
                                      queue: true # perform import in the background
 
 queued_process.status # => 'queued'
-# ...after a couple of seconds
+# ...after some time...
 queued_process = queued_process.reload_data
 queued_process.status # => 'finished'
 ```
