@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.lokalise.com/api2/projects/803826145ba90b42d5d860.46800099/processes/fb59937f47be1999b3643a7022d17bd46d807fad
+    uri: https://api.lokalise.com/api2/projects/803826145ba90b42d5d860.46800099/processes/file-import/fb59937f47be1999b3643a7022d17bd46d807fad
     body:
       encoding: US-ASCII
       string: ''
@@ -31,7 +31,7 @@ http_interactions:
       cache-control:
       - max-age=0, must-revalidate, no-cache, no-store, private
       date:
-      - Thu, 14 May 2020 10:18:34 GMT
+      - Thu, 14 May 2020 10:23:00 GMT
       pragma:
       - no-cache
       x-content-type-options:
@@ -43,7 +43,7 @@ http_interactions:
       strict-transport-security:
       - max-age=31536000
       expires:
-      - Thu, 14 May 2020 10:18:34 GMT
+      - Thu, 14 May 2020 10:23:00 GMT
       access-control-allow-origin:
       - "*"
       access-control-allow-headers:
@@ -51,7 +51,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"project_id":"803826145ba90b42d5d860.46800099","branch":"master","process":{"process_id":"fb59937f47be1999b3643a7022d17bd46d807fad","type":"file-import","status":"finished","message":"","created_by":"20181","created_by_email":"bodrovis@protonmail.com","created_at":"2020-05-14
-        10:18:03 (Etc\/UTC)","created_at_timestamp":1589451483,"url":"\/api2\/projects\/803826145ba90b42d5d860.46800099\/processes\/file-import\/fb59937f47be1999b3643a7022d17bd46d807fad"}}'
+        10:18:03 (Etc\/UTC)","created_at_timestamp":1589451483,"url":"\/api2\/projects\/803826145ba90b42d5d860.46800099\/processes\/file-import\/fb59937f47be1999b3643a7022d17bd46d807fad","files":[{"status":"finished","message":"","name_original":"rspec_async.yml","name_custom":null,"word_count_total":1,"key_count_total":1,"key_count_inserted":0,"key_count_updated":0,"key_count_skipped":1}]}}'
     http_version: null
-  recorded_at: Thu, 14 May 2020 10:18:29 GMT
+  recorded_at: Thu, 14 May 2020 10:22:54 GMT
 recorded_with: VCR 5.1.0

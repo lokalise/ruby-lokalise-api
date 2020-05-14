@@ -477,11 +477,11 @@ Exports project files as a `.zip` bundle and makes them available to download (t
                                         ## Hash with the project id and a "bundle_url" link
 ```
 
-#### Upload translation file - background
+#### Upload translation file
 
 [Doc](https://lokalise.com/api2docs/curl/#transition-upload-a-file-post)
 
-Starting from 9 May 2020, **background uploading is the preferred method of importing translation files**. To enable it, simply set the `queue` option to `true`.
+Starting from 9 May 2020, **background uploading is the preferred method of importing translation files**. Version 3 supports only asynchronous uploading. Version 2 still allows synchronous uploading but this feature will be removed in the near future.
 
 ```ruby
 @client.upload_file(project_id, params) # Input:
@@ -490,20 +490,18 @@ Starting from 9 May 2020, **background uploading is the preferred method of impo
                                         ### :data (string, required) - base64-encoded data (the format must be supported by Lokalise)
                                         ### :filename (string, required)
                                         ### :lang_iso (string, required)
-                                        ### :queue (boolean) - perform upload in the background rather than doing it synchronously.
                                         ### Find the list of other supported params at https://lokalise.com/api2docs/curl/#transition-upload-a-file-post
                                         # Output:
                                         ## QueuedProcess resource
 ```
 
-When the `queue` option is set to `true`, a [`QueuedProcess`](#queued-processes) resource will be returned. This resource contains a status of the import job, a URL to manually check the status, and some other attributes:
+A [`QueuedProcess`](#queued-processes) resource will be returned. This resource contains a status of the import job, a URL to manually check the status, and some other attributes:
 
 ```ruby
 queued_process = @client.upload_file project_id,
                                      data: 'Base-64 encoded data... ZnI6DQogI...',
                                      filename: 'my_file.yml',
-                                     lang_iso: 'en',
-                                     queue: true # make sure to upload in the background
+                                     lang_iso: 'en'
 
 queued_process.status # => 'queued'
 queued_process.url # => 'api2/projects/PROJECT_ID/processes/file-import/PROCESS_ID'
@@ -540,25 +538,6 @@ queued_process = @client.upload_file project_id,
                                      filename: 'my_file.yml',
                                      lang_iso: 'en'
 uploaded? queued_process
-```
-
-#### Upload translation file - synchronous
-
-**Set `queue` option to `false` in order to perform a synchronous upload. Please note that synchronous importing of translation files is deprecated and will be removed in summer 2020!**
-
-[Doc](https://lokalise.com/api2docs/curl/#transition-upload-a-file-post)
-
-```ruby
-@client.upload_file(project_id, params) # Input:
-                                        ## project_id (string, required)
-                                        ## params (hash, required)
-                                        ### :data (string, required) - base64-encoded data (the format must be supported by Lokalise)
-                                        ### :filename (string, required)
-                                        ### :lang_iso (string, required)
-                                        ### :queue (boolean) - perform upload in the background rather than doing it synchronously.
-                                        ### Find the list of other supported params at https://lokalise.com/api2docs/curl/#transition-upload-a-file-post
-                                        # Output:
-                                        ## Hash with information about the upload
 ```
 
 ### Keys

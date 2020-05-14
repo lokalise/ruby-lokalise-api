@@ -9,15 +9,10 @@ module Lokalise
         end
 
         def upload(client, path, params)
-          # handle both upload mechanisms
-          # sync upload is deprecated and will be removed by June-July
+          params[:queue] = true
           klass = Lokalise::Resources::QueuedProcess
-          if params[:queue] || params['queue']
-            klass.new post(path, client, params),
-                      ->(project_id, id) { klass.endpoint(project_id, id) }
-          else
-            post(path, client, params)['content']
-          end
+          klass.new post(path, client, params),
+                    ->(project_id, id) { klass.endpoint(project_id, id) }
         end
 
         def endpoint(project_id, action = '')

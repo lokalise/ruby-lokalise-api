@@ -44,29 +44,15 @@ RSpec.describe Lokalise::Client do
   end
 
   specify '#upload_file' do
-    response = VCR.use_cassette('upload_file') do
-      test_client.upload_file project_id,
-                              data: 'ZnI6DQogIHRlc3Q6IHRyYW5zbGF0aW9u',
-                              filename: 'rspec.yml',
-                              lang_iso: 'ru'
-    end
-
-    expect(response['project_id']).to eq(project_id)
-    expect(response['file']).to eq('rspec.yml')
-    expect(response['result']['skipped']).to eq(1)
-  end
-
-  specify '#upload_file queued' do
-    process = VCR.use_cassette('upload_file_queued') do
+    process = VCR.use_cassette('upload_file') do
       test_client.upload_file project_id,
                               data: 'ZnI6DQogIHRlc3Q6IHRyYW5zbGF0aW9u',
                               filename: 'rspec_async.yml',
-                              lang_iso: 'ru',
-                              queue: true
+                              lang_iso: 'ru'
     end
 
     expect(process).to be_an_instance_of(Lokalise::Resources::QueuedProcess)
-    expect(process.process_id).to eq('6347ddfc2ed1bb855e670fd7ad16ce8552333af8')
+    expect(process.process_id).to eq('fb59937f47be1999b3643a7022d17bd46d807fad')
     expect(process.status).to eq('queued')
 
     reloaded_process = VCR.use_cassette('upload_file_queued_reload') do
