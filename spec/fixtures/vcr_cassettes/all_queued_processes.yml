@@ -10,7 +10,7 @@ http_interactions:
       Accept:
       - application/json
       User-Agent:
-      - ruby-lokalise-api gem/2.10.0
+      - ruby-lokalise-api gem/3.0.0
       X-api-token:
       - "<LOKALISE_TOKEN>"
   response:
@@ -31,7 +31,7 @@ http_interactions:
       cache-control:
       - max-age=0, must-revalidate, no-cache, no-store, private
       date:
-      - Mon, 11 May 2020 11:20:52 GMT
+      - Fri, 15 May 2020 10:45:28 GMT
       pragma:
       - no-cache
       x-content-type-options:
@@ -43,16 +43,22 @@ http_interactions:
       strict-transport-security:
       - max-age=31536000
       expires:
-      - Mon, 11 May 2020 11:20:52 GMT
+      - Fri, 15 May 2020 10:45:28 GMT
       access-control-allow-origin:
       - "*"
       access-control-allow-headers:
       - Content-Type
     body:
       encoding: ASCII-8BIT
-      string: '{"project_id":"803826145ba90b42d5d860.46800099","branch":"master","processes":[{"process_id":"4191a4e54cb6433193e75eed55359c4021e6aa91","type":"file-import","status":"finished","message":"","created_by":"20181","created_by_email":"bodrovis@protonmail.com","created_at":"2020-05-11
-        11:17:52 (Etc\/UTC)","created_at_timestamp":1589195872,"url":"\/api2\/projects\/803826145ba90b42d5d860.46800099\/processes\/file-import\/4191a4e54cb6433193e75eed55359c4021e6aa91"},{"process_id":"98638f68d5ea6b3bc63947eeb5891ad467a4fcb8","type":"file-import","status":"finished","message":"","created_by":"20181","created_by_email":"bodrovis@protonmail.com","created_at":"2020-05-11
-        11:20:32 (Etc\/UTC)","created_at_timestamp":1589196032,"url":"\/api2\/projects\/803826145ba90b42d5d860.46800099\/processes\/file-import\/98638f68d5ea6b3bc63947eeb5891ad467a4fcb8"}]}'
+      string: '{"project_id":"803826145ba90b42d5d860.46800099","branch":"master","processes":[{"process_id":"3b943469e6b3e324b5bdad639b122a623e6e7a1a","type":"file-import","status":"finished","message":"","created_by":20181,"created_by_email":"bodrovis@protonmail.com","created_at":"2020-05-13
+        11:24:37 (Etc\/UTC)","created_at_timestamp":1589369077},{"process_id":"f0292f2d7e360641e2aa18db195d0a68031c8aeb","type":"file-import","status":"finished","message":"","created_by":20181,"created_by_email":"bodrovis@protonmail.com","created_at":"2020-05-14
+        09:58:47 (Etc\/UTC)","created_at_timestamp":1589450327},{"process_id":"7055ee34fab2a5f38b8adaaf55132ff4659ceaf8","type":"file-import","status":"finished","message":"","created_by":20181,"created_by_email":"bodrovis@protonmail.com","created_at":"2020-05-14
+        09:59:37 (Etc\/UTC)","created_at_timestamp":1589450377},{"process_id":"c0f2ea978ac6382f46babfd5de844062835280f8","type":"file-import","status":"finished","message":"","created_by":20181,"created_by_email":"bodrovis@protonmail.com","created_at":"2020-05-14
+        10:00:09 (Etc\/UTC)","created_at_timestamp":1589450409},{"process_id":"596d4058c863e1d2355db8b48e37ac1355772b78","type":"file-import","status":"finished","message":"","created_by":20181,"created_by_email":"bodrovis@protonmail.com","created_at":"2020-05-14
+        10:15:10 (Etc\/UTC)","created_at_timestamp":1589451310},{"process_id":"fb59937f47be1999b3643a7022d17bd46d807fad","type":"file-import","status":"finished","message":"","created_by":20181,"created_by_email":"bodrovis@protonmail.com","created_at":"2020-05-14
+        10:18:03 (Etc\/UTC)","created_at_timestamp":1589451483},{"process_id":"ff1876382b7ba81f2bb465da8f030196ec401fa6","type":"file-import","status":"finished","message":"","created_by":20181,"created_by_email":"bodrovis@protonmail.com","created_at":"2020-05-15
+        10:38:35 (Etc\/UTC)","created_at_timestamp":1589539115},{"process_id":"fb57b3b0704c081468c2e25a20aaaa599a004f9d","type":"file-import","status":"finished","message":"","created_by":20181,"created_by_email":"bodrovis@protonmail.com","created_at":"2020-05-15
+        10:44:42 (Etc\/UTC)","created_at_timestamp":1589539482}]}'
     http_version: null
-  recorded_at: Mon, 11 May 2020 11:20:52 GMT
+  recorded_at: Fri, 15 May 2020 10:45:21 GMT
 recorded_with: VCR 5.1.0

@@ -17,7 +17,7 @@ queued_process = queued_process.reload_data
 queued_process.status # => 'finished'
 ```
 
-* Added support for [`QueuedProcess` endpoint](https://app.lokalise.com/api2docs/curl/#object-queued-processes)
+* Added support for [`QueuedProcess` endpoint](https://app.lokalise.com/api2docs/curl/#resource-queued-processes)
 * Many resources now respond to the `reload_data` method which fetches new data from the API
 * Various code improvements
 * Test against more recent Rubies

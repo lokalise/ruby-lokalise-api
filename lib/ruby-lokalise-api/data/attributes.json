@@ -114,8 +114,7 @@
     "created_by_email",
     "created_at",
     "created_at_timestamp",
-    "url",
-    "files"
+    "details"
   ],
   "screenshot": [
     "screenshot_id",

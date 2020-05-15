@@ -52,7 +52,7 @@ RSpec.describe Lokalise::Client do
     end
 
     expect(process).to be_an_instance_of(Lokalise::Resources::QueuedProcess)
-    expect(process.process_id).to eq('fb59937f47be1999b3643a7022d17bd46d807fad')
+    expect(process.process_id).to eq('ff1876382b7ba81f2bb465da8f030196ec401fa6')
     expect(process.status).to eq('queued')
 
     reloaded_process = VCR.use_cassette('upload_file_queued_reload') do
@@ -61,5 +61,6 @@ RSpec.describe Lokalise::Client do
 
     expect(reloaded_process.process_id).to eq(process.process_id)
     expect(reloaded_process.status).to eq('finished')
+    expect(reloaded_process.details['files'][0]['status']).to eq('finished')
   end
 end

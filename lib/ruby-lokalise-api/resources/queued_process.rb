@@ -8,9 +8,9 @@ module Lokalise
       supports [:reload_data, '', :find]
 
       class << self
-        def endpoint(project_id, process_id = nil, *actions)
+        def endpoint(project_id, process_id = nil)
           path_from projects: project_id,
-                    processes: [actions, process_id]
+                    processes: process_id
         end
       end
     end
