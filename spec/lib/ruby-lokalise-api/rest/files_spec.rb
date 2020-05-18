@@ -35,8 +35,8 @@ RSpec.describe Lokalise::Client do
   specify '#download_files' do
     response = VCR.use_cassette('download_files') do
       test_client.download_files project_id,
-                                 "format": 'po',
-                                 "original_filenames": true
+                                 format: 'po',
+                                 original_filenames: true
     end
 
     expect(response['project_id']).to eq(project_id)
@@ -44,15 +44,23 @@ RSpec.describe Lokalise::Client do
   end
 
   specify '#upload_file' do
-    response = VCR.use_cassette('upload_file') do
+    process = VCR.use_cassette('upload_file') do
       test_client.upload_file project_id,
-                              "data": 'ZnI6DQogIHRlc3Q6IHRyYW5zbGF0aW9u',
-                              "filename": 'rspec.yml',
-                              'lang_iso': 'ru'
+                              data: 'ZnI6DQogIHRlc3Q6IHRyYW5zbGF0aW9u',
+                              filename: 'rspec_async.yml',
+                              lang_iso: 'ru'
     end
 
-    expect(response['project_id']).to eq(project_id)
-    expect(response['file']).to eq('rspec.yml')
-    expect(response['result']['skipped']).to eq(1)
+    expect(process).to be_an_instance_of(Lokalise::Resources::QueuedProcess)
+    expect(process.process_id).to eq('ff1876382b7ba81f2bb465da8f030196ec401fa6')
+    expect(process.status).to eq('queued')
+
+    reloaded_process = VCR.use_cassette('upload_file_queued_reload') do
+      process.reload_data
+    end
+
+    expect(reloaded_process.process_id).to eq(process.process_id)
+    expect(reloaded_process.status).to eq('finished')
+    expect(reloaded_process.details['files'][0]['status']).to eq('finished')
   end
 end

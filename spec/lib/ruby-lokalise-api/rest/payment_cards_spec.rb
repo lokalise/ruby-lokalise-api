@@ -55,6 +55,18 @@ RSpec.describe Lokalise::Client do
     expect(card.created_at).to eq('2019-03-19 17:01:22 (Etc/UTC)')
   end
 
+  specify '#reload_data' do
+    card = VCR.use_cassette('payment_card') do
+      test_client.payment_card card_id
+    end
+
+    reloaded_card = VCR.use_cassette('payment_card') do
+      card.reload_data
+    end
+
+    expect(reloaded_card.card_id).to eq(card.card_id)
+  end
+
   specify '#destroy_payment_card' do
     result = VCR.use_cassette('destroy_payment_card') do
       test_client.destroy_payment_card card_id

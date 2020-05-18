@@ -5,7 +5,7 @@ module Lokalise
     class KeyComment < Base
       DATA_KEY = 'Comment'
       ID_KEY = 'comment'
-      supports :destroy
+      supports :destroy, [:reload_data, '', :find]
 
       class << self
         def endpoint(project_id, key_id, comment_id = nil)

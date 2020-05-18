@@ -48,6 +48,18 @@ RSpec.describe Lokalise::Client do
     expect(contributor.created_at_timestamp).to eq(1_534_865_725)
   end
 
+  specify '#reload_data' do
+    contributor = VCR.use_cassette('contributor') do
+      test_client.contributor project_id, '20181'
+    end
+
+    reloaded_contributor = VCR.use_cassette('contributor') do
+      contributor.reload_data
+    end
+
+    expect(reloaded_contributor.user_id).to eq(contributor.user_id)
+  end
+
   specify '#create_contributors' do
     contributor = VCR.use_cassette('create_contributors') do
       test_client.create_contributors project_id,

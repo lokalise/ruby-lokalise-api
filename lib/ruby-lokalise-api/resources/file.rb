@@ -9,7 +9,10 @@ module Lokalise
         end
 
         def upload(client, path, params)
-          post(path, client, params)['content']
+          params[:queue] = true
+          klass = Lokalise::Resources::QueuedProcess
+          klass.new post(path, client, params),
+                    ->(project_id, id) { klass.endpoint(project_id, id) }
         end
 
         def endpoint(project_id, action = '')

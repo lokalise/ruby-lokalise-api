@@ -4,7 +4,7 @@ module Lokalise
   class Client
     # Returns all tasks for the given project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-list-all-tasks-get
+    # @see https://app.lokalise.com/api2docs/curl/#transition-list-all-tasks-get
     # @return [Lokalise::Collection::Task<Lokalise::Resources::Task>]
     # @param project_id [String]
     # @param params [Hash]
@@ -14,7 +14,7 @@ module Lokalise
 
     # Returns a single task for the given project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-retrieve-a-task-get
+    # @see https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-task-get
     # @return [Lokalise::Resources::Task]
     # @param project_id [String]
     # @param task_id [String, Integer]
@@ -24,7 +24,7 @@ module Lokalise
 
     # Creates task for the given project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-create-a-task-post
+    # @see https://app.lokalise.com/api2docs/curl/#transition-create-a-task-post
     # @return [Lokalise::Resources::Task]
     # @param project_id [String]
     # @param params [Hash]
@@ -34,7 +34,7 @@ module Lokalise
 
     # Updates task for the given project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-update-a-task-put
+    # @see https://app.lokalise.com/api2docs/curl/#transition-update-a-task-put
     # @return [Lokalise::Resources::Task]
     # @param project_id [String]
     # @param task_id [String, Integer]
@@ -45,7 +45,7 @@ module Lokalise
 
     # Deletes task for the given project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-delete-a-task-delete
+    # @see https://app.lokalise.com/api2docs/curl/#transition-delete-a-task-delete
     # @return [Hash]
     # @param project_id [String]
     # @param task_id [String, Integer]

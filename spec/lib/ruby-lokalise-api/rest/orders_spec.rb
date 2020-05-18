@@ -54,6 +54,18 @@ RSpec.describe Lokalise::Client do
     expect(order.total).to eq(0.07)
   end
 
+  specify '#reload_data' do
+    order = VCR.use_cassette('order') do
+      test_client.order team_id, order_id
+    end
+
+    reloaded_order = VCR.use_cassette('order') do
+      order.reload_data
+    end
+
+    expect(reloaded_order.order_id).to eq(order.order_id)
+  end
+
   specify '#create_order' do
     order = VCR.use_cassette('create_order') do
       test_client.create_order team_id,

@@ -76,6 +76,18 @@ RSpec.describe Lokalise::Client do
     expect(translation.custom_translation_statuses).to eq([])
   end
 
+  specify '#reload_data' do
+    translation = VCR.use_cassette('translation') do
+      test_client.translation project_id, translation_id
+    end
+
+    reloaded_translation = VCR.use_cassette('translation') do
+      translation.reload_data
+    end
+
+    expect(reloaded_translation.translation_id).to eq(translation.translation_id)
+  end
+
   specify '#update_translation' do
     translation = VCR.use_cassette('update_translation') do
       test_client.update_translation project_id, translation_id, translation: 'rspec trans',

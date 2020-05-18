@@ -60,6 +60,18 @@ RSpec.describe Lokalise::Client do
     expect(task.custom_translation_status_ids).to eq([])
   end
 
+  specify '#reload_data' do
+    task = VCR.use_cassette('task') do
+      test_client.task project_id, '11925'
+    end
+
+    reloaded_task = VCR.use_cassette('task') do
+      task.reload_data
+    end
+
+    expect(reloaded_task.task_id).to eq(task.task_id)
+  end
+
   specify '#create_task' do
     task = VCR.use_cassette('create_task') do
       test_client.create_task project_id, title: 'another rspec key',

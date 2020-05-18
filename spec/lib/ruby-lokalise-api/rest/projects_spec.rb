@@ -51,6 +51,18 @@ RSpec.describe Lokalise::Client do
     expect(project.statistics['progress_total']).to eq(18)
   end
 
+  specify '#reload_data' do
+    project = VCR.use_cassette('project') do
+      test_client.project '803826145ba90b42d5d860.46800099'
+    end
+
+    reloaded_project = VCR.use_cassette('project') do
+      project.reload_data
+    end
+
+    expect(reloaded_project.project_id).to eq(project.project_id)
+  end
+
   specify '#create_project' do
     project = VCR.use_cassette('new_project') do
       test_client.create_project name: 'rspec proj', description: 'demo project for rspec'

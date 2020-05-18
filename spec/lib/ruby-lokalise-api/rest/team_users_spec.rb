@@ -41,6 +41,18 @@ RSpec.describe Lokalise::Client do
     expect(team_user.role).to eq('owner')
   end
 
+  specify '#reload_data' do
+    team_user = VCR.use_cassette('team_user') do
+      test_client.team_user team_id, '20181'
+    end
+
+    reloaded_team_user = VCR.use_cassette('team_user') do
+      team_user.reload_data
+    end
+
+    expect(reloaded_team_user.user_id).to eq(team_user.user_id)
+  end
+
   specify '#update_team_user' do
     team_user = VCR.use_cassette('update_team_user') do
       test_client.update_team_user team_id, team_user_id, role: 'admin'

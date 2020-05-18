@@ -4,7 +4,7 @@ module Lokalise
   class Client
     # Returns all snapshots for the given project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-list-all-snapshots-get
+    # @see https://app.lokalise.com/api2docs/curl/#transition-list-all-snapshots-get
     # @return [Lokalise::Collection::Snapshot<Lokalise::Resources::Snapshot>]
     # @param project_id [String]
     # @param params [Hash]
@@ -14,7 +14,7 @@ module Lokalise
 
     # Creates snapshot for the given project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-create-a-snapshot-post
+    # @see https://app.lokalise.com/api2docs/curl/#transition-create-a-snapshot-post
     # @return [Lokalise::Resources::Snapshot]
     # @param project_id [String]
     # @param params [Hash]
@@ -24,7 +24,7 @@ module Lokalise
 
     # Restore project from the given snapshot by producing project's copy
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-restore-a-snapshot-post
+    # @see https://app.lokalise.com/api2docs/curl/#transition-restore-a-snapshot-post
     # @return [Lokalise::Resources::Project]
     # @param project_id [String]
     # @param snapshot_id [String, Integer]
@@ -34,7 +34,7 @@ module Lokalise
 
     # Deletes snapshot
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-delete-a-snapshot-delete
+    # @see https://app.lokalise.com/api2docs/curl/#transition-delete-a-snapshot-delete
     # @return [Hash]
     # @param project_id [String]
     # @param snapshot_id [String, Integer]

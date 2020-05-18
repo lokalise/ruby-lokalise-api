@@ -4,7 +4,7 @@ module Lokalise
   class Client
     # Returns all contributors for the given project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-list-all-contributors-get
+    # @see https://app.lokalise.com/api2docs/curl/#transition-list-all-contributors-get
     # @return [Lokalise::Collection::Contributor<Lokalise::Resources::Contributor>]
     # @param project_id [String]
     # @param params [Hash]
@@ -14,7 +14,7 @@ module Lokalise
 
     # Returns a single contributor for the given project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-retrieve-a-contributor-get
+    # @see https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-contributor-get
     # @return [Lokalise::Resources::Contributor]
     # @param project_id [String]
     # @param contributor_id [String, Integer]
@@ -24,7 +24,7 @@ module Lokalise
 
     # Creates one or more contributors inside the given project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-create-contributors-post
+    # @see https://app.lokalise.com/api2docs/curl/#transition-create-contributors-post
     # @return [Lokalise::Collection::Contributor<Lokalise::Resources::Contributor>]
     # @param project_id [String]
     # @param params [Hash, Array<Hash>]
@@ -34,7 +34,7 @@ module Lokalise
 
     # Updates the given contributor inside the given project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-update-a-contributor-put
+    # @see https://app.lokalise.com/api2docs/curl/#transition-update-a-contributor-put
     # @return [Lokalise::Resources::Contributor]
     # @param project_id [String]
     # @param contributor_id [String, Integer]
@@ -45,7 +45,7 @@ module Lokalise
 
     # Deletes contributor inside the given project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-delete-a-contributor-delete
+    # @see https://app.lokalise.com/api2docs/curl/#transition-delete-a-contributor-delete
     # @return [Hash]
     # @param project_id [String]
     # @param contributor_id [String, Integer]

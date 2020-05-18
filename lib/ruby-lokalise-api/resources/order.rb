@@ -3,6 +3,8 @@
 module Lokalise
   module Resources
     class Order < Base
+      supports [:reload_data, '', :find]
+
       class << self
         def endpoint(team_id, order_id = nil)
           path_from teams: team_id,

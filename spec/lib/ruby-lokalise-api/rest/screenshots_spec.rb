@@ -41,6 +41,18 @@ RSpec.describe Lokalise::Client do
     expect(screenshot.height).to eq(32)
   end
 
+  specify '#reload_data' do
+    screenshot = VCR.use_cassette('screenshot') do
+      test_client.screenshot project_id, screenshot_id
+    end
+
+    reloaded_screenshot = VCR.use_cassette('screenshot') do
+      screenshot.reload_data
+    end
+
+    expect(reloaded_screenshot.screenshot_id).to eq(screenshot.screenshot_id)
+  end
+
   specify '#create_screenshots' do
     screenshot_from_file do |file|
       screenshot = VCR.use_cassette('create_screenshots') do

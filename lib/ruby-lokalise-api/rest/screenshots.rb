@@ -4,7 +4,7 @@ module Lokalise
   class Client
     # Returns all screenshots for the given project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-list-all-screenshots-get
+    # @see https://app.lokalise.com/api2docs/curl/#transition-list-all-screenshots-get
     # @return [Lokalise::Collection::Screenshot<Lokalise::Resources::Screenshot>]
     # @param project_id [String]
     # @param params [Hash]
@@ -14,7 +14,7 @@ module Lokalise
 
     # Returns a single screenshot for the given project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-retrieve-a-screenshot-get
+    # @see https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-screenshot-get
     # @return [Lokalise::Resources::Screenshot]
     # @param project_id [String]
     # @param screenshot_id [String, Integer]
@@ -24,7 +24,7 @@ module Lokalise
 
     # Creates one or more screenshots for the given project
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-create-screenshots-post
+    # @see https://app.lokalise.com/api2docs/curl/#transition-create-screenshots-post
     # @return [Lokalise::Collection::Screenshot<Lokalise::Resources::Screenshot>]
     # @param project_id [String]
     # @param params [Hash]
@@ -34,7 +34,7 @@ module Lokalise
 
     # Updates screenshot
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-update-a-screenshot-put
+    # @see https://app.lokalise.com/api2docs/curl/#transition-update-a-screenshot-put
     # @return [Lokalise::Resources::Screenshot]
     # @param project_id [String]
     # @param screenshot_id [String, Integer]
@@ -45,7 +45,7 @@ module Lokalise
 
     # Deletes screenshot
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-delete-a-screenshot-delete
+    # @see https://app.lokalise.com/api2docs/curl/#transition-delete-a-screenshot-delete
     # @return [Hash]
     # @param project_id [String]
     # @param screenshot_id [String, Integer]

@@ -10,5 +10,5 @@
 8. [Submit a pull request.][pr]
 
 [fork]: http://help.github.com/fork-a-repo/
-[branch]: http://learn.github.com/p/branching.html
-[pr]: http://help.github.com/send-pull-requests/
+[branch]: https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-branches
+[pr]: https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests

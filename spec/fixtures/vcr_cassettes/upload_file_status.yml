@@ -1,11 +1,11 @@
 ---
 http_interactions:
 - request:
-    method: post
-    uri: https://api.lokalise.com/api2/projects/803826145ba90b42d5d860.46800099/files/upload
+    method: get
+    uri: https://api.lokalise.com/api2/projects/803826145ba90b42d5d860.46800099/processes/ff1876382b7ba81f2bb465da8f030196ec401fa6
     body:
-      encoding: UTF-8
-      string: '{"data":"ZnI6DQogIHRlc3Q6IHRyYW5zbGF0aW9u","filename":"rspec_async.yml","lang_iso":"ru","queue":true}'
+      encoding: US-ASCII
+      string: ''
     headers:
       Accept:
       - application/json
@@ -15,8 +15,8 @@ http_interactions:
       - "<LOKALISE_TOKEN>"
   response:
     status:
-      code: 202
-      message: Accepted
+      code: 200
+      message: OK
     headers:
       server:
       - nginx
@@ -26,12 +26,12 @@ http_interactions:
       - chunked
       connection:
       - keep-alive
+      vary:
+      - Accept-Encoding
       cache-control:
       - max-age=0, must-revalidate, no-cache, no-store, private
       date:
-      - Fri, 15 May 2020 10:38:35 GMT
-      location:
-      - "/api2/projects/803826145ba90b42d5d860.46800099/processes/ff1876382b7ba81f2bb465da8f030196ec401fa6"
+      - Fri, 15 May 2020 10:42:10 GMT
       pragma:
       - no-cache
       x-content-type-options:
@@ -43,11 +43,15 @@ http_interactions:
       strict-transport-security:
       - max-age=31536000
       expires:
-      - Fri, 15 May 2020 10:38:35 GMT
+      - Fri, 15 May 2020 10:42:10 GMT
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-headers:
+      - Content-Type
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: '{"project_id":"803826145ba90b42d5d860.46800099","branch":"master","process":{"process_id":"ff1876382b7ba81f2bb465da8f030196ec401fa6","type":"file-import","status":"queued","message":"","created_by":20181,"created_by_email":"bodrovis@protonmail.com","created_at":"2020-05-15
-        10:38:35 (Etc\/UTC)","created_at_timestamp":1589539115}}'
+        10:38:35 (Etc\/UTC)","created_at_timestamp":1589539115,"details":{"files":[{"status":"queued","message":"","name_original":"rspec_async.yml","name_custom":null,"word_count_total":1,"key_count_total":1,"key_count_inserted":1,"key_count_updated":0,"key_count_skipped":0}]}}}'
     http_version: null
-  recorded_at: Fri, 15 May 2020 10:38:28 GMT
+  recorded_at: Fri, 15 May 2020 10:42:04 GMT
 recorded_with: VCR 5.1.0

@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.lokalise.com/api2/projects/803826145ba90b42d5d860.46800099/custom_translation_statuses/129
     body:
       encoding: UTF-8
-      string: '{"_initial_path":"projects/803826145ba90b42d5d860.46800099/custom_translation_statuses/129"}'
+      string: ''
     headers:
       Accept:
       - application/json
@@ -46,6 +46,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"project_id":"803826145ba90b42d5d860.46800099","custom_translation_status_deleted":true}'
-    http_version: 
+    http_version:
   recorded_at: Wed, 17 Jul 2019 16:56:42 GMT
 recorded_with: VCR 5.0.0

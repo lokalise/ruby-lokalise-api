@@ -4,7 +4,7 @@ module Lokalise
   class Client
     # Returns all translation providers for the given team
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-list-all-providers-get
+    # @see https://app.lokalise.com/api2docs/curl/#transition-list-all-providers-get
     # @return [Lokalise::Collection::TranslationProvider<Lokalise::Resources::TranslationProvider>]
     # @param team_id [String]
     # @param params [Hash]
@@ -14,7 +14,7 @@ module Lokalise
 
     # Returns a single translation provider for the given team
     #
-    # @see https://lokalise.co/api2docs/ruby/#transition-retrieve-a-provider-get
+    # @see https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-provider-get
     # @return [Lokalise::Resources::TranslationProvider]
     # @param team_id [String]
     # @param provider_id [String, Integer]

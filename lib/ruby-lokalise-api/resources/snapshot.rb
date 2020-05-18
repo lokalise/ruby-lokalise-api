@@ -11,7 +11,9 @@ module Lokalise
 
       class << self
         def restore(client, path, *_args)
-          Lokalise::Resources::Project.new post(path, client)
+          klass = Lokalise::Resources::Project
+          klass.new post(path, client),
+                    ->(project_id, *_ids) { klass.endpoint(project_id) }
         end
 
         def endpoint(project_id, snapshot_id = nil)

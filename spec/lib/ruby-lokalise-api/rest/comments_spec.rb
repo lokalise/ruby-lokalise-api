@@ -49,6 +49,18 @@ RSpec.describe Lokalise::Client do
     expect(comment.added_at_timestamp).to eq(1_544_380_904)
   end
 
+  specify '#reload_data' do
+    comment = VCR.use_cassette('comment') do
+      test_client.comment project_id, another_key_id, '800746'
+    end
+
+    reloaded_comment = VCR.use_cassette('comment') do
+      comment.reload_data
+    end
+
+    expect(reloaded_comment.key_id).to eq(comment.key_id)
+  end
+
   specify '#create_comments' do
     comments = VCR.use_cassette('create_comments') do
       test_client.create_comments project_id, key_id, [

@@ -3,7 +3,7 @@
 module Lokalise
   module Resources
     class Translation < Base
-      supports :update
+      supports :update, [:reload_data, '', :find]
 
       class << self
         def endpoint(project_id, translation_id = nil)
