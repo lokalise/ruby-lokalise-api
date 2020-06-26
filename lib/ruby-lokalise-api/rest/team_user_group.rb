@@ -62,7 +62,7 @@ module Lokalise
     def add_projects_to_group(team_id, group_id, project_ids)
       c_r Lokalise::Resources::TeamUserGroup, :update,
           [team_id, group_id, 'projects', 'add'],
-          project_ids, :projects
+          project_ids, :projects, [team_id, group_id]
     end
 
     # Removes projects from the given group
@@ -75,7 +75,7 @@ module Lokalise
     def remove_projects_from_group(team_id, group_id, project_ids)
       c_r Lokalise::Resources::TeamUserGroup, :update,
           [team_id, group_id, 'projects', 'remove'],
-          project_ids, :projects
+          project_ids, :projects, [team_id, group_id]
     end
 
     # Adds users to the given group
@@ -88,7 +88,7 @@ module Lokalise
     def add_users_to_group(team_id, group_id, users_ids)
       c_r Lokalise::Resources::TeamUserGroup, :update,
           [team_id, group_id, 'members', 'add'],
-          users_ids, :users
+          users_ids, :users, [team_id, group_id]
     end
 
     # Removes users from the given group
@@ -101,7 +101,7 @@ module Lokalise
     def remove_users_from_group(team_id, group_id, users_ids)
       c_r Lokalise::Resources::TeamUserGroup, :update,
           [team_id, group_id, 'members', 'remove'],
-          users_ids, :users
+          users_ids, :users, [team_id, group_id]
     end
   end
 end

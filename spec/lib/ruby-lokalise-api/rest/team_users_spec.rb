@@ -33,6 +33,7 @@ RSpec.describe Lokalise::Client do
       test_client.team_user team_id, '20181'
     end
 
+    expect(team_user.team_id).to eq(team_id)
     expect(team_user.user_id).to eq(20_181)
     expect(team_user.email).to eq('bodrovis@protonmail.com')
     expect(team_user.fullname).to eq('Ilya B')

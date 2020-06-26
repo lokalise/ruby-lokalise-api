@@ -39,5 +39,10 @@ RSpec.describe Lokalise::Client do
     expect(provider.description.start_with?('At')).to eq(true)
     expect(provider.tiers.first['title']).to eq('Native speaker')
     expect(provider.pairs.first['price_per_word']).to eq('0.05')
+
+    reloaded_provider = VCR.use_cassette('translation_provider') do
+      provider.reload_data
+    end
+    expect(reloaded_provider.provider_id).to eq(provider.provider_id)
   end
 end

@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.1.0 (26-Jun-20)
+
+* Added all recently introduced attributes
+* Better support for method chaining and data reloading
+
 ## 3.0.0 (18-May-20)
 
 * **Breaking change** Uploading files in the background is now a preferred method, and the only method in version 3. Synchronous uploading is still supported and allowed in version 2 but will be removed in the near future. Find more info [in the docs](https://github.com/lokalise/ruby-lokalise-api#upload-translation-file).

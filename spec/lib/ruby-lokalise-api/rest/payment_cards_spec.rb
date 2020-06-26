@@ -7,9 +7,10 @@ RSpec.describe Lokalise::Client do
     it 'returns all payment cards' do
       cards = VCR.use_cassette('all_payment_cards') do
         test_client.payment_cards
-      end.collection
+      end
 
-      card = cards.first
+      expect(cards.user_id).to eq(20_181)
+      card = cards.collection.first
       expect(card.card_id).to eq(1774)
       expect(card.last4).to eq('0358')
     end
@@ -49,6 +50,7 @@ RSpec.describe Lokalise::Client do
       test_client.payment_card card_id
     end
 
+    expect(card.user_id).to eq(20_181)
     expect(card.card_id).to eq(card_id)
     expect(card.brand).to eq('Visa')
     expect(card.last4).to eq('4242')

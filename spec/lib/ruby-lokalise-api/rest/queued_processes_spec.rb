@@ -13,7 +13,6 @@ RSpec.describe Lokalise::Client do
 
       expect(processes.branch).to eq('master')
       processes = processes.collection
-      puts processes.count
       expect(processes.count).to eq(8)
       expect(processes.first.process_id).to eq(process_id)
     end

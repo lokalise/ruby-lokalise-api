@@ -45,6 +45,11 @@ RSpec.describe Lokalise::Client do
     expect(group.team_id).to eq(team_id)
     expect(group.projects.first).to eq('803826145ba90b42d5d860.46800099')
     expect(group.members[1]).to eq(25_753)
+
+    reloaded_group = VCR.use_cassette('team_user_group') do
+      group.reload_data
+    end
+    expect(reloaded_group.group_id).to eq(group.group_id)
   end
 
   specify '#create_team_user_group' do
@@ -60,6 +65,11 @@ RSpec.describe Lokalise::Client do
 
     expect(group.name).to eq('RSpec group')
     expect(group.team_id).to eq(team_id)
+
+    reloaded_group = VCR.use_cassette('created_team_user_group') do
+      group.reload_data
+    end
+    expect(reloaded_group.group_id).to eq(group.group_id)
   end
 
   specify '#update_team_user_group' do
@@ -91,6 +101,16 @@ RSpec.describe Lokalise::Client do
     expect(group.team_id).to eq(team_id)
     expect(group.group_id).to eq(third_group_id)
     expect(group.projects).to include(project_id)
+
+    reloaded_group = VCR.use_cassette('another_team_user_group') do
+      group.reload_data
+    end
+    expect(reloaded_group.group_id).to eq(group.group_id)
+
+    group = VCR.use_cassette('add_projects_to_group') do
+      group.add_projects projects: [project_id]
+    end
+    expect(group.group_id).to eq(third_group_id)
   end
 
   specify '#remove_projects_from_group' do
@@ -101,6 +121,16 @@ RSpec.describe Lokalise::Client do
     expect(group.group_id).to eq(third_group_id)
     expect(group.team_id).to eq(team_id)
     expect(group.projects).to be_empty
+
+    reloaded_group = VCR.use_cassette('another_team_user_group') do
+      group.reload_data
+    end
+    expect(reloaded_group.group_id).to eq(group.group_id)
+
+    group = VCR.use_cassette('remove_projects_from_group') do
+      group.remove_projects projects: [project_id]
+    end
+    expect(group.group_id).to eq(third_group_id)
   end
 
   specify '#add_users_to_group' do
@@ -111,6 +141,15 @@ RSpec.describe Lokalise::Client do
     expect(group.team_id).to eq(team_id)
     expect(group.group_id).to eq(third_group_id)
     expect(group.members).to include(user_id)
+
+    reloaded_group = VCR.use_cassette('another_team_user_group') do
+      group.reload_data
+    end
+    expect(reloaded_group.group_id).to eq(group.group_id)
+
+    group = VCR.use_cassette('add_users_to_group') do
+      group.add_users users: [user_id]
+    end
   end
 
   specify '#remove_users_from_group' do
@@ -121,6 +160,15 @@ RSpec.describe Lokalise::Client do
     expect(group.group_id).to eq(third_group_id)
     expect(group.team_id).to eq(team_id)
     expect(group.members).to be_empty
+
+    reloaded_group = VCR.use_cassette('another_team_user_group') do
+      group.reload_data
+    end
+    expect(reloaded_group.group_id).to eq(group.group_id)
+
+    group = VCR.use_cassette('remove_users_from_group') do
+      group.remove_users users: [user_id]
+    end
   end
 
   context 'when team user group methods are chained' do
@@ -160,6 +208,15 @@ RSpec.describe Lokalise::Client do
       expect(group.group_id).to eq(group_id)
       expect(group.projects).to include(another_project_id)
 
+      group = VCR.use_cassette('add_project_to_group_chained') do
+        group.add_projects(projects: [another_project_id])
+      end
+
+      reloaded_group = VCR.use_cassette('team_user_group') do
+        group.reload_data
+      end
+      expect(reloaded_group.group_id).to eq(group.group_id)
+
       group = VCR.use_cassette('remove_project_from_group_chained') do
         group.remove_projects(projects: [another_project_id])
       end
@@ -167,6 +224,15 @@ RSpec.describe Lokalise::Client do
       expect(group.team_id).to eq(team_id)
       expect(group.group_id).to eq(group_id)
       expect(group.projects).not_to include(another_project_id)
+
+      group = VCR.use_cassette('remove_project_from_group_chained') do
+        group.remove_projects(projects: [another_project_id])
+      end
+
+      reloaded_group = VCR.use_cassette('team_user_group') do
+        group.reload_data
+      end
+      expect(reloaded_group.group_id).to eq(group.group_id)
     end
 
     it 'supports users management' do
@@ -182,6 +248,15 @@ RSpec.describe Lokalise::Client do
       expect(group.group_id).to eq(group_id)
       expect(group.members).to include(user_id)
 
+      group = VCR.use_cassette('add_user_to_group_chained') do
+        group.add_users(users: [user_id])
+      end
+
+      reloaded_group = VCR.use_cassette('team_user_group') do
+        group.reload_data
+      end
+      expect(reloaded_group.group_id).to eq(group.group_id)
+
       group = VCR.use_cassette('remove_user_from_group_chained') do
         group.remove_users(users: [user_id])
       end
@@ -189,6 +264,15 @@ RSpec.describe Lokalise::Client do
       expect(group.team_id).to eq(team_id)
       expect(group.group_id).to eq(group_id)
       expect(group.members).not_to include(user_id)
+
+      group = VCR.use_cassette('remove_user_from_group_chained') do
+        group.remove_users(users: [user_id])
+      end
+
+      reloaded_group = VCR.use_cassette('team_user_group') do
+        group.reload_data
+      end
+      expect(reloaded_group.group_id).to eq(group.group_id)
     end
   end
 end

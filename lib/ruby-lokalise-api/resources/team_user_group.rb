@@ -9,7 +9,8 @@ module Lokalise
                [:add_projects, '/projects/add', :update],
                [:remove_projects, '/projects/remove', :update],
                [:add_users, '/members/add', :update],
-               [:remove_users, '/members/remove', :update]
+               [:remove_users, '/members/remove', :update],
+               [:reload_data, '', :find]
 
       class << self
         def endpoint(team_id, team_user_group_id = nil, *actions)
