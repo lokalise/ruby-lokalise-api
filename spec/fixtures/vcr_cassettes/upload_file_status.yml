@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.lokalise.com/api2/projects/803826145ba90b42d5d860.46800099/processes/ff1876382b7ba81f2bb465da8f030196ec401fa6
+    uri: https://api.lokalise.com/api2/projects/803826145ba90b42d5d860.46800099/processes/85c42bf5eff44648ca2f01f9db67b7d306a2f282
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       Accept:
       - application/json
       User-Agent:
-      - ruby-lokalise-api gem/3.0.0
+      - ruby-lokalise-api gem/3.1.0
       X-api-token:
       - "<LOKALISE_TOKEN>"
   response:
@@ -31,7 +31,7 @@ http_interactions:
       cache-control:
       - max-age=0, must-revalidate, no-cache, no-store, private
       date:
-      - Fri, 15 May 2020 10:42:10 GMT
+      - Thu, 02 Jul 2020 15:20:25 GMT
       pragma:
       - no-cache
       x-content-type-options:
@@ -43,15 +43,14 @@ http_interactions:
       strict-transport-security:
       - max-age=31536000
       expires:
-      - Fri, 15 May 2020 10:42:10 GMT
+      - Thu, 02 Jul 2020 15:20:25 GMT
       access-control-allow-origin:
       - "*"
       access-control-allow-headers:
       - Content-Type
     body:
       encoding: ASCII-8BIT
-      string: '{"project_id":"803826145ba90b42d5d860.46800099","branch":"master","process":{"process_id":"ff1876382b7ba81f2bb465da8f030196ec401fa6","type":"file-import","status":"queued","message":"","created_by":20181,"created_by_email":"bodrovis@protonmail.com","created_at":"2020-05-15
-        10:38:35 (Etc\/UTC)","created_at_timestamp":1589539115,"details":{"files":[{"status":"queued","message":"","name_original":"rspec_async.yml","name_custom":null,"word_count_total":1,"key_count_total":1,"key_count_inserted":1,"key_count_updated":0,"key_count_skipped":0}]}}}'
-    http_version: null
-  recorded_at: Fri, 15 May 2020 10:42:04 GMT
-recorded_with: VCR 5.1.0
+      string: '{"project_id":"803826145ba90b42d5d860.46800099","branch":"master","process":{"process_id":"85c42bf5eff44648ca2f01f9db67b7d306a2f282","type":"file-import","status":"finished","message":"","created_by":20181,"created_by_email":"bodrovis@protonmail.com","created_at":"2020-07-02
+        15:17:19 (Etc\/UTC)","created_at_timestamp":1593703039,"details":{"files":[{"status":"finished","message":"","name_original":"rspec_async.yml","name_custom":null,"word_count_total":1,"key_count_total":1,"key_count_inserted":1,"key_count_updated":0,"key_count_skipped":0}]}}}'
+  recorded_at: Thu, 02 Jul 2020 15:20:25 GMT
+recorded_with: VCR 6.0.0

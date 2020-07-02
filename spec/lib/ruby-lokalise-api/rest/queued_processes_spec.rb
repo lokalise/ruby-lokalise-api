@@ -3,7 +3,7 @@
 RSpec.describe Lokalise::Client do
   let(:project_id) { '803826145ba90b42d5d860.46800099' }
   let(:process_id) { '3b943469e6b3e324b5bdad639b122a623e6e7a1a' }
-  let(:queued_process_id) { 'ff1876382b7ba81f2bb465da8f030196ec401fa6' }
+  let(:queued_process_id) { '85c42bf5eff44648ca2f01f9db67b7d306a2f282' }
 
   describe '#queued_processes' do
     it 'returns all queued processes' do
@@ -44,7 +44,7 @@ RSpec.describe Lokalise::Client do
         test_client.queued_process project_id, queued_process_id
       end
 
-      expect(queued_process.status).to eq('queued')
+      expect(queued_process.status).to eq('finished')
 
       reloaded_process = VCR.use_cassette('upload_file_queued_reload') do
         queued_process.reload_data
