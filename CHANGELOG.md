@@ -4,6 +4,7 @@
 
 * Added all recently introduced attributes
 * Better support for method chaining and data reloading
+* API now supports only background file uploads, and the `queue` parameter doesn't have any effect anymore. Therefore, removed all code and docs related to sync uploading.
 
 ## 3.0.0 (18-May-20)
 
