@@ -2,7 +2,7 @@
 
 ## 3.1.0 (26-Jun-20)
 
-* Added all recently introduced attributes
+* Added all recently introduced attributes for the following endpoints: `Contributor` and `Key`
 * Better support for method chaining and data reloading
 * API now supports only background file uploads, and the `queue` parameter doesn't have any effect anymore. Therefore, removed all code and docs related to sync uploading.
 
