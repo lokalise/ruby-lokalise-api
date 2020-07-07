@@ -46,8 +46,7 @@ module Lokalise
         def supports(*methods)
           methods.each do |m_data|
             # `method_name` - the method that the resource should support
-            # `sub_path` - either a string that has to be appended to a base path or an
-            # array of instance variable names that have to be used to generate the path
+            # `sub_path` - a string that has to be appended to a base path
             # `c_method` - method name to delegate the work to
             method_name, sub_path, c_method =
               m_data.is_a?(Array) ? m_data : [m_data, '', m_data]
