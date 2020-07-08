@@ -1,6 +1,6 @@
 # Changelog
 
-## 3.1.0 (26-Jun-20)
+## 3.1.0 (08-Jul-20)
 
 * Added all recently introduced attributes for the following endpoints: `Contributor` and `Key`
 * Better support for method chaining and data reloading
