@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.1.0 (08-Jul-20)
+
+* Added all recently introduced attributes for the following endpoints: `Contributor` and `Key`
+* Better support for method chaining and data reloading
+* API now supports only background file uploads, and the `queue` parameter doesn't have any effect anymore. Therefore, removed all code and docs related to sync uploading.
+
 ## 3.0.0 (18-May-20)
 
 * **Breaking change** Uploading files in the background is now a preferred method, and the only method in version 3. Synchronous uploading is still supported and allowed in version 2 but will be removed in the near future. Find more info [in the docs](https://github.com/lokalise/ruby-lokalise-api#upload-translation-file).

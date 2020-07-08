@@ -9,7 +9,7 @@ module Lokalise
       extend Lokalise::Utils::EndpointHelpers
 
       attr_reader :total_pages, :total_results, :results_per_page, :current_page, :collection,
-                  :project_id, :team_id, :request_params, :client, :path, :branch
+                  :project_id, :team_id, :request_params, :client, :path, :branch, :user_id
 
       # Initializes a new collection based on the response
       #
@@ -19,9 +19,10 @@ module Lokalise
       def initialize(response, params = {})
         produce_collection_for response
         populate_pagination_data_for response
-        # Project, team id and branch may not be present in some cases
+        # Project, team id, user id, and branch may not be present in some cases
         @project_id = response['content']['project_id']
         @team_id = response['content']['team_id']
+        @user_id = response['content']['user_id']
         @branch = response['content']['branch']
         @request_params = params
         @client = response['client']

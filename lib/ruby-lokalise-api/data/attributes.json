@@ -21,11 +21,11 @@
     "email",
     "fullname",
     "created_at",
+    "created_at_timestamp",
     "is_admin",
     "is_reviewer",
     "languages",
-    "admin_rights",
-    "created_at_timestamp"
+    "admin_rights"
   ],
   "custom_translation_status": [
     "status_id",
@@ -39,6 +39,7 @@
   "key": [
     "key_id",
     "created_at",
+    "created_at_timestamp",
     "key_name",
     "filenames",
     "description",
@@ -55,7 +56,10 @@
     "base_words",
     "char_limit",
     "custom_attributes",
-    "created_at_timestamp"
+    "modified_at",
+    "modified_at_timestamp",
+    "translations_modified_at",
+    "translations_modified_at_timestamp"
   ],
   "language": [
     "lang_id",
@@ -70,6 +74,7 @@
     "card_id",
     "status",
     "created_at",
+    "created_at_timestamp",
     "created_by",
     "created_by_email",
     "source_language_iso",
@@ -81,8 +86,7 @@
     "translation_tier",
     "translation_tier_name",
     "briefing",
-    "total",
-    "created_at_timestamp"
+    "total"
   ],
   "payment_card": [
     "card_id",
@@ -96,10 +100,10 @@
     "name",
     "description",
     "created_at",
+    "created_at_timestamp",
     "created_by",
     "created_by_email",
     "team_id",
-    "created_at_timestamp",
     "base_language_id",
     "base_language_iso",
     "settings",
@@ -132,9 +136,9 @@
     "snapshot_id",
     "title",
     "created_at",
+    "created_at_timestamp",
     "created_by",
-    "created_by_email",
-    "created_at_timestamp"
+    "created_by_email"
   ],
   "task": [
     "task_id",
@@ -168,18 +172,18 @@
     "team_id",
     "name",
     "created_at",
+    "created_at_timestamp",
     "plan",
     "quota_usage",
-    "quota_allowed",
-    "created_at_timestamp"
+    "quota_allowed"
   ],
   "team_user": [
     "user_id",
     "email",
     "fullname",
     "created_at",
-    "role",
-    "created_at_timestamp"
+    "created_at_timestamp",
+    "role"
   ],
   "team_user_group": [
     "group_id",

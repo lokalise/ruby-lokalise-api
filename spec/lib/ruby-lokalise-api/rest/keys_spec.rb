@@ -11,56 +11,62 @@ RSpec.describe Lokalise::Client do
         test_client.keys project_id
       end.collection
 
-      expect(keys.count).to eq(1)
+      expect(keys.count).to eq(8)
     end
 
     it 'supports pagination' do
       keys = VCR.use_cassette('all_keys_pagination') do
-        test_client.keys project_id, limit: 1, page: 1
+        test_client.keys project_id, limit: 2, page: 3
       end
 
-      expect(keys.collection.count).to eq(1)
-      expect(keys.total_results).to eq(1)
-      expect(keys.total_pages).to eq(1)
-      expect(keys.results_per_page).to eq(1)
-      expect(keys.current_page).to eq(1)
+      expect(keys.collection.count).to eq(2)
+      expect(keys.total_results).to eq(8)
+      expect(keys.total_pages).to eq(4)
+      expect(keys.results_per_page).to eq(2)
+      expect(keys.current_page).to eq(3)
 
-      expect(keys.next_page?).to eq(false)
-      expect(keys.last_page?).to eq(true)
-      expect(keys.prev_page?).to eq(false)
-      expect(keys.first_page?).to eq(true)
+      expect(keys.next_page?).to eq(true)
+      expect(keys.last_page?).to eq(false)
+      expect(keys.prev_page?).to eq(true)
+      expect(keys.first_page?).to eq(false)
     end
   end
 
   specify '#key' do
     key = VCR.use_cassette('key') do
-      test_client.key project_id, key_id, disable_references: 0
+      test_client.key project_id, 44_596_066, disable_references: 0
     end
 
-    expect(key.key_id).to eq(key_id)
-    expect(key.created_at).to eq('2018-12-03 19:11:30 (Etc/UTC)')
-    expect(key.key_name['ios']).to eq('test')
-    expect(key.filenames['web']).to eq('rspec.yml')
+    expect(key.key_id).to eq(44_596_066)
+    expect(key.project_id).to eq(project_id)
+    expect(key.branch).to eq('master')
+    expect(key.created_at).to eq('2020-05-11 11:20:33 (Etc/UTC)')
+    expect(key.created_at_timestamp).to eq(1_589_196_033)
+    expect(key.key_name['ios']).to eq('static_pages:index:welcome')
+    expect(key.filenames['web']).to eq('%LANG_ISO%.yml')
     expect(key.description).to eq('')
     expect(key.platforms).to eq(%w[web])
     expect(key.tags).to eq([])
-    expect(key.comments.first['comment']).to eq('demo comment')
-    expect(key.comments[1]['comment_id']).to eq(800_632)
+    expect(key.comments).to eq([])
     expect(key.screenshots).to eq([])
     expect(key.translations.first['modified_by_email']).to eq('bodrovis@protonmail.com')
     expect(key.is_plural).to eq(false)
     expect(key.plural_name).to eq('')
-    expect(key.is_hidden).to eq(false)
+    expect(key.is_hidden).to eq(true)
     expect(key.is_archived).to eq(false)
     expect(key.context).to eq('')
+    expect(key.base_words).to eq(1)
     expect(key.char_limit).to eq(0)
     expect(key.custom_attributes).to eq('')
-    expect(key.base_words).to eq(1)
+    expect(key.modified_at).to eq('2020-05-11 11:20:33 (Etc/UTC)')
+    expect(key.modified_at_timestamp).to eq(1_589_196_033)
+    expect(key.translations_modified_at).to eq('2020-05-15 10:44:42 (Etc/UTC)')
+    expect(key.translations_modified_at_timestamp).to eq(1_589_539_482)
   end
 
   specify '#reload_data' do
     key = VCR.use_cassette('key') do
-      test_client.key project_id, key_id, disable_references: 0
+      test_client.key project_id, 44_596_066, disable_references: 0
     end
 
     reloaded_key = VCR.use_cassette('key') do

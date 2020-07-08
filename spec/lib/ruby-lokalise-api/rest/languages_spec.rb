@@ -63,6 +63,18 @@ RSpec.describe Lokalise::Client do
     expect(language.plural_forms).to eq(%w[one other])
   end
 
+  specify '#reload_data' do
+    language = VCR.use_cassette('language') do
+      test_client.language project_id, language_id
+    end
+
+    reloaded_language = VCR.use_cassette('language') do
+      language.reload_data
+    end
+
+    expect(reloaded_language.lang_id).to eq(language.lang_id)
+  end
+
   specify '#create_languages' do
     language = VCR.use_cassette('create_languages') do
       test_client.create_languages project_id, lang_iso: 'ab', custom_name: 'rspec lang'

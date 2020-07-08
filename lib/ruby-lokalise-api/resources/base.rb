@@ -8,7 +8,7 @@ module Lokalise
       include Lokalise::Utils::AttributeHelpers
       extend Lokalise::Utils::EndpointHelpers
 
-      attr_reader :raw_data, :project_id, :client, :path, :branch
+      attr_reader :raw_data, :project_id, :client, :path, :branch, :user_id, :team_id
 
       # Initializes a new resource based on the response.
       # `endpoint_generator` is used in cases when a new instance is generated
@@ -20,10 +20,7 @@ module Lokalise
       # @return [Lokalise::Resources::Base]
       def initialize(response, endpoint_generator = nil)
         populate_attributes_for response['content']
-
-        @raw_data = response['content']
-        @project_id = response['content']['project_id']
-        @branch = response['content']['branch']
+        extract_common_attributes_for response['content']
         @client = response['client']
         @path = infer_path_from response, endpoint_generator
       end
@@ -48,11 +45,16 @@ module Lokalise
         # Usage: `supports :update, :destroy, [:complex_method, '/sub/path', :update]`
         def supports(*methods)
           methods.each do |m_data|
+            # `method_name` - the method that the resource should support
+            # `sub_path` - a string that has to be appended to a base path
+            # `c_method` - method name to delegate the work to
             method_name, sub_path, c_method =
               m_data.is_a?(Array) ? m_data : [m_data, '', m_data]
+
             define_method method_name do |params = {}|
               path = instance_variable_get(:@path)
-              # If there's a sub_path, preserve the initial path to allow further chaining
+              # If there's a sub_path which is a string,
+              # preserve the initial path to allow further chaining
               params = params.merge(_initial_path: path) if sub_path
               self.class.send c_method, instance_variable_get(:@client),
                               path + sub_path, params
@@ -174,6 +176,18 @@ module Lokalise
           instance_variable_set "@#{attr}", value
         end
       end
+
+      # Extracts all common attributes that resources have.
+      # Some of them may be absent in certain cases.
+      # rubocop:disable Naming/MemoizedInstanceVariableName
+      def extract_common_attributes_for(content)
+        @raw_data = content
+        @project_id ||= content['project_id']
+        @user_id ||= content['user_id']
+        @team_id ||= content['team_id']
+        @branch ||= content['branch']
+      end
+      # rubocop:enable Naming/MemoizedInstanceVariableName
     end
   end
 end

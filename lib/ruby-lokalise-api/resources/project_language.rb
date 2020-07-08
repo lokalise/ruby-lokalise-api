@@ -5,7 +5,7 @@ module Lokalise
     class ProjectLanguage < Base
       DATA_KEY = 'Language'
       ID_KEY = 'lang'
-      supports :update, :destroy
+      supports :update, :destroy, [:reload_data, '', :find]
 
       class << self
         def endpoint(project_id, language_id = nil)

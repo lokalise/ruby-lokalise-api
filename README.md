@@ -481,7 +481,7 @@ Exports project files as a `.zip` bundle and makes them available to download (t
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-upload-a-file-post)
 
-Starting from 9 May 2020, **background uploading is the preferred method of importing translation files**. Version 3 supports only asynchronous uploading. Version 2 still allows synchronous uploading but this feature will be removed in the near future.
+Starting from July 2020, **background uploading is the only method of importing translation files**.
 
 ```ruby
 @client.upload_file(project_id, params) # Input:

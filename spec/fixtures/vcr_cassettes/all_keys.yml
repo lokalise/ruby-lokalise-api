@@ -10,7 +10,7 @@ http_interactions:
       Accept:
       - application/json
       User-Agent:
-      - ruby-lokalise-api gem/1.0.0.pre1
+      - ruby-lokalise-api gem/3.0.0
       X-api-token:
       - "<LOKALISE_TOKEN>"
   response:
@@ -20,25 +20,28 @@ http_interactions:
     headers:
       server:
       - nginx
-      date:
-      - Sun, 09 Dec 2018 17:56:16 GMT
       content-type:
       - application/json
       transfer-encoding:
       - chunked
       connection:
-      - close
+      - keep-alive
       vary:
       - Accept-Encoding
-      set-cookie:
-      - PHPSESSID=c3b2e601f804ef24870526fa395933db; path=/; HttpOnly, locale=en_US;
-        expires=Tue, 08-Jan-2019 17:56:16 GMT; Max-Age=2592000; path=/; secure
-      expires:
-      - Thu, 19 Nov 1981 08:52:00 GMT
       cache-control:
-      - no-store, no-cache, must-revalidate, no-store, no-cache
+      - max-age=0, must-revalidate, no-cache, no-store, private
+      date:
+      - Fri, 26 Jun 2020 11:44:19 GMT
+      x-pagination-total-count:
+      - '8'
+      x-pagination-page-count:
+      - '1'
+      x-pagination-limit:
+      - '100'
+      x-pagination-page:
+      - '1'
       pragma:
-      - no-cache, no-cache
+      - no-cache
       x-content-type-options:
       - nosniff
       x-frame-options:
@@ -47,22 +50,38 @@ http_interactions:
       - 1; mode=block
       strict-transport-security:
       - max-age=31536000
-      x-pagination-total-count:
-      - '1'
-      x-pagination-page-count:
-      - '1'
-      x-pagination-limit:
-      - '100'
-      x-pagination-page:
-      - '1'
+      expires:
+      - Fri, 26 Jun 2020 11:44:19 GMT
       access-control-allow-origin:
       - "*"
       access-control-allow-headers:
       - Content-Type
     body:
       encoding: ASCII-8BIT
-      string: '{"project_id":"803826145ba90b42d5d860.46800099","keys":[{"key_id":15305182,"created_at":"2018-12-03
-        19:11:30 (Etc\/UTC)","key_name":{"ios":"test","android":"test","web":"test","other":"test"},"filenames":{"ios":"","android":"","web":"rspec.yml","other":""},"description":"","platforms":["web"],"tags":[],"is_plural":false,"plural_name":"","is_hidden":false,"is_archived":false,"context":"","base_words":1,"char_limit":0,"custom_attributes":""}]}'
-    http_version: 
-  recorded_at: Sun, 09 Dec 2018 17:56:15 GMT
-recorded_with: VCR 4.0.0
+      string: '{"project_id":"803826145ba90b42d5d860.46800099","branch":"master","keys":[{"key_id":44596059,"created_at":"2020-05-11
+        11:20:33 (Etc\/UTC)","created_at_timestamp":1589196033,"key_name":{"ios":"activerecord:attributes:feedback:message","android":"activerecord:attributes:feedback:message","web":"activerecord:attributes:feedback:message","other":"activerecord:attributes:feedback:message"},"filenames":{"ios":"","android":"","web":"%LANG_ISO%.yml","other":""},"description":"","platforms":["web"],"tags":[],"is_plural":false,"plural_name":"","is_hidden":true,"is_archived":false,"context":"","base_words":1,"char_limit":0,"custom_attributes":"","modified_at":"2020-05-11
+        11:20:33 (Etc\/UTC)","modified_at_timestamp":1589196033,"translations_modified_at":"2020-05-15
+        10:44:42 (Etc\/UTC)","translations_modified_at_timestamp":1589539482},{"key_id":44596060,"created_at":"2020-05-11
+        11:20:33 (Etc\/UTC)","created_at_timestamp":1589196033,"key_name":{"ios":"global:forms:messages:errors","android":"global:forms:messages:errors","web":"global:forms:messages:errors","other":"global:forms:messages:errors"},"filenames":{"ios":"","android":"","web":"%LANG_ISO%.yml","other":""},"description":"","platforms":["web"],"tags":[],"is_plural":true,"plural_name":"","is_hidden":true,"is_archived":false,"context":"","base_words":15,"char_limit":0,"custom_attributes":"","modified_at":"2020-05-11
+        11:20:33 (Etc\/UTC)","modified_at_timestamp":1589196033,"translations_modified_at":"2020-05-15
+        10:44:42 (Etc\/UTC)","translations_modified_at_timestamp":1589539482},{"key_id":44596061,"created_at":"2020-05-11
+        11:20:33 (Etc\/UTC)","created_at_timestamp":1589196033,"key_name":{"ios":"global:forms:submit","android":"global:forms:submit","web":"global:forms:submit","other":"global:forms:submit"},"filenames":{"ios":"","android":"","web":"%LANG_ISO%.yml","other":""},"description":"","platforms":["web"],"tags":[],"is_plural":false,"plural_name":"","is_hidden":true,"is_archived":false,"context":"","base_words":1,"char_limit":0,"custom_attributes":"","modified_at":"2020-05-11
+        11:20:33 (Etc\/UTC)","modified_at_timestamp":1589196033,"translations_modified_at":"2020-05-15
+        10:44:42 (Etc\/UTC)","translations_modified_at_timestamp":1589539482},{"key_id":44596062,"created_at":"2020-05-11
+        11:20:33 (Etc\/UTC)","created_at_timestamp":1589196033,"key_name":{"ios":"global:menu:home","android":"global:menu:home","web":"global:menu:home","other":"global:menu:home"},"filenames":{"ios":"","android":"","web":"%LANG_ISO%.yml","other":""},"description":"","platforms":["web"],"tags":[],"is_plural":false,"plural_name":"","is_hidden":true,"is_archived":false,"context":"","base_words":1,"char_limit":0,"custom_attributes":"","modified_at":"2020-05-11
+        11:20:33 (Etc\/UTC)","modified_at_timestamp":1589196033,"translations_modified_at":"2020-05-15
+        10:44:42 (Etc\/UTC)","translations_modified_at_timestamp":1589539482},{"key_id":44596063,"created_at":"2020-05-11
+        11:20:33 (Etc\/UTC)","created_at_timestamp":1589196033,"key_name":{"ios":"global:menu:feedback","android":"global:menu:feedback","web":"global:menu:feedback","other":"global:menu:feedback"},"filenames":{"ios":"","android":"","web":"%LANG_ISO%.yml","other":""},"description":"","platforms":["web"],"tags":[],"is_plural":false,"plural_name":"","is_hidden":true,"is_archived":false,"context":"","base_words":1,"char_limit":0,"custom_attributes":"","modified_at":"2020-05-11
+        11:20:33 (Etc\/UTC)","modified_at_timestamp":1589196033,"translations_modified_at":"2020-05-15
+        10:44:42 (Etc\/UTC)","translations_modified_at_timestamp":1589539482},{"key_id":44596064,"created_at":"2020-05-11
+        11:20:33 (Etc\/UTC)","created_at_timestamp":1589196033,"key_name":{"ios":"feedbacks:new:title","android":"feedbacks:new:title","web":"feedbacks:new:title","other":"feedbacks:new:title"},"filenames":{"ios":"","android":"","web":"%LANG_ISO%.yml","other":""},"description":"","platforms":["web"],"tags":[],"is_plural":false,"plural_name":"","is_hidden":true,"is_archived":false,"context":"","base_words":1,"char_limit":0,"custom_attributes":"","modified_at":"2020-05-11
+        11:20:33 (Etc\/UTC)","modified_at_timestamp":1589196033,"translations_modified_at":"2020-05-15
+        10:44:42 (Etc\/UTC)","translations_modified_at_timestamp":1589539482},{"key_id":44596065,"created_at":"2020-05-11
+        11:20:33 (Etc\/UTC)","created_at_timestamp":1589196033,"key_name":{"ios":"feedbacks:posted_by","android":"feedbacks:posted_by","web":"feedbacks:posted_by","other":"feedbacks:posted_by"},"filenames":{"ios":"","android":"","web":"%LANG_ISO%.yml","other":""},"description":"","platforms":["web"],"tags":[],"is_plural":false,"plural_name":"","is_hidden":true,"is_archived":false,"context":"","base_words":2,"char_limit":0,"custom_attributes":"","modified_at":"2020-05-11
+        11:20:33 (Etc\/UTC)","modified_at_timestamp":1589196033,"translations_modified_at":"2020-05-15
+        10:44:42 (Etc\/UTC)","translations_modified_at_timestamp":1589539482},{"key_id":44596066,"created_at":"2020-05-11
+        11:20:33 (Etc\/UTC)","created_at_timestamp":1589196033,"key_name":{"ios":"static_pages:index:welcome","android":"static_pages:index:welcome","web":"static_pages:index:welcome","other":"static_pages:index:welcome"},"filenames":{"ios":"","android":"","web":"%LANG_ISO%.yml","other":""},"description":"","platforms":["web"],"tags":[],"is_plural":false,"plural_name":"","is_hidden":true,"is_archived":false,"context":"","base_words":1,"char_limit":0,"custom_attributes":"","modified_at":"2020-05-11
+        11:20:33 (Etc\/UTC)","modified_at_timestamp":1589196033,"translations_modified_at":"2020-05-15
+        10:44:42 (Etc\/UTC)","translations_modified_at_timestamp":1589539482}]}'
+  recorded_at: Fri, 26 Jun 2020 11:44:09 GMT
+recorded_with: VCR 6.0.0

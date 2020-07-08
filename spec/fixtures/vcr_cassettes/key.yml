@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.lokalise.com/api2/projects/803826145ba90b42d5d860.46800099/keys/15305182?disable_references=0
+    uri: https://api.lokalise.com/api2/projects/803826145ba90b42d5d860.46800099/keys/44596066?disable_references=0
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       Accept:
       - application/json
       User-Agent:
-      - ruby-lokalise-api gem/1.0.0.pre1
+      - ruby-lokalise-api gem/3.0.0
       X-api-token:
       - "<LOKALISE_TOKEN>"
   response:
@@ -20,25 +20,20 @@ http_interactions:
     headers:
       server:
       - nginx
-      date:
-      - Sun, 09 Dec 2018 17:55:54 GMT
       content-type:
       - application/json
       transfer-encoding:
       - chunked
       connection:
-      - close
+      - keep-alive
       vary:
       - Accept-Encoding
-      set-cookie:
-      - PHPSESSID=2fcd2fead82d7ab60a41b7e0c1e878c2; path=/; HttpOnly, locale=en_US;
-        expires=Tue, 08-Jan-2019 17:55:54 GMT; Max-Age=2592000; path=/; secure
-      expires:
-      - Thu, 19 Nov 1981 08:52:00 GMT
       cache-control:
-      - no-store, no-cache, must-revalidate, no-store, no-cache
+      - max-age=0, must-revalidate, no-cache, no-store, private
+      date:
+      - Fri, 26 Jun 2020 11:47:26 GMT
       pragma:
-      - no-cache, no-cache
+      - no-cache
       x-content-type-options:
       - nosniff
       x-frame-options:
@@ -47,21 +42,29 @@ http_interactions:
       - 1; mode=block
       strict-transport-security:
       - max-age=31536000
+      expires:
+      - Fri, 26 Jun 2020 11:47:26 GMT
       access-control-allow-origin:
       - "*"
       access-control-allow-headers:
       - Content-Type
     body:
       encoding: ASCII-8BIT
-      string: '{"project_id":"803826145ba90b42d5d860.46800099","key":{"key_id":15305182,"created_at":"2018-12-03
-        19:11:30 (Etc\/UTC)","key_name":{"ios":"test","android":"test","web":"test","other":"test"},"filenames":{"ios":"","android":"","web":"rspec.yml","other":""},"description":"","platforms":["web"],"tags":[],"comments":[{"comment_id":800631,"key_id":15305182,"comment":"demo
-        comment","added_by":20181,"added_by_email":"bodrovis@protonmail.com","added_at":"2018-12-07
-        16:48:51 (Etc\/UTC)"},{"comment_id":800632,"key_id":15305182,"comment":"from
-        rspec","added_by":20181,"added_by_email":"bodrovis@protonmail.com","added_at":"2018-12-07
-        16:48:51 (Etc\/UTC)"}],"screenshots":[],"translations":[{"translation_id":77852857,"key_id":15305182,"language_iso":"ru","translation":"translation","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2018-12-09
-        18:41:13 (Etc\/UTC)","is_reviewed":false,"reviewed_by":0,"is_fuzzy":false,"words":1},{"translation_id":77852856,"key_id":15305182,"language_iso":"en","translation":"en","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2018-12-03
-        19:11:31 (Etc\/UTC)","is_reviewed":false,"reviewed_by":0,"is_fuzzy":false,"words":1},{"translation_id":77852858,"key_id":15305182,"language_iso":"f_over","translation":"","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2018-12-03
-        19:11:31 (Etc\/UTC)","is_reviewed":false,"reviewed_by":0,"is_fuzzy":true,"words":0}],"is_plural":false,"plural_name":"","is_hidden":false,"is_archived":false,"context":"","base_words":1,"char_limit":0,"custom_attributes":""}}'
-    http_version: 
-  recorded_at: Sun, 09 Dec 2018 17:55:54 GMT
-recorded_with: VCR 4.0.0
+      string: '{"project_id":"803826145ba90b42d5d860.46800099","branch":"master","key":{"key_id":44596066,"created_at":"2020-05-11
+        11:20:33 (Etc\/UTC)","created_at_timestamp":1589196033,"key_name":{"ios":"static_pages:index:welcome","android":"static_pages:index:welcome","web":"static_pages:index:welcome","other":"static_pages:index:welcome"},"filenames":{"ios":"","android":"","web":"%LANG_ISO%.yml","other":""},"description":"","platforms":["web"],"tags":[],"comments":[],"screenshots":[],"translations":[{"translation_id":304581295,"key_id":44596066,"language_iso":"ru","translation":"\u0414\u043e\u0431\u0440\u043e
+        \u043f\u043e\u0436\u0430\u043b\u043e\u0432\u0430\u0442\u044c!","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2020-05-15
+        10:44:42 (Etc\/UTC)","modified_at_timestamp":1589539482,"is_reviewed":false,"reviewed_by":0,"is_fuzzy":false,"words":2,"custom_translation_statuses":[]},{"translation_id":304581285,"key_id":44596066,"language_iso":"en","translation":"Welcome!","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2020-05-11
+        11:20:33 (Etc\/UTC)","modified_at_timestamp":1589196033,"is_reviewed":false,"reviewed_by":0,"is_fuzzy":false,"words":1,"custom_translation_statuses":[]},{"translation_id":304581294,"key_id":44596066,"language_iso":"f_over","translation":"","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2020-05-11
+        11:20:33 (Etc\/UTC)","modified_at_timestamp":1589196033,"is_reviewed":false,"reviewed_by":0,"is_fuzzy":false,"words":0,"custom_translation_statuses":[]},{"translation_id":304581289,"key_id":44596066,"language_iso":"ar_001","translation":"","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2020-05-11
+        11:20:33 (Etc\/UTC)","modified_at_timestamp":1589196033,"is_reviewed":false,"reviewed_by":0,"is_fuzzy":false,"words":0,"custom_translation_statuses":[]},{"translation_id":304581287,"key_id":44596066,"language_iso":"nl","translation":"","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2020-05-11
+        11:20:33 (Etc\/UTC)","modified_at_timestamp":1589196033,"is_reviewed":false,"reviewed_by":0,"is_fuzzy":false,"words":0,"custom_translation_statuses":[]},{"translation_id":304581292,"key_id":44596066,"language_iso":"ca","translation":"","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2020-05-11
+        11:20:33 (Etc\/UTC)","modified_at_timestamp":1589196033,"is_reviewed":false,"reviewed_by":0,"is_fuzzy":false,"words":0,"custom_translation_statuses":[]},{"translation_id":304581290,"key_id":44596066,"language_iso":"sq","translation":"","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2020-05-11
+        11:20:33 (Etc\/UTC)","modified_at_timestamp":1589196033,"is_reviewed":false,"reviewed_by":0,"is_fuzzy":false,"words":0,"custom_translation_statuses":[]},{"translation_id":304581291,"key_id":44596066,"language_iso":"bm","translation":"","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2020-05-11
+        11:20:33 (Etc\/UTC)","modified_at_timestamp":1589196033,"is_reviewed":false,"reviewed_by":0,"is_fuzzy":false,"words":0,"custom_translation_statuses":[]},{"translation_id":304581293,"key_id":44596066,"language_iso":"en-us","translation":"","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2020-05-11
+        11:20:33 (Etc\/UTC)","modified_at_timestamp":1589196033,"is_reviewed":false,"reviewed_by":0,"is_fuzzy":false,"words":0,"custom_translation_statuses":[]},{"translation_id":304581288,"key_id":44596066,"language_iso":"es","translation":"","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2020-05-11
+        11:20:33 (Etc\/UTC)","modified_at_timestamp":1589196033,"is_reviewed":false,"reviewed_by":0,"is_fuzzy":false,"words":0,"custom_translation_statuses":[]},{"translation_id":304581286,"key_id":44596066,"language_iso":"custom_1","translation":"","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2020-05-11
+        11:20:33 (Etc\/UTC)","modified_at_timestamp":1589196033,"is_reviewed":false,"reviewed_by":0,"is_fuzzy":false,"words":0,"custom_translation_statuses":[]}],"is_plural":false,"plural_name":"","is_hidden":true,"is_archived":false,"context":"","base_words":1,"char_limit":0,"custom_attributes":"","modified_at":"2020-05-11
+        11:20:33 (Etc\/UTC)","modified_at_timestamp":1589196033,"translations_modified_at":"2020-05-15
+        10:44:42 (Etc\/UTC)","translations_modified_at_timestamp":1589539482}}'
+  recorded_at: Fri, 26 Jun 2020 11:47:17 GMT
+recorded_with: VCR 6.0.0
