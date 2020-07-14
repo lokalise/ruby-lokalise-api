@@ -621,6 +621,21 @@ key.update(params)
                                          ## Collection of updated keys
 ```
 
+Example:
+
+```ruby
+client.update_keys '123.abc', [
+  {
+    key_id: 456,
+    description: 'bulk updated'
+  },
+  {
+    key_id: 769,
+    tags: %w[bulk update]
+  }
+]
+```
+
 #### Delete project key
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-delete-a-key-delete)
