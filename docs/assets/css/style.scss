@@ -1,0 +1,26 @@
+---
+---
+
+@import "{{ site.theme }}";
+.highlight {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.wrapper {
+  width: 1200px;
+}
+
+section {
+  width: 840px;
+}
+
+@media print, screen and (max-width: 1210px) {
+  .wrapper {
+    width: auto;
+  }
+
+  section {
+    width: auto;
+  }
+}
