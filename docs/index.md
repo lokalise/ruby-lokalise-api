@@ -32,3 +32,7 @@ process.status
 ## Usage
 
 {% include nav_full.html %}
+
+## Additional info
+
+{% include nav_full_additional.html %}

@@ -1,0 +1,5 @@
+- title: Customization
+  path: customization
+  sub_paths:
+    - title: Installation and Requirements
+      path: installation-and-requirements
