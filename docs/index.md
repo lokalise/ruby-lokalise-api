@@ -30,3 +30,5 @@ process.status
 {% endhighlight %}
 
 ## Usage
+
+{% include nav_full.html %}

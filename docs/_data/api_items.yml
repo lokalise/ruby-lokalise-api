@@ -1,0 +1,15 @@
+- title: Getting started
+  path: getting_started
+  sub_paths:
+    - title: Installation and Requirements
+      path: installation-and-requirements
+    - title: Initializing the Client
+      path: initializing-the-client
+    - title: Objects and models
+      path: objects-and-models
+    - title: Collections of resources and pagination
+      path: collections-of-resources-and-pagination
+    - title: Branching
+      path: branching
+- title: Translation files
+  path: files

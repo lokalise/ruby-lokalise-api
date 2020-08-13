@@ -15,6 +15,48 @@ section {
   width: 840px;
 }
 
+header {
+  position: static;
+}
+
+header nav ul {
+  height: auto;
+  background: transparent;
+  border-radius: 0;
+  border: 0 none;
+  width: auto;
+}
+
+header nav ul li {
+  width: auto;
+  float: none;
+  border: 0 none;
+  height: auto;
+}
+
+header nav li:last-child a {
+  border-radius: 0 none;
+}
+
+header nav ul li a {
+  font-size: 1rem;
+  text-align: left;
+  display: inline;
+  height: auto;
+}
+
+header nav ul li a:active {
+  background: transparent;
+}
+
+footer {
+  clear: both;
+  position: static;
+  width: auto;
+  bottom: 0;
+  float: none;
+}
+
 @media print, screen and (max-width: 1210px) {
   .wrapper {
     width: auto;
