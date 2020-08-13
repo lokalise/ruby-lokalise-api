@@ -1,8 +1,6 @@
 # Customization
 
-### Customizing Request
-
-#### Choosing Adapter
+## Choosing Network Adapter
 
 This library utilizes [Faraday](https://lostisland.github.io/faraday) to perform requests. The default adapter is built-in [Net::HTTP](https://ruby-doc.org/stdlib-2.6.3/libdoc/net/http/rdoc/Net/HTTP.html) but you may customize it as needed.
 
@@ -16,7 +14,7 @@ Faraday.default_adapter = :excon
 
 All supported adapters are listed [on Faraday official website](https://lostisland.github.io/faraday/adapters/).
 
-#### Setting Timeouts
+## Setting Timeouts
 
 Request timeouts may be adjusted during client initialization:
 
@@ -35,9 +33,9 @@ Both values are in *seconds*. They can be adjusted later with simple accessors:
 @client.timeout # => 600
 ```
 
-### Customizing JSON parser
+## Customizing JSON parser
 
-This gem used to rely on [MultiJson](https://github.com/intridea/multi_json) but it is not maintained anymore. By default we are using a [built-in JSON module](https://ruby-doc.org/stdlib-2.0.0/libdoc/json/rdoc/JSON.html) but you may utilize any other parser by overriding `#custom_dump` and `#custom_load` methods inside `Lokalise::JsonHandler` module.
+By default we are using a [built-in JSON module](https://ruby-doc.org/stdlib-2.0.0/libdoc/json/rdoc/JSON.html) but you may utilize any other parser by overriding the `#custom_dump` and `#custom_load` methods inside the `Lokalise::JsonHandler` module.
 
 For example, to use [Oj](https://github.com/ohler55/oj) you would do the following:
 

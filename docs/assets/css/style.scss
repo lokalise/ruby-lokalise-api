@@ -19,7 +19,7 @@ header {
   position: static;
 }
 
-header nav ul {
+header nav.menu ul {
   height: auto;
   background: transparent;
   border-radius: 0;
@@ -27,25 +27,27 @@ header nav ul {
   width: auto;
 }
 
-header nav ul li {
-  width: auto;
+header nav.menu ul li {
+  width: auto !important;
   float: none;
   border: 0 none;
   height: auto;
+  margin-bottom: 5px;
+  display: block;
 }
 
-header nav li:last-child a {
+header nav.menu li:last-child a {
   border-radius: 0 none;
 }
 
-header nav ul li a {
+header nav.menu ul li a {
   font-size: 1rem;
   text-align: left;
   display: inline;
   height: auto;
 }
 
-header nav ul li a:active {
+header nav.menu ul li a:active {
   background: transparent;
 }
 
@@ -55,6 +57,10 @@ footer {
   width: auto;
   bottom: 0;
   float: none;
+}
+
+nav.index {
+  font-size: 1rem;
 }
 
 @media print, screen and (max-width: 1210px) {

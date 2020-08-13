@@ -1,5 +1,25 @@
 - title: Customization
   path: customization
   sub_paths:
-    - title: Installation and Requirements
-      path: installation-and-requirements
+    - title: Choosing Network Adapter
+      path: choosing-network-adapter
+    - title: Setting Timeouts
+      path: setting-timeouts
+    - title: Customizing JSON parser
+      path: customizing-json-parser
+- title: Exception handling
+  path: exception_handling
+  sub_paths:
+    - title: Error codes
+      path: error-codes
+    - title: API Rate Limits
+      path: api-rate-limits
+- title: Contributing
+  path: contribution_guide
+  sub_paths:
+    - title: Running tests
+      path: running-tests
+- title: Changelog
+  path: changelog
+- title: License
+  path: license_type

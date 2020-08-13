@@ -11,5 +11,53 @@
       path: collections-of-resources-and-pagination
     - title: Branching
       path: branching
+- title: Branches
+  path: branches
+  sub_paths:
+    - title: Fetch branches
+      path: fetch-branches
+    - title: Fetch branch
+      path: fetch-branch
+    - title: Create branch
+      path: create-branch
+    - title: Update branch
+      path: update-branch
+    - title: Delete branch
+      path: delete-branch
+    - title: Merge branch
+      path: merge-branch
+- title: Comments
+  path: comments
+  sub_paths:
+    - title: Fetch project comments
+      path: fetch-project-comments
+    - title: Fetch key comments
+      path: fetch-key-comments
+    - title: Create key comments
+      path: create-key-comments
+    - title: Fetch key comment
+      path: fetch-key-comment
+    - title: Delete key comment
+      path: delete-key-comment
+- title: Contributors
+  path: contributors
+  sub_paths:
+    - title: Fetch contributors
+      path: fetch-contributors
+    - title: Fetch a single contributor
+      path: fetch-a-single-contributor
+    - title: Create contributors
+      path: create-contributors
+    - title: Update contributor
+      path: update-contributor
+    - title: Delete contributor
+      path: delete-contributor
 - title: Translation files
   path: files
+  sub_paths:
+    - title: Fetch translation files
+      path: fetch-translation-files
+    - title: Download translation files
+      path: download-translation-files
+    - title: Upload translation file
+      path: upload-translation-file

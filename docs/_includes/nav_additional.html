@@ -1,7 +1,7 @@
 <ul>
 {% for item in site.data.additional_items %}
   <li>
-    <a href="additional_info/{{ item.path }}">
+    <a href="{{ site.baseurl }}/additional_info/{{ item.path }}">
       {{ item.title }}
     </a>
   </li>
