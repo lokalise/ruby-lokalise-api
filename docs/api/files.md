@@ -1,4 +1,4 @@
-# Translation Files
+# Translation files
 
 [File attributes](https://app.lokalise.com/api2docs/curl/#object-files)
 

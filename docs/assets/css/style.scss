@@ -63,12 +63,39 @@ nav.index {
   font-size: 1rem;
 }
 
-@media print, screen and (max-width: 1210px) {
+@media print, screen and (max-width: 1280px) {
   .wrapper {
-    width: auto;
+    width: 100%;
   }
 
   section {
-    width: auto;
+    width: 70%;
+  }
+
+  header {
+    width: 25%;
+  }
+}
+
+@media print, screen and (max-width: 960px) {
+  .wrapper {
+    width: 100% !important;
+  }
+
+  section {
+    width: 100%;
+    float: none;
+  }
+
+  header {
+    width: 100%;
+    float: none;
+    padding-right: 0;
+  }
+
+  header nav ul {
+    position: static;
+    right: 0;
+    top: 0;
   }
 }

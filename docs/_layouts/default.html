@@ -29,18 +29,30 @@
         <hr>
 
         <nav class="menu">
+          <h3>Usage</h3>
           {% include nav.html %}
         </nav>
 
         <hr>
 
         <nav class="menu">
+          <h3>Additional info</h3>
           {% include nav_additional.html %}
         </nav>
 
         <hr>
 
-        <p class="view"><a href="https://app.lokalise.com/api2docs/curl/">Lokalise APIv2 docs</a></p>
+        <nav class="menu">
+          <h3>External resources</h3>
+
+          <ul>
+            <li><a href="https://app.lokalise.com/api2docs/curl/" target="_blank">Lokalise APIv2 docs</a></li>
+            <li><a href="https://github.com/lokalise/php-lokalise-api" target="_blank">PHP API client</a></li>
+            <li><a href="https://github.com/lokalise/node-lokalise-api" target="_blank">Node.js API client</a></li>
+            <li><a href="https://github.com/lokalise/go-lokalise-api" target="_blank">Go API client</a></li>
+            <li><a href="https://github.com/lokalise/python-lokalise-api" target="_blank">Python API client</a></li>
+          </ul>
+        </nav>
 
         {% if site.show_downloads %}
         <ul class="downloads">
