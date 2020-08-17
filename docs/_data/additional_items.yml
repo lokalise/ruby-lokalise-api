@@ -19,6 +19,8 @@
   sub_paths:
     - title: Running tests
       path: running-tests
+    - title: Previewing the docs locally
+      path: previewing-the-docs-locally
 - title: Changelog
   path: changelog
 - title: License

@@ -12,3 +12,10 @@
 [fork]: http://help.github.com/fork-a-repo/
 [branch]: https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-branches
 [pr]: https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests
+
+## Previewing the docs locally
+
+1. Clone the repo.
+2. `cd docs`
+3. `bundle exec jekyll serve --baseurl=''`.
+4. Navigate to `http://localhost:4000` and observe the docs.

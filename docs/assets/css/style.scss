@@ -47,6 +47,15 @@ header nav.menu ul li a {
   height: auto;
 }
 
+header nav.menu ul li span {
+  font-size: 1rem;
+}
+
+header nav.menu ul li .active {
+  font-weight: 600;
+  font-weight: 1.05rem;
+}
+
 header nav.menu ul li a:active {
   background: transparent;
 }
