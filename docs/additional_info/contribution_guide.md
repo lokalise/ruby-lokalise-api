@@ -13,6 +13,11 @@
 [branch]: https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-branches
 [pr]: https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests
 
+## Running tests
+
+1. Copypaste `.env.example` file as `.env`. Put your API token inside. The `.env` file is excluded from version control so your token is safe. All in all, we use pre-recorded VCR cassettes, so the actual API requests won't be sent. However, providing at least some token is required.
+3. Run `rspec .`. Observe test results and code coverage.
+
 ## Previewing the docs locally
 
 1. Clone the repo.
