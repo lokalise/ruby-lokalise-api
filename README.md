@@ -6,6 +6,8 @@
 
 Official opinionated Ruby interface for the [Lokalise API](https://app.lokalise.com/api2docs/curl/) that represents returned data as Ruby objects.
 
+Looking for a Rails integration? Try the new [lokalise_rails gem](https://github.com/bodrovis/lokalise_rails).
+
 ## Quickstart
 
 Install the gem by running:
