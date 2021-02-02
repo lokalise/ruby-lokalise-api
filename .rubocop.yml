@@ -3,7 +3,7 @@ require:
  - rubocop-rspec
 
 AllCops:
-  TargetRubyVersion: 2.6
+  TargetRubyVersion: 2.5
   NewCops: enable
 
 Layout/SpaceInsideHashLiteralBraces:
@@ -83,3 +83,6 @@ RSpec/FilePath:
 
 RSpec/MessageSpies:
   EnforcedStyle: receive
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 10

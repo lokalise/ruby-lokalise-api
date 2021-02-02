@@ -95,7 +95,7 @@ module Lokalise
         # Instantiates a new resource or collection based on the given response
         def object_from(response, params)
           model_class = name.base_class_name
-          data_key_plural = data_key_for model_class, true
+          data_key_plural = data_key_for model_class: model_class, plural: true
           # Preserve the initial path to allow chaining
           response['path'] = params.delete(:_initial_path) if params.key?(:_initial_path)
 
@@ -107,7 +107,7 @@ module Lokalise
         end
 
         def produce_resource(model_class, response)
-          data_key_singular = data_key_for model_class
+          data_key_singular = data_key_for model_class: model_class
           if response['content'].key? data_key_singular
             data = response['content'].delete data_key_singular
             response['content'].merge! data
@@ -124,7 +124,7 @@ module Lokalise
       # Generates path for the individual resource based on the path for the collection
       def infer_path_from(response, endpoint_generator = nil)
         id_key = id_key_for self.class.name.base_class_name
-        data_key = data_key_for self.class.name.base_class_name
+        data_key = data_key_for model_class: self.class.name.base_class_name
 
         path_with_id response, id_key, data_key, endpoint_generator
       end
@@ -164,7 +164,7 @@ module Lokalise
       # Store all resources attributes under the corresponding instance variables.
       # `ATTRIBUTES` is defined inside resource-specific classes
       def populate_attributes_for(content)
-        data_key = data_key_for self.class.name.base_class_name
+        data_key = data_key_for model_class: self.class.name.base_class_name
 
         self.class.const_get(:ATTRIBUTES).each do |attr|
           value = if content.key?(data_key) && content[data_key].is_a?(Hash)

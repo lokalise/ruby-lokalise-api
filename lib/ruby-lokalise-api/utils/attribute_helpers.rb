@@ -16,16 +16,21 @@ module Lokalise
       # @return [String]
       # @param model_class [String]
       # @param plural [Boolean] Should the returned value be pluralized?
-      def data_key_for(model_class, plural = false, collection = false)
-        data_key_plural = get_key('DATA_KEY_PLURAL', model_class, true, true)
+      def data_key_for(model_class:, plural: false, collection: false)
+        data_key_plural = get_key(
+          name: 'DATA_KEY_PLURAL',
+          model_class: model_class,
+          collection: true,
+          strict: true
+        )
 
         return data_key_plural if collection && data_key_plural
 
-        data_key = get_key 'DATA_KEY', model_class, collection
+        data_key = get_key name: 'DATA_KEY', model_class: model_class, collection: collection
 
         return data_key unless plural
 
-        data_key + 's'
+        "#{data_key}s"
       end
 
       # Returns key used to determine resource id (for example `user_id` or `project_id`).
@@ -35,7 +40,7 @@ module Lokalise
       # @return [String]
       # @param model_class [String]
       def id_key_for(model_class)
-        get_key('ID_KEY', model_class) + '_id'
+        "#{get_key(name: 'ID_KEY', model_class: model_class)}_id"
       end
 
       # Loads attributes for the given resource based on its name
@@ -52,7 +57,7 @@ module Lokalise
 
       private
 
-      def get_key(name, model_class, collection = false, strict = false)
+      def get_key(name:, model_class:, collection: false, strict: false)
         key = if collection && Module.const_defined?("Lokalise::Collections::#{model_class}::#{name}")
                 Module.const_get "Lokalise::Collections::#{model_class}::#{name}"
               elsif Module.const_defined? "Lokalise::Resources::#{model_class}::#{name}"

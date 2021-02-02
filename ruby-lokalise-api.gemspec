@@ -10,8 +10,9 @@ Gem::Specification.new do |spec|
   spec.summary               = 'Ruby interface to the Lokalise API'
   spec.description           = 'Opinionated Ruby client for the Lokalise platform API allowing to work with translations, projects, users and other resources as with Ruby objects.'
   spec.homepage              = 'https://github.com/lokalise/ruby-lokalise-api'
-  spec.license               = 'MIT'
+  spec.license               = 'BSD-3-Clause'
   spec.platform              = Gem::Platform::RUBY
+  spec.required_ruby_version = '>= 2.5.0'
 
   spec.files = Dir['README.md', 'LICENSE',
                    'CHANGELOG.md', 'lib/**/*.rb', 'lib/ruby-lokalise-api/data/attributes.json',

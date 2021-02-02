@@ -1,5 +1,12 @@
 # Changelog
 
+## 4.0.0 (02-Feb-20)
+
+* **License type is now BSD 3 Clause**
+* Added `auto_close_items` attribute for the `Task` endpoint
+* Dependency updates
+* Test against Ruby 3
+
 ## 3.1.0 (08-Jul-20)
 
 * Added all recently introduced attributes for the following endpoints: `Contributor` and `Key`

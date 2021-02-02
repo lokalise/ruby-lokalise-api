@@ -27,7 +27,7 @@ RSpec.describe Lokalise::JsonHandler do
     '{":name":"rspec proj",":description":"demo project for rspec"}'
   end
 
-  # rubocop:disable RSpec/LeakyConstantDeclaration
+  # rubocop:disable RSpec/LeakyConstantDeclaration, Lint/ConstantDefinitionInBlock
   before do
     module Lokalise
       module JsonHandler
@@ -55,10 +55,10 @@ RSpec.describe Lokalise::JsonHandler do
       end
     end
   end
-  # rubocop:enable RSpec/LeakyConstantDeclaration
+  # rubocop:enable RSpec/LeakyConstantDeclaration, Lint/ConstantDefinitionInBlock
 
   it 'allows to customize #load' do
-    expect(Oj).to receive(:load).and_return(loaded_json)
+    allow(Oj).to receive(:load).and_return(loaded_json)
     expect(JSON).not_to receive(:parse)
     projects = VCR.use_cassette('all_projects_pagination') do
       test_client.projects limit: 1, page: 2
@@ -70,7 +70,7 @@ RSpec.describe Lokalise::JsonHandler do
   end
 
   it 'allows to customize #dump' do
-    expect(Oj).to receive(:dump).and_return(dumped_json)
+    allow(Oj).to receive(:dump).and_return(dumped_json)
     expect(JSON).not_to receive(:dump)
     project = VCR.use_cassette('new_project') do
       test_client.create_project name: 'rspec proj', description: 'demo project for rspec'
