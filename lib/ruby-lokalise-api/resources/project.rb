@@ -6,7 +6,7 @@ module Lokalise
       supports :update, :destroy, [:reload_data, '', :find]
 
       def empty
-        self.class.empty @client, @path + '/empty'
+        self.class.empty @client, "#{@path}/empty"
       end
 
       class << self

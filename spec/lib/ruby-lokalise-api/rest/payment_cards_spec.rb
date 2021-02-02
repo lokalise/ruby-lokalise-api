@@ -36,9 +36,9 @@ RSpec.describe Lokalise::Client do
   specify '#create_payment_card' do
     card = VCR.use_cassette('new_payment_card') do
       test_client.create_payment_card number: '4242424242424242',
-                                      "cvc": '123',
-                                      "exp_month": 1,
-                                      "exp_year": 2030
+                                      cvc: '123',
+                                      exp_month: 1,
+                                      exp_year: 2030
     end
 
     expect(card.card_id).to eq(card_id)
