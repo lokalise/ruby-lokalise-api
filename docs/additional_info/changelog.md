@@ -1,6 +1,6 @@
 # Changelog
 
-## 4.0.0 (02-Feb-20)
+## 4.0.0 (02-Feb-21)
 
 * **License type is now BSD 3 Clause**
 * Added `auto_close_items` attribute for the `Task` endpoint
