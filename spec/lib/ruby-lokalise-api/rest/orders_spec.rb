@@ -87,4 +87,27 @@ RSpec.describe Lokalise::Client do
     expect(order.order_id).to eq(order_id)
     expect(order.status).to eq('in progress')
   end
+
+  it 'creates an order with dry run' do
+    order = VCR.use_cassette('create_order_dry_run') do
+      test_client.create_order team_id,
+                               project_id: project_id,
+                               card_id: card_id,
+                               briefing: 'Some briefing',
+                               source_language_iso: 'en',
+                               target_language_isos: [
+                                 'ru'
+                               ],
+                               keys: [
+                                 74_189_435
+                               ],
+                               provider_slug: 'gengo',
+                               translation_tier: '1',
+                               dry_run: true
+    end
+
+    expect(order.order_id).to be_nil
+    expect(order.status).to eq('draft')
+    expect(order.dry_run).to be true
+  end
 end

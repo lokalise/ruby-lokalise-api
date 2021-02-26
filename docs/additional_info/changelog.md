@@ -2,7 +2,7 @@
 
 ## 4.1.0 (26-Feb-21)
 
-* Added `payment_method` attribute to `Order`
+* Added `payment_method` and `dry_run` attributes to `Order`
 
 ## 4.0.0 (02-Feb-21)
 
