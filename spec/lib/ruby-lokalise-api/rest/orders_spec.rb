@@ -37,8 +37,8 @@ RSpec.describe Lokalise::Client do
 
     expect(order.order_id).to eq(order_id)
     expect(order.project_id).to eq(project_id)
-    expect(order.card_id).to eq(card_id.to_s)
-    expect(order.status).to eq('in progress')
+    expect(order.card_id).to eq(card_id)
+    expect(order.status).to eq('completed')
     expect(order.created_at).to eq('2019-03-19 18:18:21 (Etc/UTC)')
     expect(order.created_by).to eq(20_181)
     expect(order.created_by_email).to eq('bodrovis@protonmail.com')
@@ -52,6 +52,7 @@ RSpec.describe Lokalise::Client do
     expect(order.translation_tier_name).to eq('Professional translator')
     expect(order.briefing).to eq('Some briefing')
     expect(order.total).to eq(0.07)
+    expect(order.payment_method).to be_nil
   end
 
   specify '#reload_data' do
@@ -85,5 +86,28 @@ RSpec.describe Lokalise::Client do
 
     expect(order.order_id).to eq(order_id)
     expect(order.status).to eq('in progress')
+  end
+
+  it 'creates an order with dry run' do
+    order = VCR.use_cassette('create_order_dry_run') do
+      test_client.create_order team_id,
+                               project_id: project_id,
+                               card_id: card_id,
+                               briefing: 'Some briefing',
+                               source_language_iso: 'en',
+                               target_language_isos: [
+                                 'ru'
+                               ],
+                               keys: [
+                                 74_189_435
+                               ],
+                               provider_slug: 'gengo',
+                               translation_tier: '1',
+                               dry_run: true
+    end
+
+    expect(order.order_id).to be_nil
+    expect(order.status).to eq('draft')
+    expect(order.dry_run).to be true
   end
 end

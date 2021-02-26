@@ -86,7 +86,9 @@
     "translation_tier",
     "translation_tier_name",
     "briefing",
-    "total"
+    "total",
+    "payment_method",
+    "dry_run"
   ],
   "payment_card": [
     "card_id",
