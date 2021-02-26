@@ -56,7 +56,7 @@ module Lokalise
       return params unless object_key
 
       params = [params] unless params.is_a?(Array)
-      Hash[object_key, params]
+      {object_key => params}
     end
 
     alias c_r construct_request

@@ -37,8 +37,8 @@ RSpec.describe Lokalise::Client do
 
     expect(order.order_id).to eq(order_id)
     expect(order.project_id).to eq(project_id)
-    expect(order.card_id).to eq(card_id.to_s)
-    expect(order.status).to eq('in progress')
+    expect(order.card_id).to eq(card_id)
+    expect(order.status).to eq('completed')
     expect(order.created_at).to eq('2019-03-19 18:18:21 (Etc/UTC)')
     expect(order.created_by).to eq(20_181)
     expect(order.created_by_email).to eq('bodrovis@protonmail.com')
@@ -52,6 +52,7 @@ RSpec.describe Lokalise::Client do
     expect(order.translation_tier_name).to eq('Professional translator')
     expect(order.briefing).to eq('Some briefing')
     expect(order.total).to eq(0.07)
+    expect(order.payment_method).to be_nil
   end
 
   specify '#reload_data' do
