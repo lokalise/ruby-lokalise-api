@@ -1,6 +1,6 @@
 # Changelog
 
-## 4.1.0 (26-Feb-21)
+## 4.1.0 (01-Mar-21)
 
 * Added `payment_method` and `dry_run` attributes to `Order`
 
