@@ -59,26 +59,27 @@ RSpec.describe Lokalise::Client do
 
   specify '#translation' do
     translation = VCR.use_cassette('translation') do
-      test_client.translation project_id, translation_id
+      test_client.translation project_id, 304_581_218
     end
 
-    expect(translation.translation_id).to eq(translation_id)
-    expect(translation.key_id).to eq(15_571_975)
-    expect(translation.language_iso).to eq('en')
-    expect(translation.modified_at).to eq('2019-03-26 16:41:31 (Etc/UTC)')
-    expect(translation.modified_at_timestamp).to eq(1_553_618_491)
+    expect(translation.translation_id).to eq(304_581_218)
+    expect(translation.key_id).to eq(44_596_059)
+    expect(translation.language_iso).to eq('ru')
+    expect(translation.modified_at).to eq('2020-05-15 10:44:42 (Etc/UTC)')
+    expect(translation.modified_at_timestamp).to eq(1_589_539_482)
     expect(translation.modified_by).to eq(20_181)
     expect(translation.modified_by_email).to eq('bodrovis@protonmail.com')
-    expect(translation.translation).to eq('RSpec is a testing suite')
+    expect(translation.translation).to eq('Сообщение')
     expect(translation.is_fuzzy).to eq(false)
     expect(translation.is_reviewed).to eq(false)
-    expect(translation.words).to eq(5)
+    expect(translation.words).to eq(1)
     expect(translation.custom_translation_statuses).to eq([])
+    expect(translation.task_id).to be_nil
   end
 
   specify '#reload_data' do
     translation = VCR.use_cassette('translation') do
-      test_client.translation project_id, translation_id
+      test_client.translation project_id, 304_581_218
     end
 
     reloaded_translation = VCR.use_cassette('translation') do

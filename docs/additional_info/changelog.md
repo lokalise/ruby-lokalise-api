@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.2.0 (28-Apr-21)
+
+* Added a `task_id` attribute for the `Translation` model
+* Drop official support for Ruby 2.5 which has reached the EOL
+* Minor code updates
+
 ## 4.1.0 (01-Mar-21)
 
 * Added `payment_method` and `dry_run` attributes to `Order`

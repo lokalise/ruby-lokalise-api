@@ -22,7 +22,8 @@ module Lokalise
       c_r Lokalise::Resources::File, :download, [project_id, 'download'], params
     end
 
-    # Imports translation file to the given project. File data must base64-encoded
+    # Imports translation file to the given project. File data must base64-encoded.
+    # To encode your data in Base64, use `Base64.strict_encode64()` method.
     #
     # @see https://app.lokalise.com/api2docs/curl/#transition-upload-a-file-post
     # @return [Hash]

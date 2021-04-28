@@ -22,6 +22,6 @@ class String
   end
 
   def remove_trailing_slash
-    gsub %r{/\z}, ''
+    delete_suffix '/'
   end
 end
