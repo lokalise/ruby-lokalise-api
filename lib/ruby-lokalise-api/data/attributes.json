@@ -210,7 +210,8 @@
     "is_fuzzy",
     "is_reviewed",
     "words",
-    "custom_translation_statuses"
+    "custom_translation_statuses",
+    "task_id"
   ],
   "translation_provider": [
     "provider_id",

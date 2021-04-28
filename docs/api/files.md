@@ -49,7 +49,9 @@ Starting from July 2020, **background uploading is the only method of importing 
                                         ## QueuedProcess resource
 ```
 
-A `QueuedProcess` resource will be returned. This resource contains a status of the import job, process ID to manually check the status, and some other attributes:
+To encode your data in Base64, use `Base64.strict_encode64()` method.
+
+After the uploading process is completed, a `QueuedProcess` resource will be returned. This resource contains a status of the import job, process ID to manually check the status, and some other attributes:
 
 ```ruby
 queued_process = @client.upload_file project_id,

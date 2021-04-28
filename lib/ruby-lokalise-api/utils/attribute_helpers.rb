@@ -47,9 +47,7 @@ module Lokalise
       #
       # @return [Array<String>]
       def attributes_for(klass)
-        @attributes ||= begin
-          YAML.load_file(File.expand_path('../data/attributes.json', __dir__)).freeze
-        end
+        @attributes ||= YAML.load_file(File.expand_path('../data/attributes.json', __dir__)).freeze
 
         name = unify klass.name.snakecase
         @attributes[name]
