@@ -3,6 +3,9 @@
 RSpec.describe Lokalise::Connection do
   include described_class
 
+  let(:project_id) { '803826145ba90b42d5d860.46800099' }
+  let(:key_id) { 44_596_059 }
+
   before { Lokalise.reset_client! }
 
   after do
@@ -10,11 +13,12 @@ RSpec.describe Lokalise::Connection do
     Faraday.default_adapter = :net_http
   end
 
-  it 'timeouts should not be set by default but the token must be present' do
+  it 'timeouts and compression should not be set by default but the token must be present' do
     conn = connection test_client
     expect(conn.options.timeout).to be_nil
     expect(conn.options.open_timeout).to be_nil
     expect(conn.headers['X-api-token']).to eq(test_client.token)
+    expect(conn.builder.handlers).not_to include(FaradayMiddleware::Gzip)
   end
 
   it 'allows to customize timeouts' do
@@ -41,5 +45,39 @@ RSpec.describe Lokalise::Connection do
     another_conn = connection test_client
     expect(another_conn.builder.adapter).to eq(Faraday::Adapter::Excon)
     expect(conn.builder.adapter).to eq(Faraday::Adapter::NetHttp)
+  end
+
+  it 'allows to customize compression' do
+    custom_client = Lokalise.client(ENV['LOKALISE_API_TOKEN'], enable_compression: true)
+    conn = connection custom_client
+    expect(conn.headers['X-api-token']).to eq(custom_client.token)
+    expect(conn.builder.handlers).to include(FaradayMiddleware::Gzip)
+  end
+
+  it 'is possible to enable gzip compression' do
+    gzip_client = Lokalise.client(ENV['LOKALISE_API_TOKEN'], enable_compression: true)
+    keys = VCR.use_cassette('all_keys_gzip') do
+      gzip_client.keys project_id
+    end.collection
+
+    expect(keys.first.key_id).to eq(key_id)
+  end
+
+  it 'is possible to disable gzip compression' do
+    no_gzip_client = Lokalise.client(ENV['LOKALISE_API_TOKEN'], enable_compression: false)
+    keys = VCR.use_cassette('all_keys_no_gzip') do
+      no_gzip_client.keys project_id
+    end.collection
+
+    expect(keys.first.key_id).to eq(key_id)
+  end
+
+  it 'gzip compression is off by default' do
+    default_gzip_client = Lokalise.client(ENV['LOKALISE_API_TOKEN'])
+    keys = VCR.use_cassette('all_keys_default_gzip') do
+      default_gzip_client.keys project_id
+    end.collection
+
+    expect(keys.first.key_id).to eq(key_id)
   end
 end

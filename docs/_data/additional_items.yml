@@ -7,6 +7,8 @@
       path: setting-timeouts
     - title: Customizing JSON parser
       path: customizing-json-parser
+    - title: Enabling compression
+      path: enabling-compression
 - title: Exception handling
   path: exception_handling
   sub_paths:

@@ -5,7 +5,16 @@ module Lokalise
     BASE_URL = 'https://api.lokalise.com/api2/'
 
     def connection(client)
-      options = {
+      Faraday.new(options(client), request_params_for(client)) do |faraday|
+        faraday.use(:gzip) if client.enable_compression
+        faraday.adapter Faraday.default_adapter
+      end
+    end
+
+    private
+
+    def options(client)
+      {
         headers: {
           accept: 'application/json',
           user_agent: "ruby-lokalise-api gem/#{Lokalise::VERSION}",
@@ -13,10 +22,7 @@ module Lokalise
         },
         url: BASE_URL
       }
-      Faraday.new(options, request_params_for(client)) { |faraday| faraday.adapter Faraday.default_adapter }
     end
-
-    private
 
     # Allows to customize request params per-client
     def request_params_for(client)
