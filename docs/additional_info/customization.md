@@ -56,3 +56,13 @@ module Lokalise
   end
 end
 ```
+
+## Enabling compression
+
+Lokalise API supports gzip compression but it's off by default. If you're working with large amounts of data it's a good idea to enable it by setting the `enable_compression` option to `true`:
+
+```ruby
+client = Lokalise.client('YOUR_TOKEN', enable_compression: true)
+```
+
+Now you can use the `client` as usual and the API responses will be uncompressed automatically.

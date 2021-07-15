@@ -1,0 +1,70 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.lokalise.com/api2/projects/803826145ba90b42d5d860.46800099/keys
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - ruby-lokalise-api gem/4.3.0
+      X-api-token:
+      - "<LOKALISE_TOKEN>"
+      Accept-Encoding:
+      - gzip,deflate,br
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx
+      date:
+      - Wed, 14 Jul 2021 12:50:36 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      vary:
+      - Accept-Encoding
+      cache-control:
+      - max-age=0, must-revalidate, no-cache, no-store, private
+      x-pagination-total-count:
+      - '75'
+      x-pagination-page-count:
+      - '1'
+      x-pagination-limit:
+      - '100'
+      x-pagination-page:
+      - '1'
+      pragma:
+      - no-cache
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      strict-transport-security:
+      - max-age=31536000
+      referrer-policy:
+      - origin
+      expires:
+      - Wed, 14 Jul 2021 12:50:36 GMT
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-headers:
+      - Content-Type
+      content-encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+  recorded_at: Wed, 14 Jul 2021 12:50:36 GMT
+recorded_with: VCR 6.0.0

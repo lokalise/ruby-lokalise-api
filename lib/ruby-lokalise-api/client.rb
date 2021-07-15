@@ -24,12 +24,13 @@ require 'ruby-lokalise-api/rest/webhooks'
 module Lokalise
   class Client
     attr_reader :token
-    attr_accessor :timeout, :open_timeout
+    attr_accessor :timeout, :open_timeout, :enable_compression
 
     def initialize(token, params = {})
       @token = token
       @timeout = params.fetch(:timeout, nil)
       @open_timeout = params.fetch(:open_timeout, nil)
+      @enable_compression = params.fetch(:enable_compression, false)
     end
 
     # rubocop:disable Metrics/ParameterLists
