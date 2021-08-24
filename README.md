@@ -47,4 +47,4 @@ Detailed documentation can be found at [lokalise.github.io/ruby-lokalise-api](ht
 
 This gem is licensed under the [BSD 3 Clause license](https://github.com/lokalise/ruby-lokalise-api/blob/master/LICENSE). Prior to version 4 the license type was MIT.
 
-Copyright (c) [Lokalise team](http://lokalise.co), [Ilya Bodrov](http://bodrovis.tech)
+Copyright (c) [Lokalise team](http://lokalise.co) and [Ilya Bodrov](http://bodrovis.tech)
