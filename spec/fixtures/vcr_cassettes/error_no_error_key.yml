@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.lokalise.com/api2/projects
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - ruby-lokalise-api gem/4.3.0
+      X-api-token:
+      - invalid
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      server:
+      - nginx
+      date:
+      - Tue, 21 Sep 2021 12:26:16 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=0, must-revalidate, no-cache, no-store, private
+      pragma:
+      - no-cache
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      strict-transport-security:
+      - max-age=31536000
+      referrer-policy:
+      - origin
+      expires:
+      - Tue, 21 Sep 2021 12:26:16 GMT
+    body:
+      encoding: UTF-8
+      string: '{"message":"Invalid `X-Api-Token` header","code":400}'
+  recorded_at: Tue, 21 Sep 2021 12:26:16 GMT
+recorded_with: VCR 6.0.0
