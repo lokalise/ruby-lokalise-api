@@ -39,7 +39,8 @@ module Lokalise
     class << self
       # Create a new error from an HTTP response
       def from_response(body)
-        new body['error']['message'].to_s
+        msg = body.key?('error') ? body['error']['message'] : body['message']
+        new msg.to_s
       end
     end
 

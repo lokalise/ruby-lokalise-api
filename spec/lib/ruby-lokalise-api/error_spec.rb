@@ -15,6 +15,14 @@ RSpec.describe Lokalise::Error do
     end.to raise_error(described_class)
   end
 
+  it 'handles an exception when the response does not contain an error key' do
+    expect do
+      VCR.use_cassette('error_no_error_key') do
+        get 'projects', Lokalise.client('invalid')
+      end
+    end.to raise_error(Lokalise::Error::BadRequest)
+  end
+
   it 'raises BadRequest when API token is invalid' do
     expect do
       VCR.use_cassette('error_invalid_token') do

@@ -58,7 +58,7 @@ module Lokalise
     def respond_with(response, client)
       body = custom_load response.body
       uri = Addressable::URI.parse response.env.url
-      respond_with_error(response.status, body) if body.respond_to?(:has_key?) && body.key?('error')
+      respond_with_error response.status, body if response.status.between?(400, 599) || (body.respond_to?(:has_key?) && body.key?('error'))
       extract_headers_from(response).
         merge('content' => body,
               'client' => client,
@@ -74,7 +74,7 @@ module Lokalise
     end
 
     def respond_with_error(code, body)
-      raise(Lokalise::Error, body['error']) unless Lokalise::Error::ERRORS.key? code
+      raise(Lokalise::Error, body['error'] || body) unless Lokalise::Error::ERRORS.key? code
 
       raise Lokalise::Error::ERRORS[code].from_response(body)
     end
