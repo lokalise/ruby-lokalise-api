@@ -13,6 +13,12 @@ RSpec.describe Lokalise::Connection do
     Faraday.default_adapter = :net_http
   end
 
+  it 'Authorization header must be present for OAuth client' do
+    conn = connection test_oauth_client
+    expect(conn.headers['Authorization']).to eq("Bearer #{test_client.token}")
+    expect(conn.headers['X-api-token']).to be_nil
+  end
+
   it 'timeouts and compression should not be set by default but the token must be present' do
     conn = connection test_client
     expect(conn.options.timeout).to be_nil

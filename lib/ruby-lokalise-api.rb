@@ -63,6 +63,7 @@ require 'ruby-lokalise-api/collections/custom_translation_status'
 require 'ruby-lokalise-api/collections/webhook'
 
 require 'ruby-lokalise-api/client'
+require 'ruby-lokalise-api/oauth_client'
 
 module Lokalise
   class << self
@@ -78,6 +79,20 @@ module Lokalise
     # Reset the currently set client
     def reset_client!
       @client = nil
+    end
+
+    # Initializes a new OAuthClient object
+    #
+    # @return [Lokalise::OAuthClient]
+    # @param token [String]
+    # @param params [Hash]
+    def oauth_client(token, params = {})
+      @oauth_client ||= Lokalise::OAuthClient.new token, params
+    end
+
+    # Reset the currently set OAuth client
+    def reset_oauth_client!
+      @oauth_client = nil
     end
   end
 end

@@ -23,7 +23,7 @@ require 'ruby-lokalise-api/rest/webhooks'
 
 module Lokalise
   class Client
-    attr_reader :token
+    attr_reader :token, :token_header
     attr_accessor :timeout, :open_timeout, :enable_compression
 
     def initialize(token, params = {})
@@ -31,6 +31,7 @@ module Lokalise
       @timeout = params.fetch(:timeout, nil)
       @open_timeout = params.fetch(:open_timeout, nil)
       @enable_compression = params.fetch(:enable_compression, false)
+      @token_header = 'x-api-token'
     end
 
     # rubocop:disable Metrics/ParameterLists

@@ -1,5 +1,20 @@
 # Changelog
 
+## 4.4.0
+
+* Added a new `.oauth_client` method for the `Lokalise` module. This method must be used when you're initializing a new API client with a **token obtained via OAuth 2 flow**, not by copy-pasting the token from the "Personal profile" section on Lokalise website. So in this case instead of saying `Lokalise.client`, you should do the following:
+
+```ruby
+Lokalise.oauth_client("TOKEN_OBTAINED_VIA_OAUTH2", params)
+```
+
+* `params` are the same as for the `.client` method.
+* Added a new `.reset_oauth_client!` method for the `Lokalise` module to reset the currently set `oauth_client`.
+
+```ruby
+Lokalise.reset_oauth_client! # effectively sets the `@oauth_client` to `nil`
+```
+
 ## 4.3.1 (21-Sep-21)
 
 * Make exception handling more solid
@@ -7,7 +22,7 @@
 
 ## 4.3.0 (15-Jul-21)
 
-* Added support for GZip compression. It is off by default but you can enable it by setting the `enable_compression` option to `true`:
+* Added support for GZip compression. It is off by default but you can enable it by setting the `:enable_compression` option to `true`:
 
 ```ruby
 client = Lokalise.client('YOUR_TOKEN', enable_compression: true)
