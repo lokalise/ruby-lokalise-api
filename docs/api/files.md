@@ -79,19 +79,19 @@ reloaded_process = @client.queued_process project_id, queued_process.process_id
 It is up to you to decide how to poll API for changes (remember that larger files will take more time to be imported), but here's a simple example:
 
 ```ruby
-def uploaded?(process)
+def uploaded?(q_process)
   5.times do # try to check the status 5 times
-    queued_process = queued_process.reload_data # load new data
-    return(true) if queued_process.status == 'finished' # return true is the upload has finished
+    q_process = q_process.reload_data # load new data
+    return(true) if q_process.status == 'finished' # return true is the upload has finished
     sleep 1 # wait for 1 second, adjust this number with regards to the upload size
   end
 
   false # if all 5 checks failed, return false (probably something is wrong)
 end
 
-queued_process = @client.upload_file project_id,
+process = @client.upload_file project_id,
                                      data: 'Base-64 encoded data... ZnI6DQogI...',
                                      filename: 'my_file.yml',
                                      lang_iso: 'en'
-uploaded? queued_process
+uploaded? process
 ```
