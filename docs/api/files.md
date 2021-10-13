@@ -81,8 +81,8 @@ It is up to you to decide how to poll API for changes (remember that larger file
 ```ruby
 def uploaded?(process)
   5.times do # try to check the status 5 times
-    queued_process = queued_process.reload_data # load new data
-    return(true) if queued_process.status == 'finished' # return true is the upload has finished
+    process = process.reload_data # load new data
+    return(true) if process.status == 'finished' # return true is the upload has finished
     sleep 1 # wait for 1 second, adjust this number with regards to the upload size
   end
 
