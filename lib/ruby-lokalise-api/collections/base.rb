@@ -19,11 +19,12 @@ module Lokalise
       def initialize(response, params = {})
         produce_collection_for response
         populate_pagination_data_for response
+        content = response['content']
         # Project, team id, user id, and branch may not be present in some cases
-        @project_id = response['content']['project_id']
-        @team_id = response['content']['team_id']
-        @user_id = response['content']['user_id']
-        @branch = response['content']['branch']
+        @project_id = content['project_id']
+        @team_id = content['team_id']
+        @user_id = content['user_id']
+        @branch = content['branch']
         @request_params = params
         @client = response['client']
         @path = response['path']

@@ -6,7 +6,8 @@ module Lokalise
       supports :update, :destroy, [:reload_data, '', :find]
 
       def merge(params = {})
-        self.class.merge @client, self.class.endpoint(project_id, branch_id, :merge), params
+        klass = self.class
+        klass.merge @client, klass.endpoint(project_id, branch_id, :merge), params
       end
 
       class << self
