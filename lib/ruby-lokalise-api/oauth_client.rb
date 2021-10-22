@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Lokalise
   class OAuthClient < Client
     def initialize(token, params = {})
