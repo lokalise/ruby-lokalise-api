@@ -58,7 +58,8 @@ module Lokalise
     def respond_with(response, client)
       body = custom_load response.body
       uri = Addressable::URI.parse response.env.url
-      respond_with_error response.status, body if response.status.between?(400, 599) || (body.respond_to?(:has_key?) && body.key?('error'))
+      status = response.status
+      respond_with_error status, body if status.between?(400, 599) || (body.respond_to?(:has_key?) && body.key?('error'))
       extract_headers_from(response).
         merge('content' => body,
               'client' => client,

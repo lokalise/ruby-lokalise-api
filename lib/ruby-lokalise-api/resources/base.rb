@@ -107,10 +107,11 @@ module Lokalise
         end
 
         def produce_resource(model_class, response)
+          content = response['content']
           data_key_singular = data_key_for model_class: model_class
-          if response['content'].key? data_key_singular
-            data = response['content'].delete data_key_singular
-            response['content'].merge! data
+          if content.key? data_key_singular
+            data = content.delete data_key_singular
+            content.merge! data
           end
 
           new response
@@ -156,9 +157,10 @@ module Lokalise
         # Sometimes there is an `id_key` but it has a value of `null`
         # (for example when we do not place the actual order but only check its price).
         # Therefore we must explicitly check if the key is present
-        return response['content'][id_key] if response['content'].key?(id_key)
+        content = response['content']
+        return content[id_key] if content.key?(id_key)
 
-        response['content'][data_key][id_key]
+        content[data_key][id_key]
       end
 
       # Store all resources attributes under the corresponding instance variables.

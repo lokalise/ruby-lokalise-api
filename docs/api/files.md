@@ -90,8 +90,8 @@ def uploaded?(q_process)
 end
 
 process = @client.upload_file project_id,
-                                     data: 'Base-64 encoded data... ZnI6DQogI...',
-                                     filename: 'my_file.yml',
-                                     lang_iso: 'en'
+                              data: 'Base-64 encoded data... ZnI6DQogI...',
+                              filename: 'my_file.yml',
+                              lang_iso: 'en'
 uploaded? process
 ```
