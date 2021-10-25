@@ -1,11 +1,11 @@
 # Changelog
 
-## 4.4.0
+## 4.4.0 (25-Oct-21)
 
 * Added a new `.oauth_client` method for the `Lokalise` module. This method must be used when you're initializing a new API client with a **token obtained via OAuth 2 flow**, not by copy-pasting the token from the "Personal profile" section on Lokalise website. So in this case instead of saying `Lokalise.client`, you should do the following:
 
 ```ruby
-Lokalise.oauth_client("TOKEN_OBTAINED_VIA_OAUTH2", params)
+@client = Lokalise.oauth_client("TOKEN_OBTAINED_VIA_OAUTH2", params)
 ```
 
 * `params` are the same as for the `.client` method.
