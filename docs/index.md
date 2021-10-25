@@ -29,7 +29,7 @@ process = @client.upload_file project_id,
 process.status
 {% endhighlight %}
 
-Looking for a Rails integration? Try the new [lokalise_rails gem](https://github.com/bodrovis/lokalise_rails).
+Looking for a Rails integration? Try the [lokalise_rails gem](https://github.com/bodrovis/lokalise_rails). Also you can use a [lokalise_manager gem](https://github.com/bodrovis/lokalise_manager) which allows to exchange translation files between Lokalise and *any* Ruby script.
 
 ## Usage
 

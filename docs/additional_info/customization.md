@@ -19,6 +19,8 @@ All supported adapters are listed [on Faraday official website](https://lostisla
 Request timeouts may be adjusted during client initialization:
 
 ```ruby
+# The same approach will work with the `.oauth_client` method:
+
 @client = Lokalise.client('YOUR_TOKEN', open_timeout: 100, timeout: 500)
 @client.open_timeout # => 100
 @client.timeout # => 500
@@ -62,6 +64,8 @@ end
 Lokalise API supports gzip compression but it's off by default. If you're working with large amounts of data it's a good idea to enable it by setting the `enable_compression` option to `true`:
 
 ```ruby
+# The same approach will work with the `.oauth_client` method:
+
 client = Lokalise.client('YOUR_TOKEN', enable_compression: true)
 ```
 

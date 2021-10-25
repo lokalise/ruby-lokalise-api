@@ -18,7 +18,7 @@ module Lokalise
         headers: {
           accept: 'application/json',
           user_agent: "ruby-lokalise-api gem/#{Lokalise::VERSION}",
-          'x-api-token': client.token
+          client.token_header => client.token
         },
         url: BASE_URL
       }

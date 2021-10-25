@@ -7,7 +7,7 @@
 
 Official opinionated Ruby interface for the [Lokalise API](https://app.lokalise.com/api2docs/curl/) that represents returned data as Ruby objects.
 
-Looking for a Rails integration? Try the new [lokalise_rails gem](https://github.com/bodrovis/lokalise_rails).
+Looking for a Rails integration? Try the [lokalise_rails gem](https://github.com/bodrovis/lokalise_rails). Also you can use a [lokalise_manager gem](https://github.com/bodrovis/lokalise_manager) which allows to exchange translation files between Lokalise and *any* Ruby script.
 
 ## Quickstart
 
@@ -37,6 +37,12 @@ process = @client.upload_file project_id,
                               lang_iso: 'en'
 
 process.status
+```
+
+Alternatively instantiate your client with an [OAuth2 token](http://docs.lokalise.com/en/articles/5574713-oauth-2):
+
+```ruby
+@client = Lokalise.oauth_client 'YOUR_OAUTH_TOKEN_HERE'
 ```
 
 ## Usage

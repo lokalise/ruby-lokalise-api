@@ -50,6 +50,8 @@ Style/Documentation:
 
 Layout/DotPosition:
   EnforcedStyle: trailing
+  # Temporarily disable as it causes an infinite loop
+  Enabled: false
 
 Naming/FileName:
   Enabled: false
