@@ -49,6 +49,8 @@ Alternatively instantiate your client with an [OAuth2 token](http://docs.lokalis
 
 Detailed documentation can be found at [lokalise.github.io/ruby-lokalise-api](https://lokalise.github.io/ruby-lokalise-api/).
 
+You can also check [this repo containing some usage examples](https://github.com/bodrovis-learning/Lokalise-APIv2-Samples).
+
 ## License
 
 This gem is licensed under the [BSD 3 Clause license](https://github.com/lokalise/ruby-lokalise-api/blob/master/LICENSE). Prior to version 4 the license type was MIT.
