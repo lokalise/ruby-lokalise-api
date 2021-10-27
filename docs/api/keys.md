@@ -15,6 +15,12 @@
                                         ## Collection of keys available in the given project
 ```
 
+For example:
+
+```ruby
+@client.keys project_id, limit: 2, page: 3
+```
+
 ## Fetch a single project key
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-key-get)
@@ -27,6 +33,12 @@
                                                 ### :disable_references (string) - possible values are "1" and "0".
                                                 # Output:
                                                 ## Project key
+```
+
+For example:
+
+```ruby
+@client.key project_id, 44_596_066, disable_references: 0
 ```
 
 ## Create project keys
@@ -42,6 +54,21 @@
                                           ### Find all other supported attributes at https://app.lokalise.com/api2docs/curl/#transition-create-keys-post
                                           # Output:
                                           ## Collection of newly created keys
+```
+
+For example:
+
+```ruby
+@client.create_keys project_id, [{key_name: 'first_key', platforms: %w[ios]},
+                                 {
+                                   key_name: 'second_key',
+                                   platforms: %w[web],
+                                   translations: [{
+                                     "language_iso": "en",
+                                     "translation": "Welcome"
+                                   }]
+                                 }
+                                ]
 ```
 
 ## Update project key
@@ -65,6 +92,12 @@ key = @client.key('project_id', 'key_id')
 key.update(params)
 ```
 
+For example:
+
+```ruby
+@client.update_key project_id, key_id, key_name: 'updated_key_name', description: 'Demo description'
+```
+
 ## Bulk update project keys
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-bulk-update-put)
@@ -79,7 +112,7 @@ key.update(params)
                                          ## Collection of updated keys
 ```
 
-Example:
+For example:
 
 ```ruby
 client.update_keys '123.abc', [
@@ -130,4 +163,10 @@ Alternatively:
 ```ruby
 keys = @client.keys('project_id')
 keys.destroy_all # => will effectively destroy all keys in the project
+```
+
+For example:
+
+```ruby
+@client.destroy_keys project_id, [1234, 5678]
 ```

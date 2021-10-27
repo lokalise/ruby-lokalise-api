@@ -15,6 +15,12 @@
                                                 ## Collection of team user groups
 ```
 
+For example:
+
+```ruby
+@client.team_user_groups team_id, limit: 1, page: 2
+```
+
 ## Fetch a single group
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-group-get)
@@ -44,6 +50,18 @@
                                                 ## Updated group
 ```
 
+For example:
+
+```ruby
+@client.create_team_user_group team_id, name: 'My group',
+                                        is_reviewer: false,
+                                        is_admin: false,
+                                        languages: {
+                                          reference: [123],
+                                          contributable: [640]
+                                        }
+```
+
 ## Update group
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-update-a-group-put)
@@ -67,6 +85,15 @@ Alternatively:
 ```ruby
 group = @client.team_user_group('team_id', 'group_id')
 group.update(params)
+```
+
+For example:
+
+```ruby
+@client.update_team_user_group team_id, second_group_id,
+                               name: 'Updated group',
+                               is_admin: true,
+                               is_reviewer: true
 ```
 
 ## Add projects to group

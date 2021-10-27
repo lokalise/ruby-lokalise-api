@@ -15,6 +15,12 @@
                                             ## Collection of comments available in the branches project
 ```
 
+For example:
+
+```ruby
+@client.branches project_id, limit: 1, page: 1
+```
+
 ## Fetch branch
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-branch-get)
@@ -40,6 +46,12 @@
                                             ## Created branch
 ```
 
+For example:
+
+```ruby
+@client.create_branch project_id, name: 'ruby-branch'
+```
+
 ## Update branch
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-update-a-branch-put)
@@ -59,6 +71,12 @@ Alternatively:
 ```ruby
 branch = @client.branch('project_id', 'branch_id')
 branch.update params
+```
+
+For example:
+
+```ruby
+@client.update_branch project_id, branch_id, name: 'updated-ruby-branch'
 ```
 
 ## Delete branch
@@ -98,4 +116,10 @@ Alternatively:
 ```ruby
 branch = @client.branch('project_id', 'branch_id')
 branch.merge params
+```
+
+For example:
+
+```ruby
+@client.merge_branch project_id, branch_id, force_conflict_resolve_using: 'master'
 ```

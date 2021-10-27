@@ -15,6 +15,12 @@
                                               ## Collection of project screenshots
 ```
 
+For example:
+
+```ruby
+@client.screenshots project_id, limit: 1, page: 1
+```
+
 ## Fetch a single screenshot
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-screenshot-get)
@@ -45,6 +51,12 @@
                                                    ## Collection of created screenshots
 ```
 
+For example:
+
+```ruby
+@client.create_screenshots project_id, data: 'data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAH0AAA...', title: 'My screen'
+```
+
 ## Update screenshot
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-update-a-screenshot-put)
@@ -67,6 +79,14 @@ Alternatively:
 ```ruby
 screenshot = @client.screenshot('project_id', 'screen_id')
 screenshot.update(params)
+```
+
+For example:
+
+```ruby
+@client.update_screenshot project_id, screenshot_id,
+                          tags: %w[demo sample],
+                          description: 'Sample screen'
 ```
 
 ## Delete screenshot

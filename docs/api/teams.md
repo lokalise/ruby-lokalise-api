@@ -11,3 +11,9 @@
                             # Output:
                             ## Collection of teams
 ```
+
+For example:
+
+```ruby
+@client.teams page: 2, limit: 1
+```

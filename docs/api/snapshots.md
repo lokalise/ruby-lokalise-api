@@ -16,6 +16,12 @@
                                             ## Collection of project snapshots
 ```
 
+For example:
+
+```ruby
+@client.snapshots project_id, limit: 1, page: 2
+```
+
 ## Create snapshot
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-create-a-snapshot-post)
@@ -27,6 +33,12 @@
                                                   ### :title (string)
                                                   # Output:
                                                   ## Created snapshot
+```
+
+For example:
+
+```ruby
+@client.create_snapshot project_id, title: 'My snapshot'
 ```
 
 ## Restore snapshot

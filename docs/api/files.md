@@ -15,6 +15,12 @@
                                         ## Collection of translation files available in the given project
 ```
 
+For example:
+
+```ruby
+@client.files project_id, limit: 1, page: 1
+```
+
 ## Download translation files
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-download-files-post)
@@ -29,6 +35,15 @@ Exports project files as a `.zip` bundle and makes them available to download (t
                                         ### Find the list of other supported params at https://app.lokalise.com/api2docs/curl/#transition-download-files-post
                                         # Output:
                                         ## Hash with the project id and a "bundle_url" link
+```
+
+For example:
+
+```ruby
+@client.download_files project_id,
+                       format: 'yaml',
+                       original_filenames: true,
+                       filter_langs: ['fr', 'en']
 ```
 
 ## Upload translation file

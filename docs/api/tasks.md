@@ -16,16 +16,22 @@
                                         ## Collection of tasks for the project
 ```
 
+For example:
+
+```ruby
+@client.tasks project_id, limit: 2, page: 2
+```
+
 ## Fetch a single task
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-task-get)
 
 ```ruby
-@client.task(project_id, task_id, params = {})  # Input:
-                                                ## project_id (string, required)
-                                                ## task_id (string, required)
-                                                # Output:
-                                                ## Single task for the project
+@client.task(project_id, task_id)  # Input:
+                                   ## project_id (string, required)
+                                   ## task_id (string, required)
+                                   # Output:
+                                   ## Single task for the project
 ```
 
 ## Create task
@@ -45,6 +51,19 @@
                                          # Output:
                                          ## A newly created task
 
+```
+
+For example:
+
+```ruby
+@client.create_task project_id, title: 'My first task',
+                                keys: [1234, 5678],
+                                languages: [
+                                  {
+                                    language_iso: 'ru',
+                                    users: ['20181']
+                                  }
+                                ]
 ```
 
 ## Update task
@@ -67,6 +86,12 @@ Alternatively:
 ```ruby
 task = @client.task('project_id', 'task_id')
 task.update(params)
+```
+
+For example:
+
+```ruby
+@client.update_task project_id, task_id, description: 'Updated task', auto_close_task: true
 ```
 
 ## Delete task

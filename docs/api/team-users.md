@@ -15,6 +15,12 @@
                                           ## Collection of team users
 ```
 
+For example:
+
+```ruby
+@client.team_users team_id, limit: 1, page: 3
+```
+
 ## Fetch a single team user
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-team-user-get)
@@ -46,6 +52,12 @@ Alternatively:
 ```ruby
 user = @client.team_user('team_id', 'user_id')
 user.update(params)
+```
+
+For example:
+
+```ruby
+@client.update_team_user team_id, team_user_id, role: 'admin'
 ```
 
 ## Delete team user

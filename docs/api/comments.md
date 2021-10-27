@@ -29,6 +29,12 @@
                                                     ## Collection of comments available for the specified key in the given project
 ```
 
+For example:
+
+```ruby
+@client.comments project_id, key_id, limit: 1, page: 2
+```
+
 ## Create key comments
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-create-comments-post)
@@ -41,6 +47,15 @@
                                                       ### :comment (string, required)
                                                       # Output:
                                                       ## Newly created comment
+```
+
+For example:
+
+```ruby
+@client.create_comments project_id, key_id, [
+  {comment: 'demo comment'},
+  {comment: 'another comment'}
+]
 ```
 
 ## Fetch key comment

@@ -17,6 +17,12 @@
                                                       ## Collection of translation statuses for the project
 ```
 
+For example:
+
+```ruby
+@client.translation_statuses project_id, limit: 1, page: 2
+```
+
 ## Fetch a single translation status
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-custom-translation-status-get)
@@ -43,6 +49,14 @@
                                                       ## Created translation status
 ```
 
+For example:
+
+```ruby
+@client.create_translation_status project_id,
+                                  title: "Demo status",
+                                  color: '#f2d600'
+```
+
 ## Update translation status
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-update-a-custom-translation-status-put)
@@ -63,6 +77,14 @@ Alternatively:
 ```ruby
 status = @client.translation_status(project_id, status_id)
 status.update(params)
+```
+
+For example:
+
+```ruby
+@client.update_translation_status project_id, status_id,
+                                  title: 'Updated status',
+                                  color: '#c377e0'
 ```
 
 ## Delete translation status

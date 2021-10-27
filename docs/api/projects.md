@@ -15,6 +15,12 @@
                                 ## Collection of projects under the `projects` attribute
 ```
 
+For example:
+
+```ruby
+@client.projects limit: 1, page: 2
+```
+
 ## Fetch a single project
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-project-get)
@@ -41,6 +47,12 @@
 
 ```
 
+For example:
+
+```ruby
+@client.create_project name: 'Demo project', description: 'My first project'
+```
+
 ## Update a project
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-update-a-project-put)
@@ -60,6 +72,14 @@ Alternatively:
 ```ruby
 project = @client.project('project_id')
 project.update(params)
+```
+
+For example:
+
+```ruby
+@client.update_project new_project_id,
+                       name: 'Updated project name',
+                       description: 'Updated project desc'
 ```
 
 ## Empty a project

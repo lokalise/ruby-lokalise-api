@@ -16,6 +16,13 @@
                                                 ## Collection of translations for the project
 ```
 
+For example:
+
+```ruby
+@client.translations project_id, limit: 4, page: 2, disable_references: 0,
+                                 filter_is_reviewed: 0
+```
+
 ## Fetch a single translation
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-translation-get)
@@ -51,4 +58,11 @@ Alternatively:
 ```ruby
 translation = @client.translation('project_id', 'translation_id')
 translation.update(params)
+```
+
+For example:
+
+```ruby
+@client.update_translation project_id, translation_id, translation: 'Updated translation',
+                                                       is_reviewed: true
 ```

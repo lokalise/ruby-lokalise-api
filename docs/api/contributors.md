@@ -13,6 +13,12 @@
                                                 ## Collection of contributors in the given project
 ```
 
+For example:
+
+```ruby
+@client.contributors project_id, limit: 1, page: 2
+```
+
 ## Fetch a single contributor
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-contributor-get)
@@ -45,6 +51,20 @@
                                                  ## Collection of newly created contributors
 ```
 
+For example:
+
+```ruby
+@client.create_contributors project_id,
+                            email: 'rspec@test.com',
+                            fullname: 'Rspec test',
+                            languages: [{
+                              lang_iso: 'en'
+                            },
+                            {
+                              lang_iso: 'ru'
+                            }]
+```
+
 ## Update contributor
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-update-a-contributor-put)
@@ -69,6 +89,12 @@ Alternatively:
 ```ruby
 contributor = @client.contributor('project_id', 'contributor_id')
 contributor.update(params)
+```
+
+For example:
+
+```ruby
+@client.update_contributor project_id, contributor_id, languages: [{lang_iso: 'en'}]
 ```
 
 ## Delete contributor

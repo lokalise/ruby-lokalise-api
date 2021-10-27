@@ -14,6 +14,12 @@
                                       ## Collection of payment cards under the `payment_cards` attribute
 ```
 
+For example:
+
+```ruby
+@client.payment_cards limit: 1, page: 1
+```
+
 ## Fetch a single payment card
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-card-get)
@@ -39,6 +45,15 @@
                                       # Output:
                                       ## A newly created payment card
 
+```
+
+For example:
+
+```ruby
+@client.create_payment_card number: '4242424242424242',
+                            cvc: '123',
+                            exp_month: 1,
+                            exp_year: 2030
 ```
 
 ## Delete a payment card

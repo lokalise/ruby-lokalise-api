@@ -14,6 +14,12 @@
                                         ## Collection of system languages supported by Lokalise
 ```
 
+For example:
+
+```ruby
+@client.system_languages limit: 10, page: 3
+```
+
 ## Fetch project languages
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-list-project-languages-get)
@@ -25,6 +31,12 @@
                                                       ### :page and :limit
                                                       # Output:
                                                       ## Collection of languages available in the given project
+```
+
+For example:
+
+```ruby
+@client.project_languages project_id, limit: 1, page: 2
 ```
 
 ## Fetch a single project language
@@ -55,6 +67,12 @@
                                                 ## Collection of newly created languages
 ```
 
+For example:
+
+```ruby
+@client.create_languages project_id, lang_iso: 'ab', custom_name: 'Demo lang'
+```
+
 ## Update project language
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-update-a-language-put)
@@ -76,6 +94,14 @@ Alternatively:
 ```ruby
 language = @client.language('project_id', 'lang_id')
 language.update(params)
+```
+
+For example:
+
+```ruby
+@client.update_language project_id, new_language_id,
+                        lang_name: 'Updated custom language',
+                        plural_forms: %w[one]
 ```
 
 ## Delete project language

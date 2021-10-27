@@ -15,6 +15,12 @@
                                           ## Collection of webhooks for the project
 ```
 
+For example:
+
+```ruby
+@client.webhooks project_id, limit: 1, page: 2
+```
+
 ## Fetch a single webhook
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-webhook-get)
@@ -42,6 +48,14 @@
                                               ## Created webhook
 ```
 
+For example:
+
+```ruby
+@client.create_webhook project_id,
+                       url: 'http://example.com',
+                       events: ['project.imported', 'project.exported']
+```
+
 ## Update webhook
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-update-a-webhook-put)
@@ -63,6 +77,14 @@ Alternatively:
 ```ruby
 webhook = @client.webhook(project_id, webhook_id)
 webhook.update(params)
+```
+
+For example:
+
+```ruby
+@client.update_webhook project_id,
+                       new_webhook_id,
+                       url: 'http://updated.example.com'
 ```
 
 ## Delete webhook

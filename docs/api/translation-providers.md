@@ -15,6 +15,12 @@
                                                       ## Collection of providers for the team
 ```
 
+For example:
+
+```ruby
+@client.translation_providers team_id, limit: 1, page: 2
+```
+
 ## Fetch a single translation provider
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-provider-get)

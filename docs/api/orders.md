@@ -15,6 +15,12 @@
                                       ## Collection of orders for the given team
 ```
 
+For example:
+
+```ruby
+@client.orders team_id, limit: 1, page: 1
+```
+
 ## Fetch a single order
 
 [Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-an-order-get)
@@ -48,4 +54,24 @@
                                        # Output:
                                        ## A newly created order
 
+```
+
+For example:
+
+```ruby
+@client.create_order team_id,
+                     project_id: project_id,
+                     card_id: payment_card_id,
+                     briefing: 'Some briefing',
+                     source_language_iso: 'en',
+                     target_language_isos: [
+                       'ru'
+                     ],
+                     keys: [
+                       1234,
+                       5678 
+                     ],
+                     provider_slug: 'gengo',
+                     translation_tier: '1',
+                     dry_run: true
 ```
