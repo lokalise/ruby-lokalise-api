@@ -3,10 +3,8 @@ language: ruby
 rvm:
 - 2.6.8
 - 2.7.4
-- 3.0.2
 
 install: bundle install --retry=3
 
 before_install:
-  - sudo apt-get update && sudo apt-get install apt-transport-https ca-certificates -y && sudo update-ca-certificates
   - gem update bundler
