@@ -3,7 +3,7 @@
 module Lokalise
   module Resources
     class CustomTranslationStatus < Base
-      ID_KEY = 'status'
+      ID_KEY = 'status_id'
       supports :update, :destroy, [:reload_data, '', :find]
 
       class << self

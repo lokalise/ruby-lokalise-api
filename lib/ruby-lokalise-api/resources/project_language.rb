@@ -4,7 +4,7 @@ module Lokalise
   module Resources
     class ProjectLanguage < Base
       DATA_KEY = 'Language'
-      ID_KEY = 'lang'
+      ID_KEY = 'lang_id'
       supports :update, :destroy, [:reload_data, '', :find]
 
       class << self

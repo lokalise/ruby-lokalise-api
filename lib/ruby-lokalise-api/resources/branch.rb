@@ -3,6 +3,7 @@
 module Lokalise
   module Resources
     class Branch < Base
+      ID_KEY = 'branch_id'
       supports :update, :destroy, [:reload_data, '', :find]
 
       def merge(params = {})

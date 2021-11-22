@@ -40,7 +40,7 @@ module Lokalise
       # @return [String]
       # @param model_class [String]
       def id_key_for(model_class)
-        "#{get_key(name: 'ID_KEY', model_class: model_class)}_id"
+        get_key name: 'ID_KEY', model_class: model_class
       end
 
       # Loads attributes for the given resource based on its name

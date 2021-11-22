@@ -3,6 +3,7 @@
 module Lokalise
   module Resources
     class Snapshot < Base
+      ID_KEY = 'snapshot_id'
       supports :destroy
 
       def restore

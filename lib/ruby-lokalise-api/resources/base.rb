@@ -8,7 +8,7 @@ module Lokalise
       include Lokalise::Utils::AttributeHelpers
       extend Lokalise::Utils::EndpointHelpers
 
-      attr_reader :raw_data, :project_id, :client, :path, :branch, :user_id, :team_id
+      attr_reader :raw_data, :project_id, :client, :path, :branch, :user_id, :team_id, :key_id
 
       # Initializes a new resource based on the response.
       # `endpoint_generator` is used in cases when a new instance is generated
@@ -156,9 +156,11 @@ module Lokalise
         # Content may be `{"project_id": '123', ...}` or {"snapshot": {"snapshot_id": '123', ...}}
         # Sometimes there is an `id_key` but it has a value of `null`
         # (for example when we do not place the actual order but only check its price).
+        # In rare cases the actual identifier does not have an "_id" suffix
+        # (for segments that have "segment_number" field instead)
         # Therefore we must explicitly check if the key is present
         content = response['content']
-        return content[id_key] if content.key?(id_key)
+        return content[id_key] if content.respond_to?(:key?) && content&.key?(id_key)
 
         content[data_key][id_key]
       end
@@ -187,6 +189,7 @@ module Lokalise
         @project_id ||= content['project_id']
         @user_id ||= content['user_id']
         @team_id ||= content['team_id']
+        @key_id ||= content['key_id']
         @branch ||= content['branch']
       end
       # rubocop:enable Naming/MemoizedInstanceVariableName

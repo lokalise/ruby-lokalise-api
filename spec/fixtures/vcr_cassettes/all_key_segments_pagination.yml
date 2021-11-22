@@ -1,0 +1,64 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.lokalise.com/api2/projects/39066161618d4ecb9fdc12.00274309/keys/129358815/segments/en?disable_references=1&limit=2&page=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - ruby-lokalise-api gem/4.4.0
+      x-api-token:
+      - "<LOKALISE_TOKEN>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx
+      date:
+      - Mon, 22 Nov 2021 16:39:45 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      vary:
+      - Accept-Encoding
+      cache-control:
+      - max-age=0, must-revalidate, no-cache, no-store, private
+      pragma:
+      - no-cache
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      strict-transport-security:
+      - max-age=31536000
+      referrer-policy:
+      - origin
+      expires:
+      - Mon, 22 Nov 2021 16:39:45 GMT
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-headers:
+      - Content-Type
+    body:
+      encoding: ASCII-8BIT
+      string: '{"project_id":"39066161618d4ecb9fdc12.00274309","key_id":129358815,"language_iso":"en","segments":[{"segment_number":1,"language_iso":"en","value":"Hello!","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2021-11-22
+        16:25:54 (Etc\/UTC)","modified_at_timestamp":1637598354,"is_reviewed":false,"reviewed_by":0,"is_fuzzy":false,"words":1,"custom_translation_statuses":[]},{"segment_number":2,"language_iso":"en","value":"This
+        is just a simple text.","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2021-11-22
+        16:25:54 (Etc\/UTC)","modified_at_timestamp":1637598354,"is_reviewed":false,"reviewed_by":0,"is_fuzzy":false,"words":6,"custom_translation_statuses":[]},{"segment_number":3,"language_iso":"en","value":"It
+        is segmented.","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2021-11-22
+        16:25:54 (Etc\/UTC)","modified_at_timestamp":1637598354,"is_reviewed":false,"reviewed_by":0,"is_fuzzy":false,"words":3,"custom_translation_statuses":[]},{"segment_number":4,"language_iso":"en","value":"So
+        good.","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2021-11-22
+        16:25:54 (Etc\/UTC)","modified_at_timestamp":1637598354,"is_reviewed":false,"reviewed_by":0,"is_fuzzy":false,"words":2,"custom_translation_statuses":[]}]}'
+  recorded_at: Mon, 22 Nov 2021 16:39:44 GMT
+recorded_with: VCR 6.0.0

@@ -3,6 +3,7 @@
 module Lokalise
   module Resources
     class Screenshot < Base
+      ID_KEY = 'screenshot_id'
       supports :update, :destroy, [:reload_data, '', :find]
 
       class << self

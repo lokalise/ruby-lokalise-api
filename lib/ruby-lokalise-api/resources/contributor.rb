@@ -3,7 +3,7 @@
 module Lokalise
   module Resources
     class Contributor < Base
-      ID_KEY = 'user'
+      ID_KEY = 'user_id'
       supports :update, :destroy, [:reload_data, '', :find]
 
       class << self

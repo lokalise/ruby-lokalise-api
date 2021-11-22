@@ -3,6 +3,7 @@
 module Lokalise
   module Resources
     class Translation < Base
+      ID_KEY = 'translation_id'
       supports :update, [:reload_data, '', :find]
 
       class << self

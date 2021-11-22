@@ -134,6 +134,20 @@
     "created_at",
     "created_at_timestamp"
   ],
+  "segment": [
+    "segment_number",
+    "language_iso",
+    "modified_at",
+    "modified_at_timestamp",
+    "modified_by",
+    "modified_by_email",
+    "value",
+    "is_fuzzy",
+    "is_reviewed",
+    "reviewed_by",
+    "words",
+    "custom_translation_statuses"
+  ],
   "snapshot": [
     "snapshot_id",
     "title",
