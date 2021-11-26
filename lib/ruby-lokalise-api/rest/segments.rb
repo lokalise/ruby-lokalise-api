@@ -37,7 +37,7 @@ module Lokalise
     # @params segment_number [Integer, String]
     # @param params [Hash]
     def update_segment(project_id, key_id, lang_iso, segment_number, params = {})
-      c_r Lokalise::Resources::Segment, :create, [project_id, key_id, lang_iso, segment_number], params
+      c_r Lokalise::Resources::Segment, :post, [project_id, key_id, lang_iso, segment_number], params
     end
   end
 end

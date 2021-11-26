@@ -21,7 +21,7 @@ http_interactions:
       server:
       - nginx
       date:
-      - Mon, 22 Nov 2021 17:04:42 GMT
+      - Fri, 26 Nov 2021 14:33:48 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -45,15 +45,15 @@ http_interactions:
       referrer-policy:
       - origin
       expires:
-      - Mon, 22 Nov 2021 17:04:42 GMT
+      - Fri, 26 Nov 2021 14:33:48 GMT
       access-control-allow-origin:
       - "*"
       access-control-allow-headers:
       - Content-Type
     body:
       encoding: ASCII-8BIT
-      string: '{"project_id":"39066161618d4ecb9fdc12.00274309","key_id":129358815,"language_iso":"en","segment":{"segment_number":4,"language_iso":"en","value":"So
-        good.","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2021-11-22
-        16:25:54 (Etc\/UTC)","modified_at_timestamp":1637598354,"is_reviewed":false,"reviewed_by":0,"is_fuzzy":false,"words":2,"custom_translation_statuses":[]}}'
-  recorded_at: Mon, 22 Nov 2021 17:04:41 GMT
+      string: '{"project_id":"39066161618d4ecb9fdc12.00274309","key_id":129358815,"language_iso":"en","segment":{"segment_number":4,"language_iso":"en","value":"Chain
+        Updated","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2021-11-26
+        14:31:59 (Etc\/UTC)","modified_at_timestamp":1637937119,"is_reviewed":false,"reviewed_by":0,"is_fuzzy":true,"words":2,"custom_translation_statuses":[]}}'
+  recorded_at: Fri, 26 Nov 2021 14:33:49 GMT
 recorded_with: VCR 6.0.0

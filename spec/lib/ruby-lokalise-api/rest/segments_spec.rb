@@ -13,19 +13,6 @@ RSpec.describe Lokalise::Client do
       expect(segments.count).to eq(4)
       expect(segments.first.value).to eq('Hello!')
     end
-
-    # it 'supports pagination' do
-    #   segments = VCR.use_cassette('all_key_segments_pagination') do
-    #     test_client.segments project_id, key_id, 'en', disable_references: '1', page: 2, limit: 2
-    #   end
-
-    #   expect(segments.collection.count).to eq(2)
-    #   expect(segments.total_results).to eq(4)
-    #   expect(segments.total_pages).to eq(2)
-    #   expect(segments.results_per_page).to eq(2)
-    #   expect(segments.current_page).to eq(2)
-    #   #expect(segments.collection.first.name).to eq('ruby-branch')
-    # end
   end
 
   describe '#segment' do
