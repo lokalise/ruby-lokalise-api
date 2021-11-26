@@ -3,6 +3,8 @@
 module Lokalise
   module Utils
     module AttributeHelpers
+      using Lokalise::Utils::StringUtils
+
       UNIFIED_RESOURCES = %w[comment language].freeze
 
       # Returns the name of the API resource for the given class.
