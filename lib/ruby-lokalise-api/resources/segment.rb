@@ -5,7 +5,7 @@ module Lokalise
     class Segment < Base
       DATA_KEY = 'Segment'
       ID_KEY = 'segment_number'
-      supports [:update, '', :create], [:reload_data, '', :find]
+      supports :update, [:reload_data, '', :find]
 
       class << self
         def endpoint(project_id, key_id, lang_iso, segment_number = nil)

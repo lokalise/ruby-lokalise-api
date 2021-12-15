@@ -21,7 +21,7 @@ http_interactions:
       server:
       - nginx
       date:
-      - Fri, 26 Nov 2021 14:33:48 GMT
+      - Wed, 15 Dec 2021 17:25:00 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -44,8 +44,10 @@ http_interactions:
       - max-age=31536000
       referrer-policy:
       - origin
+      x-lokalise-process-id:
+      - 9a1752ae-8dcd-4870-9ad5-b1bf4d970408
       expires:
-      - Fri, 26 Nov 2021 14:33:48 GMT
+      - Wed, 15 Dec 2021 17:25:00 GMT
       access-control-allow-origin:
       - "*"
       access-control-allow-headers:
@@ -54,6 +56,6 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"project_id":"39066161618d4ecb9fdc12.00274309","key_id":129358815,"language_iso":"en","segment":{"segment_number":4,"language_iso":"en","value":"Chain
         Updated","modified_by":20181,"modified_by_email":"bodrovis@protonmail.com","modified_at":"2021-11-26
-        14:31:59 (Etc\/UTC)","modified_at_timestamp":1637937119,"is_reviewed":false,"reviewed_by":0,"is_fuzzy":true,"words":2,"custom_translation_statuses":[]}}'
-  recorded_at: Fri, 26 Nov 2021 14:33:49 GMT
+        14:33:48 (Etc\/UTC)","modified_at_timestamp":1637937228,"is_reviewed":false,"reviewed_by":0,"is_fuzzy":true,"words":2,"custom_translation_statuses":[]}}'
+  recorded_at: Wed, 15 Dec 2021 17:25:00 GMT
 recorded_with: VCR 6.0.0
