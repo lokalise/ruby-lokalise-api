@@ -1,0 +1,60 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.lokalise.com/api2/teams/176692/billing_details
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - ruby-lokalise-api gem/4.5.0
+      x-api-token:
+      - "<LOKALISE_TOKEN>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx
+      date:
+      - Wed, 15 Dec 2021 17:45:27 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      vary:
+      - Accept-Encoding
+      cache-control:
+      - max-age=0, must-revalidate, no-cache, no-store, private
+      pragma:
+      - no-cache
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      strict-transport-security:
+      - max-age=31536000
+      referrer-policy:
+      - origin
+      x-lokalise-process-id:
+      - 5ef1efa9-b664-4549-ba96-cbcd09828678
+      expires:
+      - Wed, 15 Dec 2021 17:45:27 GMT
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-headers:
+      - Content-Type
+    body:
+      encoding: ASCII-8BIT
+      string: '{"company":"Self-employed","address1":"Sample line 1","address2":"Sample
+        line 2","city":"Riga","zip":"LV-6543","phone":"+371123456","vatnumber":"123","country_code":"LV","billing_email":"hello@example.com","state_code":""}'
+  recorded_at: Wed, 15 Dec 2021 17:45:27 GMT
+recorded_with: VCR 6.0.0

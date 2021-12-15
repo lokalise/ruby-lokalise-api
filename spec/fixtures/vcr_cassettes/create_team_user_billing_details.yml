@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.lokalise.com/api2/teams/273879/billing_details
+    body:
+      encoding: UTF-8
+      string: '{"billing_email":"ruby@example.com","country_code":"LV","zip":"LV-1111"}'
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - ruby-lokalise-api gem/4.5.0
+      x-api-token:
+      - "<LOKALISE_TOKEN>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx
+      date:
+      - Wed, 15 Dec 2021 19:38:20 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      vary:
+      - Accept-Encoding
+      cache-control:
+      - max-age=0, must-revalidate, no-cache, no-store, private
+      pragma:
+      - no-cache
+      allow:
+      - GET
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      strict-transport-security:
+      - max-age=31536000
+      referrer-policy:
+      - origin
+      x-lokalise-process-id:
+      - e0200745-acdf-4e1c-a6e9-8bc7558dcc1f
+      expires:
+      - Wed, 15 Dec 2021 19:38:20 GMT
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-headers:
+      - Content-Type
+    body:
+      encoding: ASCII-8BIT
+      string: '{"company":"","address1":"","address2":"","city":"","zip":"LV-1111","phone":"","vatnumber":null,"country_code":"LV","billing_email":"ruby@example.com","state_code":""}'
+  recorded_at: Wed, 15 Dec 2021 19:38:21 GMT
+recorded_with: VCR 6.0.0

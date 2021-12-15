@@ -1,5 +1,12 @@
 # Changelog
 
+## 4.5.0
+
+* Added support for [`Segments` endpoint](https://app.lokalise.com/api2docs/curl/#resource-segments)
+* Added support for [`TeamUserBillingDetails` endpoint](https://app.lokalise.com/api2docs/curl/#resource-team-user-billing-details)
+* Test with more recent Rubies
+* Various code updates
+
 ## 4.4.0 (25-Oct-21)
 
 * Added a new `.oauth_client` method for the `Lokalise` module. This method must be used when you're initializing a new API client with a **token obtained via OAuth 2 flow**, not by copy-pasting the token from the "Personal profile" section on Lokalise website. So in this case instead of saying `Lokalise.client`, you should do the following:
