@@ -3,12 +3,14 @@
 module Lokalise
   module Resources
     class Base
+      using Lokalise::Utils::StringUtils
+
       extend Lokalise::Request
       extend Lokalise::Utils::AttributeHelpers
       include Lokalise::Utils::AttributeHelpers
       extend Lokalise::Utils::EndpointHelpers
 
-      attr_reader :raw_data, :project_id, :client, :path, :branch, :user_id, :team_id
+      attr_reader :raw_data, :project_id, :client, :path, :branch, :user_id, :team_id, :key_id
 
       # Initializes a new resource based on the response.
       # `endpoint_generator` is used in cases when a new instance is generated
@@ -132,7 +134,7 @@ module Lokalise
 
       def path_with_id(response, id_key, data_key, endpoint_generator = nil)
         # Some resources do not have ids at all
-        return nil unless response['content'].key?(id_key) || response['content'].key?(data_key)
+        return unless response['content'] && (response['content'].key?(id_key) || response['content'].key?(data_key))
 
         # ID of the resource
         id = id_from response, id_key, data_key
@@ -156,9 +158,11 @@ module Lokalise
         # Content may be `{"project_id": '123', ...}` or {"snapshot": {"snapshot_id": '123', ...}}
         # Sometimes there is an `id_key` but it has a value of `null`
         # (for example when we do not place the actual order but only check its price).
+        # In rare cases the actual identifier does not have an "_id" suffix
+        # (for segments that have "segment_number" field instead)
         # Therefore we must explicitly check if the key is present
         content = response['content']
-        return content[id_key] if content.key?(id_key)
+        return content[id_key] if content.respond_to?(:key?) && content&.key?(id_key)
 
         content[data_key][id_key]
       end
@@ -166,6 +170,8 @@ module Lokalise
       # Store all resources attributes under the corresponding instance variables.
       # `ATTRIBUTES` is defined inside resource-specific classes
       def populate_attributes_for(content)
+        return unless content
+
         data_key = data_key_for model_class: self.class.name.base_class_name
 
         self.class.const_get(:ATTRIBUTES).each do |attr|
@@ -183,10 +189,13 @@ module Lokalise
       # Some of them may be absent in certain cases.
       # rubocop:disable Naming/MemoizedInstanceVariableName
       def extract_common_attributes_for(content)
+        return unless content
+
         @raw_data = content
         @project_id ||= content['project_id']
         @user_id ||= content['user_id']
         @team_id ||= content['team_id']
+        @key_id ||= content['key_id']
         @branch ||= content['branch']
       end
       # rubocop:enable Naming/MemoizedInstanceVariableName

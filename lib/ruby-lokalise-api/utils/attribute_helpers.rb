@@ -3,6 +3,8 @@
 module Lokalise
   module Utils
     module AttributeHelpers
+      using Lokalise::Utils::StringUtils
+
       UNIFIED_RESOURCES = %w[comment language].freeze
 
       # Returns the name of the API resource for the given class.
@@ -40,7 +42,7 @@ module Lokalise
       # @return [String]
       # @param model_class [String]
       def id_key_for(model_class)
-        "#{get_key(name: 'ID_KEY', model_class: model_class)}_id"
+        get_key name: 'ID_KEY', model_class: model_class
       end
 
       # Loads attributes for the given resource based on its name

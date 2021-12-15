@@ -4,7 +4,7 @@ module Lokalise
   module Resources
     class TeamUserGroup < Base
       DATA_KEY = 'Group'
-      ID_KEY = 'group'
+      ID_KEY = 'group_id'
       supports :update, :destroy,
                [:add_projects, '/projects/add', :update],
                [:remove_projects, '/projects/remove', :update],

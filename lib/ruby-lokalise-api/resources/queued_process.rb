@@ -4,7 +4,7 @@ module Lokalise
   module Resources
     class QueuedProcess < Base
       DATA_KEY = 'Process'
-      ID_KEY = 'process'
+      ID_KEY = 'process_id'
       supports [:reload_data, '', :find]
 
       class << self

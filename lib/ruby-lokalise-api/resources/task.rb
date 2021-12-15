@@ -3,6 +3,7 @@
 module Lokalise
   module Resources
     class Task < Base
+      ID_KEY = 'task_id'
       supports :update, :destroy, [:reload_data, '', :find]
 
       class << self

@@ -4,7 +4,7 @@ module Lokalise
   module Resources
     class TranslationProvider < Base
       supports [:reload_data, '', :find]
-      ID_KEY = 'provider'
+      ID_KEY = 'provider_id'
 
       class << self
         def endpoint(team_id, provider_id = nil)

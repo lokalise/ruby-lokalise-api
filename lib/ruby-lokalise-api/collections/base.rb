@@ -3,6 +3,8 @@
 module Lokalise
   module Collections
     class Base
+      using Lokalise::Utils::StringUtils
+
       extend Lokalise::Request
       extend Lokalise::Utils::AttributeHelpers
       include Lokalise::Utils::AttributeHelpers
@@ -19,15 +21,8 @@ module Lokalise
       def initialize(response, params = {})
         produce_collection_for response
         populate_pagination_data_for response
-        content = response['content']
-        # Project, team id, user id, and branch may not be present in some cases
-        @project_id = content['project_id']
-        @team_id = content['team_id']
-        @user_id = content['user_id']
-        @branch = content['branch']
         @request_params = params
-        @client = response['client']
-        @path = response['path']
+        popular_common_attrs response
       end
 
       class << self
@@ -91,6 +86,8 @@ module Lokalise
       # Dynamically produces collection of resources based on the given response
       # Collection example: `{ "content": {"comments": [ ... ]} }`
       def produce_collection_for(response)
+        return unless response['content']
+
         model_class = self.class.name.base_class_name
         data_key_plural = data_key_for model_class: model_class, plural: true, collection: true
 
@@ -101,6 +98,20 @@ module Lokalise
                                                                       'client' => response['client'],
                                                                       'base_path' => response['path']
         end
+      end
+
+      def popular_common_attrs(response)
+        @client = response['client']
+        @path = response['path']
+
+        return unless response['content']
+
+        content = response['content']
+        # Project, team id, user id, and branch may not be present in some cases
+        @project_id = content['project_id']
+        @team_id = content['team_id']
+        @user_id = content['user_id']
+        @branch = content['branch']
       end
     end
   end

@@ -3,6 +3,7 @@
 module Lokalise
   module Resources
     class PaymentCard < Base
+      ID_KEY = 'card_id'
       supports :destroy, [:reload_data, '', :find]
 
       class << self

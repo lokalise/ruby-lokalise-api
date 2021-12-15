@@ -3,6 +3,7 @@
 module Lokalise
   module Resources
     class Key < Base
+      ID_KEY = 'key_id'
       supports :update, :destroy, [:reload_data, '', :find]
 
       class << self

@@ -20,6 +20,7 @@ require 'ruby-lokalise-api/rest/translation_providers'
 require 'ruby-lokalise-api/rest/team_user_group'
 require 'ruby-lokalise-api/rest/custom_translation_statuses'
 require 'ruby-lokalise-api/rest/webhooks'
+require 'ruby-lokalise-api/rest/segments'
 
 module Lokalise
   class Client

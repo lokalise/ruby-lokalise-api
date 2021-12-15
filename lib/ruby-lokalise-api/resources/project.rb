@@ -3,6 +3,7 @@
 module Lokalise
   module Resources
     class Project < Base
+      ID_KEY = 'project_id'
       supports :update, :destroy, [:reload_data, '', :find]
 
       def empty

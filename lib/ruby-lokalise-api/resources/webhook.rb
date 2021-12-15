@@ -3,6 +3,7 @@
 module Lokalise
   module Resources
     class Webhook < Base
+      ID_KEY = 'webhook_id'
       supports :update, :destroy, [:reload_data, '', :find]
 
       def regenerate_secret

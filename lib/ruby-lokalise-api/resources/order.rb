@@ -3,6 +3,7 @@
 module Lokalise
   module Resources
     class Order < Base
+      ID_KEY = 'order_id'
       supports [:reload_data, '', :find]
 
       class << self

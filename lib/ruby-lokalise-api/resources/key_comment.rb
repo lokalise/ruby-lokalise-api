@@ -4,7 +4,7 @@ module Lokalise
   module Resources
     class KeyComment < Base
       DATA_KEY = 'Comment'
-      ID_KEY = 'comment'
+      ID_KEY = 'comment_id'
       supports :destroy, [:reload_data, '', :find]
 
       class << self
