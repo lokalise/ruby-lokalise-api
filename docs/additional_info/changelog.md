@@ -1,9 +1,9 @@
 # Changelog
 
-## 4.5.0
+## 4.5.0 (16-Dec-21)
 
-* Added support for [`Segments` endpoint](https://app.lokalise.com/api2docs/curl/#resource-segments)
-* Added support for [`TeamUserBillingDetails` endpoint](https://app.lokalise.com/api2docs/curl/#resource-team-user-billing-details)
+* Added support for the [`Segments` endpoint](https://lokalise.github.io/ruby-lokalise-api/api/segments)
+* Added support for the [`TeamUserBillingDetails` endpoint](https://lokalise.github.io/ruby-lokalise-api/api/team-user-billing-details)
 * Test with more recent Rubies
 * Various code updates
 
