@@ -38,6 +38,7 @@ require 'ruby-lokalise-api/resources/team_user_group'
 require 'ruby-lokalise-api/resources/custom_translation_status'
 require 'ruby-lokalise-api/resources/webhook'
 require 'ruby-lokalise-api/resources/segment'
+require 'ruby-lokalise-api/resources/team_user_billing_details'
 
 require 'ruby-lokalise-api/collections/base'
 require 'ruby-lokalise-api/collections/branch'

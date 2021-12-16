@@ -199,6 +199,15 @@
       path: update-team-user
     - title: Delete team user
       path: delete-team-user
+- title: Team user billing details
+  path: team-user-billing-details
+  sub_paths:
+    - title: Fetch team user billing details
+      path: fetch-team-user-billing-details
+    - title: Create team user billing details
+      path: create-team-user-billing-details
+    - title: Update team user billing details
+      path: update-team-user-billing-details
 - title: Team user groups
   path: team-user-groups
   sub_paths:
