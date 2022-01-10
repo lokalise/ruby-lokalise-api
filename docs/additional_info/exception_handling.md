@@ -10,7 +10,7 @@ The gem may raise the following custom exceptions:
 * `Lokalise::Error::Unauthorized` (`401`) - token is missing or incorrect
 * `Lokalise::Error::Forbidden` (`403`) - authenticated user does not have sufficient rights to perform the desired action
 * `Lokalise::Error::NotFound` (`404`) - the provided endpoint (resource) cannot be found
-* `Lokalise::Error::MethodNowAllowed` (`405`) - HTTP request with the provided verb is not supported by the endpoint
+* `Lokalise::Error::MethodNotAllowed` (`405`) - HTTP request with the provided verb is not supported by the endpoint
 * `Lokalise::Error::NotAcceptable` (`406`) - posted resource is malformed
 * `Lokalise::Error::Conflict` (`409`) - request conflicts with another request
 * `Lokalise::Error::Locked` (`423`) - your token is used simultaneously in multiple requests
