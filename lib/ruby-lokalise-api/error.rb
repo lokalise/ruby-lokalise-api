@@ -13,7 +13,7 @@ module Lokalise
     TooManyRequests = Class.new(ClientError)
     Forbidden = Class.new(ClientError)
     Locked = Class.new(ClientError)
-    MethodNowAllowed = Class.new(ClientError)
+    MethodNotAllowed = Class.new(ClientError)
 
     NotImplemented = Class.new(ServerError)
     BadGateway = Class.new(ServerError)
@@ -25,7 +25,7 @@ module Lokalise
       401 => Lokalise::Error::Unauthorized,
       403 => Lokalise::Error::Forbidden,
       404 => Lokalise::Error::NotFound,
-      405 => Lokalise::Error::MethodNowAllowed,
+      405 => Lokalise::Error::MethodNotAllowed,
       406 => Lokalise::Error::NotAcceptable,
       409 => Lokalise::Error::Conflict,
       423 => Lokalise::Error::Locked,
