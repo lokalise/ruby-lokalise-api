@@ -106,7 +106,7 @@ RSpec.describe Lokalise::Client do
                                         languages: [{lang_iso: 'en'}]
       end.collection.first
 
-      expect(contributor.client).to eq(test_client)
+      expect(contributor.client.token).to eq(test_client.token)
       expect(contributor.fullname).to eq('chained')
 
       id = contributor.user_id
@@ -116,7 +116,7 @@ RSpec.describe Lokalise::Client do
         contributor.update fullname: 'updated!'
       end
 
-      expect(updated_contributor.client).to eq(test_client)
+      expect(updated_contributor.client.token).to eq(test_client.token)
       expect(updated_contributor.fullname).to eq('updated!')
       expect(updated_contributor.user_id).to eq(id)
       expect(updated_contributor.path).to eq(path)

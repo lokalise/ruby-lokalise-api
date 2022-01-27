@@ -115,7 +115,7 @@ RSpec.describe Lokalise::Client do
         project.update name: 'updated!'
       end
 
-      expect(updated_project.client).to eq(test_client)
+      expect(updated_project.client.token).to eq(test_client.token)
       expect(updated_project.name).to eq('updated!')
       expect(updated_project.path).to eq(path)
 

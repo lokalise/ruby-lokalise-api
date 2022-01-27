@@ -120,7 +120,7 @@ RSpec.describe Lokalise::Client do
                                             ]
       end
 
-      expect(task.client).to eq(test_client)
+      expect(task.client.token).to eq(test_client.token)
       expect(task.title).to eq('chained')
 
       path = task.path
@@ -129,7 +129,7 @@ RSpec.describe Lokalise::Client do
         task.update title: 'updated!'
       end
 
-      expect(updated_task.client).to eq(test_client)
+      expect(updated_task.client.token).to eq(test_client.token)
       expect(updated_task.title).to eq('updated!')
       expect(updated_task.task_id).to eq(task.task_id)
       expect(updated_task.path).to eq(path)

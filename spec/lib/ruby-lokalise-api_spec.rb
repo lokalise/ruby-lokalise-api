@@ -12,7 +12,7 @@ RSpec.describe Lokalise do
   specify '.reset_client!' do
     expect(test_client).to be_an_instance_of(Lokalise::Client)
     described_class.reset_client!
-    current_client = described_class.instance_variable_get '@client'
+    current_client = described_class.instance_variable_get :@client
     expect(current_client).to be_nil
   end
 
@@ -27,7 +27,7 @@ RSpec.describe Lokalise do
   specify '.reset_oauth_client!' do
     expect(test_oauth_client).to be_an_instance_of(Lokalise::OAuthClient)
     described_class.reset_oauth_client!
-    current_oauth_client = described_class.instance_variable_get '@oauth_client'
+    current_oauth_client = described_class.instance_variable_get :@oauth_client
     expect(current_oauth_client).to be_nil
   end
 

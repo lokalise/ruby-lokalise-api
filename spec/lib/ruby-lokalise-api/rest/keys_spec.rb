@@ -160,7 +160,7 @@ RSpec.describe Lokalise::Client do
         key.update key_name: 'updated!'
       end
 
-      expect(updated_key.client).to eq(test_client)
+      expect(updated_key.client.token).to eq(test_client.token)
       expect(updated_key.key_name['ios']).to eq('updated!')
       expect(updated_key.path).to eq(path)
 

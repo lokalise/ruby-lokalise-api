@@ -76,7 +76,7 @@ module Lokalise
     # @param token [String]
     # @param params [Hash]
     def client(token, params = {})
-      @client ||= Lokalise::Client.new token, params
+      @client = Lokalise::Client.new token, params
     end
 
     # Reset the currently set client
@@ -90,7 +90,7 @@ module Lokalise
     # @param token [String]
     # @param params [Hash]
     def oauth_client(token, params = {})
-      @oauth_client ||= Lokalise::OAuthClient.new token, params
+      @oauth_client = Lokalise::OAuthClient.new token, params
     end
 
     # Reset the currently set OAuth client

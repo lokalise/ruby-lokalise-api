@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.5.1 (27-Jan-22)
+
+* Do not memorize `client` (issues with multithreading)
+* Fixed docs typos (thanks, @keymastervn)
+* Test with Ruby 3.1.0
+
 ## 4.5.0 (16-Dec-21)
 
 * Added support for the [`Segments` endpoint](https://lokalise.github.io/ruby-lokalise-api/api/segments)

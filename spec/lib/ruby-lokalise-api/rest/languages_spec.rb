@@ -109,7 +109,7 @@ RSpec.describe Lokalise::Client do
         test_client.create_languages project_id, lang_iso: 'ab', custom_name: 'chained lang'
       end.collection.first
 
-      expect(language.client).to eq(test_client)
+      expect(language.client.token).to eq(test_client.token)
       expect(language.lang_name).to eq('chained lang')
 
       path = language.path
@@ -118,7 +118,7 @@ RSpec.describe Lokalise::Client do
         language.update lang_name: 'updated!'
       end
 
-      expect(updated_language.client).to eq(test_client)
+      expect(updated_language.client.token).to eq(test_client.token)
       expect(updated_language.lang_name).to eq('updated!')
       expect(updated_language.lang_id).to eq(language.lang_id)
       expect(updated_language.path).to eq(path)
