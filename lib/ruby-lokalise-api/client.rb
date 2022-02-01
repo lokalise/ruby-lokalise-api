@@ -26,13 +26,12 @@ require 'ruby-lokalise-api/rest/team_user_billing_details'
 module Lokalise
   class Client
     attr_reader :token, :token_header
-    attr_accessor :timeout, :open_timeout, :enable_compression
+    attr_accessor :timeout, :open_timeout
 
     def initialize(token, params = {})
       @token = token
       @timeout = params.fetch(:timeout, nil)
       @open_timeout = params.fetch(:open_timeout, nil)
-      @enable_compression = params.fetch(:enable_compression, false)
       @token_header = 'x-api-token'
     end
 
