@@ -5,7 +5,7 @@
 Request timeouts may be adjusted during client initialization:
 
 ```ruby
-# The same approach will work with the `.oauth_client` method:
+# The same approach will work with the `.oauth2_client` method:
 
 @client = Lokalise.client('YOUR_TOKEN', open_timeout: 100, timeout: 500)
 @client.open_timeout # => 100

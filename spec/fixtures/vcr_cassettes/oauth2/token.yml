@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://app.lokalise.com/oauth2/token
+    body:
+      encoding: UTF-8
+      string: '{"client_id":"<OAUTH2_CLIENT_ID>","client_secret":"<OAUTH2_CLIENT_SECRET>","code":"<OAUTH2_CODE>","grant_type":"authorization_code"}'
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - ruby-lokalise-api gem/4.5.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx
+      date:
+      - Tue, 01 Feb 2022 20:08:06 GMT
+      content-type:
+      - application/json
+      vary:
+      - Accept-Encoding
+      expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT, Tue, 01 Feb 2022 20:08:06 GMT
+      cache-control:
+      - no-store, no-cache, must-revalidate, max-age=0, must-revalidate, private
+      pragma:
+      - no-cache, no-cache
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      strict-transport-security:
+      - max-age=31536000
+      referrer-policy:
+      - origin
+      x-lokalise-process-id:
+      - 21db3bfd-a51f-43e6-bb83-b4537c3c6deb
+      content-encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"123fake","refresh_token":"345refresh","expires_in":3600,"token_type":"Bearer"}'
+  recorded_at: Tue, 01 Feb 2022 20:08:06 GMT
+recorded_with: VCR 6.0.0

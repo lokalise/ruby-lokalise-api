@@ -29,10 +29,10 @@ Lokalise also provides [OAuth 2 authentication flow](http://docs.lokalise.com/en
 ```ruby
 require 'ruby-lokalise-api'
 
-@client = Lokalise.oauth_client 'YOUR_OAUTH_TOKEN_HERE'
+@client = Lokalise.oauth2_client 'YOUR_OAUTH2_TOKEN_HERE'
 ```
 
-This is because with OAuth tokens, a different authorization header must be sent.
+This is because with OAuth2 tokens, a different authorization header must be sent.
 
 ## Objects and models
 

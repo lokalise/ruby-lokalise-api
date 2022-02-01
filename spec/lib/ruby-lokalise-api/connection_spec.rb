@@ -10,9 +10,9 @@ RSpec.describe Lokalise::Connection do
 
   after { Lokalise.reset_client! }
 
-  it 'Authorization header must be present for OAuth client' do
-    conn = dummy.connection test_oauth_client
-    expect(conn.headers['Authorization']).to eq("Bearer #{test_client.token}")
+  it 'Authorization header must be present for OAuth2 client' do
+    conn = dummy.connection test_oauth2_client
+    expect(conn.headers['Authorization']).to eq(test_oauth2_client.token)
     expect(conn.headers['X-api-token']).to be_nil
   end
 

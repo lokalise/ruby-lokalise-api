@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Lokalise
-  class OAuthClient < Client
+  class OAuth2Client < Client
     def initialize(token, params = {})
       super(token, params)
       @token_header = 'Authorization'

@@ -1,17 +1,22 @@
 # frozen_string_literal: true
 
 require 'faraday'
+require 'httpx/adapters/faraday'
 require 'yaml'
 require 'addressable'
 
 require 'ruby-lokalise-api/version'
 require 'ruby-lokalise-api/json_handler'
 require 'ruby-lokalise-api/connection'
+require 'ruby-lokalise-api/base_request'
 require 'ruby-lokalise-api/request'
 require 'ruby-lokalise-api/error'
 require 'ruby-lokalise-api/utils/string_utils'
 require 'ruby-lokalise-api/utils/attribute_helpers'
 require 'ruby-lokalise-api/utils/endpoint_helpers'
+
+require 'ruby-lokalise-api/oauth2/connection'
+require 'ruby-lokalise-api/oauth2/request'
 
 require 'ruby-lokalise-api/resources/base'
 require 'ruby-lokalise-api/resources/branch'
@@ -65,7 +70,9 @@ require 'ruby-lokalise-api/collections/webhook'
 require 'ruby-lokalise-api/collections/segment'
 
 require 'ruby-lokalise-api/client'
-require 'ruby-lokalise-api/oauth_client'
+require 'ruby-lokalise-api/oauth2_client'
+
+require 'ruby-lokalise-api/oauth2/auth'
 
 module Lokalise
   class << self
@@ -83,18 +90,22 @@ module Lokalise
       @client = nil
     end
 
-    # Initializes a new OAuthClient object
+    # Initializes a new OAuth2Client object
     #
-    # @return [Lokalise::OAuthClient]
+    # @return [Lokalise::OAuth2Client]
     # @param token [String]
     # @param params [Hash]
-    def oauth_client(token, params = {})
-      @oauth_client = Lokalise::OAuthClient.new token, params
+    def oauth2_client(token, params = {})
+      @oauth2_client = Lokalise::OAuth2Client.new token, params
     end
 
-    # Reset the currently set OAuth client
-    def reset_oauth_client!
-      @oauth_client = nil
+    # Reset the currently set OAuth2 client
+    def reset_oauth2_client!
+      @oauth2_client = nil
+    end
+
+    def auth_client(client_id, client_secret)
+      Lokalise::OAuth2::Auth.new client_id, client_secret
     end
   end
 end
