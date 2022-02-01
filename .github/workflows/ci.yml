@@ -18,6 +18,11 @@ jobs:
     env:
       LOKALISE_API_TOKEN: 123abc
       LOKALISE_PROJECT_ID: 672198945b7d72fc048021.15940510
+      OAUTH2_CLIENT_ID: fake
+      OAUTH2_CLIENT_SECRET: fake
+      OAUTH2_TOKEN: fake
+      OAUTH2_REFRESH_TOKEN: fake
+      OAUTH2_CODE: fake
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby
