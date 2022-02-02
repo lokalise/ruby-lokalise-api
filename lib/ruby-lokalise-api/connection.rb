@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
+require 'httpx/adapters/faraday'
+
 module Lokalise
   module Connection
     BASE_URL = 'https://api.lokalise.com/api2/'
 
     def connection(client)
       Faraday.new(options(client), request_params_for(client)) do |faraday|
-        faraday.use(:gzip) if client.enable_compression
-        faraday.adapter Faraday.default_adapter
+        faraday.adapter :httpx
       end
     end
 
@@ -18,6 +19,7 @@ module Lokalise
         headers: {
           accept: 'application/json',
           user_agent: "ruby-lokalise-api gem/#{Lokalise::VERSION}",
+          accept_encoding: 'gzip,deflate,br',
           client.token_header => client.token
         },
         url: BASE_URL

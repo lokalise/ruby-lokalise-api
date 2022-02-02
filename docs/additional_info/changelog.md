@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+* **Breaking change**: removed the `enable_compression` option. Compression is now enabled for all requests (however the API might still send uncompressed data if the body is small) and the response will be decompressed automatically.
+* **Breaking change**: instead of using `Faraday.default_adapter`, we utilize [HTTPx](https://honeyryderchuck.gitlab.io/httpx/) for all requests. In other words, the adapter cannot be changed anymore as this feature was mostly ignored anyways. 
+* Updated to Faraday 2 and dropped a deprecated faraday_middleware dependency.
+
 ## 4.5.1 (27-Jan-22)
 
 * Do not memorize `client` (issues with multithreading)

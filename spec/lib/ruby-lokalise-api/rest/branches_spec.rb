@@ -10,20 +10,20 @@ RSpec.describe Lokalise::Client do
         test_client.branches project_id
       end.collection
 
-      expect(branches.count).to eq(1)
+      expect(branches.count).to eq(4)
     end
 
     it 'supports pagination' do
       branches = VCR.use_cassette('all_branches_pagination') do
-        test_client.branches project_id, limit: 1, page: 1
+        test_client.branches project_id, limit: 2, page: 2
       end
 
-      expect(branches.collection.count).to eq(1)
-      expect(branches.total_results).to eq(1)
-      expect(branches.total_pages).to eq(1)
-      expect(branches.results_per_page).to eq(1)
-      expect(branches.current_page).to eq(1)
-      expect(branches.collection.first.name).to eq('ruby-branch')
+      expect(branches.collection.count).to eq(2)
+      expect(branches.total_results).to eq(4)
+      expect(branches.total_pages).to eq(2)
+      expect(branches.results_per_page).to eq(2)
+      expect(branches.current_page).to eq(2)
+      expect(branches.collection.first.name).to eq('merge-me')
     end
   end
 

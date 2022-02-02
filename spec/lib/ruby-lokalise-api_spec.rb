@@ -6,7 +6,6 @@ RSpec.describe Lokalise do
     expect(test_client.token).to eq(ENV['LOKALISE_API_TOKEN'])
     expect(test_client.timeout).to be_nil
     expect(test_client.open_timeout).to be_nil
-    expect(test_client.enable_compression).to be false
   end
 
   specify '.reset_client!' do
@@ -21,7 +20,6 @@ RSpec.describe Lokalise do
     expect(test_oauth_client.token).to eq("Bearer #{ENV['LOKALISE_API_TOKEN']}")
     expect(test_oauth_client.timeout).to be_nil
     expect(test_oauth_client.open_timeout).to be_nil
-    expect(test_oauth_client.enable_compression).to be false
   end
 
   specify '.reset_oauth_client!' do
@@ -44,11 +42,6 @@ RSpec.describe Lokalise do
     it 'is possible to customize open timeout' do
       custom_client = described_class.client(ENV['LOKALISE_API_TOKEN'], open_timeout: 100)
       expect(custom_client.open_timeout).to eq(100)
-    end
-
-    it 'is possible to customize compression' do
-      custom_client = described_class.client(ENV['LOKALISE_API_TOKEN'], enable_compression: true)
-      expect(custom_client.enable_compression).to be true
     end
   end
 end

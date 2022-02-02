@@ -1,14 +1,10 @@
 - title: Customization
   path: customization
   sub_paths:
-    - title: Choosing Network Adapter
-      path: choosing-network-adapter
     - title: Setting Timeouts
       path: setting-timeouts
     - title: Customizing JSON parser
       path: customizing-json-parser
-    - title: Enabling compression
-      path: enabling-compression
 - title: Exception handling
   path: exception_handling
   sub_paths:
