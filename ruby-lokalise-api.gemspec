@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'addressable',                     '~> 2.5'
   spec.add_dependency 'faraday',                         '~> 2.0'
-  spec.add_dependency 'httpx',                           '~> 0.18'
+  spec.add_dependency 'faraday-gzip',                    '~> 0.1'
   spec.add_dependency 'json',                            '>= 1.8.0'
 
   spec.add_development_dependency 'codecov',             '~> 0.1'

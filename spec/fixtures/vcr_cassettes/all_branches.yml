@@ -11,10 +11,10 @@ http_interactions:
       - application/json
       User-Agent:
       - ruby-lokalise-api gem/4.5.1
-      Accept-Encoding:
-      - gzip,deflate,br
       x-api-token:
       - "<LOKALISE_TOKEN>"
+      Accept-Encoding:
+      - gzip,deflate,br
   response:
     status:
       code: 200
@@ -23,9 +23,13 @@ http_interactions:
       server:
       - nginx
       date:
-      - Tue, 01 Feb 2022 17:29:15 GMT
+      - Fri, 04 Feb 2022 12:07:52 GMT
       content-type:
       - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
       vary:
       - Accept-Encoding
       cache-control:
@@ -51,9 +55,9 @@ http_interactions:
       referrer-policy:
       - origin
       x-lokalise-process-id:
-      - 5ffa6d6b-92e4-472f-aa11-8fd48fbd7809
+      - a9f817d5-5cae-4c5e-8a33-980f62de0af3
       expires:
-      - Tue, 01 Feb 2022 17:29:15 GMT
+      - Fri, 04 Feb 2022 12:07:52 GMT
       access-control-allow-origin:
       - "*"
       access-control-allow-headers:
@@ -62,10 +66,7 @@ http_interactions:
       - gzip
     body:
       encoding: ASCII-8BIT
-      string: '{"project_id":"803826145ba90b42d5d860.46800099","branch":"master","branches":[{"branch_id":14699,"name":"master","created_at":"2018-09-24
-        16:05:22 (Etc\/UTC)","created_at_timestamp":1537805122,"created_by":20181,"created_by_email":"bodrovis@protonmail.com"},{"branch_id":68628,"name":"merge-it","created_at":"2020-07-07
-        10:34:00 (Etc\/UTC)","created_at_timestamp":1594118040,"created_by":20181,"created_by_email":"bodrovis@protonmail.com"},{"branch_id":42301,"name":"merge-me","created_at":"2019-11-13
-        12:26:20 (Etc\/UTC)","created_at_timestamp":1573647980,"created_by":20181,"created_by_email":"bodrovis@protonmail.com"},{"branch_id":42303,"name":"node-merge","created_at":"2019-11-13
-        12:53:50 (Etc\/UTC)","created_at_timestamp":1573649630,"created_by":20181,"created_by_email":"bodrovis@protonmail.com"}]}'
-  recorded_at: Tue, 01 Feb 2022 17:29:15 GMT
+      string: !binary |-
+        H4sIAAAAAAAEA7XQ30vDMBAH8H+l5ElhmXeXH03yJIj/gT6plLQNWjHtaIMgY/+72XDr9iITFfL0zXH3uVuz1Ti8hiZVXcscMyAMaZSq9hZqSa1qjYal1AYArGULVo++b15yafRTCuMhCRNzD+uv710zlNraBet9DMflzRh8Cm3lU04J0HCwnGSB2oFyRMXFbWoer+7vbi5z87m6Sl0MU/JxxRwqURpQSDRX1B/MbdvhcVSF6Lu3PKge2nF476brvG4a+m26bIbINosTszaazGwO43PgXTpx7NQEHMr8CgQnpAM4T20logEJx8Q/UEsSkNfeX3qnzkefp+xvbTkiR1EgOdL5WuepS6Flac1/qMVB3Q9t4HFL/96thFM/cFstfu9+2nwCFrmZPScDAAA=
+  recorded_at: Fri, 04 Feb 2022 12:07:52 GMT
 recorded_with: VCR 6.0.0

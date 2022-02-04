@@ -5,8 +5,6 @@
       path: installation-and-requirements
     - title: Initializing the Client
       path: initializing-the-client
-    - title: OAuth 2
-      path: oauth-2
     - title: Objects and models
       path: objects-and-models
     - title: Collections of resources and pagination

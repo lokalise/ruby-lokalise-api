@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'faraday'
-require 'httpx/adapters/faraday'
+require 'faraday/gzip'
 require 'yaml'
 require 'addressable'
 

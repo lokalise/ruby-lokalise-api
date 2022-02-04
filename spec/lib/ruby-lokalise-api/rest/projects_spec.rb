@@ -73,8 +73,8 @@ RSpec.describe Lokalise::Client do
     expect(project.team_id).to eq(176_692)
   end
 
-  context 'OAuth 2 token' do
-    it 'should create a project' do
+  context 'with OAuth 2 token' do
+    it 'creates a project' do
       name = 'OAuth 2 project'
       description = 'Via OAuth 2'
       project = VCR.use_cassette('oauth2/new_project') do

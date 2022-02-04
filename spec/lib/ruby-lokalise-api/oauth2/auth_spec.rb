@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 RSpec.describe Lokalise::OAuth2::Auth do
   describe '#auth' do
-    it 'should return auth code' do
+    it 'returns auth code' do
       uri = auth_client.auth scope: 'read_projects'
       expect(uri).to include(described_class::BASE_URL.to_s)
       expect(uri).to include('auth?client_id=')
@@ -8,7 +10,7 @@ RSpec.describe Lokalise::OAuth2::Auth do
     end
 
     it 'allows to pass an array of scopes' do
-      scopes = %w(write_projects write_team_groups write_tasks)
+      scopes = %w[write_projects write_team_groups write_tasks]
       uri = auth_client.auth scope: scopes
       expect(uri).to include(described_class::BASE_URL.to_s)
       expect(uri).to include('auth?client_id=')

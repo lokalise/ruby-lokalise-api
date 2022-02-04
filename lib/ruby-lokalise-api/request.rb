@@ -21,7 +21,7 @@ module Lokalise
         client
       )
     end
-    
+
     def put(path, client, params = {})
       respond_with(
         connection(client).put(prepare(path), custom_dump(params)),

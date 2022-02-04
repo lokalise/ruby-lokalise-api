@@ -1,9 +1,29 @@
 # Changelog
 
-## Unreleased
+## 5.0.0
 
 * **Breaking change**: removed the `enable_compression` option. Compression is now enabled for all requests (however the API might still send uncompressed data if the body is small) and the response will be decompressed automatically.
-* **Breaking change**: instead of using `Faraday.default_adapter`, we utilize [HTTPx](https://honeyryderchuck.gitlab.io/httpx/) for all requests. In other words, the adapter cannot be changed anymore as this feature was mostly ignored anyways. 
+* **New feature**: you can request and refresh OAuth 2 tokens:
+
+```ruby
+auth_client = Lokalise.auth_client 'OAUTH2_CLIENT_ID', 'OAUTH2_CLIENT_SECRET'
+
+# Generate authentication URL:
+url = auth_client.auth scope: %w[read_projects write_tasks]
+
+# Generate a new token:
+response = auth_client.token 'secret code'
+access_token = response['access_token']
+refresh_token = response['refresh_token']
+
+# Refresh an expired token:
+response = auth_client.refresh('YOUR_REFRESH_TOKEN')['access_token']
+
+# Use the access token to perform requests on the user's behalf:
+@client = Lokalise.oauth2_client access_token
+@client.projects # list user's projects
+```
+
 * Updated to Faraday 2 and dropped a deprecated faraday_middleware dependency.
 
 ## 4.5.1 (27-Jan-22)

@@ -44,3 +44,16 @@ module Lokalise
   end
 end
 ```
+
+## Choosing Network Adapter
+
+This library utilizes [Faraday](https://lostisland.github.io/faraday) to perform requests. The default adapter is built-in [Net::HTTP](https://ruby-doc.org/stdlib-2.6.3/libdoc/net/http/rdoc/Net/HTTP.html) but you may customize it as needed.
+
+For example, to use [Excon](https://github.com/excon/excon):
+
+```ruby
+require 'excon' # somewhere in your code
+Faraday.default_adapter = :excon
+```
+
+Please note that since the release of Faraday 2, most adapters have to be added manually. Find all supported adapters [on Faraday official website](https://github.com/lostisland/awesome-faraday#adapters).

@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 module Lokalise
   module OAuth2
     module Connection
       BASE_URL = URI('https://app.lokalise.com/oauth2/')
 
       def connection
-        Faraday.new(options) {|f| f.adapter :httpx}
+        Faraday.new(options) { |f| f.adapter Faraday.default_adapter }
       end
 
       private

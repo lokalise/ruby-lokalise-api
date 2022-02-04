@@ -22,18 +22,6 @@ require 'ruby-lokalise-api'
 
 Now the `@client` can be used to perform API requests! Learn more about additional options in the [Customizing request section](#customizing-request).
 
-## OAuth 2
-
-Lokalise also provides [OAuth 2 authentication flow](http://docs.lokalise.com/en/articles/5574713-oauth-2). The obtained token can be used to perform API requests on behalf of a user. However, if you're using an API token obtained via OAuth 2, you must initialize the client in a slightly different way:
-
-```ruby
-require 'ruby-lokalise-api'
-
-@client = Lokalise.oauth2_client 'YOUR_OAUTH2_TOKEN_HERE'
-```
-
-This is because with OAuth2 tokens, a different authorization header must be sent.
-
 ## Objects and models
 
 Individual objects are represented as instances of Ruby classes which are called *models*. Each model responds to the methods that are named after the API object's attributes. [This file](https://github.com/lokalise/ruby-lokalise-api/blob/master/lib/ruby-lokalise-api/data/attributes.json) lists all objects and their methods.
