@@ -8,10 +8,7 @@ RSpec.describe Lokalise::Connection do
 
   before { Lokalise.reset_client! }
 
-  after do
-    Lokalise.reset_client!
-    Faraday.default_adapter = :net_http
-  end
+  after { Lokalise.reset_client! }
 
   it 'Authorization header must be present for OAuth2 client' do
     conn = dummy.connection test_oauth2_client
