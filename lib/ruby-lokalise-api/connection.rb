@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'httpx/adapters/faraday'
-
 module Lokalise
   module Connection
     BASE_URL = 'https://api.lokalise.com/api2/'
