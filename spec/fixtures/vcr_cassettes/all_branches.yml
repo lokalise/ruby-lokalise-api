@@ -1,0 +1,72 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.lokalise.com/api2/projects/803826145ba90b42d5d860.46800099/branches
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - ruby-lokalise-api gem/5.0.0
+      Accept-Encoding:
+      - gzip,deflate,br
+      X-Api-Token:
+      - "<LOKALISE_TOKEN>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 06 Feb 2022 16:40:04 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store, private
+      X-Pagination-Total-Count:
+      - '4'
+      X-Pagination-Page-Count:
+      - '1'
+      X-Pagination-Limit:
+      - '100'
+      X-Pagination-Page:
+      - '1'
+      Pragma:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=31536000
+      Referrer-Policy:
+      - origin
+      X-Lokalise-Process-Id:
+      - a380d4d6-1ad5-486f-98d2-a29fff179e03
+      Expires:
+      - Sun, 06 Feb 2022 16:40:04 GMT
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Content-Type
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAEA7XQ30vDMBAH8H+l5ElhmXeXH03yJIj/gT6plLQNWjHtaIMgY/+72XDr9iITFfL0zXH3uVuz1Ti8hiZVXcscMyAMaZSq9hZqSa1qjYal1AYArGULVo++b15yafRTCuMhCRNzD+uv710zlNraBet9DMflzRh8Cm3lU04J0HCwnGSB2oFyRMXFbWoer+7vbi5z87m6Sl0MU/JxxRwqURpQSDRX1B/MbdvhcVSF6Lu3PKge2nF476brvG4a+m26bIbINosTszaazGwO43PgXTpx7NQEHMr8CgQnpAM4T20logEJx8Q/UEsSkNfeX3qnzkefp+xvbTkiR1EgOdL5WuepS6Flac1/qMVB3Q9t4HFL/96thFM/cFstfu9+2nwCFrmZPScDAAA=
+  recorded_at: Sun, 06 Feb 2022 16:40:04 GMT
+recorded_with: VCR 6.0.0
