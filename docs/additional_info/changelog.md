@@ -3,7 +3,7 @@
 ## 5.0.0 (08-Feb-2022)
 
 * **Breaking change**: removed the `enable_compression` option. Compression is now enabled for all requests (however the API might still send uncompressed data if the body is small) and the response will be decompressed automatically.
-* **New feature**: you can request and refresh OAuth 2 tokens:
+* **New feature**: you can [request and refresh OAuth 2 tokens](https://lokalise.github.io/ruby-lokalise-api/additional_info/oauth2):
 
 ```ruby
 auth_client = Lokalise.auth_client 'OAUTH2_CLIENT_ID', 'OAUTH2_CLIENT_SECRET'

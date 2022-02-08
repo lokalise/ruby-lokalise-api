@@ -45,6 +45,8 @@ Alternatively instantiate your client with an [OAuth2 token](http://docs.lokalis
 @client = Lokalise.oauth2_client 'YOUR_OAUTH2_TOKEN_HERE'
 ```
 
+Learn how to generate an OAuth2 token [in the docs](https://lokalise.github.io/ruby-lokalise-api/additional_info/oauth2).
+
 ## Usage
 
 Detailed documentation can be found at [lokalise.github.io/ruby-lokalise-api](https://lokalise.github.io/ruby-lokalise-api/).
