@@ -1,6 +1,6 @@
 # Changelog
 
-## 5.0.0
+## 5.0.0 (08-Feb-2022)
 
 * **Breaking change**: removed the `enable_compression` option. Compression is now enabled for all requests (however the API might still send uncompressed data if the body is small) and the response will be decompressed automatically.
 * **New feature**: you can request and refresh OAuth 2 tokens:
