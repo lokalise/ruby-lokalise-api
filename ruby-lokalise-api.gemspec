@@ -23,8 +23,8 @@ Gem::Specification.new do |spec|
   spec.require_paths    = ['lib']
 
   spec.add_dependency 'addressable',                     '~> 2.5'
-  spec.add_dependency 'faraday',                         '>= 1', '< 3'
-  spec.add_dependency 'faraday_middleware',              '~> 1.0'
+  spec.add_dependency 'faraday',                         '~> 2.0'
+  spec.add_dependency 'faraday-gzip',                    '~> 0.1'
   spec.add_dependency 'json',                            '>= 1.8.0'
 
   spec.add_development_dependency 'codecov',             '~> 0.1'

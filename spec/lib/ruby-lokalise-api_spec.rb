@@ -6,28 +6,26 @@ RSpec.describe Lokalise do
     expect(test_client.token).to eq(ENV['LOKALISE_API_TOKEN'])
     expect(test_client.timeout).to be_nil
     expect(test_client.open_timeout).to be_nil
-    expect(test_client.enable_compression).to be false
   end
 
   specify '.reset_client!' do
     expect(test_client).to be_an_instance_of(Lokalise::Client)
     described_class.reset_client!
-    current_client = described_class.instance_variable_get '@client'
+    current_client = described_class.instance_variable_get :@client
     expect(current_client).to be_nil
   end
 
-  specify '.oauth_client' do
-    expect(test_oauth_client).to be_an_instance_of(Lokalise::OAuthClient)
-    expect(test_oauth_client.token).to eq("Bearer #{ENV['LOKALISE_API_TOKEN']}")
-    expect(test_oauth_client.timeout).to be_nil
-    expect(test_oauth_client.open_timeout).to be_nil
-    expect(test_oauth_client.enable_compression).to be false
+  specify '.oauth2_client' do
+    expect(test_oauth2_client).to be_an_instance_of(Lokalise::OAuth2Client)
+    expect(test_oauth2_client.token).to eq("Bearer #{ENV['OAUTH2_TOKEN']}")
+    expect(test_oauth2_client.timeout).to be_nil
+    expect(test_oauth2_client.open_timeout).to be_nil
   end
 
-  specify '.reset_oauth_client!' do
-    expect(test_oauth_client).to be_an_instance_of(Lokalise::OAuthClient)
-    described_class.reset_oauth_client!
-    current_oauth_client = described_class.instance_variable_get '@oauth_client'
+  specify '.reset_oauth2_client!' do
+    expect(test_oauth2_client).to be_an_instance_of(Lokalise::OAuth2Client)
+    described_class.reset_oauth2_client!
+    current_oauth_client = described_class.instance_variable_get :@oauth2_client
     expect(current_oauth_client).to be_nil
   end
 
@@ -44,11 +42,6 @@ RSpec.describe Lokalise do
     it 'is possible to customize open timeout' do
       custom_client = described_class.client(ENV['LOKALISE_API_TOKEN'], open_timeout: 100)
       expect(custom_client.open_timeout).to eq(100)
-    end
-
-    it 'is possible to customize compression' do
-      custom_client = described_class.client(ENV['LOKALISE_API_TOKEN'], enable_compression: true)
-      expect(custom_client.enable_compression).to be true
     end
   end
 end

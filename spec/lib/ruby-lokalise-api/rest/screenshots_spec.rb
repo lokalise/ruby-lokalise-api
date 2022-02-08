@@ -91,7 +91,7 @@ RSpec.describe Lokalise::Client do
         end.collection.first
       end
 
-      expect(screenshot.client).to eq(test_client)
+      expect(screenshot.client.token).to eq(test_client.token)
       expect(screenshot.title).to eq('chained screen')
 
       path = screenshot.path
@@ -100,7 +100,7 @@ RSpec.describe Lokalise::Client do
         screenshot.update title: 'updated!'
       end
 
-      expect(updated_screenshot.client).to eq(test_client)
+      expect(updated_screenshot.client.token).to eq(test_client.token)
       expect(updated_screenshot.title).to eq('updated!')
       expect(updated_screenshot.screenshot_id).to eq(screenshot.screenshot_id)
       expect(updated_screenshot.path).to eq(path)

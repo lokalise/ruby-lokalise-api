@@ -1,14 +1,25 @@
+- title: OAuth 2
+  path: oauth2
+  sub_paths:
+    - title: Setting up the client
+      path: setting-up-the-client
+    - title: Generating auth URL
+      path: generating-auth-url
+    - title: Generating OAuth 2 token
+      path: generating-oauth-2-token
+    - title: Refreshing OAuth 2 token
+      path: refreshing-oauth-2-token
+    - title: Using OAuth 2 token
+      path: using-oauth-2-token
 - title: Customization
   path: customization
   sub_paths:
-    - title: Choosing Network Adapter
-      path: choosing-network-adapter
     - title: Setting Timeouts
       path: setting-timeouts
     - title: Customizing JSON parser
       path: customizing-json-parser
-    - title: Enabling compression
-      path: enabling-compression
+    - title: Choosing Network Adapter
+      path: choosing-network-adapter
 - title: Exception handling
   path: exception_handling
   sub_paths:

@@ -110,7 +110,7 @@ RSpec.describe Lokalise::Client do
         translation.update translation: 'chained updated'
       end
 
-      expect(updated_translation.client).to eq(test_client)
+      expect(updated_translation.client.token).to eq(test_client.token)
       expect(updated_translation.translation).to eq('chained updated')
       expect(updated_translation.translation_id).to eq(translation.translation_id)
     end

@@ -1,25 +1,11 @@
 # Customization
 
-## Choosing Network Adapter
-
-This library utilizes [Faraday](https://lostisland.github.io/faraday) to perform requests. The default adapter is built-in [Net::HTTP](https://ruby-doc.org/stdlib-2.6.3/libdoc/net/http/rdoc/Net/HTTP.html) but you may customize it as needed.
-
-For example, to use [Excon](https://github.com/excon/excon):
-
-```ruby
-require 'excon' # somewhere in your code
-
-Faraday.default_adapter = :excon
-```
-
-All supported adapters are listed [on Faraday official website](https://lostisland.github.io/faraday/adapters/).
-
 ## Setting Timeouts
 
 Request timeouts may be adjusted during client initialization:
 
 ```ruby
-# The same approach will work with the `.oauth_client` method:
+# The same approach will work with the `.oauth2_client` method:
 
 @client = Lokalise.client('YOUR_TOKEN', open_timeout: 100, timeout: 500)
 @client.open_timeout # => 100
@@ -59,14 +45,15 @@ module Lokalise
 end
 ```
 
-## Enabling compression
+## Choosing Network Adapter
 
-Lokalise API supports gzip compression but it's off by default. If you're working with large amounts of data it's a good idea to enable it by setting the `enable_compression` option to `true`:
+This library utilizes [Faraday](https://lostisland.github.io/faraday) to perform requests. The default adapter is built-in [Net::HTTP](https://ruby-doc.org/stdlib-2.6.3/libdoc/net/http/rdoc/Net/HTTP.html) but you may customize it as needed.
+
+For example, to use [Excon](https://github.com/excon/excon):
 
 ```ruby
-# The same approach will work with the `.oauth_client` method:
-
-client = Lokalise.client('YOUR_TOKEN', enable_compression: true)
+require 'excon' # somewhere in your code
+Faraday.default_adapter = :excon
 ```
 
-Now you can use the `client` as usual and the API responses will be uncompressed automatically.
+Please note that since the release of Faraday 2, most adapters have to be added manually. Find all supported adapters [on Faraday official website](https://github.com/lostisland/awesome-faraday#adapters).

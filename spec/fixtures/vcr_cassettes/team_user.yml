@@ -10,9 +10,11 @@ http_interactions:
       Accept:
       - application/json
       User-Agent:
-      - ruby-lokalise-api gem/2.1.0
-      X-api-token:
+      - ruby-lokalise-api gem/4.5.1
+      x-api-token:
       - "<LOKALISE_TOKEN>"
+      Accept-Encoding:
+      - gzip,deflate,br
   response:
     status:
       code: 200
@@ -21,32 +23,42 @@ http_interactions:
       server:
       - nginx
       date:
-      - Fri, 17 May 2019 17:26:26 GMT
+      - Fri, 04 Feb 2022 12:09:41 GMT
       content-type:
       - application/json
       transfer-encoding:
       - chunked
       connection:
-      - close
+      - keep-alive
       vary:
       - Accept-Encoding
-      set-cookie:
-      - PHPSESSID=b803e00de68f603908a1e6cea7af1e81; expires=Tue, 16-Jul-2019 17:26:26
-        GMT; Max-Age=5184000; path=/; secure; HttpOnly
-      expires:
-      - Thu, 19 Nov 1981 08:52:00 GMT
       cache-control:
-      - no-store, no-cache, must-revalidate, no-store, no-cache
+      - max-age=0, must-revalidate, no-cache, no-store, private
       pragma:
-      - no-cache, no-cache
+      - no-cache
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      strict-transport-security:
+      - max-age=31536000
+      referrer-policy:
+      - origin
+      x-lokalise-process-id:
+      - d88c4f69-8d88-4f41-9b13-bff4110139ad
+      expires:
+      - Fri, 04 Feb 2022 12:09:41 GMT
       access-control-allow-origin:
       - "*"
       access-control-allow-headers:
       - Content-Type
+      content-encoding:
+      - gzip
     body:
       encoding: ASCII-8BIT
-      string: '{"team_id":176692,"team_user":{"user_id":20181,"email":"bodrovis@protonmail.com","fullname":"Ilya
-        B","created_at":"2018-08-21 15:35:25 (Etc\/UTC)","created_at_timestamp":1534865725,"role":"owner"}}'
-    http_version: 
-  recorded_at: Fri, 17 May 2019 17:26:14 GMT
-recorded_with: VCR 4.0.0
+      string: !binary |-
+        H4sIAAAAAAAEA1WOsQrCMBRFf6W8SSHVJjVtzSSKg7tuQontKwSSpqSpIqX/bqKT04VzD5c7g0dpatWCoGVR7Bn5gWlEB2KGmN+WZbSiBNBIpUHAw7bOPtV4GJz1to9001gDBLpJ614aDNJFv2VyDKxxKD22tfSBxqU0q1JGE8pFzgXjyersm/v2dj2t/+zaK4Ojl2YI93i+qwpeMk7AWR337asPL5flA2U4V9rFAAAA
+  recorded_at: Fri, 04 Feb 2022 12:09:42 GMT
+recorded_with: VCR 6.0.0

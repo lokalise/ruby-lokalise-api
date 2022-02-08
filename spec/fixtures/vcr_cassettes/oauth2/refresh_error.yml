@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://app.lokalise.com/oauth2/token
+    body:
+      encoding: UTF-8
+      string: '{"client_id":"<OAUTH2_CLIENT_ID>","client_secret":"<OAUTH2_CLIENT_SECRET>","refresh_token":"incorrect_token","grant_type":"refresh_token"}'
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - ruby-lokalise-api gem/4.5.1
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      server:
+      - nginx
+      date:
+      - Tue, 01 Feb 2022 20:19:13 GMT
+      content-type:
+      - application/json
+      expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT, Tue, 01 Feb 2022 20:19:13 GMT
+      cache-control:
+      - no-store, no-cache, must-revalidate, max-age=0, must-revalidate, private
+      pragma:
+      - no-cache, no-cache
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      strict-transport-security:
+      - max-age=31536000
+      referrer-policy:
+      - origin
+      x-lokalise-process-id:
+      - b8aa2bf5-fbb0-409c-acc1-5e97dc56b869
+    body:
+      encoding: ASCII-8BIT
+      string: '{"error":"invalid_request","error_description":"Invalid request parameters","error_uri":""}'
+  recorded_at: Tue, 01 Feb 2022 20:19:13 GMT
+recorded_with: VCR 6.0.0

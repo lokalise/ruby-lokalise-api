@@ -81,7 +81,7 @@ RSpec.describe Lokalise::Client do
         team_user.update role: 'admin'
       end
 
-      expect(updated_team_user.client).to eq(test_client)
+      expect(updated_team_user.client.token).to eq(test_client.token)
       expect(updated_team_user.role).to eq('admin')
 
       delete_response = VCR.use_cassette('delete_team_user_chained') do
