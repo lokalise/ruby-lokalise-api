@@ -10,9 +10,9 @@ RSpec.describe Lokalise::Connection do
 
   after { Lokalise.reset_client! }
 
-  it 'Authorization header must be present for OAuth client' do
-    conn = dummy.connection test_oauth_client
-    expect(conn.headers['Authorization']).to eq("Bearer #{test_client.token}")
+  it 'Authorization header must be present for OAuth2 client' do
+    conn = dummy.connection test_oauth2_client
+    expect(conn.headers['Authorization']).to eq(test_oauth2_client.token)
     expect(conn.headers['X-api-token']).to be_nil
   end
 
@@ -38,7 +38,7 @@ RSpec.describe Lokalise::Connection do
     expect(another_conn.options.open_timeout).to eq(200)
   end
 
-  it 'is possible to enable gzip compression' do
+  it 'works with gzip compression' do
     gzip_client = Lokalise.client(ENV['LOKALISE_API_TOKEN'])
     keys = VCR.use_cassette('all_keys_gzip') do
       gzip_client.keys project_id, limit: 30
@@ -51,6 +51,18 @@ RSpec.describe Lokalise::Connection do
     custom_client = Lokalise.client(ENV['LOKALISE_API_TOKEN'])
     conn = dummy.connection custom_client
     expect(conn.headers['X-api-token']).to eq(custom_client.token)
-    expect(conn.headers['Accept-Encoding']).to eq('gzip,deflate,br')
+    expect(conn.builder.handlers).to include(Faraday::Gzip::Middleware)
+  end
+
+  it 'is possible to customize adapter' do
+    conn = dummy.connection test_client
+    expect(conn.builder.adapter).to eq(Faraday::Adapter::NetHttp)
+
+    Faraday.default_adapter = :test
+
+    another_conn = dummy.connection test_client
+
+    expect(another_conn.builder.adapter).to eq(Faraday::Adapter::Test)
+    expect(conn.builder.adapter).to eq(Faraday::Adapter::NetHttp)
   end
 end

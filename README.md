@@ -42,7 +42,7 @@ process.status
 Alternatively instantiate your client with an [OAuth2 token](http://docs.lokalise.com/en/articles/5574713-oauth-2):
 
 ```ruby
-@client = Lokalise.oauth_client 'YOUR_OAUTH_TOKEN_HERE'
+@client = Lokalise.oauth2_client 'YOUR_OAUTH2_TOKEN_HERE'
 ```
 
 ## Usage

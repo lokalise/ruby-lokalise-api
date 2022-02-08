@@ -1,0 +1,66 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.lokalise.com/api2/projects
+    body:
+      encoding: UTF-8
+      string: '{"name":"OAuth 2 project","description":"Via OAuth 2"}'
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - ruby-lokalise-api gem/4.5.1
+      Authorization:
+      - Bearer <OAUTH2_TOKEN>
+      Accept-Encoding:
+      - gzip,deflate,br
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx
+      date:
+      - Thu, 03 Feb 2022 17:49:13 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      vary:
+      - Accept-Encoding
+      cache-control:
+      - max-age=0, must-revalidate, no-cache, no-store, private
+      pragma:
+      - no-cache
+      allow:
+      - GET
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      strict-transport-security:
+      - max-age=31536000
+      referrer-policy:
+      - origin
+      x-lokalise-process-id:
+      - 2d61d683-6a18-45e0-8327-fd84e1e3eee0
+      expires:
+      - Thu, 03 Feb 2022 17:49:13 GMT
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-headers:
+      - Content-Type
+      content-encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAEA31TTY/TMBD9K1VOIC1L0rQJzQmEOHMBLoCsiTNJzfoj2JNWZdX/zjjpNtmutFIunvfmzeQ9+zHpvfuDkoRqkiopyu2mzLdlkbUy2+52m7qBsrjPN2mZF1mW3F3pdOqRG7SToNU/IOWsaJXGwBwLJmJfPw20X61XlwkMNBikV30kM/5DwerCYUx6BMJGADG0Ttfrdyl/+Sorq82uyvLVmy8kf73//u3z22dsQcpgIDB9UmXFJt9l6Xabz3r1KanWafYhW5YEGlCaB9Wu8e6gwkdekpyN1XvpDE8gBDOakpVFsVvfJTUEFBpsN0CHI1Js0hfl4FgVLQsEJFK2C0n1mPToRa+BWueNeMCTiBYx0oIOeJd4PCg8MjmpyA9cGPqDi81XBgzkBLmu0ygGe0CvWoWc2ER3bauVRUEebOAxo78X7TgNGzWpTXRlR7YBub/p4pUmSs1KEZ03CNgZtPRcXA6BnFnOFRwFDWHxc69wBGjtjsIMmlSv+c6MO5/ZuzgnkJKTe951HkNgAwg4NXad/2p5jGFxzJc0js433Mi0vyBUCAMuuddaDMY6EpP70U3uWJrLx9CjZrM60XkwBvzIUVY6G3g/9iPGKnHvdIN+mvkM3ZOZFm5U26KPDXYwNV8H14rB66llBq8ljdDEuce9Igw9zxhHc8Jq3OemPivM8uMdF9A00buxe2a9hnH28gHptmUSvlTdUPNNnPdin6QCvXTjYmcN/GYkP+yFLCf89JBY7+fj9TQ/qyec87u+KH6j4z0YlceQ+UaIhvH0/Pt8/g+5s5sqzAQAAA==
+  recorded_at: Thu, 03 Feb 2022 17:49:13 GMT
+recorded_with: VCR 6.0.0

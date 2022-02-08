@@ -1,14 +1,13 @@
 # frozen_string_literal: true
 
-require 'httpx/adapters/faraday'
-
 module Lokalise
   module Connection
     BASE_URL = 'https://api.lokalise.com/api2/'
 
     def connection(client)
       Faraday.new(options(client), request_params_for(client)) do |faraday|
-        faraday.adapter :httpx
+        faraday.adapter Faraday.default_adapter
+        faraday.request :gzip
       end
     end
 
