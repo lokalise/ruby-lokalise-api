@@ -9,7 +9,8 @@ require 'addressable'
 loader = Zeitwerk::Loader.for_gem
 loader.setup
 loader.inflector.inflect(
-  "oauth2"   => "OAuth2"
+  'oauth2' => 'OAuth2',
+  'oauth2_client' => 'OAuth2Client'
 )
 
 module RubyLokaliseApi

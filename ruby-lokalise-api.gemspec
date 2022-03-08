@@ -12,10 +12,10 @@ Gem::Specification.new do |spec|
   spec.homepage              = 'https://github.com/lokalise/ruby-lokalise-api'
   spec.license               = 'BSD-3-Clause'
   spec.platform              = Gem::Platform::RUBY
-  spec.required_ruby_version = '>= 2.5.0'
+  spec.required_ruby_version = '>= 2.7'
 
   spec.files = Dir['README.md', 'LICENSE',
-                   'CHANGELOG.md', 'lib/**/*.rb', 'lib/ruby-lokalise-api/data/attributes.json',
+                   'CHANGELOG.md', 'lib/**/*.rb', 'lib/ruby_lokalise_api/data/attributes.yml',
                    'ruby-lokalise-api.gemspec', '.github/*.md',
                    'Gemfile', 'Rakefile']
   spec.test_files       = Dir['spec/**/*.rb']

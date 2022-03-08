@@ -49,7 +49,7 @@ module RubyLokaliseApi
       #
       # @return [Array<String>]
       def attributes_for(klass)
-        @attributes ||= YAML.load_file(File.expand_path('../data/attributes.json', __dir__)).freeze
+        @attributes ||= YAML.load_file(File.expand_path('../data/attributes.yml', __dir__)).freeze
 
         name = unify klass.name.snakecase
         @attributes[name]
