@@ -7,11 +7,11 @@ require 'yaml'
 require 'addressable'
 
 loader = Zeitwerk::Loader.for_gem
-loader.setup
 loader.inflector.inflect(
   'oauth2' => 'OAuth2',
   'oauth2_client' => 'OAuth2Client'
 )
+loader.setup
 
 module RubyLokaliseApi
   class << self
