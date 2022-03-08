@@ -7,7 +7,7 @@ Lokalise also provides [OAuth 2 authentication flow](http://docs.lokalise.com/en
 First of all, you'll need to create an auth client:
 
 ```ruby
-auth_client = Lokalise.auth_client 'OAUTH2_CLIENT_ID', 'OAUTH2_CLIENT_SECRET'
+auth_client = RubyLokaliseApi.auth_client 'OAUTH2_CLIENT_ID', 'OAUTH2_CLIENT_SECRET'
 ```
 
 Pass your client ID and client secret.
@@ -70,7 +70,7 @@ If you're using an API token obtained via OAuth 2, you must initialize the clien
 ```ruby
 require 'ruby-lokalise-api'
 
-@client = Lokalise.oauth2_client 'YOUR_OAUTH2_ACCESS_TOKEN'
+@client = RubyLokaliseApi.oauth2_client 'YOUR_OAUTH2_ACCESS_TOKEN'
 ```
 
 This is because with OAuth2 tokens, a different authorization header must be sent.

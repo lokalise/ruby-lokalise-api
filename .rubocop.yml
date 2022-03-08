@@ -51,9 +51,6 @@ Style/Documentation:
 Layout/DotPosition:
   EnforcedStyle: trailing
 
-Naming/FileName:
-  Enabled: false
-
 Layout/AccessModifierIndentation:
   Enabled: false
 
@@ -62,15 +59,6 @@ Style/TrailingCommaInArrayLiteral:
 
 Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: 'no_comma'
-
-Style/HashEachMethods:
-  Enabled: true
-
-Style/HashTransformKeys:
-  Enabled: true
-
-Style/HashTransformValues:
-  Enabled: true
 
 RSpec/MultipleExpectations:
   Max: 30

@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require File.expand_path('lib/ruby-lokalise-api/version', __dir__)
+require File.expand_path('lib/ruby_lokalise_api/version', __dir__)
 
 Gem::Specification.new do |spec|
   spec.name                  = 'ruby-lokalise-api'
-  spec.version               = Lokalise::VERSION
+  spec.version               = RubyLokaliseApi::VERSION
   spec.authors               = ['Ilya Bodrov-Krukowski']
   spec.email                 = ['golosizpru@gmail.com']
   spec.summary               = 'Ruby interface to the Lokalise API'
@@ -25,7 +25,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'addressable',                     '~> 2.5'
   spec.add_dependency 'faraday',                         '~> 2.0'
   spec.add_dependency 'faraday-gzip',                    '~> 0.1'
-  spec.add_dependency 'json',                            '>= 1.8.0'
+  spec.add_dependency 'json',                            '~> 2'
+  spec.add_dependency 'zeitwerk',                        '~> 2.4'
 
   spec.add_development_dependency 'codecov',             '~> 0.1'
   spec.add_development_dependency 'dotenv',              '~> 2.5'
