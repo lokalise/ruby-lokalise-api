@@ -68,7 +68,7 @@ The `response` will contain a hash with the following keys:
 If you're using an API token obtained via OAuth 2, you must initialize the client in a slightly different way:
 
 ```ruby
-require 'ruby-lokalise-api'
+require 'ruby_lokalise_api'
 
 @client = RubyLokaliseApi.oauth2_client 'YOUR_OAUTH2_ACCESS_TOKEN'
 ```

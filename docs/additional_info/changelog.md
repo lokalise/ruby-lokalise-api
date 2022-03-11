@@ -5,7 +5,7 @@
 * **Breaking change**: this gem now requires Ruby 2.7 or above.
 * **Breaking change**: use Zeitwerk loader and reorganized source files.
 * **Breaking change**: lock JSON dependency to ~> 2.
-* **Breaking change**: renamed `Lokalise` main module to `RubyLokaliseApi`. You can use find-replace to fix all occurences. For example, if previously you wrote:
+* **Breaking change**: renamed `Lokalise` main module to `RubyLokaliseApi` and changed the way you require the gem. You can use find-replace to fix all occurences. For example, if previously you wrote:
 
 ```ruby
 require 'ruby-lokalise-api'
@@ -16,7 +16,7 @@ require 'ruby-lokalise-api'
 Now you should say:
 
 ```ruby
-require 'ruby-lokalise-api'
+require 'ruby_lokalise_api'
 
 @client = RubyLokaliseApi.client 'YOUR_TOKEN_HERE'
 ```

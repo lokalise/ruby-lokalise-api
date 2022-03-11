@@ -20,7 +20,7 @@ $ gem install ruby-lokalise-api
 Obtain an API token in your [personal profile](https://lokalise.com/profile#apitokens) (*API tokens* section) and initialize the client:
 
 ```ruby
-require 'ruby-lokalise-api'
+require 'ruby_lokalise_api'
 
 @client = RubyLokaliseApi.client 'YOUR_TOKEN_HERE'
 ```

@@ -15,7 +15,7 @@ In order to perform API requests, you require a special token that can be obtain
 After you've obtained the token, initialize the client:
 
 ```ruby
-require 'ruby-lokalise-api'
+require 'ruby_lokalise_api'
 
 @client = RubyLokaliseApi.client 'YOUR_TOKEN_HERE'
 ```
