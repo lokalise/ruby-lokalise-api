@@ -1,6 +1,6 @@
 # Changelog
 
-## 6.0.0
+## 6.0.0 (11-Mar-2022)
 
 * **Breaking change**: this gem now requires Ruby 2.7 or above.
 * **Breaking change**: use Zeitwerk loader and reorganized source files.
