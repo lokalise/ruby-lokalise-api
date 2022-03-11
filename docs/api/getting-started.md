@@ -17,7 +17,7 @@ After you've obtained the token, initialize the client:
 ```ruby
 require 'ruby-lokalise-api'
 
-@client = Lokalise.client 'YOUR_TOKEN_HERE'
+@client = RubyLokaliseApi.client 'YOUR_TOKEN_HERE'
 ```
 
 Now the `@client` can be used to perform API requests! Learn more about additional options in the [Customizing request section](#customizing-request).

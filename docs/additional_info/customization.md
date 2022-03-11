@@ -7,7 +7,7 @@ Request timeouts may be adjusted during client initialization:
 ```ruby
 # The same approach will work with the `.oauth2_client` method:
 
-@client = Lokalise.client('YOUR_TOKEN', open_timeout: 100, timeout: 500)
+@client = RubyLokaliseApi.client('YOUR_TOKEN', open_timeout: 100, timeout: 500)
 @client.open_timeout # => 100
 @client.timeout # => 500
 ```
@@ -23,14 +23,14 @@ Both values are in *seconds*. They can be adjusted later with simple accessors:
 
 ## Customizing JSON parser
 
-By default we are using a [built-in JSON module](https://ruby-doc.org/stdlib-2.0.0/libdoc/json/rdoc/JSON.html) but you may utilize any other parser by overriding the `#custom_dump` and `#custom_load` methods inside the `Lokalise::JsonHandler` module.
+By default we are using a [built-in JSON module](https://ruby-doc.org/stdlib-2.0.0/libdoc/json/rdoc/JSON.html) but you may utilize any other parser by overriding the `#custom_dump` and `#custom_load` methods inside the `RubyLokaliseApi::JsonHandler` module.
 
 For example, to use [Oj](https://github.com/ohler55/oj) you would do the following:
 
 ```ruby
 require 'oj'
 
-module Lokalise
+module RubyLokaliseApi
   module JsonHandler
     # This method accepts a Ruby object and must return a JSON string
     def custom_dump(obj)
