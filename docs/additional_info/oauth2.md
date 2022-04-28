@@ -4,6 +4,8 @@
 
 Lokalise also provides [OAuth 2 authentication flow](http://docs.lokalise.com/en/articles/5574713-oauth-2). Let's see how to generate an OAuth 2 token. The obtained token can be used to perform API requests on behalf of a user.
 
+*Please note that you can also take advantage of the [omniauth-lokalise gem](https://github.com/bodrovis/omniauth-lokalise) which makes the process even simpler. Still, you'll need Lokalise Ruby SDK to refresh your tokens.*
+
 First of all, you'll need to create an auth client:
 
 ```ruby
