@@ -1,12 +1,33 @@
 # Changelog
 
+## 6.0.0 (11-Mar-2022)
+
+* **Breaking change**: this gem now requires Ruby 2.7 or above.
+* **Breaking change**: use Zeitwerk loader and reorganized source files.
+* **Breaking change**: lock JSON dependency to ~> 2.
+* **Breaking change**: renamed `Lokalise` main module to `RubyLokaliseApi` and changed the way you require the gem. You can use find-replace to fix all occurences. For example, if previously you wrote:
+
+```ruby
+require 'ruby-lokalise-api'
+
+@client = Lokalise.client 'YOUR_TOKEN_HERE'
+```
+
+Now you should say:
+
+```ruby
+require 'ruby_lokalise_api'
+
+@client = RubyLokaliseApi.client 'YOUR_TOKEN_HERE'
+```
+
 ## 5.0.0 (08-Feb-2022)
 
 * **Breaking change**: removed the `enable_compression` option. Compression is now enabled for all requests (however the API might still send uncompressed data if the body is small) and the response will be decompressed automatically.
 * **New feature**: you can [request and refresh OAuth 2 tokens](https://lokalise.github.io/ruby-lokalise-api/additional_info/oauth2):
 
 ```ruby
-auth_client = Lokalise.auth_client 'OAUTH2_CLIENT_ID', 'OAUTH2_CLIENT_SECRET'
+auth_client = RubyLokaliseApi.auth_client 'OAUTH2_CLIENT_ID', 'OAUTH2_CLIENT_SECRET'
 
 # Generate authentication URL:
 url = auth_client.auth scope: %w[read_projects write_tasks]
@@ -20,7 +41,7 @@ refresh_token = response['refresh_token']
 response = auth_client.refresh('YOUR_REFRESH_TOKEN')['access_token']
 
 # Use the access token to perform requests on the user's behalf:
-@client = Lokalise.oauth2_client access_token
+@client = RubyLokaliseApi.oauth2_client access_token
 @client.projects # list user's projects
 ```
 
@@ -41,17 +62,17 @@ response = auth_client.refresh('YOUR_REFRESH_TOKEN')['access_token']
 
 ## 4.4.0 (25-Oct-21)
 
-* Added a new `.oauth_client` method for the `Lokalise` module. This method must be used when you're initializing a new API client with a **token obtained via OAuth 2 flow**, not by copy-pasting the token from the "Personal profile" section on Lokalise website. So in this case instead of saying `Lokalise.client`, you should do the following:
+* Added a new `.oauth_client` method for the `Lokalise` module. This method must be used when you're initializing a new API client with a **token obtained via OAuth 2 flow**, not by copy-pasting the token from the "Personal profile" section on Lokalise website. So in this case instead of saying `RubyLokaliseApi.client`, you should do the following:
 
 ```ruby
-@client = Lokalise.oauth_client("TOKEN_OBTAINED_VIA_OAUTH2", params)
+@client = RubyLokaliseApi.oauth_client("TOKEN_OBTAINED_VIA_OAUTH2", params)
 ```
 
 * `params` are the same as for the `.client` method.
 * Added a new `.reset_oauth_client!` method for the `Lokalise` module to reset the currently set `oauth_client`.
 
 ```ruby
-Lokalise.reset_oauth_client! # effectively sets the `@oauth_client` to `nil`
+RubyLokaliseApi.reset_oauth_client! # effectively sets the `@oauth_client` to `nil`
 ```
 
 ## 4.3.1 (21-Sep-21)
@@ -64,7 +85,7 @@ Lokalise.reset_oauth_client! # effectively sets the `@oauth_client` to `nil`
 * Added support for GZip compression. It is off by default but you can enable it by setting the `:enable_compression` option to `true`:
 
 ```ruby
-client = Lokalise.client('YOUR_TOKEN', enable_compression: true)
+client = RubyLokaliseApi.client('YOUR_TOKEN', enable_compression: true)
 ```
 
 ## 4.2.0 (28-Apr-21)

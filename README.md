@@ -20,9 +20,9 @@ $ gem install ruby-lokalise-api
 Obtain an API token in your [personal profile](https://lokalise.com/profile#apitokens) (*API tokens* section) and initialize the client:
 
 ```ruby
-require 'ruby-lokalise-api'
+require 'ruby_lokalise_api'
 
-@client = Lokalise.client 'YOUR_TOKEN_HERE'
+@client = RubyLokaliseApi.client 'YOUR_TOKEN_HERE'
 ```
 
 Now the `@client` can be used to perform API requests:
@@ -42,7 +42,7 @@ process.status
 Alternatively instantiate your client with an [OAuth2 token](http://docs.lokalise.com/en/articles/5574713-oauth-2):
 
 ```ruby
-@client = Lokalise.oauth2_client 'YOUR_OAUTH2_TOKEN_HERE'
+@client = RubyLokaliseApi.oauth2_client 'YOUR_OAUTH2_TOKEN_HERE'
 ```
 
 Learn how to generate an OAuth2 token [in the docs](https://lokalise.github.io/ruby-lokalise-api/additional_info/oauth2).

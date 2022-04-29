@@ -7,12 +7,12 @@ SimpleCov.start do
   add_filter '.github/'
 end
 
-if ENV['CI'] == 'true'
+if ENV.fetch('CI', nil) == 'true'
   require 'codecov'
   SimpleCov.formatter = SimpleCov::Formatter::Codecov
 end
 
-require 'ruby-lokalise-api'
+require 'ruby_lokalise_api'
 
 # Support files
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].sort.each { |f| require f }

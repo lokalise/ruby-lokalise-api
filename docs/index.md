@@ -14,9 +14,9 @@ Install the gem:
 Obtain Lokalise API token in your personal profile, initialize and use the client:
 
 {% highlight ruby %}
-require 'ruby-lokalise-api'
+require 'ruby_lokalise_api'
 
-@client = Lokalise.client 'YOUR_TOKEN_HERE'
+@client = RubyLokaliseApi.client 'YOUR_TOKEN_HERE'
 
 project = @client.project '123.abc'
 project.name

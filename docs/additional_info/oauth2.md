@@ -4,10 +4,12 @@
 
 Lokalise also provides [OAuth 2 authentication flow](http://docs.lokalise.com/en/articles/5574713-oauth-2). Let's see how to generate an OAuth 2 token. The obtained token can be used to perform API requests on behalf of a user.
 
+*Please note that you can also take advantage of the [omniauth-lokalise gem](https://github.com/bodrovis/omniauth-lokalise) which makes the process even simpler. Still, you'll need Lokalise Ruby SDK to refresh your tokens.*
+
 First of all, you'll need to create an auth client:
 
 ```ruby
-auth_client = Lokalise.auth_client 'OAUTH2_CLIENT_ID', 'OAUTH2_CLIENT_SECRET'
+auth_client = RubyLokaliseApi.auth_client 'OAUTH2_CLIENT_ID', 'OAUTH2_CLIENT_SECRET'
 ```
 
 Pass your client ID and client secret.
@@ -68,9 +70,9 @@ The `response` will contain a hash with the following keys:
 If you're using an API token obtained via OAuth 2, you must initialize the client in a slightly different way:
 
 ```ruby
-require 'ruby-lokalise-api'
+require 'ruby_lokalise_api'
 
-@client = Lokalise.oauth2_client 'YOUR_OAUTH2_ACCESS_TOKEN'
+@client = RubyLokaliseApi.oauth2_client 'YOUR_OAUTH2_ACCESS_TOKEN'
 ```
 
 This is because with OAuth2 tokens, a different authorization header must be sent.
