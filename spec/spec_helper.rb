@@ -7,7 +7,7 @@ SimpleCov.start do
   add_filter '.github/'
 end
 
-if ENV['CI'] == 'true'
+if ENV.fetch('CI', nil) == 'true'
   require 'codecov'
   SimpleCov.formatter = SimpleCov::Formatter::Codecov
 end

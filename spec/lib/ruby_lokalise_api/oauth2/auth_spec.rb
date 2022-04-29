@@ -35,7 +35,7 @@ RSpec.describe RubyLokaliseApi::OAuth2::Auth do
   describe '#token' do
     it 'returns an OAuth2 token' do
       resp = VCR.use_cassette('oauth2/token') do
-        auth_client.token ENV['OAUTH2_CODE']
+        auth_client.token ENV.fetch('OAUTH2_CODE', nil)
       end
       expect(resp['access_token']).not_to be_nil
       expect(resp['refresh_token']).not_to be_nil
@@ -55,7 +55,7 @@ RSpec.describe RubyLokaliseApi::OAuth2::Auth do
   describe '#refresh' do
     it 'returns a refreshed OAuth2 token' do
       resp = VCR.use_cassette('oauth2/refresh') do
-        auth_client.refresh ENV['OAUTH2_REFRESH_TOKEN']
+        auth_client.refresh ENV.fetch('OAUTH2_REFRESH_TOKEN', nil)
       end
       expect(resp['access_token']).not_to be_nil
       expect(resp['refresh_token']).to be_nil

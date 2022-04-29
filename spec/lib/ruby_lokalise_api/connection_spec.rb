@@ -24,7 +24,7 @@ RSpec.describe RubyLokaliseApi::Connection do
   end
 
   it 'allows to customize timeouts' do
-    custom_client = RubyLokaliseApi.client(ENV['LOKALISE_API_TOKEN'],
+    custom_client = RubyLokaliseApi.client(ENV.fetch('LOKALISE_API_TOKEN', nil),
                                            open_timeout: 100, timeout: 500)
     conn = dummy.connection custom_client
     expect(conn.options.timeout).to eq(500)
@@ -39,7 +39,7 @@ RSpec.describe RubyLokaliseApi::Connection do
   end
 
   it 'works with gzip compression' do
-    gzip_client = RubyLokaliseApi.client(ENV['LOKALISE_API_TOKEN'])
+    gzip_client = RubyLokaliseApi.client(ENV.fetch('LOKALISE_API_TOKEN', nil))
     keys = VCR.use_cassette('all_keys_gzip') do
       gzip_client.keys project_id, limit: 30
     end.collection
@@ -48,7 +48,7 @@ RSpec.describe RubyLokaliseApi::Connection do
   end
 
   it 'gzip compression is on by default' do
-    custom_client = RubyLokaliseApi.client(ENV['LOKALISE_API_TOKEN'])
+    custom_client = RubyLokaliseApi.client(ENV.fetch('LOKALISE_API_TOKEN', nil))
     conn = dummy.connection custom_client
     expect(conn.headers['X-api-token']).to eq(custom_client.token)
     expect(conn.builder.handlers).to include(Faraday::Gzip::Middleware)
