@@ -56,7 +56,7 @@ module RubyLokaliseApi
 
       # Regenerates secret for the given webhook
       #
-      # @see https://lokalise.com/api2docs/curl/#transition-regenerate-a-webhook-secret-patch
+      # @see https://developers.lokalise.com/reference/regenerate-a-webhook-secret
       # @return [Hash]
       # @param project_id [String]
       # @param webhook_id [String, Integer]

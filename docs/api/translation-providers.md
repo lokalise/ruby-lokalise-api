@@ -1,7 +1,5 @@
 # Translation providers
 
-[Translation provider attributes](https://app.lokalise.com/api2docs/curl/#object-translation-providers)
-
 ## Fetch translation providers
 
 [Doc](https://developers.lokalise.com/reference/list-all-providers)

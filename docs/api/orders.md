@@ -1,7 +1,5 @@
 # Translation orders
 
-[Order attributes](https://app.lokalise.com/api2docs/curl/#object-orders)
-
 ## Fetch orders
 
 [Doc](https://developers.lokalise.com/reference/list-all-orders)

@@ -5,7 +5,7 @@ module RubyLokaliseApi
     module TeamUserGroups
       # Returns all team user groups for the given team
       #
-      # @see https://lokalise.co/api2docs/curl/#transition-list-all-groups-get
+      # @see https://developers.lokalise.com/reference/list-all-team-users
       # @return [RubyLokaliseApi::Collection::TeamUserGroup<RubyLokaliseApi::Resources::TeamUserGroup>]
       # @param team_id [String]
       # @param params [Hash]
@@ -15,7 +15,7 @@ module RubyLokaliseApi
 
       # Returns team user from the given team
       #
-      # @see https://lokalise.co/api2docs/curl/#transition-retrieve-a-group-get
+      # @see https://developers.lokalise.com/reference/retrieve-a-team-user
       # @return [RubyLokaliseApi::Resources::TeamUserGroup]
       # @param team_id [String]
       # @param group_id [String, Integer]
@@ -25,7 +25,7 @@ module RubyLokaliseApi
 
       # Creates team user group
       #
-      # @see https://lokalise.co/api2docs/curl/#resource-team-user-groups
+      # @see https://developers.lokalise.com/reference/create-a-group
       # @return [RubyLokaliseApi::Resources::TeamUserGroup]
       # @param params [Hash]
       def create_team_user_group(team_id, params)
@@ -34,7 +34,7 @@ module RubyLokaliseApi
 
       # Updates team user group for the given team
       #
-      # @see https://lokalise.co/api2docs/curl/#transition-update-a-group-put
+      # @see https://developers.lokalise.com/reference/update-a-group
       # @return [RubyLokaliseApi::Resources::TeamUserGroup]
       # @param team_id [String]
       # @param group_id [String, Integer]
@@ -45,7 +45,7 @@ module RubyLokaliseApi
 
       # Deletes team user group from the given team
       #
-      # @see https://lokalise.co/api2docs/curl/#transition-delete-a-group-delete
+      # @see https://developers.lokalise.com/reference/delete-a-group
       # @return [RubyLokaliseApi::Resources::TeamUserGroup]
       # @param team_id [String]
       # @param group_id [String, Integer]
@@ -55,7 +55,7 @@ module RubyLokaliseApi
 
       # Adds projects to the given group
       #
-      # @see https://lokalise.co/api2docs/curl/#transition-add-projects-to-group-put
+      # @see https://developers.lokalise.com/reference/add-projects-to-group
       # @return [RubyLokaliseApi::Resources::TeamUserGroup]
       # @param team_id [String]
       # @param group_id [String, Integer]
@@ -68,7 +68,7 @@ module RubyLokaliseApi
 
       # Removes projects from the given group
       #
-      # @see https://lokalise.co/api2docs/curl/#transition-remove-projects-from-group-put
+      # @see https://developers.lokalise.com/reference/remove-projects-from-group
       # @return [RubyLokaliseApi::Resources::TeamUserGroup]
       # @param team_id [String]
       # @param group_id [String, Integer]
@@ -81,7 +81,7 @@ module RubyLokaliseApi
 
       # Adds users to the given group
       #
-      # @see https://lokalise.co/api2docs/curl/#transition-add-members-to-group-put
+      # @see https://developers.lokalise.com/reference/add-members-to-group
       # @return [RubyLokaliseApi::Resources::TeamUserGroup]
       # @param team_id [String]
       # @param group_id [String, Integer]
@@ -94,7 +94,7 @@ module RubyLokaliseApi
 
       # Removes users from the given group
       #
-      # @see https://lokalise.co/api2docs/curl/#transition-remove-members-from-group-put
+      # @see https://developers.lokalise.com/reference/remove-members-from-group
       # @return [RubyLokaliseApi::Resources::TeamUserGroup]
       # @param team_id [String]
       # @param group_id [String, Integer]

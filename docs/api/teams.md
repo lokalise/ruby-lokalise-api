@@ -2,7 +2,7 @@
 
 ## Fetch teams
 
-[Doc](https://app.lokalise.com/api2docs/curl/#resource-teams)
+[Doc](https://developers.lokalise.com/reference/list-all-teams)
 
 ```ruby
 @client.teams(params = {})  # Input:

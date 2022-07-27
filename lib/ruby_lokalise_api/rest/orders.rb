@@ -5,7 +5,7 @@ module RubyLokaliseApi
     module Orders
       # Returns all orders for the given team
       #
-      # @see https://lokalise.co/api2docs/curl/#transition-list-all-orders-get
+      # @see https://developers.lokalise.com/reference/list-all-orders
       # @return [RubyLokaliseApi::Collection::Order<RubyLokaliseApi::Resources::Order>]
       # @param team_id [String]
       # @param params [Hash]
@@ -15,7 +15,7 @@ module RubyLokaliseApi
 
       # Returns a single order for the given team
       #
-      # @see https://lokalise.co/api2docs/curl/#transition-retrieve-an-order-get
+      # @see https://developers.lokalise.com/reference/retrieve-an-order
       # @return [RubyLokaliseApi::Resources::Order]
       # @param team_id [String]
       # @param order_id [String, Integer]
@@ -25,7 +25,7 @@ module RubyLokaliseApi
 
       # Creates an order for the given team
       #
-      # @see https://lokalise.co/api2docs/curl/#transition-create-an-order-post
+      # @see https://developers.lokalise.com/reference/create-an-order
       # @return [RubyLokaliseApi::Resources::Order]
       # @param team_id [String]
       # @param params [Hash]

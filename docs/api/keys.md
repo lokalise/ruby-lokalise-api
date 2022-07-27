@@ -1,7 +1,5 @@
 # Translation keys
 
-[Key attributes](https://app.lokalise.com/api2docs/curl/#object-keys)
-
 ## Fetch project keys
 
 [Doc](https://developers.lokalise.com/reference/list-all-keys)

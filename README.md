@@ -5,7 +5,7 @@
 [![Test Coverage](https://codecov.io/gh/lokalise/ruby-lokalise-api/graph/badge.svg)](https://codecov.io/gh/lokalise/ruby-lokalise-api)
 ![Downloads total](https://img.shields.io/gem/dt/ruby-lokalise-api)
 
-Official opinionated Ruby interface for the [Lokalise API](https://app.lokalise.com/api2docs/curl/) that represents returned data as Ruby objects.
+Official opinionated Ruby interface for the [Lokalise API](https://developers.lokalise.com/reference/lokalise-rest-api) that represents returned data as Ruby objects.
 
 Looking for a Rails integration? Try the [lokalise_rails gem](https://github.com/bodrovis/lokalise_rails). Also you can use a [lokalise_manager gem](https://github.com/bodrovis/lokalise_manager) which allows to exchange translation files between Lokalise and *any* Ruby script.
 

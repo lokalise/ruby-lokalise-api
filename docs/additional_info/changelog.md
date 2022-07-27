@@ -133,7 +133,7 @@ queued_process = queued_process.reload_data
 queued_process.status # => 'finished'
 ```
 
-* Added support for [`QueuedProcess` endpoint](https://app.lokalise.com/api2docs/curl/#resource-queued-processes)
+* Added support for [`QueuedProcess` endpoint](https://developers.lokalise.com/reference/list-all-processes)
 * Many resources now respond to the `reload_data` method which fetches new data from the API
 * Various code improvements
 * Test against more recent Rubies
@@ -141,7 +141,7 @@ queued_process.status # => 'finished'
 
 ## 2.10.0 (28-Feb-20)
 
-* Added methods to [regenerate webhook secret](https://lokalise.com/api2docs/curl/#transition-regenerate-a-webhook-secret-patch):
+* Added methods to [regenerate webhook secret](https://developers.lokalise.com/reference/regenerate-a-webhook-secret):
   + `@client.regenerate_webhook_secret(project_id, webhook_id)`
   + `webhook.regenerate_secret`
 * API base URL is now `https://api.lokalise.com/api2/` instead of `https://api.lokalise.co/api2/`
@@ -158,13 +158,13 @@ queued_process.status # => 'finished'
 
 ## 2.8.0 (13-Nov-19)
 
-* Added methods to [merge branches](https://lokalise.com/api2docs/curl/#transition-merge-a-branch-post):
+* Added methods to [merge branches](https://developers.lokalise.com/reference/merge-a-branch):
   + `branch.merge params`
   + `client.merge_branch project_id, branch_id, params`
 
 ## 2.7.0 (30-Oct-19)
 
-* Added [`Branch` endpoint](https://lokalise.co/api2docs/curl/#resource-branches)
+* Added [`Branch` endpoint](https://developers.lokalise.com/reference/list-all-branches)
 
 ## 2.6.1 (27-Sep-19)
 
@@ -173,7 +173,7 @@ queued_process.status # => 'finished'
 
 ## 2.6.0 (21-Aug-19)
 
-* Added [`Webhook` endpoint](https://lokalise.co/api2docs/curl/#resource-webhooks) (thanks to [@snkashis](https://github.com/snkashis) for help!)
+* Added [`Webhook` endpoint](https://developers.lokalise.com/reference/list-all-webhooks) (thanks to [@snkashis](https://github.com/snkashis) for help!)
 
 ## 2.5.0 (01-Aug-19)
 
@@ -187,11 +187,11 @@ queued_process.status # => 'finished'
 ## 2.3.0 (17-Jul-19)
 
 * Incorporated latest API changes
-* Added support for [`TranslationStatus` endpoint](https://lokalise.co/api2docs/curl/#resource-translation-statuses)
+* Added support for [`TranslationStatus` endpoint](https://developers.lokalise.com/reference/list-all-statuses)
 
 ## 2.2.0 (19-May-19)
 
-* Added support for [`TeamUserGroup` endpoint](https://lokalise.co/api2docs/curl/#resource-team-user-groups)
+* Added support for [`TeamUserGroup` endpoint](https://developers.lokalise.com/reference/list-all-team-users)
 * Enhancements to method chaining
 
 ## 2.1.1 (17-May-19)

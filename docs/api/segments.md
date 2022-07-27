@@ -1,7 +1,5 @@
 # Segments
 
-[Segments attributes](https://app.lokalise.com/api2docs/curl/#object-segments)
-
 ## Fetch segments
 
 [Doc](https://developers.lokalise.com/reference/list-all-segments-for-key-language)
