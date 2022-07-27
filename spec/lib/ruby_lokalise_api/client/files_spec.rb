@@ -2,6 +2,7 @@
 
 RSpec.describe RubyLokaliseApi::Client do
   let(:project_id) { '803826145ba90b42d5d860.46800099' }
+  let(:file_id) { 1_161_428 }
 
   describe '#files' do
     it 'returns all files' do
@@ -11,9 +12,9 @@ RSpec.describe RubyLokaliseApi::Client do
 
       file = files.first
 
-      expect(files.count).to eq(1)
-      expect(file.filename).to eq('__unassigned__')
-      expect(file.key_count).to eq(1)
+      expect(files.count).to eq(5)
+      expect(file.filename).to eq('%LANG_ISO%.yml')
+      expect(file.key_count).to eq(66)
     end
 
     it 'supports pagination' do
@@ -62,5 +63,15 @@ RSpec.describe RubyLokaliseApi::Client do
     expect(reloaded_process.process_id).to eq(process.process_id)
     expect(reloaded_process.status).to eq('finished')
     expect(reloaded_process.details['files'][0]['status']).to eq('finished')
+  end
+
+  specify '#destroy_file' do
+    docs_project_id = '507504186242fccb32f015.15252556'
+    response = VCR.use_cassette('destroy_file') do
+      test_client.destroy_file docs_project_id, file_id
+    end
+
+    expect(response['project_id']).to eq(docs_project_id)
+    expect(response['file_deleted']).to be(true)
   end
 end

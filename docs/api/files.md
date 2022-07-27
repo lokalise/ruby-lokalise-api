@@ -4,7 +4,7 @@
 
 ## Fetch translation files
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-list-all-files-get)
+[Doc](https://developers.lokalise.com/reference/list-all-files)
 
 ```ruby
 @client.files(project_id, params = {})  # Input:
@@ -23,7 +23,7 @@ For example:
 
 ## Download translation files
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-download-files-post)
+[Doc](https://developers.lokalise.com/reference/download-files)
 
 Exports project files as a `.zip` bundle and makes them available to download (the link is valid for 12 months).
 
@@ -32,7 +32,7 @@ Exports project files as a `.zip` bundle and makes them available to download (t
                                         ## project_id (string, required)
                                         ## params (hash, required)
                                         ### :format (string, required) - one of the file formats supported by Lokalise (json, xml, po etc).
-                                        ### Find the list of other supported params at https://app.lokalise.com/api2docs/curl/#transition-download-files-post
+                                        ### Find the list of other supported params at https://developers.lokalise.com/reference/download-files
                                         # Output:
                                         ## Hash with the project id and a "bundle_url" link
 ```
@@ -48,7 +48,7 @@ For example:
 
 ## Upload translation file
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-upload-a-file-post)
+[Doc](https://developers.lokalise.com/reference/upload-a-file)
 
 Starting from July 2020, **background uploading is the only method of importing translation files**.
 
@@ -59,7 +59,7 @@ Starting from July 2020, **background uploading is the only method of importing 
                                         ### :data (string, required) - base64-encoded data (the format must be supported by Lokalise)
                                         ### :filename (string, required)
                                         ### :lang_iso (string, required)
-                                        ### Find the list of other supported params at https://app.lokalise.com/api2docs/curl/#transition-upload-a-file-post
+                                        ### Find the list of other supported params at https://developers.lokalise.com/reference/upload-a-file
                                         # Output:
                                         ## QueuedProcess resource
 ```
@@ -109,4 +109,22 @@ process = @client.upload_file project_id,
                               filename: 'my_file.yml',
                               lang_iso: 'en'
 uploaded? process
+```
+
+## Delete a file
+
+[Doc](https://developers.lokalise.com/reference/delete-a-file)
+
+```ruby
+@client.destroy_file(project_id, file_id) # Input:
+                                          ## project_id (string, required)
+                                          ## file_id (string or integer, required)
+                                          # Output:
+                                          ## Hash with project_id and "file_deleted" set to "true"
+```
+
+For example:
+
+```ruby
+@client.destroy_file project_id, file_id
 ```

@@ -1,11 +1,11 @@
 ---
 http_interactions:
 - request:
-    method: get
-    uri: https://api.lokalise.com/api2/projects/803826145ba90b42d5d860.46800099/files
+    method: delete
+    uri: https://api.lokalise.com/api2/projects/507504186242fccb32f015.15252556/files/1161428
     body:
-      encoding: US-ASCII
-      string: ''
+      encoding: UTF-8
+      string: "{}"
     headers:
       Accept:
       - application/json
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Wed, 27 Jul 2022 14:05:25 GMT
+      - Wed, 27 Jul 2022 14:15:29 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -34,14 +34,6 @@ http_interactions:
       - Accept-Encoding
       cache-control:
       - max-age=0, must-revalidate, no-cache, no-store, private
-      x-pagination-total-count:
-      - '5'
-      x-pagination-page-count:
-      - '1'
-      x-pagination-limit:
-      - '100'
-      x-pagination-page:
-      - '1'
       pragma:
       - no-cache
       x-content-type-options:
@@ -55,11 +47,11 @@ http_interactions:
       referrer-policy:
       - origin
       x-lokalise-process-id:
-      - b7149d41-0345-4a1f-8c6d-e86a1ec690d0
+      - a99169ac-527d-4192-852b-3adfae57aed3
       expires:
-      - Wed, 27 Jul 2022 14:05:25 GMT
+      - Wed, 27 Jul 2022 14:15:29 GMT
       set-cookie:
-      - PHPSESSID=deleted; expires=Tue, 27-Jul-2021 14:05:24 GMT; Max-Age=0; path=/;
+      - PHPSESSID=deleted; expires=Tue, 27-Jul-2021 14:15:28 GMT; Max-Age=0; path=/;
         httponly
       access-control-allow-origin:
       - "*"
@@ -70,6 +62,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        H4sIAAAAAAAEA2XOPQ/CIBAG4P9C4qYNUCDQzcmYGB0cjblQitpqqSl0aJr+d+vHIOl2ubvn3hvQs20qawKUBcqQxKmkgjCea4VzRgteSIETJiTGWCm0RHmrnblNq7X2wbZT51I+rEfZafhUnzuSMCa+E6drO20vduv9BrbHwyLp68ek7rYH03QuoEyIcfmHU8o5oZGue3invG8llW9c7EnEKVeK4Ii3/mkNaN87M0+fa6wiHawPPzzPTqPsFYkkQOe09+XV2QIgfpqN5/EFMCMSmX0BAAA=
-  recorded_at: Wed, 27 Jul 2022 14:05:24 GMT
+        H4sIAAAAAAAEA6tWKijKz0pNLonPTFGyUjI1MDc1MDG0MDMyMUpLTk4yNkozMDTVMzQ1AkJTMyUdpbTMnNT4lNSc1JJUoIaSotLUWgDICqUkRAAAAA==
+  recorded_at: Wed, 27 Jul 2022 14:15:28 GMT
 recorded_with: VCR 6.1.0

@@ -4,7 +4,7 @@
 
 ## Fetch tasks
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-list-all-tasks-get)
+[Doc](https://developers.lokalise.com/reference/list-all-tasks)
 
 ```ruby
 @client.tasks(project_id, params = {})  # Input:
@@ -24,7 +24,7 @@ For example:
 
 ## Fetch a single task
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-task-get)
+[Doc](https://developers.lokalise.com/reference/retrieve-a-task)
 
 ```ruby
 @client.task(project_id, task_id)  # Input:
@@ -36,7 +36,7 @@ For example:
 
 ## Create task
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-create-a-task-post)
+[Doc](https://developers.lokalise.com/reference/create-a-task)
 
 ```ruby
 @client.create_task(project_id, params)  # Input:
@@ -47,7 +47,7 @@ For example:
                                          ### languages (array of hashes, required)
                                          #### language_iso (string)
                                          #### users (array) - list of users identifiers, assigned to work on the language
-                                         ### Find other supported options at https://app.lokalise.com/api2docs/curl/#transition-create-a-task-post
+                                         ### Find other supported options at https://developers.lokalise.com/reference/create-a-task
                                          # Output:
                                          ## A newly created task
 
@@ -68,14 +68,14 @@ For example:
 
 ## Update task
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-update-a-task-put)
+[Doc](https://developers.lokalise.com/reference/update-a-task)
 
 ```ruby
 @client.update_task(project_id, task_id, params = {})  # Input:
                                                        ## project_id (string, required)
                                                        ## task_id (string or integer, required)
                                                        ## params (hash)
-                                                       ### Find supported params at https://app.lokalise.com/api2docs/curl/#transition-update-a-task-put
+                                                       ### Find supported params at https://developers.lokalise.com/reference/update-a-task
                                                        # Output:
                                                        ## An updated task
 
@@ -96,7 +96,7 @@ For example:
 
 ## Delete task
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-delete-a-task-delete)
+[Doc](https://developers.lokalise.com/reference/delete-a-task)
 
 ```ruby
 @client.destroy_task(project_id, task_id)  # Input:

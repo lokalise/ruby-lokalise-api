@@ -4,7 +4,7 @@
 
 ## Fetch translations
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-list-all-translations-get)
+[Doc](https://developers.lokalise.com/reference/list-all-translations)
 
 ```ruby
 @client.translations(project_id, params = {})   # Input:
@@ -25,7 +25,7 @@ For example:
 
 ## Fetch a single translation
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-translation-get)
+[Doc](https://developers.lokalise.com/reference/retrieve-a-translation)
 
 ```ruby
 @client.translation(project_id, translation_id, params = {})   # Input:
@@ -39,7 +39,7 @@ For example:
 
 ## Update translation
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-update-a-translation-put)
+[Doc](https://developers.lokalise.com/reference/update-a-translation)
 
 ```ruby
 @client.update_translation(project_id, translation_id, params = {})   # Input:

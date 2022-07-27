@@ -5,7 +5,7 @@ require File.expand_path('lib/ruby_lokalise_api/version', __dir__)
 Gem::Specification.new do |spec|
   spec.name                  = 'ruby-lokalise-api'
   spec.version               = RubyLokaliseApi::VERSION
-  spec.authors               = ['Ilya Bodrov-Krukowski']
+  spec.authors               = ['Ilya Krukowski']
   spec.email                 = ['golosizpru@gmail.com']
   spec.summary               = 'Ruby interface to the Lokalise API'
   spec.description           = 'Opinionated Ruby client for the Lokalise platform API allowing to work with translations, projects, users and other resources as with Ruby objects.'
@@ -18,7 +18,6 @@ Gem::Specification.new do |spec|
                    'CHANGELOG.md', 'lib/**/*.rb', 'lib/ruby_lokalise_api/data/attributes.yml',
                    'ruby-lokalise-api.gemspec', '.github/*.md',
                    'Gemfile', 'Rakefile']
-  spec.test_files       = Dir['spec/**/*.rb']
   spec.extra_rdoc_files = ['README.md']
   spec.require_paths    = ['lib']
 
@@ -38,6 +37,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop-rspec',       '~> 2.0'
   spec.add_development_dependency 'simplecov',           '~> 0.16'
   spec.add_development_dependency 'vcr',                 '~> 6.0'
+  spec.add_development_dependency 'webmock',             '~> 3.14'
   spec.metadata = {
     'rubygems_mfa_required' => 'true'
   }

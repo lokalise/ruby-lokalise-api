@@ -4,7 +4,7 @@
 
 ## Fetch project keys
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-list-all-keys-get)
+[Doc](https://developers.lokalise.com/reference/list-all-keys)
 
 ```ruby
 @client.keys(project_id, params = {})   # Input:
@@ -23,7 +23,7 @@ For example:
 
 ## Fetch a single project key
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-key-get)
+[Doc](https://developers.lokalise.com/reference/retrieve-a-key)
 
 ```ruby
 @client.key(project_id, key_id, params = {})    # Input:
@@ -43,7 +43,7 @@ For example:
 
 ## Create project keys
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-create-keys-post)
+[Doc](https://developers.lokalise.com/reference/create-keys)
 
 ```ruby
 @client.create_keys(project_id, params)   # Input:
@@ -51,7 +51,7 @@ For example:
                                           ## params (array of hashes or hash, required)
                                           ### :key_name (string or hash, required) - for projects with enabled per-platform key names, pass hash with "ios", "android", "web" and "other" params.
                                           ### :platforms (array) - supported values are "ios", "android", "web" and "other"
-                                          ### Find all other supported attributes at https://app.lokalise.com/api2docs/curl/#transition-create-keys-post
+                                          ### Find all other supported attributes at https://developers.lokalise.com/reference/create-keys
                                           # Output:
                                           ## Collection of newly created keys
 ```
@@ -73,14 +73,14 @@ For example:
 
 ## Update project key
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-update-a-key-put)
+[Doc](https://developers.lokalise.com/reference/update-a-key)
 
 ```ruby
 @client.update_key(project_id, key_id, params = {})   # Input:
                                                       ## project_id (string, required)
                                                       ## key_id (string, required)
                                                       ## params (hash)
-                                                      ### Find a list of supported attributes at https://app.lokalise.com/api2docs/curl/#transition-update-a-key-put
+                                                      ### Find a list of supported attributes at https://developers.lokalise.com/reference/update-a-key
                                                       # Output:
                                                       ## Updated key
 ```
@@ -100,14 +100,14 @@ For example:
 
 ## Bulk update project keys
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-bulk-update-put)
+[Doc](https://developers.lokalise.com/reference/bulk-update)
 
 ```ruby
 @client.update_keys(project_id, params)  # Input:
                                          ## project_id (string, required)
                                          ## params (hash or array of hashes, required)
                                          ### :key_id (string, required)
-                                         ### Find all other supported attributes at https://app.lokalise.com/api2docs/curl/#transition-bulk-update-put
+                                         ### Find all other supported attributes at https://developers.lokalise.com/reference/bulk-update
                                          # Output:
                                          ## Collection of updated keys
 ```
@@ -129,7 +129,7 @@ client.update_keys '123.abc', [
 
 ## Delete project key
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-delete-a-key-delete)
+[Doc](https://developers.lokalise.com/reference/delete-a-key)
 
 ```ruby
 @client.destroy_key(project_id, key_id) # Input:
@@ -148,7 +148,7 @@ key.destroy
 
 ## Bulk delete project keys
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-delete-multiple-keys-delete)
+[Doc](https://developers.lokalise.com/reference/delete-multiple-keys)
 
 ```ruby
 @client.destroy_keys(project_id, key_ids) # Input:

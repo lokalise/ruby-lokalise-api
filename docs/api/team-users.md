@@ -4,7 +4,7 @@
 
 ## Fetch team users
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-list-all-team-users-get)
+[Doc](https://developers.lokalise.com/reference/list-all-team-users)
 
 ```ruby
 @client.team_users(team_id, params = {})  # Input:
@@ -23,7 +23,7 @@ For example:
 
 ## Fetch a single team user
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-team-user-get)
+[Doc](https://developers.lokalise.com/reference/retrieve-a-team-user)
 
 ```ruby
 @client.team_user(team_id, user_id) # Input:
@@ -35,7 +35,7 @@ For example:
 
 ## Update team user
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-update-a-team-user-put)
+[Doc](https://developers.lokalise.com/reference/update-a-team-user)
 
 ```ruby
 @client.update_team_user(team_id, user_id, params)  # Input:
@@ -62,7 +62,7 @@ For example:
 
 ## Delete team user
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-delete-a-team-user-delete)
+[Doc](https://developers.lokalise.com/reference/delete-a-team-user)
 
 ```ruby
 @client.destroy_team_user(team_id, user_id) # Input:

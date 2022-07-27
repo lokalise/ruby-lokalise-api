@@ -4,7 +4,7 @@
 
 ## Fetch segments
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-list-all-segments-for-key-language-get)
+[Doc](https://developers.lokalise.com/reference/list-all-segments-for-key-language)
 
 ```ruby
 @client.segments(project_id, key_id, lang_iso, params = {})   # Input:
@@ -30,7 +30,7 @@ For example:
 
 ## Fetch a single segment
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-segment-for-key-language-get)
+[Doc](https://developers.lokalise.com/reference/retrieve-a-segment-for-key-language)
 
 ```ruby
 @client.segment(project_id, key_id, lang_iso, segment_number, params = {})  # Input:
@@ -50,7 +50,7 @@ For example:
 
 ## Update segment
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-update-a-segment-post)
+[Doc](https://developers.lokalise.com/reference/update-a-segment)
 
 ```ruby
 @client.update_segment(project_id, key_id, lang_iso, segment_number, params = {}) # Input:

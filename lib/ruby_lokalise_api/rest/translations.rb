@@ -5,7 +5,7 @@ module RubyLokaliseApi
     module Translations
       # Returns all translations for the given project (ungrouped)
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-list-all-translations-get
+      # @see https://developers.lokalise.com/reference/list-all-translations
       # @return [RubyLokaliseApi::Collection::Translation<RubyLokaliseApi::Resources::Translation>]
       # @param project_id [String]
       # @param params [Hash]
@@ -15,7 +15,7 @@ module RubyLokaliseApi
 
       # Returns translation of the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-translation-get
+      # @see https://developers.lokalise.com/reference/retrieve-a-translation
       # @return [RubyLokaliseApi::Resources::Translation]
       # @param project_id [String]
       # @param translation_id [String, Integer]
@@ -26,7 +26,7 @@ module RubyLokaliseApi
 
       # Updates translation of the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-update-a-translation-put
+      # @see https://developers.lokalise.com/reference/update-a-translation
       # @return [RubyLokaliseApi::Resources::Translation]
       # @param project_id [String]
       # @param translation_id [String, Integer]

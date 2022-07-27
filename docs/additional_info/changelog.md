@@ -1,5 +1,10 @@
 # Changelog
 
+## 6.1.0 (27-Jul-2022)
+
+* Added support for the [Delete a file endpoint](https://lokalise.github.io/ruby-lokalise-api/api/files#delete-a-file)
+* Updated links to the API docs
+
 ## 6.0.0 (11-Mar-2022)
 
 * **Breaking change**: this gem now requires Ruby 2.7 or above.
