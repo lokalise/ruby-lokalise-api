@@ -4,7 +4,7 @@
 
 ## Fetch screenshots
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-list-all-screenshots-get)
+[Doc](https://developers.lokalise.com/reference/list-all-screenshots)
 
 ```ruby
 @client.screenshots(project_id, params = {})  # Input:
@@ -23,7 +23,7 @@ For example:
 
 ## Fetch a single screenshot
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-screenshot-get)
+[Doc](https://developers.lokalise.com/reference/retrieve-a-screenshot)
 
 ```ruby
 @client.screeshot(project_id, screeshot_id)     # Input:
@@ -35,7 +35,7 @@ For example:
 
 ## Create screenshots
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-create-screenshots-post)
+[Doc](https://developers.lokalise.com/reference/create-screenshots)
 
 ```ruby
 @client.create_screenshots(project_id, params)     # Input:
@@ -59,7 +59,7 @@ For example:
 
 ## Update screenshot
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-update-a-screenshot-put)
+[Doc](https://developers.lokalise.com/reference/update-a-screenshot)
 
 ```ruby
 @client.update_screenshot(project_id, screenshot_id, params = {}) # Input:
@@ -91,7 +91,7 @@ For example:
 
 ## Delete screenshot
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-delete-a-screenshot-delete)
+[Doc](https://developers.lokalise.com/reference/delete-a-screenshot)
 
 ```ruby
 @client.destroy_screenshot(project_id, screenshot_id)   # Input:

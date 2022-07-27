@@ -6,7 +6,7 @@
 
 ## Fetch translation statuses
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-list-all-custom-translation-statuses-get)
+[Doc](https://developers.lokalise.com/reference/list-all-custom-translation-statuses)
 
 ```ruby
 @client.translation_statuses(project_id, params = {}) # Input:
@@ -25,7 +25,7 @@ For example:
 
 ## Fetch a single translation status
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-custom-translation-status-get)
+[Doc](https://developers.lokalise.com/reference/retrieve-a-custom-translation-status)
 
 ```ruby
 @client.translation_status(project_id, status_id) # Input:
@@ -37,7 +37,7 @@ For example:
 
 ## Create translation status
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-create-a-custom-translation-status-post)
+[Doc](https://developers.lokalise.com/reference/create-a-custom-translation-status)
 
 ```ruby
 @client.create_translation_status(project_id, params) # Input:
@@ -59,7 +59,7 @@ For example:
 
 ## Update translation status
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-update-a-custom-translation-status-put)
+[Doc](https://developers.lokalise.com/reference/update-a-custom-translation-status)
 
 ```ruby
 @client.update_translation_status(project_id, status_id, params)  # Input:
@@ -89,7 +89,7 @@ For example:
 
 ## Delete translation status
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-delete-a-custom-translation-status-delete)
+[Doc](https://developers.lokalise.com/reference/delete-a-custom-translation-status)
 
 ```ruby
 @client.destroy_translation_status(project_id, status_id) # Input:
@@ -108,7 +108,7 @@ status.destroy
 
 ## Supported color codes for translation statuses
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-available-colors-for-custom-translation-statuses-get)
+[Doc](https://developers.lokalise.com/reference/retrieve-available-colors-for-custom-translation-statuses)
 
 As long as Lokalise supports only very limited array of color hexadecimal codes for custom translation statuses, this method can be used to fetch all permitted values.
 

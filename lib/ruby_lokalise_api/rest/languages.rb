@@ -5,7 +5,7 @@ module RubyLokaliseApi
     module Languages
       # Returns all languages supported by Lokalise
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-list-system-languages-get
+      # @see https://developers.lokalise.com/reference/list-system-languages
       # @return [RubyLokaliseApi::Collection::SystemLanguage<RubyLokaliseApi::Resources::SystemLanguage>]
       # @param params [Hash]
       def system_languages(params = {})
@@ -14,7 +14,7 @@ module RubyLokaliseApi
 
       # Returns all languages for the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-list-project-languages-get
+      # @see https://developers.lokalise.com/reference/list-project-languages
       # @return [RubyLokaliseApi::Collection::ProjectLanguage<RubyLokaliseApi::Resources::ProjectLanguage>]
       # @param project_id [String, Integer]
       # @param params [Hash]
@@ -24,7 +24,7 @@ module RubyLokaliseApi
 
       # Returns a single language for the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-language-get
+      # @see https://developers.lokalise.com/reference/retrieve-a-language
       # @return [RubyLokaliseApi::Resources::ProjectLanguage]
       # @param project_id [String]
       # @param language_id [String, Integer]
@@ -34,7 +34,7 @@ module RubyLokaliseApi
 
       # Creates one or more language for the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-language-get
+      # @see https://developers.lokalise.com/reference/retrieve-a-language
       # @return [RubyLokaliseApi::Collection::ProjectLanguage<RubyLokaliseApi::Resources::ProjectLanguage>]
       # @param project_id [String]
       # @param params [Hash]
@@ -44,7 +44,7 @@ module RubyLokaliseApi
 
       # Updates language for the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-update-a-language-put
+      # @see https://developers.lokalise.com/reference/update-a-language
       # @return [RubyLokaliseApi::Resources::ProjectLanguage]
       # @param project_id [String]
       # @param language_id [String, Integer]
@@ -55,7 +55,7 @@ module RubyLokaliseApi
 
       # Deletes language for the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-delete-a-language-delete
+      # @see https://developers.lokalise.com/reference/delete-a-language
       # @return [Hash]
       # @param project_id [String]
       # @param language_id [String, Integer]

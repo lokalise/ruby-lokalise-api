@@ -4,7 +4,7 @@
 
 ## Fetch orders
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-list-all-orders-get)
+[Doc](https://developers.lokalise.com/reference/list-all-orders)
 
 ```ruby
 @client.orders(team_id, params = {})  # Input:
@@ -23,7 +23,7 @@ For example:
 
 ## Fetch a single order
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-an-order-get)
+[Doc](https://developers.lokalise.com/reference/retrieve-an-order)
 
 ```ruby
 @client.order(team_id, order_id)  # Input:
@@ -35,7 +35,7 @@ For example:
 
 ## Create an order
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-create-an-order-post)
+[Doc](https://developers.lokalise.com/reference/create-an-order)
 
 ```ruby
 @client.create_order(team_id, params)  # Input:

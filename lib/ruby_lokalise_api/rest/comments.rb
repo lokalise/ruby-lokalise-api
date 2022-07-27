@@ -5,7 +5,7 @@ module RubyLokaliseApi
     module Comments
       # Returns a single comment for the given key
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-comment-get
+      # @see https://developers.lokalise.com/reference/retrieve-a-comment
       # @return [RubyLokaliseApi::Resources::Comment]
       # @param project_id [String]
       # @param key_id [String, Integer]
@@ -16,7 +16,7 @@ module RubyLokaliseApi
 
       # Returns all comments for all keys inside the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-list-project-comments-get
+      # @see https://developers.lokalise.com/reference/list-project-comments
       # @return [RubyLokaliseApi::Collection::Comment<RubyLokaliseApi::Resources::Comment>]
       # @param project_id [String]
       # @param params [Hash]
@@ -26,7 +26,7 @@ module RubyLokaliseApi
 
       # Returns all comments for the given key inside the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-list-key-comments-get
+      # @see https://developers.lokalise.com/reference/list-key-comments
       # @return [RubyLokaliseApi::Collection::Comment<RubyLokaliseApi::Resources::Comment>]
       # @param project_id [String]
       # @param key_id [String, Integer]
@@ -37,7 +37,7 @@ module RubyLokaliseApi
 
       # Creates one or more comments for the given key inside the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-create-comments-post
+      # @see https://developers.lokalise.com/reference/create-comments
       # @return [RubyLokaliseApi::Collection::Comment<RubyLokaliseApi::Resources::Comment>]
       # @param project_id [String]
       # @param key_id [String, Integer]
@@ -48,7 +48,7 @@ module RubyLokaliseApi
 
       # Deletes comment for the given key inside the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-delete-a-comment-delete
+      # @see https://developers.lokalise.com/reference/delete-a-comment
       # @return [Hash]
       # @param project_id [String]
       # @param key_id [String, Integer]

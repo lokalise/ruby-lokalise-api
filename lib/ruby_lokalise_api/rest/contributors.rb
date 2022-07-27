@@ -5,7 +5,7 @@ module RubyLokaliseApi
     module Contributors
       # Returns all contributors for the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-list-all-contributors-get
+      # @see https://developers.lokalise.com/reference/list-all-contributors
       # @return [RubyLokaliseApi::Collection::Contributor<RubyLokaliseApi::Resources::Contributor>]
       # @param project_id [String]
       # @param params [Hash]
@@ -15,7 +15,7 @@ module RubyLokaliseApi
 
       # Returns a single contributor for the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-contributor-get
+      # @see https://developers.lokalise.com/reference/retrieve-a-contributor
       # @return [RubyLokaliseApi::Resources::Contributor]
       # @param project_id [String]
       # @param contributor_id [String, Integer]
@@ -25,7 +25,7 @@ module RubyLokaliseApi
 
       # Creates one or more contributors inside the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-create-contributors-post
+      # @see https://developers.lokalise.com/reference/create-contributors
       # @return [RubyLokaliseApi::Collection::Contributor<RubyLokaliseApi::Resources::Contributor>]
       # @param project_id [String]
       # @param params [Hash, Array<Hash>]
@@ -35,7 +35,7 @@ module RubyLokaliseApi
 
       # Updates the given contributor inside the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-update-a-contributor-put
+      # @see https://developers.lokalise.com/reference/update-a-contributor
       # @return [RubyLokaliseApi::Resources::Contributor]
       # @param project_id [String]
       # @param contributor_id [String, Integer]
@@ -46,7 +46,7 @@ module RubyLokaliseApi
 
       # Deletes contributor inside the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-delete-a-contributor-delete
+      # @see https://developers.lokalise.com/reference/delete-a-contributor
       # @return [Hash]
       # @param project_id [String]
       # @param contributor_id [String, Integer]

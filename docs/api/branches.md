@@ -4,7 +4,7 @@
 
 ## Fetch branches
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-list-all-branches-get)
+[Doc](https://developers.lokalise.com/reference/list-all-branches)
 
 ```ruby
 @client.branches(project_id, params = {})   # Input:
@@ -23,7 +23,7 @@ For example:
 
 ## Fetch branch
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-branch-get)
+[Doc](https://developers.lokalise.com/reference/retrieve-a-branch)
 
 ```ruby
 @client.branch(project_id, branch_id)   # Input:
@@ -35,7 +35,7 @@ For example:
 
 ## Create branch
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-branch-get)
+[Doc](https://developers.lokalise.com/reference/retrieve-a-branch)
 
 ```ruby
 @client.create_branch(project_id, params)   # Input:
@@ -54,7 +54,7 @@ For example:
 
 ## Update branch
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-update-a-branch-put)
+[Doc](https://developers.lokalise.com/reference/update-a-branch)
 
 ```ruby
 @client.update_branch(project_id, branch_id, params)    # Input:
@@ -81,7 +81,7 @@ For example:
 
 ## Delete branch
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-delete-a-branch-delete)
+[Doc](https://developers.lokalise.com/reference/delete-a-branch)
 
 ```ruby
 @client.destroy_branch(project_id, branch_id)   # Input:
@@ -100,7 +100,7 @@ branch.destroy
 
 ## Merge branch
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-merge-a-branch-post)
+[Doc](https://developers.lokalise.com/reference/merge-a-branch)
 
 ```ruby
 @client.merge_branch(project_id, branch_id, params) # Input:

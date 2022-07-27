@@ -4,7 +4,7 @@
 
 ## Fetch projects
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-list-all-projects-get)
+[Doc](https://developers.lokalise.com/reference/list-all-projects)
 
 ```ruby
 @client.projects(params = {})   # Input:
@@ -23,7 +23,7 @@ For example:
 
 ## Fetch a single project
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-project-get)
+[Doc](https://developers.lokalise.com/reference/retrieve-a-project)
 
 ```ruby
 @client.project(project_id)     # Input:
@@ -34,7 +34,7 @@ For example:
 
 ## Create a project
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-create-a-project-post)
+[Doc](https://developers.lokalise.com/reference/create-a-project)
 
 ```ruby
 @client.create_project(params)  # Input:
@@ -55,7 +55,7 @@ For example:
 
 ## Update a project
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-update-a-project-put)
+[Doc](https://developers.lokalise.com/reference/update-a-project)
 
 ```ruby
 @client.update_project(project_id, params)  # Input:
@@ -84,7 +84,7 @@ For example:
 
 ## Empty a project
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-empty-a-project-put)
+[Doc](https://developers.lokalise.com/reference/empty-a-project)
 
 Deletes *all* keys and translations from the project.
 
@@ -104,7 +104,7 @@ project.empty
 
 ## Delete a project
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-delete-a-project-delete)
+[Doc](https://developers.lokalise.com/reference/delete-a-project)
 
 ```ruby
 @client.destroy_project(project_id)   # Input:

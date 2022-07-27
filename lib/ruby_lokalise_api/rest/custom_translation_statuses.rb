@@ -5,7 +5,7 @@ module RubyLokaliseApi
     module CustomTranslationStatuses
       # Returns all translation statuses for the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-list-all-custom-translation-statuses-get
+      # @see https://developers.lokalise.com/reference/list-all-custom-translation-statuses
       # @return [RubyLokaliseApi::Collection::CustomTranslationStatus<RubyLokaliseApi::Resources::CustomTranslationStatus>]
       # @param project_id [String]
       # @param params [Hash]
@@ -15,7 +15,7 @@ module RubyLokaliseApi
 
       # Returns a single translation status for the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-custom-translation-status-get
+      # @see https://developers.lokalise.com/reference/retrieve-a-custom-translation-status
       # @return [RubyLokaliseApi::Resources::CustomTranslationStatus]
       # @param project_id [String]
       # @param status_id [String, Integer]
@@ -25,7 +25,7 @@ module RubyLokaliseApi
 
       # Creates translation status inside the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-create-a-custom-translation-status-post
+      # @see https://developers.lokalise.com/reference/create-a-custom-translation-status
       # @return RubyLokaliseApi::Resources::CustomTranslationStatus
       # @param project_id [String]
       # @param params Hash
@@ -35,7 +35,7 @@ module RubyLokaliseApi
 
       # Updates the given translation status inside the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-update-a-custom-translation-status-put
+      # @see https://developers.lokalise.com/reference/update-a-custom-translation-status
       # @return [RubyLokaliseApi::Resources::CustomTranslationStatus]
       # @param project_id [String]
       # @param status_id [String, Integer]
@@ -46,7 +46,7 @@ module RubyLokaliseApi
 
       # Deletes translation status inside the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-delete-a-custom-translation-status-delete
+      # @see https://developers.lokalise.com/reference/delete-a-custom-translation-status
       # @return [Hash]
       # @param project_id [String]
       # @param status_id [String, Integer]
@@ -56,7 +56,7 @@ module RubyLokaliseApi
 
       # Returns an array of available colors that can be assigned to custom translation statuses
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-retrieve-available-colors-for-custom-translation-statuses-get
+      # @see https://developers.lokalise.com/reference/retrieve-available-colors-for-custom-translation-statuses
       # @return [Array]
       # @param project_id [String]
       def translation_status_colors(project_id)

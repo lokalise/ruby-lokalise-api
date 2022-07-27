@@ -5,7 +5,7 @@ module RubyLokaliseApi
     module QueuedProcesses
       # Returns all queued processes for the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-list-all-processes-get
+      # @see https://developers.lokalise.com/reference/list-all-processes
       # @return [RubyLokaliseApi::Collection::QueuedProcess<RubyLokaliseApi::Resources::QueuedProcess>]
       # @param project_id [String]
       # @param params [Hash]
@@ -15,7 +15,7 @@ module RubyLokaliseApi
 
       # Returns a queued process for the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-process-get
+      # @see https://developers.lokalise.com/reference/retrieve-a-process
       # @return [RubyLokaliseApi::Resources::QueuedProcess]
       # @param project_id [String]
       # @param process_id [String]

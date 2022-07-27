@@ -4,7 +4,7 @@
 
 ## Fetch snapshots
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-list-all-snapshots-get)
+[Doc](https://developers.lokalise.com/reference/list-all-snapshots)
 
 ```ruby
 @client.snapshots(project_id, params = {})  # Input:
@@ -24,7 +24,7 @@ For example:
 
 ## Create snapshot
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-create-a-snapshot-post)
+[Doc](https://developers.lokalise.com/reference/create-a-snapshot)
 
 ```ruby
 @client.create_snapshot(project_id, params = {})  # Input:
@@ -43,7 +43,7 @@ For example:
 
 ## Restore snapshot
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-restore-a-snapshot-post)
+[Doc](https://developers.lokalise.com/reference/restore-a-snapshot)
 
 ```ruby
 @client.restore_snapshot(project_id, snapshot_id)   # Input:
@@ -62,7 +62,7 @@ snapshot.restore
 
 ## Delete snapshot
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-delete-a-snapshot-delete)
+[Doc](https://developers.lokalise.com/reference/delete-a-snapshot)
 
 ```ruby
 @client.destroy_snapshot(project_id, snapshot_id)   # Input:

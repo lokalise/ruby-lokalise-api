@@ -2,7 +2,7 @@
 
 ## Fetch contributors
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-list-all-contributors-get)
+[Doc](https://developers.lokalise.com/reference/list-all-contributors)
 
 ```ruby
 @client.contributors(project_id, params = {})   # Input:
@@ -21,7 +21,7 @@ For example:
 
 ## Fetch a single contributor
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-contributor-get)
+[Doc](https://developers.lokalise.com/reference/retrieve-a-contributor)
 
 ```ruby
 @client.contributor(project_id, contributor_id)   # Input:
@@ -33,7 +33,7 @@ For example:
 
 ## Create contributors
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-create-contributors-post)
+[Doc](https://developers.lokalise.com/reference/create-contributors)
 
 ```ruby
 @client.create_contributors(project_id, params)  # Input:
@@ -67,7 +67,7 @@ For example:
 
 ## Update contributor
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-update-a-contributor-put)
+[Doc](https://developers.lokalise.com/reference/update-a-contributor)
 
 ```ruby
 @client.update_contributor(project_id, contributor_id, params)   # Input:
@@ -99,7 +99,7 @@ For example:
 
 ## Delete contributor
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-delete-a-contributor-delete)
+[Doc](https://developers.lokalise.com/reference/delete-a-contributor)
 
 ```ruby
 @client.destroy_contributor(project_id, contributor_id)    # Input:

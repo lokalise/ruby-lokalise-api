@@ -5,7 +5,7 @@ module RubyLokaliseApi
     module Segments
       # Returns all segments for the given key and language ISO code
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-list-all-segments-for-key-language-get
+      # @see https://developers.lokalise.com/reference/list-all-segments-for-key-language
       # @return [RubyLokaliseApi::Collection::Segments<RubyLokaliseApi::Resources::Segment>]
       # @param project_id [String]
       # @param key_id [String, Integer]
@@ -17,7 +17,7 @@ module RubyLokaliseApi
 
       # Returns a segment under a given number for the given key and language ISO code
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-segment-for-key-language-get
+      # @see https://developers.lokalise.com/reference/retrieve-a-segment-for-key-language
       # @return [RubyLokaliseApi::Resources::Segment]
       # @param project_id [String]
       # @param key_id [String, Integer]
@@ -30,7 +30,7 @@ module RubyLokaliseApi
 
       # Updates a segment under a given number for the given key and language ISO code
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-update-a-segment-post
+      # @see https://developers.lokalise.com/reference/update-a-segment
       # @return [RubyLokaliseApi::Resources::Segment]
       # @param project_id [String]
       # @param key_id [String, Integer]

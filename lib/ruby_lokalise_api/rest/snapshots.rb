@@ -5,7 +5,7 @@ module RubyLokaliseApi
     module Snapshots
       # Returns all snapshots for the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-list-all-snapshots-get
+      # @see https://developers.lokalise.com/reference/list-all-snapshots
       # @return [RubyLokaliseApi::Collection::Snapshot<RubyLokaliseApi::Resources::Snapshot>]
       # @param project_id [String]
       # @param params [Hash]
@@ -15,7 +15,7 @@ module RubyLokaliseApi
 
       # Creates snapshot for the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-create-a-snapshot-post
+      # @see https://developers.lokalise.com/reference/create-a-snapshot
       # @return [RubyLokaliseApi::Resources::Snapshot]
       # @param project_id [String]
       # @param params [Hash]
@@ -25,7 +25,7 @@ module RubyLokaliseApi
 
       # Restore project from the given snapshot by producing project's copy
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-restore-a-snapshot-post
+      # @see https://developers.lokalise.com/reference/restore-a-snapshot
       # @return [RubyLokaliseApi::Resources::Project]
       # @param project_id [String]
       # @param snapshot_id [String, Integer]
@@ -35,7 +35,7 @@ module RubyLokaliseApi
 
       # Deletes snapshot
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-delete-a-snapshot-delete
+      # @see https://developers.lokalise.com/reference/delete-a-snapshot
       # @return [Hash]
       # @param project_id [String]
       # @param snapshot_id [String, Integer]
