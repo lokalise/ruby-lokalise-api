@@ -5,7 +5,7 @@ module RubyLokaliseApi
     module Screenshots
       # Returns all screenshots for the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-list-all-screenshots-get
+      # @see https://developers.lokalise.com/reference/list-all-screenshots
       # @return [RubyLokaliseApi::Collection::Screenshot<RubyLokaliseApi::Resources::Screenshot>]
       # @param project_id [String]
       # @param params [Hash]
@@ -15,7 +15,7 @@ module RubyLokaliseApi
 
       # Returns a single screenshot for the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-screenshot-get
+      # @see https://developers.lokalise.com/reference/retrieve-a-screenshot
       # @return [RubyLokaliseApi::Resources::Screenshot]
       # @param project_id [String]
       # @param screenshot_id [String, Integer]
@@ -25,7 +25,7 @@ module RubyLokaliseApi
 
       # Creates one or more screenshots for the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-create-screenshots-post
+      # @see https://developers.lokalise.com/reference/create-screenshots
       # @return [RubyLokaliseApi::Collection::Screenshot<RubyLokaliseApi::Resources::Screenshot>]
       # @param project_id [String]
       # @param params [Hash]
@@ -35,7 +35,7 @@ module RubyLokaliseApi
 
       # Updates screenshot
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-update-a-screenshot-put
+      # @see https://developers.lokalise.com/reference/update-a-screenshot
       # @return [RubyLokaliseApi::Resources::Screenshot]
       # @param project_id [String]
       # @param screenshot_id [String, Integer]
@@ -46,7 +46,7 @@ module RubyLokaliseApi
 
       # Deletes screenshot
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-delete-a-screenshot-delete
+      # @see https://developers.lokalise.com/reference/delete-a-screenshot
       # @return [Hash]
       # @param project_id [String]
       # @param screenshot_id [String, Integer]

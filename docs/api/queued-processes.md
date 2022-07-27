@@ -4,7 +4,7 @@
 
 ## Fetch queued processes
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-list-all-processes-get)
+[Doc](https://developers.lokalise.com/reference/list-all-processes)
 
 ```ruby
 @client.queued_processes(project_id) # Input:
@@ -15,7 +15,7 @@
 
 ## Fetch a single queued process
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-process-get)
+[Doc](https://developers.lokalise.com/reference/retrieve-a-process)
 
 ```ruby
 @client.queued_process(project_id, process_id) # Input:

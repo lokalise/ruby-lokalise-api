@@ -4,7 +4,7 @@
 
 ## Fetch system languages
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-list-system-languages-get)
+[Doc](https://developers.lokalise.com/reference/list-system-languages)
 
 ```ruby
 @client.system_languages(params = {})   # Input:
@@ -22,7 +22,7 @@ For example:
 
 ## Fetch project languages
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-list-project-languages-get)
+[Doc](https://developers.lokalise.com/reference/list-project-languages)
 
 ```ruby
 @client.project_languages(project_id, params = {})    # Input:
@@ -41,7 +41,7 @@ For example:
 
 ## Fetch a single project language
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-language-get)
+[Doc](https://developers.lokalise.com/reference/retrieve-a-language)
 
 ```ruby
 @client.language(project_id, language_id)     # Input:
@@ -53,7 +53,7 @@ For example:
 
 ## Create project languages
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-create-languages-post)
+[Doc](https://developers.lokalise.com/reference/create-languages)
 
 ```ruby
 @client.create_languages(project_id, params)    # Input:
@@ -75,7 +75,7 @@ For example:
 
 ## Update project language
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-update-a-language-put)
+[Doc](https://developers.lokalise.com/reference/update-a-language)
 
 ```ruby
 @client.update_language(project_id, language_id, params)    # Input:
@@ -106,7 +106,7 @@ For example:
 
 ## Delete project language
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-delete-a-language-delete)
+[Doc](https://developers.lokalise.com/reference/delete-a-language)
 
 ```ruby
 @client.destroy_language(project_id, language_id)    # Input:

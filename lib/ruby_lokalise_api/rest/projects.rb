@@ -5,7 +5,7 @@ module RubyLokaliseApi
     module Projects
       # Returns all projects available to the user authorized with the API token
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-list-all-projects-get
+      # @see https://developers.lokalise.com/reference/list-all-projects
       # @return [RubyLokaliseApi::Collection::Project<RubyLokaliseApi::Resources::Project>]
       # @param params [Hash]
       def projects(params = {})
@@ -14,7 +14,7 @@ module RubyLokaliseApi
 
       # Returns a single project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-project-get
+      # @see https://developers.lokalise.com/reference/retrieve-a-project
       # @return [RubyLokaliseApi::Resources::Project]
       # @param project_id [String, Integer]
       def project(project_id)
@@ -23,7 +23,7 @@ module RubyLokaliseApi
 
       # Creates project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-create-a-project-post
+      # @see https://developers.lokalise.com/reference/create-a-project
       # @return [RubyLokaliseApi::Resources::Project]
       # @param params [Hash]
       def create_project(params)
@@ -32,7 +32,7 @@ module RubyLokaliseApi
 
       # Updates project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-update-a-project-put
+      # @see https://developers.lokalise.com/reference/update-a-project
       # @return [RubyLokaliseApi::Resources::Project]
       # @param project_id [String, Integer]
       # @param params [Hash]
@@ -42,7 +42,7 @@ module RubyLokaliseApi
 
       # Deletes all keys and translations from the project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-empty-a-project-put
+      # @see https://developers.lokalise.com/reference/empty-a-project
       # @return [Hash]
       # @param project_id [String, Integer]
       def empty_project(project_id)
@@ -51,7 +51,7 @@ module RubyLokaliseApi
 
       # Deletes the project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-delete-a-project-delete
+      # @see https://developers.lokalise.com/reference/delete-a-project
       # @return [Hash]
       # @param project_id [String, Integer]
       def destroy_project(project_id)

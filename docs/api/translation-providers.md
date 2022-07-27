@@ -4,7 +4,7 @@
 
 ## Fetch translation providers
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-list-all-providers-get)
+[Doc](https://developers.lokalise.com/reference/list-all-providers)
 
 ```ruby
 @client.translation_providers(team_id, params = {})   # Input:
@@ -23,7 +23,7 @@ For example:
 
 ## Fetch a single translation provider
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-provider-get)
+[Doc](https://developers.lokalise.com/reference/retrieve-a-provider)
 
 ```ruby
 @client.translation_provider(team_id, provider_id)  # Input:

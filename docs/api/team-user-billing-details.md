@@ -4,7 +4,7 @@
 
 ## Fetch team user billing details
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-team-user-billing-details-get)
+[Doc](https://developers.lokalise.com/reference/retrieve-team-user-billing-details)
 
 ```ruby
 @client.team_user_billing_details(team_id)  # Input:
@@ -21,7 +21,7 @@ For example:
 
 ## Create team user billing details
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-create-team-user-billing-details-post)
+[Doc](https://developers.lokalise.com/reference/create-team-user-billing-details)
 
 ```ruby
 @client.create_team_user_billing_details(team_id, params)   # Input:
@@ -51,7 +51,7 @@ For example:
 
 ## Update team user billing details
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-update-team-user-billing-details-put)
+[Doc](https://developers.lokalise.com/reference/update-team-user-billing-details)
 
 ```ruby
 @client.update_team_user_billing_details(team_id, params)   # Input:

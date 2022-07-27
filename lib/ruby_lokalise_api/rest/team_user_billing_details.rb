@@ -5,7 +5,7 @@ module RubyLokaliseApi
     module TeamUserBillingDetails
       # Returns team user billing details
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-retrieve-team-user-billing-details-get
+      # @see https://developers.lokalise.com/reference/retrieve-team-user-billing-details
       # @return [RubyLokaliseApi::Resources::TeamUserBillingDetails]
       # @param team_id [String]
       def team_user_billing_details(team_id)
@@ -14,7 +14,7 @@ module RubyLokaliseApi
 
       # Creates team user billing details
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-create-team-user-billing-details-post
+      # @see https://developers.lokalise.com/reference/create-team-user-billing-details
       # @return [RubyLokaliseApi::Resources::TeamUserBillingDetails]
       # @param team_id [String]
       # @param params [Hash]
@@ -24,7 +24,7 @@ module RubyLokaliseApi
 
       # Updates team user billing details
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-create-team-user-billing-details-post
+      # @see https://developers.lokalise.com/reference/create-team-user-billing-details
       # @return [RubyLokaliseApi::Resources::TeamUserBillingDetails]
       # @param team_id [String]
       # @param params [Hash]

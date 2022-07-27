@@ -4,7 +4,7 @@
 
 ## Fetch team user groups
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-list-all-groups-get)
+[Doc](https://developers.lokalise.com/reference/list-all-groups)
 
 ```ruby
 @client.team_user_groups(team_id, params = {})  # Input:
@@ -23,7 +23,7 @@ For example:
 
 ## Fetch a single group
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-group-get)
+[Doc](https://developers.lokalise.com/reference/retrieve-a-group)
 
 ```ruby
 @client.team_user_group(team_id, group_id)  # Input:
@@ -35,7 +35,7 @@ For example:
 
 ## Create group
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-create-a-group-post)
+[Doc](https://developers.lokalise.com/reference/create-a-group)
 
 ```ruby
 @client.create_team_user_group(team_id, params) # Input:
@@ -64,7 +64,7 @@ For example:
 
 ## Update group
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-update-a-group-put)
+[Doc](https://developers.lokalise.com/reference/update-a-group)
 
 ```ruby
 @client.update_team_user_group(team_id, group_id, params) # Input:
@@ -98,7 +98,7 @@ For example:
 
 ## Add projects to group
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-add-projects-to-group-put)
+[Doc](https://developers.lokalise.com/reference/add-projects-to-group)
 
 ```ruby
 @client.add_projects_to_group(team_id, group_id, project_ids) # Input:
@@ -116,7 +116,7 @@ group.add_projects projects: [project_id1, project_id2]
 
 ## Remove projects from group
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-remove-projects-from-group-put)
+[Doc](https://developers.lokalise.com/reference/remove-projects-from-group)
 
 ```ruby
 @client.remove_projects_from_group(team_id, group_id, project_ids)  # Input:
@@ -134,7 +134,7 @@ group.remove_projects projects: [project_id1, project_id2]
 
 ## Add users to group
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-add-members-to-group-put)
+[Doc](https://developers.lokalise.com/reference/add-members-to-group)
 
 ```ruby
 @client.add_users_to_group(team_id, group_id, user_ids) # Input:
@@ -152,7 +152,7 @@ group.add_users users: [user_id1, user_id2]
 
 ## Remove users from group
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-remove-members-from-group-put)
+[Doc](https://developers.lokalise.com/reference/remove-members-from-group)
 
 ```ruby
 @client.remove_users_from_group(team_id, group_id, user_ids)  # Input:
@@ -170,7 +170,7 @@ group.remove_users users: [user_id1, user_id2]
 
 ## Destroy group
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-delete-a-group-delete)
+[Doc](https://developers.lokalise.com/reference/delete-a-group)
 
 ```ruby
 @client.destroy_team_user_group(team_id, group_id)  # Input:

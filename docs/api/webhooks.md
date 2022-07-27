@@ -4,7 +4,7 @@
 
 ## Fetch webhooks
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-list-all-webhooks-get)
+[Doc](https://developers.lokalise.com/reference/list-all-webhooks)
 
 ```ruby
 @client.webhooks(project_id, params = {}) # Input:
@@ -23,7 +23,7 @@ For example:
 
 ## Fetch a single webhook
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-webhook-get)
+[Doc](https://developers.lokalise.com/reference/retrieve-a-webhook)
 
 ```ruby
 @client.webhook(project_id, webhook_id)   # Input:
@@ -35,7 +35,7 @@ For example:
 
 ## Create webhook
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-create-a-webhook-post)
+[Doc](https://developers.lokalise.com/reference/create-a-webhook)
 
 ```ruby
 @client.create_webhook(project_id, params)    # Input:
@@ -58,7 +58,7 @@ For example:
 
 ## Update webhook
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-update-a-webhook-put)
+[Doc](https://developers.lokalise.com/reference/update-a-webhook)
 
 ```ruby
 @client.update_webhook(project_id, webhook_id, params)    # Input:
@@ -89,7 +89,7 @@ For example:
 
 ## Delete webhook
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-delete-a-webhook-delete)
+[Doc](https://developers.lokalise.com/reference/delete-a-webhook)
 
 ```ruby
 @client.destroy_webhook(project_id, webhook_id)   # Input:
@@ -108,7 +108,7 @@ webhook.destroy
 
 ## Regenerate webhook secret
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-regenerate-a-webhook-secret-patch)
+[Doc](https://developers.lokalise.com/reference/regenerate-a-webhook-secret)
 
 ```ruby
 @client.regenerate_webhook_secret(project_id, webhook_id) # Input:

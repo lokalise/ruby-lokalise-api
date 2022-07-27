@@ -4,7 +4,7 @@
 
 ## Fetch payment cards
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-list-all-cards-get)
+[Doc](https://developers.lokalise.com/reference/list-all-cards)
 
 ```ruby
 @client.payment_cards(params = {})    # Input:
@@ -22,7 +22,7 @@ For example:
 
 ## Fetch a single payment card
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-card-get)
+[Doc](https://developers.lokalise.com/reference/retrieve-a-card)
 
 ```ruby
 @client.payment_card(card_id)     # Input:
@@ -33,7 +33,7 @@ For example:
 
 ## Create a payment card
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-create-a-card-post)
+[Doc](https://developers.lokalise.com/reference/create-a-card)
 
 ```ruby
 @client.create_payment_card(params)   # Input:
@@ -58,7 +58,7 @@ For example:
 
 ## Delete a payment card
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-delete-a-card-delete)
+[Doc](https://developers.lokalise.com/reference/delete-a-card)
 
 ```ruby
 @client.destroy_payment_card(card_id)   # Input:

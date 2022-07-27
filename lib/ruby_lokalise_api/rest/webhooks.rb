@@ -5,7 +5,7 @@ module RubyLokaliseApi
     module Webhooks
       # Returns all webhooks for the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-list-all-webhooks-get
+      # @see https://developers.lokalise.com/reference/list-all-webhooks
       # @return [RubyLokaliseApi::Collection::Webhook<RubyLokaliseApi::Resources::Webhook>]
       # @param project_id [String]
       # @param params [Hash]
@@ -15,7 +15,7 @@ module RubyLokaliseApi
 
       # Returns a single webhook for the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-webhook-get
+      # @see https://developers.lokalise.com/reference/retrieve-a-webhook
       # @return [RubyLokaliseApi::Resources::Webhook]
       # @param project_id [String]
       # @param webhook_id [String, Integer]
@@ -25,7 +25,7 @@ module RubyLokaliseApi
 
       # Creates webhook for the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-create-a-webhook-post
+      # @see https://developers.lokalise.com/reference/create-a-webhook
       # @return [RubyLokaliseApi::Resources::Webhook]
       # @param project_id [String]
       # @param params [Hash]
@@ -35,7 +35,7 @@ module RubyLokaliseApi
 
       # Updates webhook for the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-update-a-webhook-put
+      # @see https://developers.lokalise.com/reference/update-a-webhook
       # @return [RubyLokaliseApi::Resources::Webhook]
       # @param project_id [String]
       # @param webhook_id [String, Integer]
@@ -46,7 +46,7 @@ module RubyLokaliseApi
 
       # Deletes webhook for the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-delete-a-webhook-delete
+      # @see https://developers.lokalise.com/reference/delete-a-webhook
       # @return [Hash]
       # @param project_id [String]
       # @param webhook_id [String, Integer]

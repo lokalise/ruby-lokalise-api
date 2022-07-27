@@ -5,7 +5,7 @@ module RubyLokaliseApi
     module PaymentCards
       # Returns all payment cards available to the user authorized with the API token
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-list-all-cards-get
+      # @see https://developers.lokalise.com/reference/list-all-cards
       # @return [RubyLokaliseApi::Collection::PaymentCard<RubyLokaliseApi::Resources::PaymentCard>]
       # @param params [Hash]
       def payment_cards(params = {})
@@ -14,7 +14,7 @@ module RubyLokaliseApi
 
       # Returns a single payment card
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-card-get
+      # @see https://developers.lokalise.com/reference/retrieve-a-card
       # @return [RubyLokaliseApi::Resources::PaymentCard]
       # @param card_id [String, Integer]
       def payment_card(card_id)
@@ -32,7 +32,7 @@ module RubyLokaliseApi
 
       # Deletes the payment card
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-delete-a-card-delete
+      # @see https://developers.lokalise.com/reference/delete-a-card
       # @return [Hash]
       # @param card_id [String, Integer]
       def destroy_payment_card(card_id)

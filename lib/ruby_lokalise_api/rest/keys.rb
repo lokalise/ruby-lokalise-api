@@ -5,7 +5,7 @@ module RubyLokaliseApi
     module Keys
       # Returns all translation keys for the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-list-all-keys-get
+      # @see https://developers.lokalise.com/reference/list-all-keys
       # @return [RubyLokaliseApi::Collection::Key<RubyLokaliseApi::Resources::Key>]
       # @param project_id [String]
       # @param params [Hash]
@@ -15,7 +15,7 @@ module RubyLokaliseApi
 
       # Returns a single translation key for the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-key-get
+      # @see https://developers.lokalise.com/reference/retrieve-a-key
       # @return [RubyLokaliseApi::Resources::Key]
       # @param project_id [String]
       # @param key_id [String, Integer]
@@ -26,7 +26,7 @@ module RubyLokaliseApi
 
       # Creates one or more translation keys for the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-create-keys-post
+      # @see https://developers.lokalise.com/reference/create-keys
       # @return [RubyLokaliseApi::Collection::Key<RubyLokaliseApi::Resources::Key>]
       # @param project_id [String]
       # @param params [Hash, Array<Hash>]
@@ -36,7 +36,7 @@ module RubyLokaliseApi
 
       # Updates translation key for the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-update-a-key-put
+      # @see https://developers.lokalise.com/reference/update-a-key
       # @return [RubyLokaliseApi::Resources::Key]
       # @param project_id [String]
       # @param key_id [String, Integer]
@@ -47,7 +47,7 @@ module RubyLokaliseApi
 
       # Updates one or multiple translation keys for the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-bulk-update-put
+      # @see https://developers.lokalise.com/reference/bulk-update
       # @return [RubyLokaliseApi::Collection::Key<RubyLokaliseApi::Resources::Key>]
       # @param project_id [String]
       # @param params [Hash, Array<Hash>]
@@ -57,7 +57,7 @@ module RubyLokaliseApi
 
       # Deletes translation key for the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-delete-a-key-delete
+      # @see https://developers.lokalise.com/reference/delete-a-key
       # @return [Hash]
       # @param project_id [String]
       # @param key_id [String, Integer]
@@ -67,7 +67,7 @@ module RubyLokaliseApi
 
       # Deletes one or multiple translation keys for the given project
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-delete-multiple-keys-delete
+      # @see https://developers.lokalise.com/reference/delete-multiple-keys
       # @return [Hash]
       # @param project_id [String]
       # @param key_ids [String, Integer, Array<String>, Array<Integer>]

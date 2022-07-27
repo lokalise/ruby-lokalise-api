@@ -4,7 +4,7 @@
 
 ## Fetch project comments
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-list-project-comments-get)
+[Doc](https://developers.lokalise.com/reference/list-project-comments)
 
 ```ruby
 @client.project_comments(project_id, params = {})   # Input:
@@ -17,7 +17,7 @@
 
 ## Fetch key comments
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-list-key-comments-get)
+[Doc](https://developers.lokalise.com/reference/list-key-comments)
 
 ```ruby
 @client.comments(project_id, key_id, params = {})   # Input:
@@ -37,7 +37,7 @@ For example:
 
 ## Create key comments
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-create-comments-post)
+[Doc](https://developers.lokalise.com/reference/create-comments)
 
 ```ruby
 @client.create_comments(project_id, key_id, params)   # Input:
@@ -60,7 +60,7 @@ For example:
 
 ## Fetch key comment
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-comment-get)
+[Doc](https://developers.lokalise.com/reference/retrieve-a-comment)
 
 ```ruby
 @client.comment(project_id, key_id, comment_id)   # Input:
@@ -73,7 +73,7 @@ For example:
 
 ## Delete key comment
 
-[Doc](https://app.lokalise.com/api2docs/curl/#transition-delete-a-comment-delete)
+[Doc](https://developers.lokalise.com/reference/delete-a-comment)
 
 ```ruby
 @client.destroy_comment(project_id, key_id, comment_id)   # Input:

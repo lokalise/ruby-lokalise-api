@@ -5,7 +5,7 @@ module RubyLokaliseApi
     module TranslationProviders
       # Returns all translation providers for the given team
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-list-all-providers-get
+      # @see https://developers.lokalise.com/reference/list-all-providers
       # @return [RubyLokaliseApi::Collection::TranslationProvider<RubyLokaliseApi::Resources::TranslationProvider>]
       # @param team_id [String]
       # @param params [Hash]
@@ -15,7 +15,7 @@ module RubyLokaliseApi
 
       # Returns a single translation provider for the given team
       #
-      # @see https://app.lokalise.com/api2docs/curl/#transition-retrieve-a-provider-get
+      # @see https://developers.lokalise.com/reference/retrieve-a-provider
       # @return [RubyLokaliseApi::Resources::TranslationProvider]
       # @param team_id [String]
       # @param provider_id [String, Integer]

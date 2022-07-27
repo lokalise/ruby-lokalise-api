@@ -21,7 +21,6 @@ RSpec.describe RubyLokaliseApi::OAuth2::Auth do
       uri = auth_client.auth scope: 'read_projects', redirect_uri: 'http://example.com/callback'
       expect(uri).to include(described_class::BASE_URL.to_s)
       expect(uri).to include('example.com%2Fcallback')
-      puts uri.inspect
     end
 
     it 'allows to set state' do
