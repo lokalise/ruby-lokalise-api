@@ -1,7 +1,5 @@
 # Translations
 
-[Translation attributes](https://app.lokalise.com/api2docs/curl/#resource-translations)
-
 ## Fetch translations
 
 [Doc](https://developers.lokalise.com/reference/list-all-translations)

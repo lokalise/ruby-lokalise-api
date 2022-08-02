@@ -1,7 +1,5 @@
 # Translation files
 
-[File attributes](https://app.lokalise.com/api2docs/curl/#object-files)
-
 ## Fetch translation files
 
 [Doc](https://developers.lokalise.com/reference/list-all-files)
@@ -114,6 +112,8 @@ uploaded? process
 ## Delete a file
 
 [Doc](https://developers.lokalise.com/reference/delete-a-file)
+
+This endpoint does not support "software localization" projects.
 
 ```ruby
 @client.destroy_file(project_id, file_id) # Input:

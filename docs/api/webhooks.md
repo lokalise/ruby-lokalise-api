@@ -1,7 +1,5 @@
 # Webhooks
 
-[Webhook attributes](https://app.lokalise.com/api2docs/curl/#object-webhooks)
-
 ## Fetch webhooks
 
 [Doc](https://developers.lokalise.com/reference/list-all-webhooks)

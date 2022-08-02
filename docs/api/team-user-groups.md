@@ -1,7 +1,5 @@
 # Team user groups
 
-[Team user group attributes](https://app.lokalise.com/api2docs/curl/#object-team-user-groups)
-
 ## Fetch team user groups
 
 [Doc](https://developers.lokalise.com/reference/list-all-groups)

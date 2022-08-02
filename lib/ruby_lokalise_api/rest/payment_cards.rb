@@ -23,7 +23,7 @@ module RubyLokaliseApi
 
       # Creates a payment card
       #
-      # @see https://lokalise.co/api2docs/curl/#transition-create-a-card-post
+      # @see https://developers.lokalise.com/reference/create-a-card
       # @return [RubyLokaliseApi::Resources::PaymentCard]
       # @param params [Hash]
       def create_payment_card(params)

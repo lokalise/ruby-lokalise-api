@@ -5,7 +5,7 @@ module RubyLokaliseApi
     module Branches
       # Returns all branches for the given project
       #
-      # @see https://lokalise.com/api2docs/curl/#transition-list-all-branches-get
+      # @see https://developers.lokalise.com/reference/list-all-branches
       # @return [RubyLokaliseApi::Collection::Branch<RubyLokaliseApi::Resources::Branch>]
       # @param project_id [String]
       # @param params [Hash]
@@ -15,7 +15,7 @@ module RubyLokaliseApi
 
       # Creates a new branch inside the given project
       #
-      # @see https://lokalise.com/api2docs/curl/#transition-create-a-branch-post
+      # @see https://developers.lokalise.com/reference/create-a-branch
       # @return [RubyLokaliseApi::Resources::Branch]
       # @param project_id [String]
       # @param params [Hash]
@@ -25,7 +25,7 @@ module RubyLokaliseApi
 
       # Returns a single branch for the given project
       #
-      # @see https://lokalise.com/api2docs/curl/#transition-retrieve-a-branch-get
+      # @see https://developers.lokalise.com/reference/retrieve-a-branch
       # @return [RubyLokaliseApi::Resources::Branch]
       # @param project_id [String]
       # @param branch_id [String, Integer]
@@ -35,7 +35,7 @@ module RubyLokaliseApi
 
       # Updates the given branch inside the given project
       #
-      # @see https://lokalise.com/api2docs/curl/#transition-update-a-branch-put
+      # @see https://developers.lokalise.com/reference/update-a-branch
       # @return [RubyLokaliseApi::Resources::Branch]
       # @param project_id [String]
       # @param branch_id [String, Integer]
@@ -46,7 +46,7 @@ module RubyLokaliseApi
 
       # Deletes branch inside the given project
       #
-      # @see https://lokalise.com/api2docs/curl/#transition-delete-a-branch-delete
+      # @see https://developers.lokalise.com/reference/delete-a-branch
       # @return [Hash]
       # @param project_id [String]
       # @param branch_id [String, Integer]
@@ -56,7 +56,7 @@ module RubyLokaliseApi
 
       # Merges a branch in the project
       #
-      # @see https://lokalise.com/api2docs/curl/#transition-merge-a-branch-post
+      # @see https://developers.lokalise.com/reference/merge-a-branch
       # @return [Hash]
       # @param project_id [String]
       # @param branch_id [String, Integer]

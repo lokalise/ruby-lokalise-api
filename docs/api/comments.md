@@ -1,7 +1,5 @@
 # Comments
 
-[Comments attributes](https://app.lokalise.com/api2docs/curl/#resource-comments)
-
 ## Fetch project comments
 
 [Doc](https://developers.lokalise.com/reference/list-project-comments)

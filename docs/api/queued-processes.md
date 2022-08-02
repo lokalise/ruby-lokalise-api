@@ -1,7 +1,5 @@
 # Queued processes
 
-[Queued processes attributes](https://app.lokalise.com/api2docs/curl/#object-queued-processes)
-
 ## Fetch queued processes
 
 [Doc](https://developers.lokalise.com/reference/list-all-processes)

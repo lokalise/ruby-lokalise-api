@@ -27,6 +27,14 @@ module RubyLokaliseApi
         @path = infer_path_from response, endpoint_generator
       end
 
+      def [](raw_key_attr)
+        key_attr = raw_key_attr.to_s.to_sym
+
+        return nil unless self.instance_variables.include?(:"@#{key_attr}")
+
+        self.send key_attr
+      end
+
       class << self
         # Dynamically adds attribute readers for each inherited class.
         # Attributes are defined in the `data/attributes.json` file.

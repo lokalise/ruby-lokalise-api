@@ -1,7 +1,5 @@
 # Branches
 
-[Branches attributes](https://app.lokalise.com/api2docs/curl/#resource-branches)
-
 ## Fetch branches
 
 [Doc](https://developers.lokalise.com/reference/list-all-branches)

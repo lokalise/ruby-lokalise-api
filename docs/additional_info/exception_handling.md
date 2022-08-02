@@ -2,7 +2,7 @@
 
 ## Error codes
 
-[Error codes used by the API](https://app.lokalise.com/api2docs/curl/#resource-errors)
+[Error codes used by the API](https://developers.lokalise.com/reference/api-errors)
 
 The gem may raise the following custom exceptions:
 
@@ -22,6 +22,6 @@ The gem may raise the following custom exceptions:
 
 ## API Rate Limits
 
-[Access to all endpoints is limited](https://app.lokalise.com/api2docs/curl/#resource-rate-limits) to 6 requests per second from 14 September, 2021. This limit is applied per API token and per IP address. If you exceed the limit, a 429 HTTP status code will be returned and the corresponding exception will be raised that you should handle properly. To handle such errors, we recommend an exponential backoff mechanism with a limited number of retries. You can use [lokalise_rails backoff mechanism](https://github.com/bodrovis/lokalise_rails/blob/master/lib/lokalise_rails/task_definition/base.rb#L63) as an example.
+[Access to all endpoints is limited](https://developers.lokalise.com/reference/api-rate-limits) to 6 requests per second from 14 September, 2021. This limit is applied per API token and per IP address. If you exceed the limit, a 429 HTTP status code will be returned and the corresponding exception will be raised that you should handle properly. To handle such errors, we recommend an exponential backoff mechanism with a limited number of retries. You can use [lokalise_rails backoff mechanism](https://github.com/bodrovis/lokalise_rails/blob/master/lib/lokalise_rails/task_definition/base.rb#L63) as an example.
 
 Only one concurrent request per token is allowed.

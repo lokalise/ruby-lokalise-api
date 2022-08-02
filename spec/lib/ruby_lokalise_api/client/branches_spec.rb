@@ -40,6 +40,18 @@ RSpec.describe RubyLokaliseApi::Client do
     expect(branch.created_by_email).to eq('bodrovis@protonmail.com')
   end
 
+  specify '#[]' do
+    branch = VCR.use_cassette('branch') do
+      test_client.branch project_id, branch_id
+    end
+
+    expect(branch[:branch_id]).to eq(branch_id)
+    expect(branch[:project_id]).to eq(project_id)
+    expect(branch['name']).to eq('ruby-branch')
+    expect(branch['unknown_attr']).to be_nil
+    expect(branch[:unknown_attr]).to be_nil
+  end
+
   specify '#reload_data' do
     branch = VCR.use_cassette('branch') do
       test_client.branch project_id, branch_id

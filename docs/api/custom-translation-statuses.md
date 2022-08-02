@@ -1,7 +1,5 @@
 # Custom translation statuses
 
-[Translation Status attributes](https://app.lokalise.com/api2docs/curl/#object-translation-statuses)
-
 *Custom translation statuses must be enabled for the project before using this endpoint!* It can be done in the project settings.
 
 ## Fetch translation statuses

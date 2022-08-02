@@ -1,7 +1,5 @@
 # Team users
 
-[Team user attributes](https://app.lokalise.com/api2docs/curl/#object-team-users)
-
 ## Fetch team users
 
 [Doc](https://developers.lokalise.com/reference/list-all-team-users)
