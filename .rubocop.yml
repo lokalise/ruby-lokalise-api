@@ -26,10 +26,10 @@ Metrics/MethodLength:
   Max: 10
 
 Metrics/ModuleLength:
-  Max: 120
+  Max: 150
 
 Metrics/ClassLength:
-  Max: 120
+  Max: 150
 
 Metrics/ParameterLists:
   Max: 5
