@@ -30,7 +30,7 @@ module RubyLokaliseApi
       # Returns object attribute with [] notation by calling
       # the corresponding method on the object if the
       # instance variable named after the requested key exists
-
+      #
       # @param raw_key_attr [String or Hash]
       def [](raw_key_attr)
         key_attr = raw_key_attr.to_s.to_sym
