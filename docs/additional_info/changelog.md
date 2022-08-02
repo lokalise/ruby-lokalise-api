@@ -1,5 +1,23 @@
 # Changelog
 
+## 6.2.0 (02-Aug-2022)
+
+**New feature**: added ability to access resources' attributes with the `[]` notation. In other words, previously you could only write:
+
+```ruby
+branch.branch_id
+branch.name
+```
+
+Now you can also write:
+
+```ruby
+branch[:branch_id]
+branch['name']
+```
+
+This feature was introduced so that all resources can play nicely with methods like `pluck`.
+
 ## 6.1.0 (27-Jul-2022)
 
 * Added support for the [Delete a file endpoint](https://lokalise.github.io/ruby-lokalise-api/api/files#delete-a-file)
