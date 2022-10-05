@@ -27,12 +27,17 @@ module RubyLokaliseApi
         @path = infer_path_from response, endpoint_generator
       end
 
+      # Returns object attribute with [] notation by calling
+      # the corresponding method on the object if the
+      # instance variable named after the requested key exists
+      #
+      # @param raw_key_attr [String or Hash]
       def [](raw_key_attr)
         key_attr = raw_key_attr.to_s.to_sym
 
-        return nil unless self.instance_variables.include?(:"@#{key_attr}")
+        return nil unless instance_variables.include?(:"@#{key_attr}")
 
-        self.send key_attr
+        send key_attr
       end
 
       class << self

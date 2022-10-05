@@ -26,7 +26,7 @@ jobs:
       OAUTH2_REFRESH_TOKEN: fake
       OAUTH2_CODE: fake
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
