@@ -2,7 +2,7 @@
 
 ## Installation and Requirements
 
-This gem requires [Ruby 2.4+](https://www.ruby-lang.org/en/) and [RubyGems package manager](https://rubygems.org/pages/download).
+This gem requires [Ruby 2.7+](https://www.ruby-lang.org/en/) and [RubyGems package manager](https://rubygems.org/pages/download).
 
 Install it by running:
 
