@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require 'rake'
+require 'rspec/core/rake_task'
+require 'rubocop/rake_task'
 
 begin
   require 'bundler/setup'
@@ -9,13 +11,36 @@ rescue LoadError
   puts 'although not required, bundler is recommened for running the tests'
 end
 
-task default: :spec
-
-require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new(:spec)
 
-require 'rubocop/rake_task'
 RuboCop::RakeTask.new do |task|
   task.requires << 'rubocop-performance'
   task.requires << 'rubocop-rspec'
 end
+
+namespace :lokalise do
+  desc 'Removes old .gem files'
+  task :clean do
+    puts 'Removing old gems'
+    rm FileList['./*.gem']
+  end
+
+  desc 'Updates RubyGems, installs dependencies'
+  task :install do
+    puts 'Running bundle install'
+    sh 'gem update --system'
+    sh 'bundle'
+  end
+
+  desc 'Builds the gem'
+  task :build do
+    puts 'Building'
+    sh 'gem build fun_translations.gemspec'
+  end
+end
+
+task rubospec: %w[rubocop spec]
+
+task full_build: %w[lokalise:clean lokalise:install lokalise:build]
+
+task default: :full_build
