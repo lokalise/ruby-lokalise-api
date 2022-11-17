@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rake'
+require 'rake/clean'
 require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
 
@@ -19,11 +20,7 @@ RuboCop::RakeTask.new do |task|
 end
 
 namespace :lokalise do
-  desc 'Removes old .gem files'
-  task :clean do
-    puts 'Removing old gems'
-    rm FileList['./*.gem']
-  end
+  CLOBBER.include(FileList['./*.gem'])
 
   desc 'Updates RubyGems, installs dependencies'
   task :install do
@@ -41,6 +38,6 @@ end
 
 task rubospec: %w[rubocop spec]
 
-task full_build: %w[lokalise:clean lokalise:install lokalise:build]
+task full_build: %w[clobber lokalise:install lokalise:build]
 
 task default: :full_build
