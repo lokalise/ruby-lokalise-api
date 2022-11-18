@@ -33,7 +33,7 @@ namespace :lokalise do
   desc 'Builds the gem'
   task :build do
     puts 'Building'
-    sh 'gem build fun_translations.gemspec'
+    sh 'gem build ruby-lokalise-api.gemspec'
   end
 end
 
