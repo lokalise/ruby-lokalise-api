@@ -29,6 +29,14 @@ RSpec.describe RubyLokaliseApi do
     expect(current_oauth_client).to be_nil
   end
 
+  specify '.auth_client' do
+    client = described_class.auth_client('id', 'secret', timeout: 5, open_timeout: 10)
+    expect(client.client_id).to eq('id')
+    expect(client.client_secret).to eq('secret')
+    expect(client.timeout).to eq(5)
+    expect(client.open_timeout).to eq(10)
+  end
+
   context 'with client params' do
     before { described_class.reset_client! }
 

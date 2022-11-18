@@ -70,7 +70,8 @@ module RubyLokaliseApi
         key ? key.snakecase : key
       end
 
-      # Unify some resources' names (eg, `ProjectComment` and `KeyComment` have the same attributes which are stored under `comment`)
+      # Unify some resources' names (eg, `ProjectComment` and `KeyComment` have the same
+      # attributes which are stored under `comment`)
       #
       # @return [String]
       def unify(name)

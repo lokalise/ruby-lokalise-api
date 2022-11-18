@@ -13,7 +13,8 @@ module RubyLokaliseApi
         c_r RubyLokaliseApi::Collections::File, :all, project_id, params
       end
 
-      # Exports translation files as .zip bundle, uploads them to Amazon S3 and returns a URL to the generated bundle. The URL is valid for a year
+      # Exports translation files as .zip bundle, uploads them to Amazon S3 and
+      # returns a URL to the generated bundle. The URL is valid for a year
       #
       # @see https://developers.lokalise.com/reference/download-files
       # @return [Hash]

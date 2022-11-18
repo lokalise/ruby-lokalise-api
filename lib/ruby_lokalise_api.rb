@@ -43,8 +43,14 @@ module RubyLokaliseApi
       @oauth2_client = nil
     end
 
-    def auth_client(client_id, client_secret)
-      RubyLokaliseApi::OAuth2::Auth.new client_id, client_secret
+    # Initializes a new Auth client to request OAuth 2 tokens
+    #
+    # @return [RubyLokaliseApi::OAuth2::Auth]
+    # @param client_id [String]
+    # @param client_secret [String]
+    # @param params [Hash]
+    def auth_client(client_id, client_secret, params = {})
+      RubyLokaliseApi::OAuth2::Auth.new client_id, client_secret, params
     end
   end
 end

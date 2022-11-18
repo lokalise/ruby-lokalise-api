@@ -1,5 +1,45 @@
 # Changelog
 
+## 7.0.0 (18-Nov-2022)
+
+* **Breaking change**: `#token` and `#refresh` methods (used to request OAuth 2 access and refresh tokens) now return proper Ruby objects:
+
+```ruby
+RubyLokaliseApi.auth_client('client_id', 'client_secret')
+
+# Previously:
+
+token = auth_client.token 'oauth2_code' # this method used to return a hash
+
+token['access_token']
+token['refresh_token']
+
+refresh = auth_client.refresh 'refresh_token' # this method used to return a hash
+
+token['access_token']
+token['expires_in']
+
+# NOW:
+
+token = auth_client.token 'oauth2_code' # this is an instance of the Token class
+
+token.access_token
+token.refresh_token
+
+refresh = auth_client.refresh 'refresh_token' # this is an instance of the Refresh class
+
+token.access_token
+token.expires_in
+```
+
+* **New feature**: you can now customize timeouts when creating an Auth client (these params are optional):
+
+```ruby
+auth_client = RubyLokaliseApi.auth_client('id', 'secret', timeout: 5, open_timeout: 10)
+```
+
+* Various code tweaks
+
 ## 6.2.0 (02-Aug-2022)
 
 **New feature**: added ability to access resources' attributes with the `[]` notation. In other words, previously you could only write:

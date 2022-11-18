@@ -20,7 +20,8 @@ Metrics/BlockNesting:
 
 Layout/LineLength:
   AllowURI: true
-  Enabled: false
+  Exclude:
+    - ./*.gemspec
 
 Metrics/MethodLength:
   CountComments: false

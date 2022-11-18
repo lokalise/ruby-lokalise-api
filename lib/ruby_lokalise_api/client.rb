@@ -42,7 +42,8 @@ module RubyLokaliseApi
     # @param endpoint_ids [Array, Hash] IDs that are used to generate the proper path to the endpoint
     # @param params [Array, Hash] Request parameters
     # @param object_key [String, Symbol] Key that should be used to wrap parameters into
-    # @param initial_ids [Array] IDs that should be used to generate base endpoint path. The base path is used for method chaining
+    # @param initial_ids [Array] IDs that should be used to generate base endpoint path.
+    # The base path is used for method chaining
     def construct_request(klass, method, endpoint_ids, params = {}, object_key = nil, initial_ids = nil)
       path = klass.endpoint(*endpoint_ids)
       formatted_params = format_params(params, object_key)
@@ -60,6 +61,14 @@ module RubyLokaliseApi
 
       params = [params] unless params.is_a?(Array)
       {object_key => params}
+    end
+
+    def base_url
+      'https://api.lokalise.com/api2/'
+    end
+
+    def compression?
+      true
     end
 
     alias c_r construct_request

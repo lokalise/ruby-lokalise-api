@@ -17,11 +17,12 @@ RSpec::Core::RakeTask.new(:spec)
 RuboCop::RakeTask.new do |task|
   task.requires << 'rubocop-performance'
   task.requires << 'rubocop-rspec'
+  task.requires << 'rubocop-rake'
 end
 
-namespace :lokalise do
-  CLOBBER.include(FileList['./*.gem'])
+CLOBBER.include(FileList['./*.gem'])
 
+namespace :lokalise do
   desc 'Updates RubyGems, installs dependencies'
   task :install do
     puts 'Running bundle install'
