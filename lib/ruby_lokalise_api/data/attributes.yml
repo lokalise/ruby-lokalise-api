@@ -30,6 +30,8 @@ custom_translation_status:
 file:
   - filename
   - key_count
+jwt:
+  - jwt
 key:
   - key_id
   - created_at

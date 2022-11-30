@@ -28,7 +28,7 @@ RSpec.describe RubyLokaliseApi::Error do
       VCR.use_cassette('error_invalid_token') do
         get 'projects', RubyLokaliseApi.client('invalid')
       end
-    end.to raise_error(RubyLokaliseApi::Error::BadRequest)
+    end.to raise_error(RubyLokaliseApi::Error::BadRequest, /Invalid `X-Api-Token` header/)
   end
 
   it 'raises NotFound when the provided path cannot be found' do

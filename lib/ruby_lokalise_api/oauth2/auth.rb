@@ -3,13 +3,15 @@
 module RubyLokaliseApi
   module OAuth2
     class Auth
-      include RubyLokaliseApi::OAuth2::Request
+      include RubyLokaliseApi::BaseRequest
 
-      attr_reader :client_id, :client_secret
+      attr_reader :client_id, :client_secret, :timeout, :open_timeout
 
-      def initialize(client_id, client_secret)
+      def initialize(client_id, client_secret, params = {})
         @client_id = client_id
         @client_secret = client_secret
+        @timeout = params[:timeout]
+        @open_timeout = params[:open_timeout]
       end
 
       def auth(scope:, redirect_uri: nil, state: nil)
@@ -30,7 +32,8 @@ module RubyLokaliseApi
                                      code: code,
                                      grant_type: 'authorization_code'
                                    })
-        post 'token', params
+
+        RubyLokaliseApi::OAuth2::Token.new post('token', self, params)
       end
 
       def refresh(token)
@@ -38,7 +41,16 @@ module RubyLokaliseApi
                                      refresh_token: token,
                                      grant_type: 'refresh_token'
                                    })
-        post 'token', params
+
+        RubyLokaliseApi::OAuth2::Refresh.new post('token', self, params)
+      end
+
+      def base_url
+        URI('https://app.lokalise.com/oauth2/')
+      end
+
+      def compression?
+        false
       end
 
       private
@@ -52,8 +64,8 @@ module RubyLokaliseApi
 
       def _build_url_from(params)
         URI::HTTPS.build(
-          host: BASE_URL.host,
-          path: "#{BASE_URL.path}auth",
+          host: base_url.host,
+          path: "#{base_url.path}auth",
           query: URI.encode_www_form(params)
         ).to_s
       end

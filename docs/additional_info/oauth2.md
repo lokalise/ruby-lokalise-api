@@ -6,13 +6,15 @@ Lokalise also provides [OAuth 2 authentication flow](http://docs.lokalise.com/en
 
 *Please note that you can also take advantage of the [omniauth-lokalise gem](https://github.com/bodrovis/omniauth-lokalise) which makes the process even simpler. Still, you'll need Lokalise Ruby SDK to refresh your tokens.*
 
-First of all, you'll need to create an auth client:
+First of all, you'll need to create an auth client by passing client id and client secret:
 
 ```ruby
 auth_client = RubyLokaliseApi.auth_client 'OAUTH2_CLIENT_ID', 'OAUTH2_CLIENT_SECRET'
-```
 
-Pass your client ID and client secret.
+# Optionally, pass request timeouts:
+
+auth_client = RubyLokaliseApi.auth_client 'OAUTH2_CLIENT_ID', 'OAUTH2_CLIENT_SECRET', timeout: 5, open_timeout: 10
+```
 
 ## Generating auth URL
 
@@ -44,7 +46,7 @@ Next, call the `#token` method and pass a secret code obtained on the previous s
 response = auth_client.token 'secret code'
 ```
 
-The `response` will contain a hash with the following keys:
+The `response` is an object responding to the following methods:
 
 * `access_token` — your OAuth 2 token that can be used to send requests on the user's behalf.
 * `refresh_token` — use this token to refresh an expired access token.
@@ -59,11 +61,12 @@ Once your access token expires, you can refresh it in the following way:
 response = auth_client.refresh 'YOUR_REFRESH_TOKEN'
 ```
 
-The `response` will contain a hash with the following keys:
+The `response` is an object responding to the following methods:
 
 * `access_token` — your new OAuth 2 token.
 * `expires_in` — access token lifespan.
 * `token_type` — access token type (usually, "Bearer").
+* `scope` — your token scope.
 
 ## Using OAuth 2 token
 

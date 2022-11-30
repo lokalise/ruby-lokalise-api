@@ -3,58 +3,17 @@
 module RubyLokaliseApi
   module Request
     include RubyLokaliseApi::BaseRequest
-    include RubyLokaliseApi::Connection
 
     # Lokalise returns pagination info in special headers
-    PAGINATION_HEADERS = %w[x-pagination-total-count x-pagination-page-count x-pagination-limit x-pagination-page].freeze
-
-    def get(path, client, params = {})
-      respond_with(
-        connection(client).get(prepare(path), params),
-        client
-      )
-    end
-
-    def post(path, client, params = {})
-      respond_with(
-        connection(client).post(prepare(path), custom_dump(params)),
-        client
-      )
-    end
-
-    def put(path, client, params = {})
-      respond_with(
-        connection(client).put(prepare(path), custom_dump(params)),
-        client
-      )
-    end
-
-    def patch(path, client, params = {})
-      respond_with(
-        connection(client).patch(prepare(path), params.any? ? custom_dump(params) : nil),
-        client
-      )
-    end
-
-    def delete(path, client, params = {})
-      respond_with(
-        # Rubocop tries to replace `delete` with `gsub` but that's a different method here!
-        # rubocop:disable Style/CollectionMethods
-        connection(client).delete(prepare(path)) do |req|
-          # rubocop:enable Style/CollectionMethods
-          req.body = custom_dump params
-        end,
-        client
-      )
-    end
+    PAGINATION_HEADERS = %w[x-pagination-total-count x-pagination-page-count x-pagination-limit
+                            x-pagination-page].freeze
 
     private
 
     def respond_with(response, client)
       body = custom_load response.body
       uri = Addressable::URI.parse response.env.url
-      status = response.status
-      raise_on_error! status, body
+      raise_on_error! response, body
       extract_headers_from(response).
         merge('content' => body,
               'client' => client,

@@ -1,6 +1,7 @@
 require:
  - rubocop-performance
  - rubocop-rspec
+ - rubocop-rake
 
 AllCops:
   TargetRubyVersion: 2.7
@@ -19,7 +20,8 @@ Metrics/BlockNesting:
 
 Layout/LineLength:
   AllowURI: true
-  Enabled: false
+  Exclude:
+    - ./*.gemspec
 
 Metrics/MethodLength:
   CountComments: false

@@ -6,7 +6,8 @@ module RubyLokaliseApi
       # Returns all translation statuses for the given project
       #
       # @see https://developers.lokalise.com/reference/list-all-custom-translation-statuses
-      # @return [RubyLokaliseApi::Collection::CustomTranslationStatus<RubyLokaliseApi::Resources::CustomTranslationStatus>]
+      # @return [RubyLokaliseApi::Collection::CustomTranslationStatus
+      # <RubyLokaliseApi::Resources::CustomTranslationStatus>]
       # @param project_id [String]
       # @param params [Hash]
       def translation_statuses(project_id, params = {})
