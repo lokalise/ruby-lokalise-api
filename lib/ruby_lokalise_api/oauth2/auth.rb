@@ -14,10 +14,6 @@ module RubyLokaliseApi
         @open_timeout = params[:open_timeout]
       end
 
-      def base_url
-        URI('https://app.lokalise.com/oauth2/')
-      end
-
       def auth(scope:, redirect_uri: nil, state: nil)
         scope = scope.join(' ') if scope.is_a?(Array)
 
@@ -47,6 +43,10 @@ module RubyLokaliseApi
                                    })
 
         RubyLokaliseApi::OAuth2::Refresh.new post('token', self, params)
+      end
+
+      def base_url
+        URI('https://app.lokalise.com/oauth2/')
       end
 
       def compression?

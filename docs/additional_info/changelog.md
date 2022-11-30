@@ -1,5 +1,14 @@
 # Changelog
 
+## 7.1.0 (30-Nov-2022)
+
+* Added support for the [`Jwt` endpoint](https://developers.lokalise.com/reference/get-ota-jwt). You can now request JWT easily (please note that these tokens are used only to work with OTA):
+
+```ruby
+resp = @client.jwt
+resp.jwt # => 'eyJ0eXAiOi...`
+```
+
 ## 7.0.0 (18-Nov-2022)
 
 * **Breaking change**: `#token` and `#refresh` methods (used to request OAuth 2 access and refresh tokens) now return proper Ruby objects:
