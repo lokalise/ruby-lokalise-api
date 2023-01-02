@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'addressable',                     '~> 2.5'
   spec.add_dependency 'faraday',                         '~> 2.0'
-  spec.add_dependency 'faraday-gzip',                    '~> 0.1'
+  spec.add_dependency 'faraday-gzip',                    '>= 0.1', '< 2.0'
   spec.add_dependency 'json',                            '~> 2'
   spec.add_dependency 'zeitwerk',                        '~> 2.4'
 
