@@ -10,24 +10,26 @@ http_interactions:
       Accept:
       - application/json
       User-Agent:
-      - ruby-lokalise-api gem/4.3.0
-      X-api-token:
+      - ruby-lokalise-api gem/7.1.0
+      x-api-token:
       - invalid
+      Accept-Encoding:
+      - gzip,deflate,br
   response:
     status:
       code: 400
       message: Bad Request
     headers:
-      server:
-      - nginx
       date:
-      - Tue, 21 Sep 2021 12:26:16 GMT
+      - Tue, 03 Jan 2023 17:56:57 GMT
       content-type:
       - application/json
       transfer-encoding:
       - chunked
       connection:
       - keep-alive
+      server:
+      - nginx
       cache-control:
       - max-age=0, must-revalidate, no-cache, no-store, private
       pragma:
@@ -42,10 +44,12 @@ http_interactions:
       - max-age=31536000
       referrer-policy:
       - origin
+      x-lokalise-process-id:
+      - 2a5dce95-764e-47da-b75d-fd4c7f98ff8d
       expires:
-      - Tue, 21 Sep 2021 12:26:16 GMT
+      - Tue, 03 Jan 2023 17:56:57 GMT
     body:
       encoding: UTF-8
-      string: '{"message":"Invalid `X-Api-Token` header","code":400}'
-  recorded_at: Tue, 21 Sep 2021 12:26:16 GMT
-recorded_with: VCR 6.0.0
+      string: '{"error":{"message":"Invalid `X-Api-Token` header","code":400}}'
+  recorded_at: Tue, 03 Jan 2023 17:56:57 GMT
+recorded_with: VCR 6.1.0
