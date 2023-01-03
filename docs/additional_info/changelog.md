@@ -1,5 +1,10 @@
 # Changelog
 
+## 7.1.1 (03-Jan-2022)
+
+* Update dependencies and tests
+* Update test matrix
+
 ## 7.1.0 (30-Nov-2022)
 
 * Added support for the [`Jwt` endpoint](https://developers.lokalise.com/reference/get-ota-jwt). You can now request JWT easily (please note that these tokens are used only to work with OTA):
