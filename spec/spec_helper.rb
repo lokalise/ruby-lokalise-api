@@ -9,6 +9,11 @@ SimpleCov.start do
   add_filter '.github/'
 end
 
+if ENV.fetch('CI', nil) == 'true'
+  require 'simplecov-cobertura'
+  SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
+end
+
 require 'ruby_lokalise_api'
 
 # Support files
