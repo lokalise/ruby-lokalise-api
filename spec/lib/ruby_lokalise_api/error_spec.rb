@@ -15,14 +15,6 @@ RSpec.describe RubyLokaliseApi::Error do
     end.to raise_error(described_class)
   end
 
-  it 'handles an exception when the API key is not set' do
-    expect do
-      VCR.use_cassette('error_no_key') do
-        get 'projects', RubyLokaliseApi.client('invalid')
-      end
-    end.to raise_error(RubyLokaliseApi::Error::BadRequest)
-  end
-
   it 'raises BadRequest when API token is invalid' do
     expect do
       VCR.use_cassette('error_invalid_token') do
