@@ -1,16 +1,16 @@
 ---
 http_interactions:
 - request:
-    method: get
-    uri: https://api.lokalise.com/api2/jwt-tokens/ota
+    method: post
+    uri: https://api.lokalise.com/api2/projects/2273827860c1e2473eb195.11207948/tokens
     body:
-      encoding: US-ASCII
-      string: ''
+      encoding: UTF-8
+      string: '{"service":"ota"}'
     headers:
       Accept:
       - application/json
       User-Agent:
-      - ruby-lokalise-api gem/7.0.0
+      - ruby-lokalise-api gem/7.1.1
       x-api-token:
       - "<LOKALISE_TOKEN>"
       Accept-Encoding:
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Wed, 30 Nov 2022 17:12:53 GMT
+      - Wed, 11 Jan 2023 16:03:31 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -47,11 +47,11 @@ http_interactions:
       referrer-policy:
       - origin
       x-lokalise-process-id:
-      - 12b5fe23-338b-4053-b936-0264700018aa
+      - f7439f1c-3351-476c-96ef-d393928580c7
       expires:
-      - Wed, 30 Nov 2022 17:12:53 GMT
+      - Wed, 11 Jan 2023 16:03:31 GMT
       set-cookie:
-      - PHPSESSID=deleted; expires=Tue, 30-Nov-2021 17:12:52 GMT; Max-Age=0; path=/;
+      - PHPSESSID=deleted; expires=Tue, 11-Jan-2022 16:03:30 GMT; Max-Age=0; path=/;
         httponly
       access-control-allow-origin:
       - "*"
@@ -62,6 +62,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        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
-  recorded_at: Wed, 30 Nov 2022 17:12:52 GMT
+        H4sIAAAAAAAEAxWQybKaQABF/+XtTdFMSnYMAg0yaWMDGwpBxpZJGVP595jlPXXO5v75qZfPz++f52ZQz0CsnMow78CrLrJRPrT0/775OwR2ZQi/vhJI6ft2w17l1HCxULF+xSV9CUOEbSrdII+Zd5Vp9/LhkwbW3WrvIe0g+IattD3onoTM1YhkyMMabvZusVadsnYt1Rb2N1tJ9wjD1UH+ZKHzZikpZytFld+pN3zd2fTbWShkrN0DX75aOvXrbp5jQmUjVGokmtpjDVozSjxHR6Wmlke/aZDOtyFiGtFzXrvytAkrOYbeJkSV56inMRiknmRVJr6SODhjQc5DcNbNqHzyQtAEXQLk5WC4tDq2bMsR+yqbFLcDbL2vp/mTLVCgqKgS3+hWxM9XXyRTn66tmvPzRAYVjKSvu80cMb4eYQZ3jhXsgypvbrX1HUQSjuFyLrwqfXr35KKtrWX5egBsi+v5g65qQO81KMWf4QC+cI12ws0PnIrbGxpZ3qElL8RWk29TziqCNQzH/MZuhEv1RP3w76cWs+UpCnPLOoIA8KdLJTsIj4i0n+FDzwBgPVcOToDmcWM1BYkyY14lhXPpwB2HF9TzKRPlSTa86ROl8axwmnZSp3sZpVRHPYy19+KGmUvjxO6Lcsh84dRf0hVbuRC+unxHLUqm70d6Sw4NJXEyjI4T0fUmCkWDYeQbU+OLnNX+hxOI2DAi/cg4rtvvjkeRgGh0kkcoatwjaaFvdu9UVF2TZMgQ9CGmJ9s+ESWnUVxdI45QhVH4LtlOU/HA5HM+04Cor1bqUjHIF8yDOanPb0yLQas68JUC9nY07aZtDp27z6l5EqrPMqrS7GGXNwbpmFDb0JqBf1165RbdNkpy/TGnvOQZhaXfhO3KcGsXAIKLg28osnXp8Pgw2pGtgGvqSVtmNlOdnl1XbO+fv/8ALi7W0G4DAAA=
+  recorded_at: Wed, 11 Jan 2023 16:03:30 GMT
 recorded_with: VCR 6.1.0

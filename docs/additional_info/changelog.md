@@ -1,6 +1,15 @@
 # Changelog
 
-## 7.1.1 (03-Jan-2022)
+## 7.2.0 (11-Jan-2023)
+
+* Updated the `jwt` method. It is now mandatory to provide the project ID to request JWT for:
+
+```ruby
+resp = @client.jwt("123.abcd")
+resp.jwt # => 'eyJ0eXAiOi...`
+```
+
+## 7.1.1 (03-Jan-2023)
 
 * Update dependencies and tests
 * Update test matrix

@@ -4,8 +4,8 @@ module RubyLokaliseApi
   module Resources
     class Jwt < Base
       class << self
-        def endpoint(*_args)
-          path_from 'jwt-tokens': 'ota'
+        def endpoint(project_id, *_args)
+          path_from projects: project_id, tokens: ''
         end
       end
     end
