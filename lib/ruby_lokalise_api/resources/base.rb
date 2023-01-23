@@ -126,11 +126,8 @@ module RubyLokaliseApi
           data_key_singular = data_key_for model_class: model_class
           if content.key? data_key_singular
             data = content.delete data_key_singular
-            if data.is_a?(Hash)
-              content.merge! data
-            else
-              content[data_key_singular] = data
-            end
+
+            data.is_a?(Hash) ? content.merge!(data) : content[data_key_singular] = data
           end
 
           new response
