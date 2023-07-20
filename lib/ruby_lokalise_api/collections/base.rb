@@ -2,6 +2,8 @@
 
 module RubyLokaliseApi
   module Collections
+    # Base collection. Collection is an array of resources. The actual resources can be found
+    # by calling the `.collection` method
     class Base
       include Enumerable
       extend Forwardable
@@ -25,6 +27,8 @@ module RubyLokaliseApi
         produce_collection_from response
       end
 
+      # Tries to fetch the next page for paginated collection
+      # Returns a new collection or nil if the next page is not available
       def next_page
         return nil if last_page?
 
@@ -35,6 +39,8 @@ module RubyLokaliseApi
         )
       end
 
+      # Tries to fetch the previous page for paginated collection
+      # Returns a new collection or nil if the previous page is not available
       def prev_page
         return nil if first_page?
 
@@ -45,24 +51,33 @@ module RubyLokaliseApi
         )
       end
 
+      # Checks whether the next page is available
+      # @return [Boolean]
       def next_page?
         current_page.positive? && current_page < total_pages
       end
 
+      # Checks whether the current page is the last one
+      # @return [Boolean]
       def last_page?
         !next_page?
       end
 
+      # Checks whether the previous page is available
+      # @return [Boolean]
       def prev_page?
         current_page > 1
       end
 
+      # Checks whether the current page is the first one
+      # @return [Boolean]
       def first_page?
         !prev_page?
       end
 
       private
 
+      # This method is utilized to recreate an endpoint for the current collection
       def reinit_endpoint(req_params: @self_endpoint.req_params, override_req_params: {})
         @self_endpoint.reinitialize(
           req_params: req_params.merge(override_req_params)

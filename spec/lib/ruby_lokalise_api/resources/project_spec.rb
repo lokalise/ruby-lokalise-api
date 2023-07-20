@@ -487,6 +487,40 @@ RSpec.describe RubyLokaliseApi::Resources::Project do
     end
   end
 
+  context 'with segments' do
+    let(:key_id) { 353_507_573 }
+    let(:lang_iso) { 'en' }
+    let(:segment_number) { 1 }
+
+    it 'delegates segments' do
+      params = {
+        disable_references: 1
+      }
+      expect_to_delegate(project, :segments, project_id, key_id, lang_iso, segment_number, params) do |obj|
+        obj.segments(key_id, lang_iso, segment_number, params)
+      end
+    end
+
+    it 'delegates segment' do
+      params = { disable_references: 1 }
+
+      expect_to_delegate(project, :segment, project_id, key_id, lang_iso, segment_number, params) do |obj|
+        obj.segment(key_id, lang_iso, segment_number, params)
+      end
+    end
+
+    it 'delegates update_segment' do
+      params = {
+        value: 'Updated.',
+        is_fuzzy: false
+      }
+
+      expect_to_delegate(project, :update_segment, project_id, key_id, lang_iso, segment_number, params) do |obj|
+        obj.update_segment(key_id, lang_iso, segment_number, params)
+      end
+    end
+  end
+
   context 'with screenshots' do
     let(:screenshot_id) { 145 }
 

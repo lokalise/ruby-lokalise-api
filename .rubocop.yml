@@ -27,6 +27,8 @@ Metrics/MethodLength:
 Metrics/ParameterLists:
   Max: 4
   CountKeywordArgs: true
+  Exclude:
+    - ./lib/ruby_lokalise_api/rest/segments.rb
 
 Layout/DotPosition:
   EnforcedStyle: trailing
@@ -55,6 +57,8 @@ RSpec/FilePath:
   
 Gemspec/DevelopmentDependencies:
   EnforcedStyle: gemspec
+  Exclude:
+    - ./docs/Gemfile
 
 RSpec/MultipleMemoizedHelpers:
   Exclude:

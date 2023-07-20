@@ -27,6 +27,10 @@ project_languages:
 queued_processes:
   - project_id
   - branch
+segments:
+  - project_id
+  - key_id
+  - language_iso
 screenshots:
   - project_id
   - branch

@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 module RubyLokaliseApi
+  # Contains methods to perform the actual HTTP requests
   module Request
     include RubyLokaliseApi::JsonHandler
     include RubyLokaliseApi::Connection
 
+    # Sends a GET request
     def get(endpoint)
       respond_with(
         connection(endpoint).get(prepare(endpoint.uri), endpoint.req_params),
@@ -12,6 +14,7 @@ module RubyLokaliseApi
       )
     end
 
+    # Sends a POST request
     def post(endpoint)
       respond_with(
         connection(endpoint).post(prepare(endpoint.uri), custom_dump(endpoint.req_params)),
@@ -19,6 +22,7 @@ module RubyLokaliseApi
       )
     end
 
+    # Sends a PUT request
     def put(endpoint)
       respond_with(
         connection(endpoint).put(prepare(endpoint.uri), custom_dump(endpoint.req_params)),
@@ -26,6 +30,7 @@ module RubyLokaliseApi
       )
     end
 
+    # Sends a PATCH request
     def patch(endpoint)
       respond_with(
         connection(endpoint).patch(prepare(endpoint.uri),
@@ -34,6 +39,7 @@ module RubyLokaliseApi
       )
     end
 
+    # Sends a DELETE request
     def delete(endpoint)
       respond_with(
         connection(endpoint).delete(prepare(endpoint.uri)) do |req|

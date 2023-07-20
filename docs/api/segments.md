@@ -23,7 +23,23 @@
 For example:
 
 ```ruby
-@client.segments '123.abc', 1234, 'en', disable_references: '1'
+project_id = '123.abc'
+key_id = 1234
+language_iso = 'en'
+params = {
+  disable_references: 1
+}
+
+segments = @client.segments project_id, key_id, language_iso, params
+
+segments[0].segment_number # => 1
+```
+
+Alternatively:
+
+```ruby
+project = @client.project project_id
+segments = project.segments key_id, language_iso, params
 ```
 
 ## Fetch a single segment
@@ -43,7 +59,23 @@ For example:
 For example:
 
 ```ruby
-@client.segment '123.abc', 1234, 'en', 4, disable_references: '1'
+project_id = '123.abc'
+key_id = 1234
+language_iso = 'en'
+segment_number = 1
+
+segment = @client.segment project_id, key_id, language_iso, segment_number, params
+
+segment.segment_number # => 1
+segment.value # => 'My text.'
+```
+
+Alternatively:
+
+```ruby
+project = @client.project project_id
+
+segment = project.segment key_id, language_iso, segment_number, params
 ```
 
 ## Update segment
@@ -66,14 +98,29 @@ For example:
 For example:
 
 ```ruby
-@client.update_segment '123.abc', 1234, 'en', 4,
-                       value: 'Updated via API',
-                       is_reviewed: true
+project_id = '123.abc'
+key_id = 1234
+language_iso = 'en'
+segment_number = 1
+params = {
+  value: 'Updated.',
+  is_fuzzy: false
+}
+
+segment = @client.update_segment project_id, key_id, language_iso, segment_number, params
+
+segment.is_fuzzy # => false
+segment.value # => 'Updated.'
 ```
 
 Alternatively:
 
 ```ruby
-segment = @client.segment '123.abc', 1234, 'en', 4, disable_references: '1'
-segment.update(value: 'Updated segment')
+segment = @client.segment project_id, key_id, language_iso, segment_number
+segment.update params
+
+# OR
+
+project = @client.project project_id
+segment = project.update_segment key_id, language_iso, segment_number, params
 ```

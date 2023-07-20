@@ -57,6 +57,10 @@ module RubyLokaliseApi
       delegate_call :queued_process
       delegate_call :queued_processes
 
+      delegate_call :segments
+      delegate_call :segment
+      delegate_call :update_segment
+
       delegate_call :screenshots
       delegate_call :screenshot
       delegate_call :create_screenshots

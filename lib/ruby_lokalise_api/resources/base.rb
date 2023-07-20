@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module RubyLokaliseApi
+  # Base resource class. A resource is an individual object returned by the API
   module Resources
     class Base
       using RubyLokaliseApi::Utils::Classes
@@ -36,6 +37,7 @@ module RubyLokaliseApi
       end
 
       class << self
+        # Delegates instance method calls to the client methods
         def delegate_call(from, to = nil)
           define_method(from) do |*args|
             @self_endpoint.client.send((to || from), *read_main_params.push(*args))

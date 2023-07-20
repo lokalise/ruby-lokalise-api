@@ -157,6 +157,9 @@ screenshot:
   - created_at
   - created_at_timestamp
 segment:
+  - project_id
+  - key_id
+  - language_iso
   - segment_number
   - language_iso
   - modified_at

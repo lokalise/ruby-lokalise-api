@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module RubyLokaliseApi
+  # Simple generic objects to decorate certain responses (usually, related to data deletion)
   class Generics
     include RubyLokaliseApi::Concerns::HashAccessible
 

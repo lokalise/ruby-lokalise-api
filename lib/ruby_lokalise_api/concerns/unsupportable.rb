@@ -2,6 +2,7 @@
 
 module RubyLokaliseApi
   module Concerns
+    # Allows to undefine certain methods
     module Unsupportable
       def no_support_for(methods)
         return unless methods.any?
