@@ -1,0 +1,26 @@
+{
+  "project_id": "88628569645b945648b474.25982965",
+  "branch": "master",
+  "files": [
+    {
+      "file_id": 1642774,
+      "filename": "main-%LANG_ISO%.json",
+      "key_count": 2
+    },
+    {
+      "file_id": 1651841,
+      "filename": "pasted.json",
+      "key_count": 2
+    },
+    {
+      "file_id": 1642773,
+      "filename": "secondary-%LANG_ISO%.json",
+      "key_count": 1
+    },
+    {
+      "file_id": -1,
+      "filename": "__unassigned__",
+      "key_count": 5
+    }
+  ]
+}

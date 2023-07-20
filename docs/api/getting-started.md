@@ -24,7 +24,7 @@ Now the `@client` can be used to perform API requests! Learn more about addition
 
 ## Objects and models
 
-Individual objects are represented as instances of Ruby classes which are called *models*. Each model responds to the methods that are named after the API object's attributes. [This file](https://github.com/lokalise/ruby-lokalise-api/blob/master/lib/ruby-lokalise-api/data/attributes.json) lists all objects and their methods.
+Individual objects are represented as instances of Ruby classes which are called *models*. Each model responds to the methods that are named after the API object's attributes. [This file](https://github.com/lokalise/ruby-lokalise-api/blob/master/lib/ruby-lokalise-api/data/resource_attributes.json) lists all objects and their methods.
 
 Here is an example:
 
@@ -41,12 +41,6 @@ Many resources have common methods like `project_id` and `branch`:
 webhook = client.webhook project_id, '123.abc'
 webhook.project_id
 webhook.branch
-```
-
-To get access to raw data returned by the API, use `#raw_data`:
-
-```ruby
-project.raw_data
 ```
 
 Models support method chaining, meaning you can fetch a resource, update and delete it in one line:
@@ -113,7 +107,9 @@ These methods return instances of the same collection class or `nil` if the next
 ```ruby
 translations = @client.translations 'project_id', limit: 4, page: 2, disable_references: 0 # => we passed three parameters here
 
-translations.prev_page # => will load the previous page while preserving the `limit` and `disable_references` params
+prev_page_translations = translations.prev_page # will load the previous page while preserving the `limit` and `disable_references` params
+
+prev_page_translations.first # get first translation from the collection
 ```
 
 ## Branching

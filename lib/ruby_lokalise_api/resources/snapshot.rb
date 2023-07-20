@@ -3,25 +3,10 @@
 module RubyLokaliseApi
   module Resources
     class Snapshot < Base
-      ID_KEY = 'snapshot_id'
-      supports :destroy
+      MAIN_PARAMS = %i[project_id snapshot_id].freeze
+      no_support_for %i[update reload_data]
 
-      def restore
-        self.class.restore @client, @path
-      end
-
-      class << self
-        def restore(client, path, *_args)
-          klass = RubyLokaliseApi::Resources::Project
-          klass.new post(path, client),
-                    ->(project_id, *_ids) { klass.endpoint(project_id) }
-        end
-
-        def endpoint(project_id, snapshot_id = nil)
-          path_from projects: project_id,
-                    snapshots: snapshot_id
-        end
-      end
+      delegate_call :restore, :restore_snapshot
     end
   end
 end

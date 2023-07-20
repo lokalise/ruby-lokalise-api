@@ -1,0 +1,106 @@
+{
+  "project_id": "88628569645b945648b474.25982965",
+  "branch": "master",
+  "screenshots": [
+    {
+      "screenshot_id": 2858588,
+      "title": "Registration",
+      "description": "",
+      "screenshot_tags": [],
+      "url": "https://s3.eu-central-1.amazonaws.com/lokalise-live-lok-app-main-assets/files/screenshots/88628569645b945648b474.25982965/b4c04943f7f02a72e791cebdaa85428a71f5408c.jpg",
+      "key_ids": [
+        319782369,
+        319840770,
+        319840773,
+        319840775
+      ],
+      "keys": [
+        {
+          "key_id": 319782369,
+          "coordinates": {
+            "left": 34,
+            "top": 13,
+            "width": 502,
+            "height": 75
+          }
+        },
+        {
+          "key_id": 319840770,
+          "coordinates": {
+            "left": 34,
+            "top": 13,
+            "width": 502,
+            "height": 75
+          }
+        },
+        {
+          "key_id": 319840773,
+          "coordinates": {
+            "left": 57,
+            "top": 203,
+            "width": 126,
+            "height": 19
+          }
+        },
+        {
+          "key_id": 319840775,
+          "coordinates": {
+            "left": 179,
+            "top": 321,
+            "width": 180,
+            "height": 15
+          }
+        }
+      ],
+      "width": 572,
+      "height": 438,
+      "created_at": "2023-04-18 16:52:10 (Etc/UTC)",
+      "created_at_timestamp": 1681836730
+    },
+    {
+      "screenshot_id": 2858589,
+      "title": "2023-04-18 19_50_26-RecordingRegionIndicator",
+      "description": "",
+      "screenshot_tags": [],
+      "url": "https://s3.eu-central-1.amazonaws.com/lokalise-live-lok-app-main-assets/files/screenshots/88628569645b945648b474.25982965/a4d4447f797ce2878d442c6232b81839afd3e805.jpg",
+      "key_ids": [
+        319782372,
+        319840776,
+        319840778
+      ],
+      "keys": [
+        {
+          "key_id": 319782372,
+          "coordinates": {
+            "left": 14,
+            "top": 120,
+            "width": 145,
+            "height": 78
+          }
+        },
+        {
+          "key_id": 319840776,
+          "coordinates": {
+            "left": 14,
+            "top": 120,
+            "width": 145,
+            "height": 78
+          }
+        },
+        {
+          "key_id": 319840778,
+          "coordinates": {
+            "left": 193,
+            "top": 112,
+            "width": 168,
+            "height": 86
+          }
+        }
+      ],
+      "width": 628,
+      "height": 212,
+      "created_at": "2023-04-18 16:53:48 (Etc/UTC)",
+      "created_at_timestamp": 1681836828
+    }
+  ]
+}

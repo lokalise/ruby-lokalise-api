@@ -19,14 +19,18 @@ require 'ruby_lokalise_api'
 @client = RubyLokaliseApi.client 'YOUR_TOKEN_HERE'
 
 project = @client.project '123.abc'
-project.name
+project.name # => 'My Project'
 
 process = @client.upload_file project_id,
                               data: 'Base-64 encoded data... ZnI6DQogI...',
                               filename: 'my_file.yml',
                               lang_iso: 'en'
 
-process.status
+process.status # => 'queued'
+
+reloaded_process = process.reload_data
+
+reloaded_process.status # => 'completed'
 {% endhighlight %}
 
 Looking for a Rails integration? Try the [lokalise_rails gem](https://github.com/bodrovis/lokalise_rails). Also you can use a [lokalise_manager gem](https://github.com/bodrovis/lokalise_manager) which allows to exchange translation files between Lokalise and *any* Ruby script.

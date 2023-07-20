@@ -3,64 +3,93 @@
 module RubyLokaliseApi
   module Rest
     module Languages
-      # Returns all languages supported by Lokalise
+      using RubyLokaliseApi::Utils::Classes
+
+      # Returns Lokalise system languages
       #
       # @see https://developers.lokalise.com/reference/list-system-languages
-      # @return [RubyLokaliseApi::Collection::SystemLanguage<RubyLokaliseApi::Resources::SystemLanguage>]
-      # @param params [Hash]
-      def system_languages(params = {})
-        c_r RubyLokaliseApi::Collections::SystemLanguage, :all, nil, params
+      # @return [RubyLokaliseApi::Collections::SystemLanguages]
+      # @param req_params [Hash]
+      def system_languages(req_params = {})
+        name = 'SystemLanguages'
+        params = { req: req_params }
+
+        data = endpoint(name: name, params: params).do_get
+
+        collection name, data
       end
 
-      # Returns all languages for the given project
+      # Returns project languages
       #
       # @see https://developers.lokalise.com/reference/list-project-languages
-      # @return [RubyLokaliseApi::Collection::ProjectLanguage<RubyLokaliseApi::Resources::ProjectLanguage>]
-      # @param project_id [String, Integer]
-      # @param params [Hash]
-      def project_languages(project_id, params = {})
-        c_r RubyLokaliseApi::Collections::ProjectLanguage, :all, project_id, params
+      # @return [RubyLokaliseApi::Collections::ProjectLanguages]
+      # @param project_id [String]
+      # @param req_params [Hash]
+      def project_languages(project_id, req_params = {})
+        name = 'ProjectLanguages'
+        params = { query: project_id, req: req_params }
+
+        data = endpoint(name: name, params: params).do_get
+
+        collection name, data
       end
 
-      # Returns a single language for the given project
+      # Returns a single project language
       #
       # @see https://developers.lokalise.com/reference/retrieve-a-language
       # @return [RubyLokaliseApi::Resources::ProjectLanguage]
       # @param project_id [String]
       # @param language_id [String, Integer]
-      def language(project_id, language_id)
-        c_r RubyLokaliseApi::Resources::ProjectLanguage, :find, [project_id, language_id]
+      def project_language(project_id, language_id)
+        params = { query: [project_id, language_id] }
+
+        data = endpoint(name: 'ProjectLanguages', params: params).do_get
+
+        resource 'ProjectLanguage', data
       end
 
-      # Creates one or more language for the given project
+      # Creates one or multiple languages for a project
       #
-      # @see https://developers.lokalise.com/reference/retrieve-a-language
-      # @return [RubyLokaliseApi::Collection::ProjectLanguage<RubyLokaliseApi::Resources::ProjectLanguage>]
+      # @see https://developers.lokalise.com/reference/create-languages
+      # @return [RubyLokaliseApi::Collections::ProjectLanguages]
       # @param project_id [String]
-      # @param params [Hash]
-      def create_languages(project_id, params)
-        c_r RubyLokaliseApi::Resources::ProjectLanguage, :create, project_id, params, :languages
+      # @param req_params [Hash, Array]
+      def create_project_languages(project_id, req_params)
+        name = 'ProjectLanguages'
+        params = { query: project_id, req: req_params.to_array_obj(:languages) }
+
+        data = endpoint(name: name, params: params).do_post
+
+        collection name, data
       end
 
-      # Updates language for the given project
+      # Updates a language for a project
       #
       # @see https://developers.lokalise.com/reference/update-a-language
       # @return [RubyLokaliseApi::Resources::ProjectLanguage]
       # @param project_id [String]
       # @param language_id [String, Integer]
-      # @param params [Hash]
-      def update_language(project_id, language_id, params)
-        c_r RubyLokaliseApi::Resources::ProjectLanguage, :update, [project_id, language_id], params
+      # @param req_params [Hash]
+      def update_project_language(project_id, language_id, req_params = {})
+        params = { query: [project_id, language_id], req: req_params }
+
+        data = endpoint(name: 'ProjectLanguages', params: params).do_put
+
+        resource 'ProjectLanguage', data
       end
 
-      # Deletes language for the given project
+      # Deletes a single language from the project
       #
       # @see https://developers.lokalise.com/reference/delete-a-language
-      # @return [Hash]
+      # @return [RubyLokaliseApi::Generics::DeletedResource]
       # @param project_id [String]
       # @param language_id [String, Integer]
-      def destroy_language(project_id, language_id)
-        c_r RubyLokaliseApi::Resources::ProjectLanguage, :destroy, [project_id, language_id]
+      def destroy_project_language(project_id, language_id)
+        params = { query: [project_id, language_id] }
+
+        data = endpoint(name: 'ProjectLanguages', params: params).do_delete
+
+        RubyLokaliseApi::Generics::DeletedResource.new data.content
       end
     end
   end

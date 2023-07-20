@@ -3,25 +3,33 @@
 module RubyLokaliseApi
   module Rest
     module QueuedProcesses
-      # Returns all queued processes for the given project
-      #
-      # @see https://developers.lokalise.com/reference/list-all-processes
-      # @return [RubyLokaliseApi::Collection::QueuedProcess<RubyLokaliseApi::Resources::QueuedProcess>]
-      # @param project_id [String]
-      # @param params [Hash]
-      def queued_processes(project_id, params = {})
-        c_r RubyLokaliseApi::Collections::QueuedProcess, :all, project_id, params
-      end
-
-      # Returns a queued process for the given project
+      # Returns a single queued process
       #
       # @see https://developers.lokalise.com/reference/retrieve-a-process
       # @return [RubyLokaliseApi::Resources::QueuedProcess]
       # @param project_id [String]
-      # @param process_id [String]
+      # @param process_id [String, Integer]
       def queued_process(project_id, process_id)
-        c_r RubyLokaliseApi::Resources::QueuedProcess, :find,
-            [project_id, process_id]
+        params = { query: [project_id, process_id] }
+
+        data = endpoint(name: 'QueuedProcesses', params: params).do_get
+
+        resource 'QueuedProcess', data
+      end
+
+      # Returns queued processes
+      #
+      # @see https://developers.lokalise.com/reference/list-all-processes
+      # @return [RubyLokaliseApi::Collections::QueuedProcesses]
+      # @param project_id [String]
+      # @param req_params [Hash]
+      def queued_processes(project_id, req_params = {})
+        name = 'QueuedProcesses'
+        params = { query: project_id, req: req_params }
+
+        data = endpoint(name: name, params: params).do_get
+
+        collection name, data
       end
     end
   end

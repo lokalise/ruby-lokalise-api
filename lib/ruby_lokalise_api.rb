@@ -4,15 +4,19 @@ require 'zeitwerk'
 require 'faraday'
 require 'faraday/gzip'
 require 'yaml'
-require 'addressable'
+require 'addressable/template'
 
 loader = Zeitwerk::Loader.for_gem
 loader.inflector.inflect(
   'oauth2' => 'OAuth2',
-  'oauth2_client' => 'OAuth2Client'
+  'oauth2_client' => 'OAuth2Client',
+  'oauth2_endpoint' => 'OAuth2Endpoint',
+  'oauth2_token' => 'OAuth2Token',
+  'oauth2_refreshed_token' => 'OAuth2RefreshedToken'
 )
 loader.setup
 
+# Official Ruby client for Lokalise APIv2
 module RubyLokaliseApi
   class << self
     # Initializes a new Client object

@@ -1,0 +1,29 @@
+{
+  "order_id": null,
+  "project_id": "963054665b7c313dd9b323.35886655",
+  "branch": "master",
+  "card_id": 1774,
+  "payment_method": "credit_card",
+  "status": "draft",
+  "created_at": "2023-07-06 15:17:19 (Etc/UTC)",
+  "created_at_timestamp": 1688656639,
+  "created_by": 20181,
+  "created_by_email": "bodrovis@protonmail.com",
+  "source_language_iso": "en",
+  "target_language_isos": [
+    "ru"
+  ],
+  "keys": [
+    62341144,
+    332517634
+  ],
+  "source_words": {
+    "ru": 7
+  },
+  "provider_slug": "gengo",
+  "translation_tier": 1,
+  "translation_tier_name": "Native speaker",
+  "briefing": "demo",
+  "total": 0.48,
+  "dry_run": true
+}

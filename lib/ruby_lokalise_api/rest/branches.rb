@@ -3,66 +3,91 @@
 module RubyLokaliseApi
   module Rest
     module Branches
-      # Returns all branches for the given project
+      # Returns project branches
       #
       # @see https://developers.lokalise.com/reference/list-all-branches
-      # @return [RubyLokaliseApi::Collection::Branch<RubyLokaliseApi::Resources::Branch>]
+      # @return [RubyLokaliseApi::Collections::Branches]
       # @param project_id [String]
-      # @param params [Hash]
-      def branches(project_id, params = {})
-        c_r RubyLokaliseApi::Collections::Branch, :all, project_id, params
+      # @param req_params [Hash]
+      def branches(project_id, req_params = {})
+        name = 'Branches'
+        params = { query: project_id, req: req_params }
+
+        data = endpoint(name: name, params: params).do_get
+
+        collection name, data
       end
 
-      # Creates a new branch inside the given project
-      #
-      # @see https://developers.lokalise.com/reference/create-a-branch
-      # @return [RubyLokaliseApi::Resources::Branch]
-      # @param project_id [String]
-      # @param params [Hash]
-      def create_branch(project_id, params)
-        c_r RubyLokaliseApi::Resources::Branch, :create, project_id, params
-      end
-
-      # Returns a single branch for the given project
+      # Returns a single branch
       #
       # @see https://developers.lokalise.com/reference/retrieve-a-branch
       # @return [RubyLokaliseApi::Resources::Branch]
       # @param project_id [String]
       # @param branch_id [String, Integer]
       def branch(project_id, branch_id)
-        c_r RubyLokaliseApi::Resources::Branch, :find, [project_id, branch_id]
+        params = { query: [project_id, branch_id] }
+
+        data = endpoint(name: 'Branches', params: params).do_get
+
+        resource 'Branch', data
       end
 
-      # Updates the given branch inside the given project
+      # Creates a branch
+      #
+      # @see https://developers.lokalise.com/reference/create-a-branch
+      # @return [RubyLokaliseApi::Resources::Branch]
+      # @param project_id [String]
+      # @param req_params [Hash]
+      def create_branch(project_id, req_params)
+        params = { query: project_id, req: req_params }
+
+        data = endpoint(name: 'Branches', params: params).do_post
+
+        resource 'Branch', data
+      end
+
+      # Updates a branch
       #
       # @see https://developers.lokalise.com/reference/update-a-branch
       # @return [RubyLokaliseApi::Resources::Branch]
       # @param project_id [String]
       # @param branch_id [String, Integer]
-      # @param params [Hash]
-      def update_branch(project_id, branch_id, params)
-        c_r RubyLokaliseApi::Resources::Branch, :update, [project_id, branch_id], params
+      # @param req_params [Hash]
+      def update_branch(project_id, branch_id, req_params = {})
+        params = { query: [project_id, branch_id], req: req_params }
+
+        data = endpoint(name: 'Branches', params: params).do_put
+
+        resource 'Branch', data
       end
 
-      # Deletes branch inside the given project
+      # Deletes a branch
       #
       # @see https://developers.lokalise.com/reference/delete-a-branch
-      # @return [Hash]
+      # @return [RubyLokaliseApi::Generics::DeletedResource]
       # @param project_id [String]
       # @param branch_id [String, Integer]
       def destroy_branch(project_id, branch_id)
-        c_r RubyLokaliseApi::Resources::Branch, :destroy, [project_id, branch_id]
+        params = { query: [project_id, branch_id] }
+
+        data = endpoint(name: 'Branches', params: params).do_delete
+
+        RubyLokaliseApi::Generics::DeletedResource.new data.content
       end
 
-      # Merges a branch in the project
+      # Merges two branches
       #
       # @see https://developers.lokalise.com/reference/merge-a-branch
-      # @return [Hash]
+      # @return [RubyLokaliseApi::Generics::MergedBranches]
       # @param project_id [String]
       # @param branch_id [String, Integer]
-      # @param params [Hash]
-      def merge_branch(project_id, branch_id, params = {})
-        c_r RubyLokaliseApi::Resources::Branch, :merge, [project_id, branch_id, :merge], params
+      # @param req_params [Hash]
+      def merge_branch(project_id, branch_id, req_params)
+        params = { query: [project_id, branch_id, :merge], req: req_params }
+
+        data = endpoint(name: 'Branches', params: params).do_post
+
+        RubyLokaliseApi::Generics::MergedBranches.new data.content
       end
     end
   end

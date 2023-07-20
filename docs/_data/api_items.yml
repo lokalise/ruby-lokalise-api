@@ -66,8 +66,8 @@
 - title: JWT
   path: jwt
   sub_paths:
-    - title: Get OTA JWT
-      path: get-ota-jwt
+    - title: Create JWT
+      path: create-jwt
 - title: Translation keys
   path: keys
   sub_paths:

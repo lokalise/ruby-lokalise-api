@@ -1,0 +1,186 @@
+{
+  "project_id": "88628569645b945648b474.25982965",
+  "branch": "master",
+  "tasks": [
+    {
+      "task_id": 1721560,
+      "title": "Demo2",
+      "can_be_parent": true,
+      "task_type": "translation",
+      "parent_task_id": null,
+      "closing_tags": [],
+      "description": "",
+      "status": "created",
+      "progress": 0,
+      "due_date": null,
+      "due_date_timestamp": null,
+      "keys_count": 7,
+      "words_count": 19,
+      "created_at": "2023-07-14 11:59:04 (Etc/UTC)",
+      "created_at_timestamp": 1689335944,
+      "created_by": 20181,
+      "created_by_email": "bodrovis@protonmail.com",
+      "source_language_iso": "en",
+      "languages": [
+        {
+          "language_iso": "de",
+          "users": [
+            {
+              "user_id": 20181,
+              "email": "bodrovis@protonmail.com",
+              "fullname": "Ilya B"
+            }
+          ],
+          "groups": [],
+          "keys": [
+            319782369, 319782372, 319782374, 319782375, 319782376, 324729217,
+            331018374
+          ],
+          "status": "created",
+          "progress": 0,
+          "initial_tm_leverage": {
+            "0%+": 14,
+            "60%+": 2,
+            "75%+": 0,
+            "95%+": 3,
+            "100%": 0
+          },
+          "keys_count": 7,
+          "words_count": 19,
+          "completed_at": null,
+          "completed_at_timestamp": null,
+          "completed_by": null,
+          "completed_by_email": null
+        }
+      ],
+      "auto_close_items": true,
+      "auto_close_languages": true,
+      "auto_close_task": true,
+      "completed_at": null,
+      "completed_at_timestamp": null,
+      "completed_by": null,
+      "completed_by_email": null,
+      "do_lock_translations": true,
+      "custom_translation_status_ids": []
+    },
+    {
+      "task_id": 1721559,
+      "title": "Demo1",
+      "can_be_parent": true,
+      "task_type": "translation",
+      "parent_task_id": null,
+      "closing_tags": [],
+      "description": "",
+      "status": "created",
+      "progress": 0,
+      "due_date": null,
+      "due_date_timestamp": null,
+      "keys_count": 7,
+      "words_count": 19,
+      "created_at": "2023-07-14 11:58:49 (Etc/UTC)",
+      "created_at_timestamp": 1689335929,
+      "created_by": 20181,
+      "created_by_email": "bodrovis@protonmail.com",
+      "source_language_iso": "en",
+      "languages": [
+        {
+          "language_iso": "en",
+          "users": [
+            {
+              "user_id": 20181,
+              "email": "bodrovis@protonmail.com",
+              "fullname": "Ilya B"
+            }
+          ],
+          "groups": [],
+          "keys": [
+            319782369, 319782372, 319782374, 319782375, 319782376, 324729217,
+            331018374
+          ],
+          "status": "created",
+          "progress": 0,
+          "initial_tm_leverage": {
+            "0%+": 19,
+            "60%+": 0,
+            "75%+": 0,
+            "95%+": 0,
+            "100%": 0
+          },
+          "keys_count": 7,
+          "words_count": 19,
+          "completed_at": null,
+          "completed_at_timestamp": null,
+          "completed_by": null,
+          "completed_by_email": null
+        }
+      ],
+      "auto_close_items": true,
+      "auto_close_languages": true,
+      "auto_close_task": true,
+      "completed_at": null,
+      "completed_at_timestamp": null,
+      "completed_by": null,
+      "completed_by_email": null,
+      "do_lock_translations": true,
+      "custom_translation_status_ids": []
+    },
+    {
+      "task_id": 1493597,
+      "title": "Translate Latvian",
+      "can_be_parent": false,
+      "task_type": "translation",
+      "parent_task_id": null,
+      "closing_tags": [],
+      "description": "",
+      "status": "completed",
+      "progress": 100,
+      "due_date": null,
+      "due_date_timestamp": null,
+      "keys_count": 10,
+      "words_count": 27,
+      "created_at": "2023-05-18 12:54:35 (Etc/UTC)",
+      "created_at_timestamp": 1684414475,
+      "created_by": 20181,
+      "created_by_email": "bodrovis@protonmail.com",
+      "source_language_iso": "en",
+      "languages": [
+        {
+          "language_iso": "lv",
+          "users": [
+            {
+              "user_id": 49436,
+              "email": "ilya@lokalise.com",
+              "fullname": "Ilya"
+            }
+          ],
+          "groups": [],
+          "keys": [319782369, 319782372, 319782374, 319782375, 319782376],
+          "status": "completed",
+          "progress": 100,
+          "initial_tm_leverage": {
+            "0%+": 2,
+            "60%+": 0,
+            "75%+": 0,
+            "95%+": 3,
+            "100%": 10
+          },
+          "keys_count": 10,
+          "words_count": 27,
+          "completed_at": "2023-05-18 12:55:25 (Etc/UTC)",
+          "completed_at_timestamp": 1684414525,
+          "completed_by": 1,
+          "completed_by_email": "support@lokalise.co"
+        }
+      ],
+      "auto_close_items": true,
+      "auto_close_languages": true,
+      "auto_close_task": true,
+      "completed_at": "2023-05-18 12:55:26 (Etc/UTC)",
+      "completed_at_timestamp": 1684414526,
+      "completed_by": 1,
+      "completed_by_email": "support@lokalise.co",
+      "do_lock_translations": true,
+      "custom_translation_status_ids": []
+    }
+  ]
+}

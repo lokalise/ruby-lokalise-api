@@ -3,9 +3,9 @@
 module RubyLokaliseApi
   module OAuth2
     class Auth
-      include RubyLokaliseApi::BaseRequest
-
       attr_reader :client_id, :client_secret, :timeout, :open_timeout
+
+      OAUTH2_ENDPOINT = RubyLokaliseApi::Endpoints::OAuth2::OAuth2Endpoint
 
       def initialize(client_id, client_secret, params = {})
         @client_id = client_id
@@ -14,60 +14,54 @@ module RubyLokaliseApi
         @open_timeout = params[:open_timeout]
       end
 
+      def oauth2_endpoint
+        self.class.const_get(:OAUTH2_ENDPOINT)
+      end
+
       def auth(scope:, redirect_uri: nil, state: nil)
-        scope = scope.join(' ') if scope.is_a?(Array)
-
-        params = {
+        get_params = {
           client_id: client_id,
-          scope: scope
+          scope: (scope.is_a?(Array) ? scope.join(' ') : scope),
+          state: state,
+          redirect_uri: redirect_uri
         }
-        params[:state] = state unless state.nil?
-        params[:redirect_uri] = redirect_uri unless redirect_uri.nil?
 
-        _build_url_from params
+        oauth2_endpoint.new(self, query: 'auth', get: get_params).full_uri
       end
 
       def token(code)
-        params = base_params.merge({
-                                     code: code,
-                                     grant_type: 'authorization_code'
-                                   })
+        endpoint = oauth2_endpoint.new(
+          self,
+          query: :token,
+          req: common_params.merge(
+            grant_type: 'authorization_code',
+            code: code
+          )
+        )
 
-        RubyLokaliseApi::OAuth2::Token.new post('token', self, params)
+        RubyLokaliseApi::Resources::OAuth2Token.new endpoint.do_post
       end
 
-      def refresh(token)
-        params = base_params.merge({
-                                     refresh_token: token,
-                                     grant_type: 'refresh_token'
-                                   })
+      def refresh(refresh_token)
+        endpoint = oauth2_endpoint.new(
+          self,
+          query: :token,
+          req: common_params.merge(
+            grant_type: 'refresh_token',
+            refresh_token: refresh_token
+          )
+        )
 
-        RubyLokaliseApi::OAuth2::Refresh.new post('token', self, params)
-      end
-
-      def base_url
-        URI('https://app.lokalise.com/oauth2/')
-      end
-
-      def compression?
-        false
+        RubyLokaliseApi::Resources::OAuth2RefreshedToken.new endpoint.do_post
       end
 
       private
 
-      def base_params
+      def common_params
         {
-          client_id: client_id,
-          client_secret: client_secret
+          client_id: @client_id,
+          client_secret: @client_secret
         }
-      end
-
-      def _build_url_from(params)
-        URI::HTTPS.build(
-          host: base_url.host,
-          path: "#{base_url.path}auth",
-          query: URI.encode_www_form(params)
-        ).to_s
       end
     end
   end

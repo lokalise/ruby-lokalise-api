@@ -7,9 +7,6 @@ AllCops:
   TargetRubyVersion: 2.7
   NewCops: enable
 
-Layout/SpaceInsideHashLiteralBraces:
-  EnforcedStyle: no_space
-
 Metrics/BlockLength:
   Max: 36
   Exclude:
@@ -17,7 +14,7 @@ Metrics/BlockLength:
 
 Metrics/BlockNesting:
   Max: 2
-
+  
 Layout/LineLength:
   AllowURI: true
   Exclude:
@@ -27,34 +24,12 @@ Metrics/MethodLength:
   CountComments: false
   Max: 10
 
-Metrics/ModuleLength:
-  Max: 150
-
-Metrics/ClassLength:
-  Max: 150
-
 Metrics/ParameterLists:
-  Max: 5
+  Max: 4
   CountKeywordArgs: true
-
-Style/CollectionMethods:
-  Enabled: true
-  PreferredMethods:
-    collect:  'map'
-    collect!: 'map!'
-    inject:   'reduce'
-    find:     'detect'
-    find_all: 'select'
-    delete:   'gsub'
-
-Style/Documentation:
-  Enabled: false
 
 Layout/DotPosition:
   EnforcedStyle: trailing
-
-Layout/AccessModifierIndentation:
-  Enabled: false
 
 Style/TrailingCommaInArrayLiteral:
   EnforcedStyleForMultiline: 'no_comma'
@@ -68,11 +43,19 @@ RSpec/MultipleExpectations:
 RSpec/ExampleLength:
   Max: 35
 
-RSpec/FilePath:
+Style/Documentation:
   Enabled: false
 
-RSpec/MessageSpies:
-  EnforcedStyle: receive
+RSpec/FilePath:
+  CustomTransform:
+    OAuth2: oauth2
+    OAuth2Client: oauth2_client
+    OAuth2Token: oauth2_token
+    OAuth2RefreshedToken: oauth2_refreshed_token
+  
+Gemspec/DevelopmentDependencies:
+  EnforcedStyle: gemspec
 
 RSpec/MultipleMemoizedHelpers:
-  Max: 10
+  Exclude:
+    - ./spec/lib/ruby_lokalise_api/resources/project_spec.rb

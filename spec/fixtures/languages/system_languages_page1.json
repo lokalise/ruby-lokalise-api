@@ -1,0 +1,42 @@
+{
+  "languages": [
+    {
+      "lang_id": 894,
+      "lang_iso": "ab",
+      "lang_name": "Abkhaz",
+      "is_rtl": false,
+      "plural_forms": [
+        "zero",
+        "one",
+        "two",
+        "few",
+        "many",
+        "other"
+      ]
+    },
+    {
+      "lang_id": 891,
+      "lang_iso": "aa",
+      "lang_name": "Afar",
+      "is_rtl": false,
+      "plural_forms": [
+        "zero",
+        "one",
+        "two",
+        "few",
+        "many",
+        "other"
+      ]
+    },
+    {
+      "lang_id": 790,
+      "lang_iso": "af",
+      "lang_name": "Afrikaans",
+      "is_rtl": false,
+      "plural_forms": [
+        "one",
+        "other"
+      ]
+    }
+  ]
+}

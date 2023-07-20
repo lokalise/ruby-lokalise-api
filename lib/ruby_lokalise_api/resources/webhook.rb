@@ -3,23 +3,9 @@
 module RubyLokaliseApi
   module Resources
     class Webhook < Base
-      ID_KEY = 'webhook_id'
-      supports :update, :destroy, [:reload_data, '', :find]
+      MAIN_PARAMS = %i[project_id webhook_id].freeze
 
-      def regenerate_secret
-        self.class.regenerate_secret @client, "#{@path}/secret/regenerate"
-      end
-
-      class << self
-        def regenerate_secret(client, path, *_args)
-          patch(path, client)['content']
-        end
-
-        def endpoint(project_id, webhook_id = nil, *actions)
-          path_from projects: project_id,
-                    webhooks: [webhook_id, *actions]
-        end
-      end
+      delegate_call :regenerate_secret, :regenerate_webhook_secret
     end
   end
 end

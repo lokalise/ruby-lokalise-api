@@ -3,66 +3,90 @@
 module RubyLokaliseApi
   module Rest
     module Webhooks
-      # Returns all webhooks for the given project
+      # Returns project webhooks
       #
       # @see https://developers.lokalise.com/reference/list-all-webhooks
-      # @return [RubyLokaliseApi::Collection::Webhook<RubyLokaliseApi::Resources::Webhook>]
+      # @return [RubyLokaliseApi::Collections::Webhooks]
       # @param project_id [String]
-      # @param params [Hash]
-      def webhooks(project_id, params = {})
-        c_r RubyLokaliseApi::Collections::Webhook, :all, project_id, params
+      # @param req_params [Hash]
+      def webhooks(project_id, req_params = {})
+        name = 'Webhooks'
+        params = { query: project_id, req: req_params }
+
+        data = endpoint(name: name, params: params).do_get
+
+        collection name, data
       end
 
-      # Returns a single webhook for the given project
+      # Returns a single webhook
       #
       # @see https://developers.lokalise.com/reference/retrieve-a-webhook
       # @return [RubyLokaliseApi::Resources::Webhook]
       # @param project_id [String]
-      # @param webhook_id [String, Integer]
+      # @param webhook_id [String]
       def webhook(project_id, webhook_id)
-        c_r RubyLokaliseApi::Resources::Webhook, :find, [project_id, webhook_id]
+        params = { query: [project_id, webhook_id] }
+
+        data = endpoint(name: 'Webhooks', params: params).do_get
+
+        resource 'Webhook', data
       end
 
-      # Creates webhook for the given project
+      # Creates a webhook
       #
       # @see https://developers.lokalise.com/reference/create-a-webhook
       # @return [RubyLokaliseApi::Resources::Webhook]
       # @param project_id [String]
-      # @param params [Hash]
-      def create_webhook(project_id, params)
-        c_r RubyLokaliseApi::Resources::Webhook, :create, project_id, params
+      # @param req_params [Hash]
+      def create_webhook(project_id, req_params)
+        params = { query: project_id, req: req_params }
+
+        data = endpoint(name: 'Webhooks', params: params).do_post
+
+        resource 'Webhook', data
       end
 
-      # Updates webhook for the given project
+      # Updates a webhook
       #
       # @see https://developers.lokalise.com/reference/update-a-webhook
       # @return [RubyLokaliseApi::Resources::Webhook]
       # @param project_id [String]
-      # @param webhook_id [String, Integer]
-      # @param params [Hash]
-      def update_webhook(project_id, webhook_id, params = {})
-        c_r RubyLokaliseApi::Resources::Webhook, :update, [project_id, webhook_id], params
+      # @param webhook_id [String]
+      # @param req_params [Hash]
+      def update_webhook(project_id, webhook_id, req_params)
+        params = { query: [project_id, webhook_id], req: req_params }
+
+        data = endpoint(name: 'Webhooks', params: params).do_put
+
+        resource 'Webhook', data
       end
 
-      # Deletes webhook for the given project
-      #
-      # @see https://developers.lokalise.com/reference/delete-a-webhook
-      # @return [Hash]
-      # @param project_id [String]
-      # @param webhook_id [String, Integer]
-      def destroy_webhook(project_id, webhook_id)
-        c_r RubyLokaliseApi::Resources::Webhook, :destroy, [project_id, webhook_id]
-      end
-
-      # Regenerates secret for the given webhook
+      # Regenerates webhook secret
       #
       # @see https://developers.lokalise.com/reference/regenerate-a-webhook-secret
-      # @return [Hash]
+      # @return [RubyLokaliseApi::Generics::RegeneratedWebhookSecret]
       # @param project_id [String]
-      # @param webhook_id [String, Integer]
+      # @param webhook_id [String]
       def regenerate_webhook_secret(project_id, webhook_id)
-        c_r RubyLokaliseApi::Resources::Webhook, :regenerate_secret,
-            [project_id, webhook_id, 'secret', 'regenerate']
+        params = { query: [project_id, webhook_id, :secret, :regenerate] }
+
+        data = endpoint(name: 'Webhooks', params: params).do_patch
+
+        RubyLokaliseApi::Generics::RegeneratedWebhookSecret.new data.content
+      end
+
+      # Deletes a webhook
+      #
+      # @see https://developers.lokalise.com/reference/delete-a-webhook
+      # @return [RubyLokaliseApi::Generics::DeletedResource]
+      # @param project_id [String]
+      # @param webhook_id [String]
+      def destroy_webhook(project_id, webhook_id)
+        params = { query: [project_id, webhook_id] }
+
+        data = endpoint(name: 'Webhooks', params: params).do_delete
+
+        RubyLokaliseApi::Generics::DeletedResource.new data.content
       end
     end
   end

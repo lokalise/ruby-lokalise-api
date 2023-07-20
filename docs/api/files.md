@@ -16,14 +16,26 @@
 For example:
 
 ```ruby
-@client.files project_id, limit: 1, page: 1
+project_id = '123.abc'
+
+files = @client.files project_id, limit: 3, page: 2
+
+files[0].filename # => 'demo.json'
+```
+
+Alternatively:
+
+```ruby
+project = @client.project project_id
+
+files = project.files limit: 3, page: 2
 ```
 
 ## Download translation files
 
 [Doc](https://developers.lokalise.com/reference/download-files)
 
-Exports project files as a `.zip` bundle and makes them available to download (the link is valid for 12 months).
+Exports project files as a `.zip` bundle and makes them available for downloading (the link is valid for 12 months).
 
 ```ruby
 @client.download_files(project_id, params)  # Input:
@@ -32,23 +44,38 @@ Exports project files as a `.zip` bundle and makes them available to download (t
                                         ### :format (string, required) - one of the file formats supported by Lokalise (json, xml, po etc).
                                         ### Find the list of other supported params at https://developers.lokalise.com/reference/download-files
                                         # Output:
-                                        ## Hash with the project id and a "bundle_url" link
+                                        ## Generic object with project id and a "bundle_url" link
 ```
 
 For example:
 
 ```ruby
-@client.download_files project_id,
-                       format: 'yaml',
-                       original_filenames: true,
-                       filter_langs: ['fr', 'en']
+params = {
+  format: 'yaml',
+  original_filenames: true,
+  filter_langs: ['fr', 'en']
+}
+
+response = @client.download_files project_id, params
+
+response.bundle_url # => 'https://...'
 ```
+
+Alternatively:
+
+```ruby
+project = @client.project project_id
+
+response = project.download_files params
+```
+
+If you need a simple way to upload and download translation files in your Ruby scripts, take advantage of the [lokalise_manager gem](https://github.com/bodrovis/lokalise_manager).
 
 ## Upload translation file
 
 [Doc](https://developers.lokalise.com/reference/upload-a-file)
 
-Starting from July 2020, **background uploading is the only method of importing translation files**.
+Please note that file uploading is performed in the background.
 
 ```ruby
 @client.upload_file(project_id, params) # Input:
@@ -67,16 +94,19 @@ To encode your data in Base64, use `Base64.strict_encode64()` method.
 After the uploading process is completed, a `QueuedProcess` resource will be returned. This resource contains a status of the import job, process ID to manually check the status, and some other attributes:
 
 ```ruby
-queued_process = @client.upload_file project_id,
-                                     data: 'Base-64 encoded data... ZnI6DQogI...',
-                                     filename: 'my_file.yml',
-                                     lang_iso: 'en'
+params = {
+  data: 'Base-64 encoded data... ZnI6DQogI...',
+  filename: 'my_file.yml',
+  lang_iso: 'en'
+}
+
+queued_process = @client.upload_file project_id, params
 
 queued_process.status # => 'queued'
 queued_process.process_id # => 'ff1876382b7ba81f2bb465da8f030196ec401fa6'
 ```
 
-Your job is to periodically reload data for the queued process and check the `status` attribute:
+You can periodically reload data for the queued process and check the `status` attribute:
 
 ```ruby
 reloaded_process = queued_process.reload_data # loads new data from the API
@@ -102,12 +132,26 @@ def uploaded?(q_process)
   false # if all 5 checks failed, return false (probably something is wrong)
 end
 
+params = {
+  data: 'Base-64 encoded data... ZnI6DQogI...',
+  filename: 'my_file.yml',
+  lang_iso: 'en'
+}
+
 process = @client.upload_file project_id,
-                              data: 'Base-64 encoded data... ZnI6DQogI...',
-                              filename: 'my_file.yml',
-                              lang_iso: 'en'
+
 uploaded? process
 ```
+
+Alternatively:
+
+```ruby
+project = @client.project project_id
+
+process = project.upload_file params
+```
+
+If you need a simple way to upload and download translation files in your Ruby scripts, take advantage of the [lokalise_manager gem](https://github.com/bodrovis/lokalise_manager).
 
 ## Delete a file
 
@@ -120,11 +164,21 @@ This endpoint does not support "software localization" projects.
                                           ## project_id (string, required)
                                           ## file_id (string or integer, required)
                                           # Output:
-                                          ## Hash with project_id and "file_deleted" set to "true"
+                                          ## Generic with project_id and "file_deleted" set to "true"
 ```
 
 For example:
 
 ```ruby
-@client.destroy_file project_id, file_id
+response = @client.destroy_file project_id, file_id
+
+response.file_deleted # => true
+```
+
+Alternatively:
+
+```ruby
+project = @client.project project_id
+
+response = project.destroy_file file_id
 ```

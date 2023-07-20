@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.7'
 
   spec.files = Dir['README.md', 'LICENSE',
-                   'CHANGELOG.md', 'lib/**/*.rb', 'lib/ruby_lokalise_api/data/attributes.yml',
+                   'CHANGELOG.md', 'lib/**/*.rb', 'lib/ruby_lokalise_api/data/*.yml',
                    'ruby-lokalise-api.gemspec', '.github/*.md',
                    'Gemfile', 'Rakefile']
   spec.extra_rdoc_files = ['README.md']
@@ -36,7 +36,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop-rake',        '~> 0.6'
   spec.add_development_dependency 'rubocop-rspec',       '~> 2.0'
   spec.add_development_dependency 'simplecov',           '~> 0.21'
-  spec.add_development_dependency 'vcr',                 '~> 6.0'
+  spec.add_development_dependency 'simplecov-lcov',      '~> 0.8'
   spec.add_development_dependency 'webmock',             '~> 3.14'
   spec.metadata = {
     'rubygems_mfa_required' => 'true'

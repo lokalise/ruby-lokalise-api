@@ -1,0 +1,51 @@
+{
+  "project_id": "20603843642073fe124fb8.14291681",
+  "contributors": [
+    {
+      "user_id": 71999,
+      "email": "ann@example.com",
+      "fullname": "Ann",
+      "created_at": "2020-07-27 13:26:19 (Etc/UTC)",
+      "created_at_timestamp": 1595856379,
+      "is_admin": true,
+      "is_reviewer": false,
+      "languages": [
+        {
+          "lang_id": 10001,
+          "lang_iso": "custom_1",
+          "lang_name": "Quenya",
+          "is_writable": true
+        },
+        {
+          "lang_id": 640,
+          "lang_iso": "en",
+          "lang_name": "English",
+          "is_writable": true
+        },
+        {
+          "lang_id": 673,
+          "lang_iso": "fr",
+          "lang_name": "French",
+          "is_writable": true
+        },
+        {
+          "lang_id": 10153,
+          "lang_iso": "lv",
+          "lang_name": "Latvian",
+          "is_writable": true
+        }
+      ],
+      "admin_rights": [
+        "upload",
+        "download",
+        "contributors",
+        "glossary",
+        "keys",
+        "settings",
+        "create_branches",
+        "activity",
+        "statistics"
+      ]
+    }
+  ]
+}

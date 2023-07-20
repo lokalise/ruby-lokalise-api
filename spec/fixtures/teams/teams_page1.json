@@ -1,0 +1,61 @@
+{
+  "teams": [
+    {
+      "team_id": 273879,
+      "name": "Ruby Team",
+      "plan": "Trial",
+      "created_at": "2021-12-15 17:37:23 (Etc/UTC)",
+      "created_at_timestamp": 1639589843,
+      "quota_usage": {
+        "users": 1,
+        "keys": 0,
+        "projects": 0,
+        "mau": 0
+      },
+      "quota_allowed": {
+        "users": 999999999,
+        "keys": 999999999,
+        "projects": 999999999,
+        "mau": 0
+      }
+    },
+    {
+      "team_id": 269556,
+      "name": "Fake team",
+      "plan": "Trial",
+      "created_at": "2021-11-23 17:02:19 (Etc/UTC)",
+      "created_at_timestamp": 1637686939,
+      "quota_usage": {
+        "users": 1,
+        "keys": 0,
+        "projects": 0,
+        "mau": 0
+      },
+      "quota_allowed": {
+        "users": 999999999,
+        "keys": 999999999,
+        "projects": 999999999,
+        "mau": 0
+      }
+    },
+    {
+      "team_id": 199048,
+      "name": "Sample",
+      "plan": "Trial",
+      "created_at": "2019-12-25 13:50:00 (Etc/UTC)",
+      "created_at_timestamp": 1577281800,
+      "quota_usage": {
+        "users": 1,
+        "keys": 0,
+        "projects": 0,
+        "mau": 0
+      },
+      "quota_allowed": {
+        "users": 999999999,
+        "keys": 999999999,
+        "projects": 999999999,
+        "mau": 0
+      }
+    }
+  ]
+}

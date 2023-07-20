@@ -3,13 +3,18 @@
 module RubyLokaliseApi
   module Rest
     module PaymentCards
-      # Returns all payment cards available to the user authorized with the API token
+      # Returns payment cards
       #
       # @see https://developers.lokalise.com/reference/list-all-cards
-      # @return [RubyLokaliseApi::Collection::PaymentCard<RubyLokaliseApi::Resources::PaymentCard>]
-      # @param params [Hash]
-      def payment_cards(params = {})
-        c_r RubyLokaliseApi::Collections::PaymentCard, :all, nil, params
+      # @return [RubyLokaliseApi::Collections::PaymentCards]
+      # @param req_params [Hash]
+      def payment_cards(req_params = {})
+        name = 'PaymentCards'
+        params = { req: req_params }
+
+        data = endpoint(name: name, params: params).do_get
+
+        collection name, data
       end
 
       # Returns a single payment card
@@ -18,25 +23,37 @@ module RubyLokaliseApi
       # @return [RubyLokaliseApi::Resources::PaymentCard]
       # @param card_id [String, Integer]
       def payment_card(card_id)
-        c_r RubyLokaliseApi::Resources::PaymentCard, :find, card_id
+        params = { query: card_id }
+
+        data = endpoint(name: 'PaymentCards', params: params).do_get
+
+        resource 'PaymentCard', data
       end
 
       # Creates a payment card
       #
       # @see https://developers.lokalise.com/reference/create-a-card
       # @return [RubyLokaliseApi::Resources::PaymentCard]
-      # @param params [Hash]
-      def create_payment_card(params)
-        c_r RubyLokaliseApi::Resources::PaymentCard, :create, nil, params
+      # @param req_params [Hash]
+      def create_payment_card(req_params)
+        params = { req: req_params }
+
+        data = endpoint(name: 'PaymentCards', params: params).do_post
+
+        resource 'PaymentCard', data
       end
 
-      # Deletes the payment card
+      # Deletes a payment card
       #
       # @see https://developers.lokalise.com/reference/delete-a-card
-      # @return [Hash]
+      # @return [RubyLokaliseApi::Generics::DeletedResource]
       # @param card_id [String, Integer]
       def destroy_payment_card(card_id)
-        c_r RubyLokaliseApi::Resources::PaymentCard, :destroy, card_id
+        params = { query: card_id }
+
+        data = endpoint(name: 'PaymentCards', params: params).do_delete
+
+        RubyLokaliseApi::Generics::DeletedResource.new data.content
       end
     end
   end
