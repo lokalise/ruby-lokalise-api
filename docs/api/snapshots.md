@@ -17,7 +17,22 @@
 For example:
 
 ```ruby
-@client.snapshots project_id, limit: 1, page: 2
+project_id = '123.abc'
+params = {
+  limit: 1,
+  page: 2
+}
+
+snapshots = @client.snapshots project_id, params
+
+snapshots[0].snapshot_id # => 5678
+```
+
+Alternatively:
+
+```ruby
+project = @client.project project_id
+snapshots = project.snapshots params
 ```
 
 ## Create snapshot
@@ -36,7 +51,20 @@ For example:
 For example:
 
 ```ruby
-@client.create_snapshot project_id, title: 'My snapshot'
+params = {
+  title: 'My snapshot'
+}
+
+snapshot = @client.create_snapshot project_id, params
+
+snapshot.title # => 'My snapshot'
+```
+
+Alternatively:
+
+```ruby
+project = @client.project project_id
+snapshot = project.create_snapshot params
 ```
 
 ## Restore snapshot
@@ -51,11 +79,24 @@ For example:
                                                     ## Information about the restored project from the specified snapshot
 ```
 
+For example:
+
+```ruby
+restored_project = test_client.restore_snapshot project_id, snapshot_id
+
+restored_project.name # => 'Project copy'
+```
+
 Alternatively:
 
 ```ruby
-snapshot = @client.snapshots('project_id').first # you can't fetch a single snapshot
-snapshot.restore
+snapshot = @client.snapshots(project_id).first
+restored_project = snapshot.restore
+
+# OR
+
+project = @client.project project_id
+restored_project = project.restore_snapshot snapshot_id
 ```
 
 ## Delete snapshot
@@ -67,12 +108,20 @@ snapshot.restore
                                                     ## project_id (string, required)
                                                     ## snapshot_id (string, required)
                                                     # Output:
-                                                    ## Hash with the project id and "snapshot_deleted" set to "true"
+                                                    ## Generic with the project id and "snapshot_deleted" set to "true"
+```
+
+For example:
+
+```ruby
+response = @client.destroy_snapshot project_id, snapshot_id
+
+response.snapshot_deleted # => true
 ```
 
 Alternatively:
 
 ```ruby
-snapshot = @client.snapshots('project_id').first # you can't fetch a single snapshot
-snapshot.destroy
+snapshot = @client.snapshots(project_id).first
+response = snapshot.destroy
 ```

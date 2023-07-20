@@ -17,8 +17,25 @@
 For example:
 
 ```ruby
-@client.translations project_id, limit: 4, page: 2, disable_references: 0,
-                                 filter_is_reviewed: 0
+project_id = '123.abc'
+
+params = {
+  limit: 4,
+  page: 2,
+  disable_references: 0,
+  filter_is_reviewed: 0
+}
+
+translations = @client.translations project_id, params
+
+translations[0].translation_id # => 1234
+```
+
+Alternatively:
+
+```ruby
+project = @client.project project_id
+translations = project.translations params
 ```
 
 ## Fetch a single translation
@@ -33,6 +50,28 @@ For example:
                                                                 ### :disable_references (string) - whether to disable key references. Supported values are 0 and 1
                                                                 # Output:
                                                                 ## Single translation for the project
+```
+
+For example:
+
+```ruby
+project_id = '123.abc'
+translation_id = '1234'
+params = {
+  disable_references: 1
+}
+
+translation = test_client.translation project_id, translation_id, params
+
+translation.language_iso # => 'en'
+translation.is_reviewed # => true
+```
+
+Alternatively:
+
+```ruby
+project = @client.project project_id
+translation = project.translation translation_id, params
 ```
 
 ## Update translation
@@ -51,16 +90,27 @@ For example:
                                                                       ## Updated translation
 ```
 
-Alternatively:
-
-```ruby
-translation = @client.translation('project_id', 'translation_id')
-translation.update(params)
-```
-
 For example:
 
 ```ruby
-@client.update_translation project_id, translation_id, translation: 'Updated translation',
-                                                       is_reviewed: true
+params = {
+  translation: 'Updated translation',
+  is_reviewed: true
+}
+
+updated_translation = @client.update_translation project_id, translation_id, params
+
+updated_translation.translation # => 'Updated translation'
+```
+
+Alternatively:
+
+```ruby
+translation = @client.translation project_id, translation_id
+translation.update params
+
+# OR
+
+project = @client.project project_id
+updated_translation = project.update_translation translation_id, params
 ```

@@ -15,7 +15,9 @@
 For example:
 
 ```ruby
-@client.payment_cards limit: 1, page: 1
+cards = @client.payment_cards limit: 3, page: 1
+
+cards[0].last4 # => '1234'
 ```
 
 ## Fetch a single payment card
@@ -27,6 +29,17 @@ For example:
                                   ## card_id (string, required)
                                   # Output:
                                   ## A single payment card
+```
+
+For example:
+
+```ruby
+card_id = '6789'
+
+card = @client.payment_card card_id
+
+card.last4 # => '1234'
+card.brand # => 'Visa'
 ```
 
 ## Create a payment card
@@ -48,10 +61,17 @@ For example:
 For example:
 
 ```ruby
-@client.create_payment_card number: '4242424242424242',
-                            cvc: '123',
-                            exp_month: 1,
-                            exp_year: 2030
+params = {
+  number: '4242424242424242',
+  cvc: '123',
+  exp_month: '12',
+  exp_year: '2020'
+}
+
+card = @client.create_payment_card params
+
+card.last4 # => '4242'
+card.brand # => 'Visa'
 ```
 
 ## Delete a payment card
@@ -62,12 +82,19 @@ For example:
 @client.destroy_payment_card(card_id)   # Input:
                                         ## card_id (integer, string, required)
                                         # Output:
-                                        ## Hash containing card id and `card_deleted => true` attribute
+                                        ## Generic containing card id and `card_deleted => true` attribute
+```
+
+For example:
+
+```ruby
+response = @client.destroy_payment_card card_id
+response.card_deleted # => true
 ```
 
 Alternatively:
 
 ```ruby
-card = @client.payment_card('card_id')
-card.destroy
+card = @client.payment_card card_id
+response = card.destroy
 ```

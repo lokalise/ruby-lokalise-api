@@ -17,7 +17,22 @@
 For example:
 
 ```ruby
-@client.tasks project_id, limit: 2, page: 2
+project_id = '123.abc'
+params = {
+  limit: 3,
+  page: 2
+}
+
+tasks = @client.tasks project_id, params
+
+tasks[0].task_id # => '1234'
+```
+
+Alternatively:
+
+```ruby
+project = @client.project project_id
+tasks = project.tasks params
 ```
 
 ## Fetch a single task
@@ -30,6 +45,25 @@ For example:
                                    ## task_id (string, required)
                                    # Output:
                                    ## Single task for the project
+```
+
+For example:
+
+```ruby
+project_id = '123.abc'
+task_id = '1234'
+
+task = @client.task project_id, task_id
+
+task.title # => 'Demo'
+task.status # => 'created'
+```
+
+Alternatively:
+
+```ruby
+project = @client.project project_id
+task = project.task task_id
 ```
 
 ## Create task
@@ -54,14 +88,29 @@ For example:
 For example:
 
 ```ruby
-@client.create_task project_id, title: 'My first task',
-                                keys: [1234, 5678],
-                                languages: [
-                                  {
-                                    language_iso: 'ru',
-                                    users: ['20181']
-                                  }
-                                ]
+params = {
+  title: 'Demo task',
+  keys: %w[1234 5678],
+  languages: [
+    {
+      language_iso: 'de',
+      users: %w[1234]
+    }
+  ],
+  source_language_iso: 'en',
+  task_type: 'translation'
+}
+
+task = @client.create_task project_id, params
+
+task.status # => 'created'
+```
+
+Alternatively:
+
+```ruby
+project = @client.project project_id
+task = project.create_task params
 ```
 
 ## Update task
@@ -79,17 +128,29 @@ For example:
 
 ```
 
-Alternatively:
-
-```ruby
-task = @client.task('project_id', 'task_id')
-task.update(params)
-```
-
 For example:
 
 ```ruby
-@client.update_task project_id, task_id, description: 'Updated task', auto_close_task: true
+params = {
+  description: 'Updated task',
+  auto_close_task: true
+}
+
+task = @client.update_task project_id, task_id, params
+
+task.description # => 'Updated task'
+```
+
+Alternatively:
+
+```ruby
+task = @client.task project_id, task_id
+task.update params
+
+# OR
+
+project = @client.project project_id
+task = project.update_task params
 ```
 
 ## Delete task
@@ -101,13 +162,26 @@ For example:
                                            ## project_id (string, required)
                                            ## task_id (string, required)
                                            # Output:
-                                           ## Hash with the project id and "task_deleted" set to "true"
+                                           ## Generic with the project id and "task_deleted" set to "true"
 
+```
+
+For example:
+
+```ruby
+response = client.destroy_task project_id, task_id
+
+response.task_deleted # => true
 ```
 
 Alternatively:
 
 ```ruby
-task = @client.task('project_id', 'task_id')
-task.destroy
+task = @client.task project_id, task_id
+response = task.destroy
+
+# OR
+
+project = @client.project project_id
+response = project.destroy_task task_id
 ```

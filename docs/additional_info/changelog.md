@@ -37,9 +37,39 @@ branch[:name] # => 'my-branch'
 Updates:
 
 * Added many new instance methods like `update`, `destroy`, and `reload_data`.
-* Individual projects now respond to many new methods like `merge_branch`, `restore_snapshot`, and so on.
+
+```ruby
+params = {
+  lang_name: 'Updated custom language',
+  plural_forms: %w[one many]
+}
+
+language = @client.project_language project_id, language_id
+
+updated_language = language.update params
+
+updated_language.lang_name # => 'Updated custom language'
+```
+
+* Individual projects now respond to many new methods like `merge_branch`, `restore_snapshot`, and so on. Please browse documentation for a specific endpoint to learn about new features.
+
+```ruby
+project = @client.project project_id
+
+restored_project = project.restore_snapshot snapshot_id
+
+restored_project.name # => 'Project copy'
+```
+
 * Methods like `destroy` now return objects, not hashes. However, these objects also respond to the `[]` method to preserve backwards compatibility.
-* Test only with Ruby 3+ (though the SDK should still work with version 2.7+).
+
+```ruby
+response = @client.destroy_screenshot project_id, screen_id
+response.screenshot_deleted # => true
+response[:screenshot_deleted] # => true
+```
+
+* Test only with Ruby 3+ (though the SDK should still work with version 2.7+). Next major version will require Ruby 3+.
 
 ## 7.2.0 (11-Jan-2023)
 

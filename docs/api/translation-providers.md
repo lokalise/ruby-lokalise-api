@@ -16,7 +16,15 @@
 For example:
 
 ```ruby
-@client.translation_providers team_id, limit: 1, page: 2
+team_id = '1234'
+params = {
+  limit: 2,
+  page: 1
+}
+
+providers = @client.translation_providers team_id, params
+
+providers[0].name # => 'Gengo'
 ```
 
 ## Fetch a single translation provider
@@ -29,4 +37,13 @@ For example:
                                                     ## provider_id (string, required)
                                                     # Output:
                                                     ## Single provider for the team
+```
+
+For example:
+
+```ruby
+provider = @client.translation_provider team_id, provider_id
+
+provider.slug # => 'gengo'
+provider.pairs[0]['price_per_word'] # => 0.069
 ```

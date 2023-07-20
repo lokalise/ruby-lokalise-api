@@ -54,9 +54,19 @@ comments[0].comment # => '<p>Hi!</p>'
 Alternatively:
 
 ```ruby
+params = {
+  page: 2,
+  limit: 3
+}
+
 project = @client.project project_id
 
-comments = project.key_comments key_id, page: 2, limit: 3
+comments = project.key_comments key_id, params
+
+# OR
+
+key = @client.key project_id, key_id
+comments = key.key_comments params
 ```
 
 ## Create key comments
@@ -92,6 +102,11 @@ Alternatively:
 project = @client.project project_id
 
 comments = project.create_comments key_id, params
+
+# OR
+
+key = @client.key project_id, key_id
+comments = key.create_comments params
 ```
 
 ## Fetch key comment
@@ -122,6 +137,11 @@ Alternatively:
 project = @client.project project_id
 
 comment = project.key_comment key_id, comment_id
+
+# OR
+
+key = @client.key project_id, key_id
+comment = key.key_comment comment_id
 ```
 
 ## Delete key comment
@@ -156,4 +176,9 @@ response = comment.destroy
 
 project = @client.project project_id
 response = project.destroy_comment key_id, comment_id
+
+# OR
+
+key = @client.key project_id, key_id
+response = key.destroy_comment comment_id
 ```

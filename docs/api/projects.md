@@ -16,7 +16,14 @@
 For example:
 
 ```ruby
-@client.projects limit: 1, page: 2
+params = {
+  limit: 1,
+  page: 2
+}
+
+projects = @client.projects 
+
+projects[0].project_id # => '123.abc'
 ```
 
 ## Fetch a single project
@@ -28,6 +35,17 @@ For example:
                                 ## project_id (string, required)
                                 # Output:
                                 ## A single project
+```
+
+For example:
+
+```ruby
+project_id = '123.abc'
+
+project = @client.project project_id
+
+project.project_type # => 'localization_files'
+project.name # => 'Demo project'
 ```
 
 ## Create a project
@@ -48,7 +66,15 @@ For example:
 For example:
 
 ```ruby
-@client.create_project name: 'Demo project', description: 'My first project'
+params = {
+  name: 'Demo project',
+  description: 'My first project'
+}
+
+project = @client.create_project params
+
+project.name # => 'Demo project'
+project.description # => 'My first project'
 ```
 
 ## Update a project
@@ -65,19 +91,24 @@ For example:
                                             ## An updated project
 ```
 
-Alternatively:
-
-```ruby
-project = @client.project('project_id')
-project.update(params)
-```
-
 For example:
 
 ```ruby
-@client.update_project new_project_id,
-                       name: 'Updated project name',
-                       description: 'Updated project desc'
+params = {
+  name: 'Updated project name',
+  description: 'Updated project desc'
+}
+
+project = @client.update_project project_id, params
+
+project.name # => 'Updated project name'            
+```
+
+Alternatively:
+
+```ruby
+project = @client.project project_id
+project.update params
 ```
 
 ## Empty a project
@@ -90,14 +121,22 @@ Deletes *all* keys and translations from the project.
 @client.empty_project(project_id)   # Input:
                                     ## project_id (string, required)
                                     # Output:
-                                    ## A project containing its id and a `keys_deleted => true` attribute
+                                    ## Generic containing project id and a `keys_deleted => true` attribute
+```
+
+For example:
+
+```ruby
+response = @client.empty_project project_id
+
+response.keys_deleted # => true
 ```
 
 Alternatively:
 
 ```ruby
-project = @client.project('project_id')
-project.empty
+project = @client.project project_id
+response = project.empty
 ```
 
 ## Delete a project
@@ -108,12 +147,19 @@ project.empty
 @client.destroy_project(project_id)   # Input:
                                       ## project_id (string, required)
                                       # Output:
-                                      ## A project containing its id and a `project_deleted => true` attribute
+                                      ## Generic containing project id and a `project_deleted => true` attribute
+```
+
+For example:
+
+```ruby
+response = client.destroy_project project_id
+response.project_deleted # => true
 ```
 
 Alternatively:
 
 ```ruby
-project = @client.project('project_id')
-project.destroy
+project = @client.project project_id
+response = project.destroy
 ```

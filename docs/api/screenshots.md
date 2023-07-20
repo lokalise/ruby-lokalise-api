@@ -16,7 +16,22 @@
 For example:
 
 ```ruby
-@client.screenshots project_id, limit: 1, page: 1
+project_id = '123.abc'
+params = {
+  limit: 3,
+  page: 1
+}
+
+screenshots = @client.screenshots project_id, params
+
+screenshots[0].screenshot_id # => 1234
+```
+
+Alternatively:
+
+```ruby
+project = @client.project project_id
+screenshots = project.screenshots params
 ```
 
 ## Fetch a single screenshot
@@ -29,6 +44,25 @@ For example:
                                                 ## screeshot_id (string, required)
                                                 # Output:
                                                 ## A single screenshot
+```
+
+For example:
+
+```ruby
+project_id = '123.abc'
+screenshot_id = '1234'
+
+screenshot = @client.screenshot project_id, screenshot_id
+
+screenshot.keys[0]['key_id'] # => 6789
+screenshot.width # => 572
+```
+
+Alternatively:
+
+```ruby
+project = @client.project project_id
+screenshot = project.screenshot screenshot_id
 ```
 
 ## Create screenshots
@@ -52,7 +86,21 @@ For example:
 For example:
 
 ```ruby
-@client.create_screenshots project_id, data: 'data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAH0AAA...', title: 'My screen'
+params = {
+  data: 'data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAH0AAA...',
+  title: 'My screen'
+}
+
+screenshots = @client.create_screenshots project_id, params
+
+screenshots[0].title # => 'My screen'
+```
+
+Alternatively:
+
+```ruby
+project = @client.project project_id
+screenshots = project.create_screenshots params
 ```
 
 ## Update screenshot
@@ -72,19 +120,29 @@ For example:
                                                                   ## Updated screenshot
 ```
 
-Alternatively:
-
-```ruby
-screenshot = @client.screenshot('project_id', 'screen_id')
-screenshot.update(params)
-```
-
 For example:
 
 ```ruby
-@client.update_screenshot project_id, screenshot_id,
-                          tags: %w[demo sample],
-                          description: 'Sample screen'
+params = {
+  tags: %w[demo sample],
+  description: 'Sample screen'
+}
+
+screenshot = @client.update_screenshot project_id, screenshot_id, params
+
+screenshot.tags # => ['demo', 'sample']
+```
+
+Alternatively:
+
+```ruby
+screenshot = @client.screenshot project_id, screenshot_id
+screenshot.update params
+
+# OR
+
+project = @client.project project_id
+screenshot = project.update_screenshot screenshot_id, params
 ```
 
 ## Delete screenshot
@@ -96,12 +154,24 @@ For example:
                                                         ## project_id (string, required)
                                                         ## screenshot_id (string, required)
                                                         # Output:
-                                                        ## Hash with the project id and "screenshot_deleted" set to "true"
+                                                        ## Generic with the project id and "screenshot_deleted" set to "true"
+```
+
+For example:
+
+```ruby
+response = @client.destroy_screenshot project_id, screen_id
+response.screenshot_deleted # => true
 ```
 
 Alternatively:
 
 ```ruby
-screenshot = @client.screenshot('project_id', 'screen_id')
-screenshot.destroy
+screenshot = @client.screenshot project_id, screen_id
+response = screenshot.destroy
+
+# OR
+
+project = @client.project project_id
+response = project.destroy_screenshot screen_id
 ```

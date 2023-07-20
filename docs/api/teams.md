@@ -15,5 +15,12 @@
 For example:
 
 ```ruby
-@client.teams page: 2, limit: 1
+params = {
+  page: 3,
+  limit: 2
+}
+
+teams = @client.teams params
+
+teams[0].plan # => 'Trial'
 ```

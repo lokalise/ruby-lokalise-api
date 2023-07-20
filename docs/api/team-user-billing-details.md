@@ -14,7 +14,12 @@
 For example:
 
 ```ruby
-@client.team_user_billing_details '1234'
+team_id = '1234'
+
+details = @client.team_user_billing_details team_id
+
+details.company # => 'Lokalise'
+details.address1 # => 'Address line 1'
 ```
 
 ## Create team user billing details
@@ -42,9 +47,17 @@ For example:
 For example:
 
 ```ruby
-@client.create_team_user_billing_details 12345, billing_email: 'ruby@example.com',
-                                                country_code: 'LV',
-                                                zip: 'LV-1111'
+team_id = '1234'
+
+params = {
+  billing_email: 'ruby@example.com',
+  country_code: 'LV',
+  zip: 'LV-1111'
+}
+
+details = @client.create_team_user_billing_details team_id, params
+
+details.zip # => 'LV-1111'
 ```
 
 ## Update team user billing details
@@ -72,9 +85,15 @@ For example:
 For example:
 
 ```ruby
-@client.update_team_user_billing_details 12345, billing_email: 'ruby_rspec@example.com',
-                                                country_code: 'LV',
-                                                zip: 'LV-1111',
-                                                address1: 'Addr line 1',
-                                                city: 'Riga'
+params = {
+  billing_email: 'ruby@example.com',
+  country_code: 'LV',
+  zip: 'LV-1111',
+  address1: 'Addr line 1',
+  city: 'Riga'
+}
+
+details = @client.update_team_user_billing_details team_id, params
+
+details.billing_email # => 'ruby@example.com'
 ```
