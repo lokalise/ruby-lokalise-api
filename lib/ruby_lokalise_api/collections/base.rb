@@ -2,116 +2,143 @@
 
 module RubyLokaliseApi
   module Collections
+    # Base collection. Collection is an array of resources. The actual resources can be found
+    # by calling the `.collection` method
     class Base
-      using RubyLokaliseApi::Utils::StringUtils
+      include Enumerable
+      extend Forwardable
 
-      extend RubyLokaliseApi::Request
-      extend RubyLokaliseApi::Utils::AttributeHelpers
-      include RubyLokaliseApi::Utils::AttributeHelpers
-      extend RubyLokaliseApi::Utils::EndpointHelpers
+      using RubyLokaliseApi::Utils::Classes
+      extend RubyLokaliseApi::Utils::Attributes
+      extend RubyLokaliseApi::Concerns::AttrsLoadable
+      include RubyLokaliseApi::Utils::Keys
 
-      attr_reader :total_pages, :total_results, :results_per_page, :current_page, :collection,
-                  :project_id, :team_id, :request_params, :client, :path, :branch, :user_id
+      ATTRS_FILENAME = 'collection_attributes.yml'
 
-      # Initializes a new collection based on the response
-      #
-      # @param response [Hash]
-      # @param params [Hash]
-      # @return [RubyLokaliseApi::Collections::Base]
-      def initialize(response, params = {})
-        produce_collection_for response
-        populate_pagination_data_for response
-        @request_params = params
-        popular_common_attrs response
+      def_delegators :collection, :[], :last, :each
+
+      attr_reader :total_pages, :total_results, :results_per_page, :current_page,
+                  :collection
+
+      def initialize(response)
+        @self_endpoint = response.endpoint
+
+        populate_common_attrs_from response
+        produce_collection_from response
       end
 
-      class << self
-        # Performs a batch query fetching multiple records
-        def all(client, path, params = {})
-          new get(path, client, params),
-              params
-        end
+      # Tries to fetch the next page for paginated collection
+      # Returns a new collection or nil if the next page is not available
+      def next_page
+        return nil if last_page?
+
+        self.class.new(
+          reinit_endpoint(
+            override_req_params: { page: current_page + 1 }
+          ).do_get
+        )
       end
 
+      # Tries to fetch the previous page for paginated collection
+      # Returns a new collection or nil if the previous page is not available
+      def prev_page
+        return nil if first_page?
+
+        self.class.new(
+          reinit_endpoint(
+            override_req_params: { page: current_page - 1 }
+          ).do_get
+        )
+      end
+
+      # Checks whether the next page is available
       # @return [Boolean]
       def next_page?
-        @current_page.positive? && @current_page < @total_pages
+        current_page.positive? && current_page < total_pages
       end
 
+      # Checks whether the current page is the last one
       # @return [Boolean]
       def last_page?
         !next_page?
       end
 
+      # Checks whether the previous page is available
       # @return [Boolean]
       def prev_page?
-        @current_page > 1
+        current_page > 1
       end
 
+      # Checks whether the current page is the first one
       # @return [Boolean]
       def first_page?
         !prev_page?
       end
 
-      # @return [Integer]
-      def next_page
-        return nil if last_page?
-
-        fetch_page @current_page + 1
-      end
-
-      # @return [Integer]
-      def prev_page
-        return nil if first_page?
-
-        fetch_page @current_page - 1
-      end
-
       private
 
-      def populate_pagination_data_for(response)
-        @total_results = response['x-pagination-total-count'].to_i
-        @total_pages = response['x-pagination-page-count'].to_i
-        @results_per_page = response['x-pagination-limit'].to_i
-        @current_page = response['x-pagination-page'].to_i
+      # This method is utilized to recreate an endpoint for the current collection
+      def reinit_endpoint(req_params: @self_endpoint.req_params, override_req_params: {})
+        @self_endpoint.reinitialize(
+          req_params: req_params.merge(override_req_params)
+        )
       end
 
-      # Gets the specified page
-      def fetch_page(page_num)
-        self.class.all @client,
-                       @path,
-                       @request_params.merge(page: page_num)
+      def populate_common_attrs_from(response)
+        supported_attrs.each do |attrib|
+          instance_variable_set "@#{attrib}", response.content[attrib]
+        end
+
+        headers = response.headers
+
+        return unless headers.any?
+
+        @total_results = headers[:'x-pagination-total-count']
+        @total_pages = headers[:'x-pagination-page-count']
+        @results_per_page = headers[:'x-pagination-limit']
+        @current_page = headers[:'x-pagination-page']
       end
 
-      # Dynamically produces collection of resources based on the given response
-      # Collection example: `{ "content": {"comments": [ ... ]} }`
-      def produce_collection_for(response)
-        return unless response['content']
+      def produce_collection_from(response)
+        content = response.content
+        return unless content
 
-        model_class = self.class.name.base_class_name
-        data_key_plural = data_key_for model_class: model_class, plural: true, collection: true
+        data_key_plural = collection_key_for klass: self.class.base_name
 
-        # Fetch collection data and instantiate an individual resource for each object
-        # We also preserve the `client` to be able to chain API methods later
-        @collection = response['content'][data_key_plural].map do |raw_model|
-          Module.const_get("RubyLokaliseApi::Resources::#{model_class}").new 'content' => raw_model,
-                                                                             'client' => response['client'],
-                                                                             'base_path' => response['path']
+        resources_data = content[data_key_plural]
+        other_data = content.reject { |key, _| key == data_key_plural }
+
+        @collection = build_collection resources_data, other_data
+      end
+
+      def build_collection(resources_data, other_data)
+        resources_data.map do |raw_resource|
+          self.class.const_get(:RESOURCE).new(resource_data(raw_resource, other_data))
         end
       end
 
-      def popular_common_attrs(response)
-        @client = response['client']
-        @path = response['path']
+      def resource_data(raw_resource, other_data)
+        RubyLokaliseApi::Response.new(
+          raw_resource.merge(other_data),
+          resource_endpoint.new(
+            @self_endpoint.client,
+            query: query_for(raw_resource, other_data)
+          )
+        )
+      end
 
-        return unless response['content']
+      def query_for(raw_resource, other_data)
+        main_params = self.class.const_get(:RESOURCE).const_get(:MAIN_PARAMS).to_array
 
-        content = response['content']
-        # Project, team id, user id, and branch may not be present in some cases
-        @project_id = content['project_id']
-        @team_id = content['team_id']
-        @user_id = content['user_id']
-        @branch = content['branch']
+        main_params.map do |param|
+          other_data[param.to_s] || raw_resource[param.to_s] || nil
+        end
+      end
+
+      def resource_endpoint
+        klass = self.class
+
+        klass.const_defined?(:RESOURCES_ENDPOINT) ? klass.const_get(:RESOURCES_ENDPOINT) : klass.const_get(:ENDPOINT)
       end
     end
   end

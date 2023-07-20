@@ -3,15 +3,7 @@
 module RubyLokaliseApi
   module Resources
     class TeamUser < Base
-      ID_KEY = 'user_id'
-      supports :update, :destroy, [:reload_data, '', :find]
-
-      class << self
-        def endpoint(team_id, team_user_id = nil)
-          path_from teams: team_id,
-                    users: team_user_id
-        end
-      end
+      MAIN_PARAMS = %i[team_id user_id].freeze
     end
   end
 end

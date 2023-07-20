@@ -16,7 +16,15 @@
 For example:
 
 ```ruby
-@client.team_user_groups team_id, limit: 1, page: 2
+team_id = '1234'
+params = {
+  limit: 1,
+  page: 2
+}
+
+groups = @client.team_user_groups team_id, params
+
+groups[0].group_id # => '5678'
 ```
 
 ## Fetch a single group
@@ -29,6 +37,17 @@ For example:
                                             ## group_id (string, required)
                                             # Output:
                                             ## Group
+```
+
+For example:
+
+```ruby
+team_id = '1234'
+group_id = '5678'
+
+group = test_client.team_user_group team_id, group_id
+
+group.name # => 'Demo'
 ```
 
 ## Create group
@@ -51,13 +70,20 @@ For example:
 For example:
 
 ```ruby
-@client.create_team_user_group team_id, name: 'My group',
-                                        is_reviewer: false,
-                                        is_admin: false,
-                                        languages: {
-                                          reference: [123],
-                                          contributable: [640]
-                                        }
+params = {
+  name: 'SDK',
+  is_reviewer: true,
+  is_admin: false,
+  languages: {
+    reference: [],
+    contributable: [640]
+  }
+}
+
+group = @client.create_team_user_group team_id, params
+
+group.name # => 'SDK'
+group.permissions['is_admin'] # => false
 ```
 
 ## Update group
@@ -78,20 +104,29 @@ For example:
                                                           ## Updated group
 ```
 
-Alternatively:
-
-```ruby
-group = @client.team_user_group('team_id', 'group_id')
-group.update(params)
-```
-
 For example:
 
 ```ruby
-@client.update_team_user_group team_id, second_group_id,
-                               name: 'Updated group',
-                               is_admin: true,
-                               is_reviewer: true
+params = {
+  name: 'Updated SDK',
+  is_reviewer: true,
+  is_admin: false,
+  languages: {
+    reference: [],
+    contributable: [640]
+  }
+}
+
+group = @client.update_team_user_group team_id, group_id, params
+
+group.name # => 'Updated SDK'
+```
+
+Alternatively:
+
+```ruby
+group = @client.team_user_group team_id, group_id
+updated_group = group.update params
 ```
 
 ## Add projects to group
@@ -105,11 +140,21 @@ For example:
                                                               ## project_ids (string or array, required) - project ids that you would like to add to this group
 ```
 
+For example:
+
+```ruby
+project_ids = %w[123.abc 567.def]
+
+group = client.add_projects_to_group team_id, group_id, project_ids
+
+group.projects # => ['123.abc', '567.def']
+```
+
 Alternatively:
 
 ```ruby
-group = @client.team_user_group('team_id', 'group_id')
-group.add_projects projects: [project_id1, project_id2]
+group = @client.team_user_group team_id, group_id
+updated_group = group.add_projects project_ids
 ```
 
 ## Remove projects from group
@@ -123,11 +168,21 @@ group.add_projects projects: [project_id1, project_id2]
                                                                     ## project_ids (string or array, required) - project ids that you would like to remove from this group
 ```
 
+For example:
+
+```ruby
+project_ids = %w[123.abc 567.def]
+
+group = @client.remove_projects_from_group team_id, group_id, project_ids
+
+group.projects # => []
+```
+
 Alternatively:
 
 ```ruby
-group = @client.team_user_group('team_id', 'group_id')
-group.remove_projects projects: [project_id1, project_id2]
+group = @client.team_user_group team_id, group_id
+updated_group = group.remove_projects project_ids
 ```
 
 ## Add users to group
@@ -141,11 +196,21 @@ group.remove_projects projects: [project_id1, project_id2]
                                                         ## user_ids (string or array, required) - user ids that you would like to add to this group
 ```
 
+For example:
+
+```ruby
+user_ids = %w[1234 6789]
+group = @client.add_members_to_group team_id, group_id, user_ids
+
+group.members # => ['1234', '6789']
+```
+
 Alternatively:
 
 ```ruby
-group = @client.team_user_group('team_id', 'group_id')
-group.add_users users: [user_id1, user_id2]
+group = @client.team_user_group team_id, group_id
+
+updated_group = group.add_users user_ids
 ```
 
 ## Remove users from group
@@ -159,11 +224,21 @@ group.add_users users: [user_id1, user_id2]
                                                               ## user_ids (string or array, required) - user ids that you would like to add to this group
 ```
 
+For example:
+
+```ruby
+user_ids = %w[1234 6789]
+
+group = @client.remove_members_from_group team_id, group_id, user_ids
+
+group.members # => []
+```
+
 Alternatively:
 
 ```ruby
-group = @client.team_user_group('team_id', 'group_id')
-group.remove_users users: [user_id1, user_id2]
+group = @client.team_user_group team_id, group_id
+updated_group = group.remove_users user_ids
 ```
 
 ## Destroy group
@@ -178,9 +253,17 @@ group.remove_users users: [user_id1, user_id2]
                                                     ## Hash with "team_id" and "group_deleted" set to "true"
 ```
 
+For example:
+
+```ruby
+response = @client.destroy_team_user_group team_id, group_id
+
+response.group_deleted # => true
+```
+
 Alternatively:
 
 ```ruby
-group = @client.team_user_group('team_id', 'group_id')
-group.destroy
+group = @client.team_user_group team_id, group_id
+response = group.destroy
 ```

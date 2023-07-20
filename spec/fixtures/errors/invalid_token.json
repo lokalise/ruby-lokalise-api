@@ -1,0 +1,6 @@
+{
+  "error": {
+    "message": "Invalid `X-Api-Token` header",
+    "code": 400
+  }
+}

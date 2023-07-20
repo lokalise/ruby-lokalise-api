@@ -1,5 +1,76 @@
 # Changelog
 
+## 8.0.0
+
+In this version **SDK has been fully rewritten** to make it more robust, better tested, and even more comfortable to work with. While most of the methods have similar signatures, there are a few major changes.
+
+Breaking changes:
+
+* Method `translation_statuses` has been renamed to `custom_translation_statuses`
+* Method `translation_status` has been renamed to `custom_translation_status`
+* Method `create_translation_status` has been renamed to `create_custom_translation_status`
+* Method `update_translation_status` has been renamed to `update_custom_translation_status`
+* Method `destroy_translation_status` has been renamed to `destroy_custom_translation_status`
+* Method `translation_status_colors` has been renamed to `custom_translation_status_colors`
+* Method `language` has been renamed to `project_language`
+* Method `create_languages` has been renamed to `create_project_languages`
+* Method `update_language` has been renamed to `update_project_language`
+* Method `destroy_language` has been renamed to `destroy_project_language`
+* Method `destroy_all` has been removed from `Keys` collection
+* Method `jwt` has been renamed to `create_jwt`:
+
+```ruby
+token = @client.create_jwt project_id, service: :ota
+
+token.jwt # => '123abcd'
+```
+
+* `raw_data` method has been removed. All resources respond to the methods named after the corresponding attributes and also support `[]` notation. Therefore both versions should work:
+
+```ruby
+branch = @client.branch project_id, branch_id
+
+branch.name # => 'my-branch'
+branch[:name] # => 'my-branch'
+```
+
+Updates:
+
+* Added many new instance methods like `update`, `destroy`, and `reload_data`.
+
+```ruby
+params = {
+  lang_name: 'Updated custom language',
+  plural_forms: %w[one many]
+}
+
+language = @client.project_language project_id, language_id
+
+updated_language = language.update params
+
+updated_language.lang_name # => 'Updated custom language'
+```
+
+* Individual projects now respond to many new methods like `merge_branch`, `restore_snapshot`, and so on. Please browse documentation for a specific endpoint to learn about new features.
+
+```ruby
+project = @client.project project_id
+
+restored_project = project.restore_snapshot snapshot_id
+
+restored_project.name # => 'Project copy'
+```
+
+* Methods like `destroy` now return objects, not hashes. However, these objects also respond to the `[]` method to preserve backwards compatibility.
+
+```ruby
+response = @client.destroy_screenshot project_id, screen_id
+response.screenshot_deleted # => true
+response[:screenshot_deleted] # => true
+```
+
+* Test only with Ruby 3+ (though the SDK should still work with version 2.7+). Next major version will require Ruby 3+.
+
 ## 7.2.0 (11-Jan-2023)
 
 * Updated the `jwt` method. It is now mandatory to provide the project ID to request JWT for:

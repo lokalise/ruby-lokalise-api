@@ -1,0 +1,36 @@
+{
+  "provider_id": 1,
+  "name": "Gengo",
+  "slug": "gengo",
+  "price_pair_min": "0.00",
+  "website_url": "https://gengo.com",
+  "description": "At Gengo, our mission is to provide language services to everyone and connect a global community. Our network of over 18,000 translators are tested and qualified to meet stringent project standards. Translators are based around the world and in every timezone, which enables us to support over 35 languages and work towards the Gengo mission.",
+  "tiers": [
+    {
+      "tier_id": 1,
+      "title": "Native speaker"
+    },
+    {
+      "tier_id": 2,
+      "title": "Professional translator"
+    }
+  ],
+  "pairs": [
+    {
+      "tier_id": 1,
+      "price_per_word": 0.069,
+      "from_lang_iso": "ru",
+      "from_lang_name": "Russian",
+      "to_lang_iso": "en",
+      "to_lang_name": "English"
+    },
+    {
+      "tier_id": 1,
+      "price_per_word": 0.069,
+      "from_lang_iso": "ru",
+      "from_lang_name": "Russian",
+      "to_lang_iso": "en_US",
+      "to_lang_name": "English (United States)"
+    }
+  ]
+}

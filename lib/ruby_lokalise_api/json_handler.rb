@@ -3,9 +3,8 @@
 require 'json'
 
 module RubyLokaliseApi
+  # JSON custom parser. Uses built-in JSON by default but can be overridden to any other parser
   module JsonHandler
-    # JSON custom parser. Uses built-in JSON by default but can be overridden to any other parser
-
     # Converts Ruby object to JSON
     def custom_dump(obj)
       JSON.dump obj

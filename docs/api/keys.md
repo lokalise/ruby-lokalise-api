@@ -16,7 +16,23 @@
 For example:
 
 ```ruby
-@client.keys project_id, limit: 2, page: 3
+project_id = '123.abc'
+params = {
+  limit: 2,
+  page: 3
+}
+
+keys = @client.keys project_id, params
+
+keys[0].key_id # => 1234
+```
+
+Alternatively:
+
+```ruby
+project = @client.project project_id
+
+keys = project.keys params
 ```
 
 ## Fetch a single project key
@@ -36,7 +52,23 @@ For example:
 For example:
 
 ```ruby
-@client.key project_id, 44_596_066, disable_references: 0
+project_id = '123.abc'
+key_id = 44_596_066
+params = {
+  disable_references: 0
+}
+
+key = @client.key project_id, key_id, params
+
+key.key_name['ios'] # => 'demo_key_name'
+key.translations[0]['language_iso'] # => 'en'
+```
+
+Alternatively:
+
+```ruby
+project = @client.project project_id
+key = project.key key_id, params
 ```
 
 ## Create project keys
@@ -57,16 +89,34 @@ For example:
 For example:
 
 ```ruby
-@client.create_keys project_id, [{key_name: 'first_key', platforms: %w[ios]},
-                                 {
-                                   key_name: 'second_key',
-                                   platforms: %w[web],
-                                   translations: [{
-                                     "language_iso": "en",
-                                     "translation": "Welcome"
-                                   }]
-                                 }
-                                ]
+params = [
+  {
+    key_name: 'first_key',
+    platforms: %w[ios]
+  },
+  {
+    key_name: 'second_key',
+    platforms: %w[web],
+    translations: [
+      {
+        "language_iso": "en",
+        "translation": "Welcome"
+      }
+    ]
+  }
+]
+
+keys = @client.create_keys project_id, params
+
+keys[0].key_id # => 1234
+keys.errors[0]['message'] # => 'This key name is already taken'
+```
+
+Alternatively:
+
+```ruby
+project = @client.project project_id
+keys = project.create_keys params
 ```
 
 ## Update project key
@@ -83,17 +133,29 @@ For example:
                                                       ## Updated key
 ```
 
-Alternatively:
-
-```ruby
-key = @client.key('project_id', 'key_id')
-key.update(params)
-```
-
 For example:
 
 ```ruby
-@client.update_key project_id, key_id, key_name: 'updated_key_name', description: 'Demo description'
+params = {
+  key_name: 'updated_key_name',
+  description: 'Demo description'
+}
+
+key = @client.update_key project_id, key_id, params
+
+key.key_id # => 1234
+```
+
+Alternatively:
+
+```ruby
+key = @client.key project_id, key_id
+key.update params
+
+# OR
+
+project = @client.project project_id
+key = project.update_key key_id, params
 ```
 
 ## Bulk update project keys
@@ -113,16 +175,30 @@ For example:
 For example:
 
 ```ruby
-client.update_keys '123.abc', [
-  {
-    key_id: 456,
-    description: 'bulk updated'
-  },
-  {
-    key_id: 769,
-    tags: %w[bulk update]
-  }
-]
+params = {
+  use_automations: false,
+  keys: [
+    {
+      key_id: 456,
+      description: 'bulk updated'
+    },
+    {
+      key_id: 769,
+      tags: %w[bulk update]
+    }
+  ]
+}
+
+keys = client.update_keys project_id, params
+
+keys[1].tags # => ['bulk', 'update']
+```
+
+Alternatively:
+
+```ruby
+project = @client.project project_id
+keys = project.update_keys params
 ```
 
 ## Delete project key
@@ -134,14 +210,27 @@ client.update_keys '123.abc', [
                                         ## project_id (string, required)
                                         ## key_id (string, required)
                                         # Output:
-                                        ## Hash with project_id and "key_removed" set to "true"
+                                        ## Generic with project_id and "key_removed" set to "true"
+```
+
+For example:
+
+```ruby
+response = client.destroy_key project_id, key_id
+
+response.key_removed # => true
 ```
 
 Alternatively:
 
 ```ruby
-key = @client.key('project_id', 'key_id')
-key.destroy
+key = @client.key project_id, key_id
+response = key.destroy
+
+# OR
+
+project = @client.project project_id
+response = project.destroy_key key_id
 ```
 
 ## Bulk delete project keys
@@ -153,18 +242,21 @@ key.destroy
                                           ## project_id (string, required)
                                           ## key_ids (array, required)
                                           # Output:
-                                          ## Hash with project_id and "keys_removed" set to "true"
-```
-
-Alternatively:
-
-```ruby
-keys = @client.keys('project_id')
-keys.destroy_all # => will effectively destroy all keys in the project
+                                          ## Generic with project_id and "keys_removed" set to "true"
 ```
 
 For example:
 
 ```ruby
-@client.destroy_keys project_id, [1234, 5678]
+key_ids = [1234, 5678]
+
+response = @client.destroy_keys project_id, key_ids
+response.keys_removed # => true
+```
+
+Alternatively:
+
+```ruby
+project = @client.project project_id
+response = project.destroy_keys key_ids
 ```

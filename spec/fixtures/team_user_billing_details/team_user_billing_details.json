@@ -1,0 +1,12 @@
+{
+  "company": "",
+  "address1": "Sample line 1",
+  "address2": "",
+  "city": "Riga",
+  "zip": "LV-6543",
+  "phone": "+371123456",
+  "vatnumber": "",
+  "country_code": "LV",
+  "billing_email": "hello@example.com",
+  "state_code": ""
+}

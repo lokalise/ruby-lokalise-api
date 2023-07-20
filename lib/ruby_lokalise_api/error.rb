@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module RubyLokaliseApi
+  # Standard API errors
   class Error < StandardError
     ClientError = Class.new(self)
     ServerError = Class.new(self)

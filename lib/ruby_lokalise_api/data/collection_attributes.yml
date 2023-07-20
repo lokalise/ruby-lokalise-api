@@ -1,0 +1,52 @@
+branches:
+  - project_id
+  - branch
+contributors:
+  - project_id
+  - branch
+comments:
+  - project_id
+  - branch
+custom_translation_statuses:
+  - project_id
+  - branch
+files:
+  - project_id
+  - branch
+keys:
+  - project_id
+  - branch
+  - errors
+orders:
+  - team_id
+payment_cards:
+  - user_id
+project_languages:
+  - project_id
+  - branch
+queued_processes:
+  - project_id
+  - branch
+segments:
+  - project_id
+  - key_id
+  - language_iso
+screenshots:
+  - project_id
+  - branch
+  - errors
+snapshots:
+  - project_id
+  - branch
+tasks:
+  - project_id
+  - branch
+team_users:
+  - team_id
+team_user_groups:
+  - team_id
+translations:
+  - project_id
+  - branch
+webhooks:
+  - project_id

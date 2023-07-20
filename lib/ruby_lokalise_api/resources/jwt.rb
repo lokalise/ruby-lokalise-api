@@ -3,11 +3,8 @@
 module RubyLokaliseApi
   module Resources
     class Jwt < Base
-      class << self
-        def endpoint(project_id, *_args)
-          path_from projects: project_id, tokens: ''
-        end
-      end
+      MAIN_PARAMS = :project_id
+      no_support_for %i[update destroy reload_data]
     end
   end
 end

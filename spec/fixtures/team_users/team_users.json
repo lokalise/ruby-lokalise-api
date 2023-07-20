@@ -1,0 +1,61 @@
+{
+  "team_id": 176692,
+  "team_users": [
+    {
+      "user_id": 147798,
+      "email": "ilya+demo2@lokalise.com",
+      "fullname": "Ilya Demo",
+      "created_at": "2022-01-19 16:16:03 (Etc/UTC)",
+      "created_at_timestamp": 1642608963,
+      "role": "member"
+    },
+    {
+      "user_id": 141203,
+      "email": "ilya+demo@lokalise.com",
+      "fullname": "Ilya",
+      "created_at": "2021-12-10 18:32:12 (Etc/UTC)",
+      "created_at_timestamp": 1639161132,
+      "role": "member"
+    },
+    {
+      "user_id": 140889,
+      "email": "jane@example.com",
+      "fullname": "Jane",
+      "created_at": "2021-12-09 17:51:15 (Etc/UTC)",
+      "created_at_timestamp": 1639072275,
+      "role": "member"
+    },
+    {
+      "user_id": 132650,
+      "email": "sample_ms_translator@example.com",
+      "fullname": "Ms. Translator",
+      "created_at": "2021-10-26 13:23:46 (Etc/UTC)",
+      "created_at_timestamp": 1635254626,
+      "role": "member"
+    },
+    {
+      "user_id": 100945,
+      "email": "ns@alms.app",
+      "fullname": "Nick Shchetko",
+      "created_at": "2021-04-02 08:40:00 (Etc/UTC)",
+      "created_at_timestamp": 1617352800,
+      "role": "member"
+    },
+    {
+      "user_id": 97280,
+      "email": "elixir_test@example.com",
+      "fullname": "Elixir Rocks",
+      "created_at": "2021-03-08 18:06:59 (Etc/UTC)",
+      "created_at_timestamp": 1615226819,
+      "role": "member"
+    },
+    {
+      "user_id": 97278,
+      "email": "elixir@example.com",
+      "fullname": "Unnamed",
+      "created_at": "2021-03-08 18:04:15 (Etc/UTC)",
+      "created_at_timestamp": 1615226655,
+      "role": "member"
+    }
+  ]
+}

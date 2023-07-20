@@ -1,0 +1,77 @@
+{
+  "project_id": "7451498664b95d6111c812.34468173",
+  "key_id": 353507573,
+  "language_iso": "en",
+  "segments": [
+    {
+      "segment_number": 1,
+      "language_iso": "en",
+      "value": "This is a text.",
+      "modified_by": 20181,
+      "modified_by_email": "bodrovis@protonmail.com",
+      "modified_at": "2023-07-20 16:14:48 (Etc/UTC)",
+      "modified_at_timestamp": 1689869688,
+      "is_reviewed": false,
+      "reviewed_by": 0,
+      "is_fuzzy": false,
+      "words": 4,
+      "custom_translation_statuses": []
+    },
+    {
+      "segment_number": 2,
+      "language_iso": "en",
+      "value": "It goes on here.",
+      "modified_by": 20181,
+      "modified_by_email": "bodrovis@protonmail.com",
+      "modified_at": "2023-07-20 16:14:48 (Etc/UTC)",
+      "modified_at_timestamp": 1689869688,
+      "is_reviewed": false,
+      "reviewed_by": 0,
+      "is_fuzzy": false,
+      "words": 4,
+      "custom_translation_statuses": []
+    },
+    {
+      "segment_number": 3,
+      "language_iso": "en",
+      "value": "And even more text here.",
+      "modified_by": 20181,
+      "modified_by_email": "bodrovis@protonmail.com",
+      "modified_at": "2023-07-20 16:14:48 (Etc/UTC)",
+      "modified_at_timestamp": 1689869688,
+      "is_reviewed": false,
+      "reviewed_by": 0,
+      "is_fuzzy": false,
+      "words": 5,
+      "custom_translation_statuses": []
+    },
+    {
+      "segment_number": 4,
+      "language_iso": "en",
+      "value": "Great!",
+      "modified_by": 20181,
+      "modified_by_email": "bodrovis@protonmail.com",
+      "modified_at": "2023-07-20 16:14:48 (Etc/UTC)",
+      "modified_at_timestamp": 1689869688,
+      "is_reviewed": false,
+      "reviewed_by": 0,
+      "is_fuzzy": false,
+      "words": 1,
+      "custom_translation_statuses": []
+    },
+    {
+      "segment_number": 5,
+      "language_iso": "en",
+      "value": "Yeah?",
+      "modified_by": 20181,
+      "modified_by_email": "bodrovis@protonmail.com",
+      "modified_at": "2023-07-20 16:14:48 (Etc/UTC)",
+      "modified_at_timestamp": 1689869688,
+      "is_reviewed": false,
+      "reviewed_by": 0,
+      "is_fuzzy": false,
+      "words": 1,
+      "custom_translation_statuses": []
+    }
+  ]
+}

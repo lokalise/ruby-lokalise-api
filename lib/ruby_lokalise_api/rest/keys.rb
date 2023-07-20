@@ -3,76 +3,109 @@
 module RubyLokaliseApi
   module Rest
     module Keys
-      # Returns all translation keys for the given project
-      #
-      # @see https://developers.lokalise.com/reference/list-all-keys
-      # @return [RubyLokaliseApi::Collection::Key<RubyLokaliseApi::Resources::Key>]
-      # @param project_id [String]
-      # @param params [Hash]
-      def keys(project_id, params = {})
-        c_r RubyLokaliseApi::Collections::Key, :all, project_id, params
-      end
+      using RubyLokaliseApi::Utils::Classes
 
-      # Returns a single translation key for the given project
+      # Returns a single translation key
       #
       # @see https://developers.lokalise.com/reference/retrieve-a-key
       # @return [RubyLokaliseApi::Resources::Key]
       # @param project_id [String]
       # @param key_id [String, Integer]
-      # @param params [Hash]
-      def key(project_id, key_id, params = {})
-        c_r RubyLokaliseApi::Resources::Key, :find, [project_id, key_id], params
+      # @param req_params[Hash]
+      def key(project_id, key_id, req_params = {})
+        params = { query: [project_id, key_id], req: req_params }
+
+        data = endpoint(name: 'Keys', params: params).do_get
+
+        resource 'Key', data
       end
 
-      # Creates one or more translation keys for the given project
+      # Returns project translation keys
+      #
+      # @see https://developers.lokalise.com/reference/list-all-keys
+      # @return [RubyLokaliseApi::Collections::Keys]
+      # @param project_id [String]
+      # @param req_params [Hash]
+      def keys(project_id, req_params = {})
+        name = 'Keys'
+        params = { query: project_id, req: req_params }
+
+        data = endpoint(name: name, params: params).do_get
+
+        collection name, data
+      end
+
+      # Creates one or multiple keys in the project
       #
       # @see https://developers.lokalise.com/reference/create-keys
-      # @return [RubyLokaliseApi::Collection::Key<RubyLokaliseApi::Resources::Key>]
+      # @return [RubyLokaliseApi::Collections::Keys]
       # @param project_id [String]
-      # @param params [Hash, Array<Hash>]
-      def create_keys(project_id, params = {})
-        c_r RubyLokaliseApi::Resources::Key, :create, project_id, params, :keys
+      # @param req_params [Hash, Array]
+      def create_keys(project_id, req_params)
+        name = 'Keys'
+        params = { query: project_id, req: req_params.to_array_obj(:keys) }
+
+        data = endpoint(name: name, params: params).do_post
+
+        collection name, data
       end
 
-      # Updates translation key for the given project
+      # Updates a single translation key
       #
       # @see https://developers.lokalise.com/reference/update-a-key
       # @return [RubyLokaliseApi::Resources::Key]
       # @param project_id [String]
       # @param key_id [String, Integer]
-      # @param params [Hash]
-      def update_key(project_id, key_id, params = {})
-        c_r RubyLokaliseApi::Resources::Key, :update, [project_id, key_id], params
+      # @param req_params[Hash]
+      def update_key(project_id, key_id, req_params = {})
+        params = { query: [project_id, key_id], req: req_params }
+
+        data = endpoint(name: 'Keys', params: params).do_put
+
+        resource 'Key', data
       end
 
-      # Updates one or multiple translation keys for the given project
+      # Updates multiple keys in the project
       #
       # @see https://developers.lokalise.com/reference/bulk-update
-      # @return [RubyLokaliseApi::Collection::Key<RubyLokaliseApi::Resources::Key>]
+      # @return [RubyLokaliseApi::Collections::Keys]
       # @param project_id [String]
-      # @param params [Hash, Array<Hash>]
-      def update_keys(project_id, params)
-        c_r RubyLokaliseApi::Resources::Key, :update, project_id, params, :keys
+      # @param req_params [Hash, Array]
+      def update_keys(project_id, req_params)
+        name = 'Keys'
+        params = { query: project_id, req: req_params.to_array_obj(:keys) }
+
+        data = endpoint(name: name, params: params).do_put
+
+        collection name, data
       end
 
-      # Deletes translation key for the given project
+      # Deletes a single key from the project
       #
       # @see https://developers.lokalise.com/reference/delete-a-key
-      # @return [Hash]
+      # @return [RubyLokaliseApi::Generics::DeletedResource]
       # @param project_id [String]
       # @param key_id [String, Integer]
       def destroy_key(project_id, key_id)
-        c_r RubyLokaliseApi::Resources::Key, :destroy, [project_id, key_id]
+        params = { query: [project_id, key_id] }
+
+        data = endpoint(name: 'Keys', params: params).do_delete
+
+        RubyLokaliseApi::Generics::DeletedResource.new data.content
       end
 
-      # Deletes one or multiple translation keys for the given project
+      # Deletes multiple keys from the project
       #
       # @see https://developers.lokalise.com/reference/delete-multiple-keys
-      # @return [Hash]
+      # @return [RubyLokaliseApi::Generics::DeletedResource]
       # @param project_id [String]
-      # @param key_ids [String, Integer, Array<String>, Array<Integer>]
+      # @param key_ids [Array, String]
       def destroy_keys(project_id, key_ids)
-        c_r RubyLokaliseApi::Resources::Key, :destroy, project_id, key_ids, :keys
+        params = { query: project_id, req: key_ids.to_array_obj(:keys) }
+
+        data = endpoint(name: 'Keys', params: params).do_delete
+
+        RubyLokaliseApi::Generics::DeletedResource.new data.content
       end
     end
   end

@@ -3,65 +3,89 @@
 module RubyLokaliseApi
   module Rest
     module CustomTranslationStatuses
-      # Returns all translation statuses for the given project
+      # Returns a custom translation status
       #
-      # @see https://developers.lokalise.com/reference/list-all-custom-translation-statuses
-      # @return [RubyLokaliseApi::Collection::CustomTranslationStatus
-      # <RubyLokaliseApi::Resources::CustomTranslationStatus>]
-      # @param project_id [String]
-      # @param params [Hash]
-      def translation_statuses(project_id, params = {})
-        c_r RubyLokaliseApi::Collections::CustomTranslationStatus, :all, project_id, params
-      end
-
-      # Returns a single translation status for the given project
-      #
-      # @see https://developers.lokalise.com/reference/retrieve-a-custom-translation-status
+      # @see https://developers.lokalise.com/reference/retrieve-a-status
       # @return [RubyLokaliseApi::Resources::CustomTranslationStatus]
       # @param project_id [String]
       # @param status_id [String, Integer]
-      def translation_status(project_id, status_id)
-        c_r RubyLokaliseApi::Resources::CustomTranslationStatus, :find, [project_id, status_id]
+      def custom_translation_status(project_id, status_id)
+        params = { query: [project_id, status_id] }
+
+        data = endpoint(name: 'CustomTranslationStatuses', params: params).do_get
+
+        resource 'CustomTranslationStatus', data
       end
 
-      # Creates translation status inside the given project
+      # Returns custom translation statuses for the project
       #
-      # @see https://developers.lokalise.com/reference/create-a-custom-translation-status
-      # @return RubyLokaliseApi::Resources::CustomTranslationStatus
+      # @see https://developers.lokalise.com/reference/list-all-statuses
+      # @return [RubyLokaliseApi::Collections::CustomTranslationStatuses]
       # @param project_id [String]
-      # @param params Hash
-      def create_translation_status(project_id, params)
-        c_r RubyLokaliseApi::Resources::CustomTranslationStatus, :create, project_id, params
+      # @param req_params [Hash]
+      def custom_translation_statuses(project_id, req_params = {})
+        name = 'CustomTranslationStatuses'
+        params = { query: project_id, req: req_params }
+
+        data = endpoint(name: name, params: params).do_get
+
+        collection name, data
       end
 
-      # Updates the given translation status inside the given project
+      # Creates a custom translation status
       #
-      # @see https://developers.lokalise.com/reference/update-a-custom-translation-status
+      # @see https://developers.lokalise.com/reference/create-a-status
       # @return [RubyLokaliseApi::Resources::CustomTranslationStatus]
       # @param project_id [String]
-      # @param status_id [String, Integer]
-      # @param params [Hash]
-      def update_translation_status(project_id, status_id, params)
-        c_r RubyLokaliseApi::Resources::CustomTranslationStatus, :update, [project_id, status_id], params
+      # @param req_params [Hash]
+      def create_custom_translation_status(project_id, req_params)
+        params = { query: project_id, req: req_params }
+
+        data = endpoint(name: 'CustomTranslationStatuses', params: params).do_post
+
+        resource 'CustomTranslationStatus', data
       end
 
-      # Deletes translation status inside the given project
+      # Updates a custom translation status
       #
-      # @see https://developers.lokalise.com/reference/delete-a-custom-translation-status
-      # @return [Hash]
+      # @see https://developers.lokalise.com/reference/update-a-status
+      # @return [RubyLokaliseApi::Resources::CustomTranslationStatus]
       # @param project_id [String]
-      # @param status_id [String, Integer]
-      def destroy_translation_status(project_id, status_id)
-        c_r RubyLokaliseApi::Resources::CustomTranslationStatus, :destroy, [project_id, status_id]
+      # @param status_id [Integer, String]
+      # @param req_params [Hash]
+      def update_custom_translation_status(project_id, status_id, req_params = {})
+        params = { query: [project_id, status_id], req: req_params }
+
+        data = endpoint(name: 'CustomTranslationStatuses', params: params).do_put
+
+        resource 'CustomTranslationStatus', data
       end
 
-      # Returns an array of available colors that can be assigned to custom translation statuses
+      # Deletes a custom translation status
       #
-      # @see https://developers.lokalise.com/reference/retrieve-available-colors-for-custom-translation-statuses
-      # @return [Array]
+      # @see https://developers.lokalise.com/reference/delete-a-status
+      # @return [RubyLokaliseApi::Generics::DeletedResource]
       # @param project_id [String]
-      def translation_status_colors(project_id)
-        c_r RubyLokaliseApi::Resources::CustomTranslationStatus, :colors, [project_id, 'colors']
+      # @param status_id [Integer, String]
+      def destroy_custom_translation_status(project_id, status_id)
+        params = { query: [project_id, status_id] }
+
+        data = endpoint(name: 'CustomTranslationStatuses', params: params).do_delete
+
+        RubyLokaliseApi::Generics::DeletedResource.new data.content
+      end
+
+      # Retrieves an array of available colors that can be assigned to custom translation statuses
+      #
+      # @see https://developers.lokalise.com/reference/retrieve-available-colors
+      # @return [RubyLokaliseApi::Generics::CustomStatusAvailableColors]
+      # @param project_id [String]
+      def custom_translation_status_colors(project_id)
+        params = { query: [project_id, :colors] }
+
+        data = endpoint(name: 'CustomTranslationStatuses', params: params).do_get
+
+        RubyLokaliseApi::Generics::CustomStatusAvailableColors.new data.content
       end
     end
   end

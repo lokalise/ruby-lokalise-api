@@ -16,7 +16,20 @@
 For example:
 
 ```ruby
-@client.contributors project_id, limit: 1, page: 2
+project_id = '123.abc'
+
+contributors = @client.contributors project_id, limit: 1, page: 2
+
+contributors[0].fullname # => 'John Doe'
+contributors[0].email # => 'test@example.com'
+```
+
+Alternatively:
+
+```ruby
+project = @client.project project_id
+
+contributors = project.contributors limit: 1, page: 2
 ```
 
 ## Fetch a single contributor
@@ -29,6 +42,27 @@ For example:
                                                   ## contributor_id (string, required) - named as "user_id" in the response
                                                   # Output:
                                                   ## Contributor in the given project
+```
+
+For example:
+
+```ruby
+project_id = '123.abc'
+contributor_id = '1234'
+
+contributor = @client.contributor project_id, contributor_id
+
+contributor.user_id # => 1234
+contributor.fullname # => 'John Doe'
+contributor.email # => 'test@example.com'
+```
+
+Alternatively:
+
+```ruby
+project = @client.project project_id
+
+contributor = project.contributor contributor_id
 ```
 
 ## Create contributors
@@ -54,15 +88,28 @@ For example:
 For example:
 
 ```ruby
-@client.create_contributors project_id,
-                            email: 'rspec@test.com',
-                            fullname: 'Rspec test',
-                            languages: [{
-                              lang_iso: 'en'
-                            },
-                            {
-                              lang_iso: 'ru'
-                            }]
+params = {
+  email: 'test@example.com',
+  fullname: 'John Doe',
+  languages: [{
+    lang_iso: 'en'
+  },
+  {
+    lang_iso: 'lv'
+  }]
+}
+
+contributors = @client.create_contributors project_id, params
+           
+contributors[0].fullname # => 'John Doe'
+```
+
+Alternatively:
+
+```ruby
+project = @client.project project_id
+
+contributors = project.create_contributors params
 ```
 
 ## Update contributor
@@ -84,17 +131,24 @@ For example:
                                                                  ## Updated contributor
 ```
 
-Alternatively:
-
-```ruby
-contributor = @client.contributor('project_id', 'contributor_id')
-contributor.update(params)
-```
-
 For example:
 
 ```ruby
-@client.update_contributor project_id, contributor_id, languages: [{lang_iso: 'en'}]
+params = { languages: [{lang_iso: 'en'}] }
+
+contributor = @client.update_contributor project_id, contributor_id, params
+```
+
+Alternatively:
+
+```ruby
+contributor = @client.contributor project_id, contributor_id
+contributor.update params
+
+# OR 
+
+project = @client.project project_id
+project.update_contributor contributor_id, params
 ```
 
 ## Delete contributor
@@ -106,12 +160,25 @@ For example:
                                                            ## project_id (string, required)
                                                            ## contributor_id (string, required)
                                                            # Output:
-                                                           ## Hash with the project's id and "contributor_deleted"=>true
+                                                           ## Generic object with the project id and "contributor_deleted"=>true
+```
+
+For example:
+
+```ruby
+response = @client.destroy_contributor project_id, contributor_id
+
+response.contributor_deleted # => true
 ```
 
 Alternatively:
 
 ```ruby
-contributor = @client.contributor('project_id', 'id')
-contributor.destroy
+contributor = @client.contributor project_id, contributor_id
+response = contributor.destroy
+
+# OR
+
+project = @client.project project_id
+response = project.destroy_contributor contributor_id
 ```

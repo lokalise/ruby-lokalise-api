@@ -1,6 +1,6 @@
 # Getting Started
 
-## Installation and Requirements
+## Installation and requirements
 
 This gem requires [Ruby 2.7+](https://www.ruby-lang.org/en/) and [RubyGems package manager](https://rubygems.org/pages/download).
 
@@ -8,7 +8,7 @@ Install it by running:
 
     gem install ruby-lokalise-api
 
-## Initializing the Client
+## Initializing the client
 
 In order to perform API requests, you require a special token that can be obtained in your [personal profile](https://lokalise.com/profile#apitokens) (*API tokens* section).
 
@@ -24,35 +24,36 @@ Now the `@client` can be used to perform API requests! Learn more about addition
 
 ## Objects and models
 
-Individual objects are represented as instances of Ruby classes which are called *models*. Each model responds to the methods that are named after the API object's attributes. [This file](https://github.com/lokalise/ruby-lokalise-api/blob/master/lib/ruby-lokalise-api/data/attributes.json) lists all objects and their methods.
+Individual objects are represented as instances of Ruby classes which are called *models*. Each model responds to the methods that are named after the API object's attributes. [This file](https://github.com/lokalise/ruby-lokalise-api/blob/master/lib/ruby-lokalise-api/data/resource_attributes.json) lists all objects and their methods.
 
 Here is an example:
 
 ```ruby
-project = client.project '123'
-project.name
-project.description
-project.created_by
+project = @client.project '123'
+
+project.name # => 'Demo project'
+project.description # => 'Sample description'
+project.created_by # => 12345
 ```
 
 Many resources have common methods like `project_id` and `branch`:
 
 ```ruby
-webhook = client.webhook project_id, '123.abc'
-webhook.project_id
-webhook.branch
-```
+project_id = '123.abc'
+webhook_id = '678def'
 
-To get access to raw data returned by the API, use `#raw_data`:
+webhook = client.webhook project_id, webhook_id
 
-```ruby
-project.raw_data
+webhook.project_id # => '123.abc'
+webhook.branch # => 'develop'
 ```
 
 Models support method chaining, meaning you can fetch a resource, update and delete it in one line:
 
 ```ruby
-@client.project('123').update(name: 'New name').destroy
+response = @client.project('123.abc').update(name: 'New project name').destroy
+
+response.project_deleted # => true
 ```
 
 ### Reloading data
@@ -60,11 +61,18 @@ Models support method chaining, meaning you can fetch a resource, update and del
 Most of the resources can be reloaded using the `#reload_data` method. This method will fetch the latest data for the resource:
 
 ```ruby
-project = client.project '123'
+project = client.project '123.abc'
+
+project.name # => 'Initial project name'
+
 # do something else...
+
 # project might be updated via UI, so load new data:
 reloaded_project = project.reload_data
-# now `reloaded_project` has fresh data from the API
+
+# now `reloaded_project` has fresh data from the API!
+
+reloaded_project.name # => 'Updated project name'
 ```
 
 ## Collections of resources and pagination
@@ -73,7 +81,7 @@ Fetching (or creating/updating) multiple objects will return a *collection* of o
 
 ```ruby
 project = @client.projects.collection.first # => Get the first project
-project.name
+project.name # => 'First project in collection'
 ```
 
 Bulk fetches support [pagination](https://developers.lokalise.com/reference/api-pagination). There are two common parameters available:
@@ -111,9 +119,21 @@ On top of that, you may easily fetch the next or the previous page of the collec
 These methods return instances of the same collection class or `nil` if the next/previous page is unavailable. Methods respect the parameters you've initially passed:
 
 ```ruby
-translations = @client.translations 'project_id', limit: 4, page: 2, disable_references: 0 # => we passed three parameters here
+project_id = '123.abc'
 
-translations.prev_page # => will load the previous page while preserving the `limit` and `disable_references` params
+params = {
+  limit: 4,
+  page: 2,
+  disable_references: 0
+}
+
+translations = @client.translations project_id, params # => we passed three parameters here
+
+prev_page_translations = translations.prev_page # will load the previous page while preserving the `limit` and `disable_references` params
+
+first_translation = prev_page_translations.first # get first translation from the collection
+
+first_translation.translation # => 'Translation text'
 ```
 
 ## Branching
@@ -121,5 +141,5 @@ translations.prev_page # => will load the previous page while preserving the `li
 If you are using [project branching feature](https://docs.lokalise.com/en/articles/3391861-project-branching), simply add branch name separated by semicolon to your project ID in any endpoint to access the branch. For example, in order to access `new-feature` branch for the project with an id `123abcdef.01`:
 
 ```ruby
-@client.files '123abcdef.01:new-feature'
+files = @client.files '123abcdef.01:new-feature'
 ```

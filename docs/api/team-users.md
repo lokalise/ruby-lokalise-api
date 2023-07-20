@@ -16,7 +16,15 @@
 For example:
 
 ```ruby
-@client.team_users team_id, limit: 1, page: 3
+team_id = '1234'
+params = {
+  limit: 1,
+  page: 3
+}
+
+users = @client.team_users team_id, params
+
+users[0].user_id # => 5678
 ```
 
 ## Fetch a single team user
@@ -29,6 +37,17 @@ For example:
                                     ## user_id (string, required)
                                     # Output:
                                     ## Team user
+```
+
+For example:
+
+```ruby
+team_id = '1234'
+user_id = '6789'
+
+user = @client.team_user team_id, user_id
+
+user.fullname # => 'John Doe'
 ```
 
 ## Update team user
@@ -45,17 +64,23 @@ For example:
                                                     ## Updated team user
 ```
 
-Alternatively:
-
-```ruby
-user = @client.team_user('team_id', 'user_id')
-user.update(params)
-```
-
 For example:
 
 ```ruby
-@client.update_team_user team_id, team_user_id, role: 'admin'
+params = {
+  role: 'admin'
+}
+
+user = @client.update_team_user team_id, team_user_id, params
+
+user.role # => 'admin'
+```
+
+Alternatively:
+
+```ruby
+user = @client.team_user team_id, user_id
+user.update params
 ```
 
 ## Delete team user
@@ -67,12 +92,19 @@ For example:
                                             ## team_id (string, required)
                                             ## user_id (string, required)
                                             # Output:
-                                            ## Hash with "team_id" and "team_user_deleted" set to "true"
+                                            ## Generic with "team_id" and "team_user_deleted" set to "true"
+```
+
+For example:
+
+```ruby
+response = @client.destroy_team_user team_id, user_id
+response.team_user_deleted # => true
 ```
 
 Alternatively:
 
 ```ruby
-user = @client.team_user('team_id', 'user_id')
-user.destroy
+user = @client.team_user team_id, user_id
+response = user.destroy
 ```

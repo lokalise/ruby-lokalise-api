@@ -3,36 +3,49 @@
 module RubyLokaliseApi
   module Rest
     module Translations
-      # Returns all translations for the given project (ungrouped)
+      # Returns translations
       #
       # @see https://developers.lokalise.com/reference/list-all-translations
-      # @return [RubyLokaliseApi::Collection::Translation<RubyLokaliseApi::Resources::Translation>]
+      # @return [RubyLokaliseApi::Collections::Translations]
       # @param project_id [String]
-      # @param params [Hash]
-      def translations(project_id, params = {})
-        c_r RubyLokaliseApi::Collections::Translation, :all, project_id, params
+      # @param req_params [Hash]
+      def translations(project_id, req_params = {})
+        name = 'Translations'
+        params = { query: project_id, req: req_params }
+
+        data = endpoint(name: name, params: params).do_get
+
+        collection name, data
       end
 
-      # Returns translation of the given project
+      # Returns a single translation
       #
       # @see https://developers.lokalise.com/reference/retrieve-a-translation
       # @return [RubyLokaliseApi::Resources::Translation]
       # @param project_id [String]
-      # @param translation_id [String, Integer]
-      # @param params [Hash]
-      def translation(project_id, translation_id, params = {})
-        c_r RubyLokaliseApi::Resources::Translation, :find, [project_id, translation_id], params
+      # @param translation_id [String]
+      # @param req_params[Hash]
+      def translation(project_id, translation_id, req_params = {})
+        params = { query: [project_id, translation_id], req: req_params }
+
+        data = endpoint(name: 'Translations', params: params).do_get
+
+        resource 'Translation', data
       end
 
-      # Updates translation of the given project
+      # Updates a translation
       #
       # @see https://developers.lokalise.com/reference/update-a-translation
       # @return [RubyLokaliseApi::Resources::Translation]
       # @param project_id [String]
-      # @param translation_id [String, Integer]
-      # @param params [Hash]
-      def update_translation(project_id, translation_id, params)
-        c_r RubyLokaliseApi::Resources::Translation, :update, [project_id, translation_id], params
+      # @param translation_id [String]
+      # @param req_params [Hash]
+      def update_translation(project_id, translation_id, req_params)
+        params = { query: [project_id, translation_id], req: req_params }
+
+        data = endpoint(name: 'Translations', params: params).do_put
+
+        resource 'Translation', data
       end
     end
   end

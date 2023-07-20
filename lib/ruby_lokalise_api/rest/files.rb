@@ -3,47 +3,66 @@
 module RubyLokaliseApi
   module Rest
     module Files
-      # Returns all translation files for the given project
+      # Returns project files
       #
       # @see https://developers.lokalise.com/reference/list-all-files
-      # @return [RubyLokaliseApi::Collection::File<RubyLokaliseApi::Resources::File>]
+      # @return [RubyLokaliseApi::Collections::Files]
       # @param project_id [String]
-      # @param params [Hash]
-      def files(project_id, params = {})
-        c_r RubyLokaliseApi::Collections::File, :all, project_id, params
+      # @param req_params [Hash]
+      def files(project_id, req_params = {})
+        name = 'Files'
+        params = { query: project_id, req: req_params }
+
+        data = endpoint(name: name, params: params).do_get
+
+        collection name, data
       end
 
-      # Exports translation files as .zip bundle, uploads them to Amazon S3 and
-      # returns a URL to the generated bundle. The URL is valid for a year
-      #
-      # @see https://developers.lokalise.com/reference/download-files
-      # @return [Hash]
-      # @param project_id [String]
-      # @param params [Hash]
-      def download_files(project_id, params)
-        c_r RubyLokaliseApi::Resources::File, :download, [project_id, 'download'], params
-      end
-
-      # Imports translation file to the given project. File data must base64-encoded.
-      # To encode your data in Base64, use `Base64.strict_encode64()` method.
+      # Uploads translation file to the project in the background
       #
       # @see https://developers.lokalise.com/reference/upload-a-file
-      # @return [Hash]
+      # @return [RubyLokaliseApi::Resources::QueuedProcess]
       # @param project_id [String]
-      # @param params [Hash]
-      def upload_file(project_id, params)
-        c_r RubyLokaliseApi::Resources::File, :upload, [project_id, 'upload'], params
+      # @param req_params [Hash]
+      def upload_file(project_id, req_params)
+        params = { query: [project_id, :upload], req: req_params }
+
+        response = endpoint(name: 'Files', params: params).do_post
+
+        process_id = response.content.dig('process', 'process_id')
+
+        response.patch_endpoint_with endpoint(name: 'QueuedProcesses', params: { query: [project_id, process_id] })
+
+        resource 'QueuedProcess', response
       end
 
-      # Deletes a file and it's associated keys from the project.
-      # File __unassigned__ cannot be deleted.
+      # Downloads translation files from the project
+      #
+      # @see https://developers.lokalise.com/reference/download-files
+      # @return [RubyLokaliseApi::Generics::DownloadBundle]
+      # @param project_id [String]
+      # @param req_params [Hash]
+      def download_files(project_id, req_params)
+        params = { query: [project_id, :download], req: req_params }
+
+        data = endpoint(name: 'Files', params: params).do_post
+
+        RubyLokaliseApi::Generics::DownloadBundle.new data.content
+      end
+
+      # Deletes a single file from the project.
+      # Only the "Documents" projects are supported
       #
       # @see https://developers.lokalise.com/reference/delete-a-file
-      # @return [Hash]
+      # @return [RubyLokaliseApi::Generics::DeletedResource]
       # @param project_id [String]
-      # @param params [Hash]
+      # @param file_id [String, Integer]
       def destroy_file(project_id, file_id)
-        c_r RubyLokaliseApi::Resources::File, :destroy, [project_id, file_id]
+        params = { query: [project_id, file_id] }
+
+        data = endpoint(name: 'Files', params: params).do_delete
+
+        RubyLokaliseApi::Generics::DeletedResource.new data.content
       end
     end
   end

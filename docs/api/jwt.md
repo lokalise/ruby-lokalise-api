@@ -1,20 +1,31 @@
 # JWT
 
-## Get OTA JWT
+## Create JWT
 
 [Doc](https://developers.lokalise.com/reference/create-service-jwt)
 
 ```ruby
-@client.jwt(project_id, params = {})  # Input:
-                                      ## project_id (string, required)
-                                      ## params (hash)
-                                      # Output:
-                                      ## A JWT resource
+@client.create_jwt(project_id, params = {}) # Input:
+                                            ## project_id (string, required)
+                                            ## params (hash)
+                                            # Output:
+                                            ## A JWT resource
 ```
 
 For example:
 
 ```ruby
-resp = @client.jwt("123.abcd")
-resp.jwt # => 'eyJ0eXAiOi...`
+project_id = "123.abcd"
+
+response = @client.create_jwt project_id, service: :ota
+
+response.jwt # => 'eyJ0eXAiOi...`
+```
+
+Alternatively:
+
+```ruby
+project = @client.project project_id
+
+response = project.create_jwt service: :ota
 ```

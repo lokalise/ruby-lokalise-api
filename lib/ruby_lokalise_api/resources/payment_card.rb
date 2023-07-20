@@ -3,14 +3,8 @@
 module RubyLokaliseApi
   module Resources
     class PaymentCard < Base
-      ID_KEY = 'card_id'
-      supports :destroy, [:reload_data, '', :find]
-
-      class << self
-        def endpoint(card_id = nil)
-          path_from payment_cards: card_id
-        end
-      end
+      MAIN_PARAMS = %i[card_id].freeze
+      no_support_for %i[update]
     end
   end
 end

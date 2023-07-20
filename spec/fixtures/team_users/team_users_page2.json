@@ -1,0 +1,29 @@
+{
+  "team_id": 176692,
+  "team_users": [
+    {
+      "user_id": 132650,
+      "email": "sample_ms_translator@example.com",
+      "fullname": "Ms. Translator",
+      "created_at": "2021-10-26 13:23:46 (Etc/UTC)",
+      "created_at_timestamp": 1635254626,
+      "role": "member"
+    },
+    {
+      "user_id": 100945,
+      "email": "ns@alms.app",
+      "fullname": "Nick Shchetko",
+      "created_at": "2021-04-02 08:40:00 (Etc/UTC)",
+      "created_at_timestamp": 1617352800,
+      "role": "member"
+    },
+    {
+      "user_id": 97280,
+      "email": "elixir_test@example.com",
+      "fullname": "Elixir Rocks",
+      "created_at": "2021-03-08 18:06:59 (Etc/UTC)",
+      "created_at_timestamp": 1615226819,
+      "role": "member"
+    }
+  ]
+}

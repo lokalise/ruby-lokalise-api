@@ -3,21 +3,13 @@
 module RubyLokaliseApi
   module Resources
     class TeamUserGroup < Base
-      DATA_KEY = 'Group'
-      ID_KEY = 'group_id'
-      supports :update, :destroy,
-               [:add_projects, '/projects/add', :update],
-               [:remove_projects, '/projects/remove', :update],
-               [:add_users, '/members/add', :update],
-               [:remove_users, '/members/remove', :update],
-               [:reload_data, '', :find]
+      MAIN_PARAMS = %i[team_id group_id].freeze
+      DATA_KEY = 'group'
 
-      class << self
-        def endpoint(team_id, team_user_group_id = nil, *actions)
-          path_from teams: team_id,
-                    groups: [team_user_group_id, *actions]
-        end
-      end
+      delegate_call :add_projects, :add_projects_to_group
+      delegate_call :remove_projects, :remove_projects_from_group
+      delegate_call :add_members, :add_members_to_group
+      delegate_call :remove_members, :remove_members_from_group
     end
   end
 end

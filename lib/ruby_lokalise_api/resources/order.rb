@@ -3,15 +3,8 @@
 module RubyLokaliseApi
   module Resources
     class Order < Base
-      ID_KEY = 'order_id'
-      supports [:reload_data, '', :find]
-
-      class << self
-        def endpoint(team_id, order_id = nil)
-          path_from teams: team_id,
-                    orders: order_id
-        end
-      end
+      MAIN_PARAMS = %i[team_id order_id].freeze
+      no_support_for %i[update destroy]
     end
   end
 end

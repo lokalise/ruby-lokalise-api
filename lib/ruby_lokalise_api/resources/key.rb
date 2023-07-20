@@ -3,15 +3,12 @@
 module RubyLokaliseApi
   module Resources
     class Key < Base
-      ID_KEY = 'key_id'
-      supports :update, :destroy, [:reload_data, '', :find]
+      MAIN_PARAMS = %i[project_id key_id].freeze
 
-      class << self
-        def endpoint(project_id, key_id = nil)
-          path_from projects: project_id,
-                    keys: key_id
-        end
-      end
+      delegate_call :key_comment, :comment
+      delegate_call :key_comments, :comments
+      delegate_call :create_comments
+      delegate_call :destroy_comment
     end
   end
 end

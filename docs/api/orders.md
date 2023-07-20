@@ -16,7 +16,11 @@
 For example:
 
 ```ruby
-@client.orders team_id, limit: 1, page: 1
+team_id = '1234'
+
+orders = @client.orders team_id, limit: 3, page: 1
+
+orders[0].order_id # => '201903198B2'
 ```
 
 ## Fetch a single order
@@ -29,6 +33,17 @@ For example:
                                   ## order_id (string, required)
                                   # Output:
                                   ## A single order
+```
+
+For example:
+
+```ruby
+team_id = '1234'
+order_id = '201903198B2'
+
+order = @client.order team_id, order_id
+
+order.status # => 'completed'
 ```
 
 ## Create an order
@@ -57,19 +72,21 @@ For example:
 For example:
 
 ```ruby
-@client.create_order team_id,
-                     project_id: project_id,
-                     card_id: payment_card_id,
-                     briefing: 'Some briefing',
-                     source_language_iso: 'en',
-                     target_language_isos: [
-                       'ru'
-                     ],
-                     keys: [
-                       1234,
-                       5678 
-                     ],
-                     provider_slug: 'gengo',
-                     translation_tier: '1',
-                     dry_run: true
+params = {
+  project_id: '963054665b7c313dd9b323.35886655',
+  card_id: 1774,
+  briefing: 'Some briefing',
+  source_language_iso: 'en',
+  target_language_isos: %w[fr],
+  keys: [1234, 4567],
+  provider_slug: 'gengo',
+  translation_tier: 1,
+  dry_run: true,
+  translation_style: 'friendly'
+}
+
+order = @client.create_order team_id, params
+
+order.provider_slug # => 'gengo'
+order.total # => 123.45
 ```

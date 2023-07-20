@@ -36,7 +36,7 @@ The `auth` method returns a URL looking like this:
 https://app.lokalise.com/oauth2/auth?client_id=12345&scope=read_projects
 ```
 
-Your customers have to visit this URL and allow access to proceed. After allowing access, the customer will be presented with a secret code that has to be used in the following step.
+**Your customers have to visit this URL and allow access to proceed**. After allowing access, the customer will be presented with a secret code that has to be used in the following step.
 
 ## Generating OAuth 2 token
 
@@ -81,3 +81,7 @@ require 'ruby_lokalise_api'
 This is because with OAuth2 tokens, a different authorization header must be sent.
 
 Now you can send requests on the user's behalf!
+
+```ruby
+projects = @client.projects page: 2, limit: 3
+```

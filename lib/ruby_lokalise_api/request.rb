@@ -1,31 +1,79 @@
 # frozen_string_literal: true
 
 module RubyLokaliseApi
+  # Contains methods to perform the actual HTTP requests
   module Request
-    include RubyLokaliseApi::BaseRequest
+    include RubyLokaliseApi::JsonHandler
+    include RubyLokaliseApi::Connection
 
-    # Lokalise returns pagination info in special headers
-    PAGINATION_HEADERS = %w[x-pagination-total-count x-pagination-page-count x-pagination-limit
-                            x-pagination-page].freeze
+    # Sends a GET request
+    def get(endpoint)
+      respond_with(
+        connection(endpoint).get(prepare(endpoint.uri), endpoint.req_params),
+        endpoint
+      )
+    end
+
+    # Sends a POST request
+    def post(endpoint)
+      respond_with(
+        connection(endpoint).post(prepare(endpoint.uri), custom_dump(endpoint.req_params)),
+        endpoint
+      )
+    end
+
+    # Sends a PUT request
+    def put(endpoint)
+      respond_with(
+        connection(endpoint).put(prepare(endpoint.uri), custom_dump(endpoint.req_params)),
+        endpoint
+      )
+    end
+
+    # Sends a PATCH request
+    def patch(endpoint)
+      respond_with(
+        connection(endpoint).patch(prepare(endpoint.uri),
+                                   endpoint.req_params.nil? ? nil : custom_dump(endpoint.req_params)),
+        endpoint
+      )
+    end
+
+    # Sends a DELETE request
+    def delete(endpoint)
+      respond_with(
+        connection(endpoint).delete(prepare(endpoint.uri)) do |req|
+          req.body = custom_dump endpoint.req_params
+        end,
+        endpoint
+      )
+    end
 
     private
 
-    def respond_with(response, client)
-      body = custom_load response.body
-      uri = Addressable::URI.parse response.env.url
-      raise_on_error! response, body
-      extract_headers_from(response).
-        merge('content' => body,
-              'client' => client,
-              'path' => uri.path.gsub(%r{/api2/}, ''))
+    # Get rid of double slashes in the `path`, leading and trailing slash
+    def prepare(path)
+      path.delete_prefix('/').gsub(%r{//}, '/').gsub(%r{/+\z}, '')
     end
 
-    # Keep only pagination headers
-    def extract_headers_from(response)
-      response.
-        headers.
-        to_h.
-        keep_if { |k, _v| PAGINATION_HEADERS.include?(k) }
+    def raise_on_error!(response, body)
+      return unless !response.success? || (body.respond_to?(:has_key?) && body.key?('error'))
+
+      respond_with_error(response.status, body)
+    end
+
+    def respond_with(response, endpoint)
+      body = custom_load response.body
+
+      raise_on_error! response, body
+
+      RubyLokaliseApi::Response.new(body, endpoint, response.headers)
+    end
+
+    def respond_with_error(code, body)
+      raise(RubyLokaliseApi::Error, body['error'] || body) unless RubyLokaliseApi::Error::ERRORS.key? code
+
+      raise RubyLokaliseApi::Error::ERRORS[code].from_response(body)
     end
   end
 end

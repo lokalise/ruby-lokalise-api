@@ -1,0 +1,60 @@
+{
+  "project_id": "88628569645b945648b474.25982965",
+  "branch": "master",
+  "translations": [
+    {
+      "translation_id": 2574122388,
+      "segment_number": 1,
+      "key_id": 319782369,
+      "language_iso": "en",
+      "translation": "Welcome to <b>Lokalise</b>!",
+      "modified_by": 20181,
+      "modified_by_email": "bodrovis@protonmail.com",
+      "modified_at": "2023-05-19 15:52:12 (Etc/UTC)",
+      "modified_at_timestamp": 1684511532,
+      "is_reviewed": false,
+      "reviewed_by": 0,
+      "is_unverified": false,
+      "is_fuzzy": false,
+      "words": 3,
+      "custom_translation_statuses": [],
+      "task_id": null
+    },
+    {
+      "translation_id": 2658834452,
+      "segment_number": 1,
+      "key_id": 319782369,
+      "language_iso": "de",
+      "translation": "",
+      "modified_by": 20181,
+      "modified_by_email": "bodrovis@protonmail.com",
+      "modified_at": "2023-05-31 13:50:28 (Etc/UTC)",
+      "modified_at_timestamp": 1685541028,
+      "is_reviewed": false,
+      "reviewed_by": 0,
+      "is_unverified": true,
+      "is_fuzzy": true,
+      "words": 0,
+      "custom_translation_statuses": [],
+      "task_id": null
+    },
+    {
+      "translation_id": 2574122387,
+      "segment_number": 1,
+      "key_id": 319782369,
+      "language_iso": "fr",
+      "translation": "Bienvenue chez Lokalise %{username}",
+      "modified_by": 49436,
+      "modified_by_email": "ilya@lokalise.com",
+      "modified_at": "2023-05-19 15:51:23 (Etc/UTC)",
+      "modified_at_timestamp": 1684511483,
+      "is_reviewed": false,
+      "reviewed_by": 0,
+      "is_unverified": true,
+      "is_fuzzy": true,
+      "words": 3,
+      "custom_translation_statuses": [],
+      "task_id": null
+    }
+  ]
+}
