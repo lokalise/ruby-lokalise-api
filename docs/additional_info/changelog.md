@@ -1,10 +1,10 @@
 # Changelog
 
-## 8.0.0
+## 8.0.0 (21-Jul-2023)
 
 In this version **SDK has been fully rewritten** to make it more robust, better tested, and even more comfortable to work with. While most of the methods have similar signatures, there are a few major changes.
 
-Breaking changes:
+**Breaking changes:**
 
 * Method `translation_statuses` has been renamed to `custom_translation_statuses`
 * Method `translation_status` has been renamed to `custom_translation_status`
@@ -34,7 +34,7 @@ branch.name # => 'my-branch'
 branch[:name] # => 'my-branch'
 ```
 
-Updates:
+**Updates:**
 
 * Added many new instance methods like `update`, `destroy`, and `reload_data`.
 
@@ -70,6 +70,8 @@ response[:screenshot_deleted] # => true
 ```
 
 * Test only with Ruby 3+ (though the SDK should still work with version 2.7+). Next major version will require Ruby 3+.
+* Use WebMock for testing instead of VCR
+* Use faraday-gzip version 2 and zlib version 3
 
 ## 7.2.0 (11-Jan-2023)
 

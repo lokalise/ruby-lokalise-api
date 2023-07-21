@@ -2,6 +2,7 @@
 
 module RubyLokaliseApi
   module OAuth2
+    # This class defines OAuth2 flow
     class Auth
       attr_reader :client_id, :client_secret, :timeout, :open_timeout
 
@@ -14,10 +15,17 @@ module RubyLokaliseApi
         @open_timeout = params[:open_timeout]
       end
 
+      # Returns OAuth2 endpoint URI
       def oauth2_endpoint
         self.class.const_get(:OAUTH2_ENDPOINT)
       end
 
+      # Builds an OAuth2 link that customers have to visit
+      # in order to obtain a special code
+      # @return [String]
+      # @param scope [Array, String]
+      # @param redirect_uri [String]
+      # @param state [String]
       def auth(scope:, redirect_uri: nil, state: nil)
         get_params = {
           client_id: client_id,
@@ -29,6 +37,10 @@ module RubyLokaliseApi
         oauth2_endpoint.new(self, query: 'auth', get: get_params).full_uri
       end
 
+      # Requests OAuth2 access token. Requires OAuth2 code obtained
+      # using the `.auth` method
+      # @return [RubyLokaliseApi::Resources::OAuth2Token]
+      # @param code [String]
       def token(code)
         endpoint = oauth2_endpoint.new(
           self,
@@ -42,6 +54,9 @@ module RubyLokaliseApi
         RubyLokaliseApi::Resources::OAuth2Token.new endpoint.do_post
       end
 
+      # Refreshes expired OAuth2 access token.
+      # @return [RubyLokaliseApi::Resources::OAuth2RefreshedToken]
+      # @param refresh_token [String]
       def refresh(refresh_token)
         endpoint = oauth2_endpoint.new(
           self,

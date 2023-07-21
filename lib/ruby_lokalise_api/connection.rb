@@ -3,7 +3,6 @@
 module RubyLokaliseApi
   # Module to setup connection using Faraday
   module Connection
-
     # Creates a new Faraday object with specified params
     def connection(endpoint)
       Faraday.new(options(endpoint), request_params_for(endpoint.client)) do |faraday|

@@ -2,6 +2,7 @@
 
 module RubyLokaliseApi
   module Concerns
+    # Allows to set supported attributes for classes
     module AttrsLoadable
       class << self
         def extended(klass)
