@@ -10,6 +10,7 @@ module RubyLokaliseApi
 
       BASE_URL = ''
       PARTIAL_URI_TEMPLATE = '{/segments*}'
+      HTTP_METHODS = %i[get post put delete patch].freeze
 
       def initialize(client, params = {})
         @query_params = params[:query].to_array
@@ -34,23 +35,15 @@ module RubyLokaliseApi
         base_url + uri
       end
 
-      private
-
-      HTTP_METHODS_REGEXP = /\Ado_(get|post|put|delete|patch)\z/.freeze
-
-      def respond_to_missing?(method, _include_all)
-        return true if HTTP_METHODS_REGEXP.match?(method.to_s)
-
-        super
-      end
-
-      def method_missing(method, *_args)
-        if method.to_s =~ HTTP_METHODS_REGEXP
-          send Regexp.last_match(1), self
-        else
-          super
+      # Creates methods like `do_post`, `do_get` that proxy calls to the
+      # corresponding methods in the `Request` module
+      HTTP_METHODS.each do |method_postfix|
+        define_method "do_#{method_postfix}" do
+          send method_postfix, self
         end
       end
+
+      private
 
       def base_query(*_args); end
 

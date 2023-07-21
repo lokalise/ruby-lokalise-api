@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+* Code updates and improvements
+
 ## 8.0.0 (21-Jul-2023)
 
 In this version **SDK has been fully rewritten** to make it more robust, better tested, and even more comfortable to work with. While most of the methods have similar signatures, there are a few major changes.
