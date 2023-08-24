@@ -2,6 +2,7 @@
 
 ![Gem](https://img.shields.io/gem/v/ruby-lokalise-api)
 ![CI](https://github.com/lokalise/ruby-lokalise-api/actions/workflows/ci.yml/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/github/lokalise/ruby-lokalise-api/badge.svg?branch=master)](https://coveralls.io/github/lokalise/ruby-lokalise-api?branch=master)
 ![Downloads total](https://img.shields.io/gem/dt/ruby-lokalise-api)
 
 Official opinionated Ruby interface for the [Lokalise API](https://developers.lokalise.com/reference/lokalise-rest-api) that represents returned data as Ruby objects.
