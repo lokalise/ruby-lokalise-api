@@ -4,8 +4,8 @@ module RubyLokaliseApi
   # Module to setup connection using Faraday
   module Connection
     # Creates a new Faraday object with specified params
-    def connection(endpoint)
-      Faraday.new(options(endpoint), request_params_for(endpoint.client)) do |faraday|
+    def connection(endpoint, params = {})
+      Faraday.new(options(endpoint, params), request_params_for(endpoint.client)) do |faraday|
         faraday.adapter Faraday.default_adapter
         faraday.request(:gzip)
       end
@@ -13,16 +13,21 @@ module RubyLokaliseApi
 
     private
 
-    def options(endpoint)
-      params = __base_options(endpoint)
+    def options(endpoint, params)
+      req_params = __base_options(endpoint)
       client = endpoint.client
 
       if client.respond_to?(:token) && client.respond_to?(:token_header)
-        params[:headers][client.token_header] = client.token
+        req_params[:headers][client.token_header] = client.token
       end
-      params[:headers][:accept_encoding] = 'gzip,deflate,br'
 
-      params
+      # Sending content-type is needed only when the body is actually present
+      # Trying to send this header in other cases seems to result in error 500
+      req_params[:headers]['Content-type'] = 'application/json' if !params[:get_request] && endpoint.req_params
+
+      req_params[:headers][:accept_encoding] = 'gzip,deflate,br'
+
+      req_params
     end
 
     def __base_options(endpoint)

@@ -16,6 +16,30 @@ RSpec.describe RubyLokaliseApi::Connection do
     Faraday.default_adapter = :net_http
   end
 
+  it 'sets the content-type for non-get requests with body' do
+    custom_endpoint = endpoint name: 'Projects', client: test_client, params: { req: [project_id] }
+
+    conn = dummy.connection custom_endpoint
+
+    expect(conn.headers['Content-type']).to eq('application/json')
+  end
+
+  it 'does not set the content-type for non-get requests without body' do
+    custom_endpoint = endpoint name: 'Projects', client: test_client
+
+    conn = dummy.connection custom_endpoint
+
+    expect(conn.headers['Content-type']).not_to eq('application/json')
+  end
+
+  it 'does not set the content-type for get requests' do
+    custom_endpoint = endpoint name: 'Projects', client: test_client
+
+    conn = dummy.connection custom_endpoint, get_request: true
+
+    expect(conn.headers['Content-type']).not_to eq('application/json')
+  end
+
   it 'timeouts are not be set by default but the token must be present' do
     conn = dummy.connection project_endpoint
 

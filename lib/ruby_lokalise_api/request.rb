@@ -9,7 +9,7 @@ module RubyLokaliseApi
     # Sends a GET request
     def get(endpoint)
       respond_with(
-        connection(endpoint).get(prepare(endpoint.uri), endpoint.req_params),
+        connection(endpoint, get_request: true).get(prepare(endpoint.uri), endpoint.req_params),
         endpoint
       )
     end
