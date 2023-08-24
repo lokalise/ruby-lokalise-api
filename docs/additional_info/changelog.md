@@ -1,8 +1,9 @@
 # Changelog
 
-## Unreleased
+## 8.0.1 (24-Aug-2023)
 
 * Code updates and improvements
+* Add `content-type` header in certain cases
 
 ## 8.0.0 (21-Jul-2023)
 
