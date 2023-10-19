@@ -48,6 +48,13 @@ RSpec/ExampleLength:
 Style/Documentation:
   Enabled: false
 
+RSpec/SpecFilePathFormat:
+  CustomTransform:
+    OAuth2: oauth2
+    OAuth2Client: oauth2_client
+    OAuth2Token: oauth2_token
+    OAuth2RefreshedToken: oauth2_refreshed_token
+    
 RSpec/FilePath:
   CustomTransform:
     OAuth2: oauth2
