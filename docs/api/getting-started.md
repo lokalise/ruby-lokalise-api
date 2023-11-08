@@ -2,11 +2,13 @@
 
 ## Installation and requirements
 
-This gem requires [Ruby 2.7+](https://www.ruby-lang.org/en/) and [RubyGems package manager](https://rubygems.org/pages/download).
+This gem requires [Ruby 3.0+](https://www.ruby-lang.org/en/) and [RubyGems package manager](https://rubygems.org/pages/download).
 
 Install it by running:
 
     gem install ruby-lokalise-api
+
+Use v8.0.1 if you need support for Ruby 2.7.
 
 ## Initializing the client
 

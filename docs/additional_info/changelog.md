@@ -1,5 +1,9 @@
 # Changelog
 
+## 9.0.0 (08-11-2023)
+
+* **Breaking change**: require Ruby 3+. Version 2.7 has reached end-of-life and thus we are not planning to support it anymore. If you need support for Ruby 2.7, please stay on 8.0.1.
+
 ## 8.0.1 (24-Aug-2023)
 
 * Code updates and improvements
