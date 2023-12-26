@@ -8,7 +8,7 @@ module RubyLokaliseApi
         PARTIAL_URI_TEMPLATE = '{/segments*}{?query*}'
 
         def initialize(client, params = {})
-          super client, params
+          super(client, params)
 
           @uri = partial_uri(base_query(*@query_params), params.fetch(:get, []))
         end

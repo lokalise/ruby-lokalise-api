@@ -86,7 +86,7 @@ module RubyLokaliseApi
 
       def populate_common_attrs_from(response)
         supported_attrs.each do |attrib|
-          instance_variable_set "@#{attrib}", response.content[attrib]
+          instance_variable_set :"@#{attrib}", response.content[attrib]
         end
 
         headers = response.headers

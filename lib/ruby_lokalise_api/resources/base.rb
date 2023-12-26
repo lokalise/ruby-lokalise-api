@@ -49,7 +49,7 @@ module RubyLokaliseApi
 
       def read_main_params
         self.class.const_get(:MAIN_PARAMS).to_array.map do |param|
-          instance_variable_get "@#{param}"
+          instance_variable_get :"@#{param}"
         end
       end
 
@@ -69,7 +69,7 @@ module RubyLokaliseApi
                     content[attrib]
                   end
 
-          instance_variable_set "@#{attrib}", value
+          instance_variable_set :"@#{attrib}", value
         end
       end
     end
