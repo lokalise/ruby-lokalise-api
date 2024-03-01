@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'json',                            '~> 2'
   spec.add_dependency 'zeitwerk',                        '~> 2.4'
 
-  spec.add_development_dependency 'dotenv',              '~> 2.5'
+  spec.add_development_dependency 'dotenv',              '~> 3.1'
   spec.add_development_dependency 'oj',                  '~> 3.10'
   spec.add_development_dependency 'rake',                '~> 13.0'
   spec.add_development_dependency 'rspec',               '~> 3.6'
