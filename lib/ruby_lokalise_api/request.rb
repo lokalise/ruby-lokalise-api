@@ -63,7 +63,11 @@ module RubyLokaliseApi
     end
 
     def respond_with(response, endpoint)
-      body = custom_load response.body
+      begin
+        body = custom_load response.body
+      rescue JSON::ParserError
+        respond_with_error(response.status, response.body)
+      end
 
       raise_on_error! response, body
 

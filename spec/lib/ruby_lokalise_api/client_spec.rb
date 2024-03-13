@@ -1,6 +1,24 @@
 # frozen_string_literal: true
 
 RSpec.describe RubyLokaliseApi::Client do
+  context 'with server errors' do
+    it 'raises when server responds with non-json' do
+      message = '<html><head><title>Too many requests (429)</head><body>Too many requests!</body></html>'
+
+      stub(
+        uri: 'projects',
+        resp: {
+          body: message,
+          code: 429
+        }
+      )
+
+      expect do
+        test_client.projects
+      end.to raise_error(RubyLokaliseApi::Error::TooManyRequests, message)
+    end
+  end
+
   context 'with API errors' do
     it 'raises BadRequest when API token is invalid' do
       token = 'fake token'

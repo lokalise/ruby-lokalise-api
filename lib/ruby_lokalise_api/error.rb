@@ -40,7 +40,12 @@ module RubyLokaliseApi
     class << self
       # Create a new error from an HTTP response
       def from_response(body)
-        msg = body.key?('error') ? body['error']['message'] : body['message']
+        msg = if body.respond_to?(:key)
+                body.key?('error') ? body['error']['message'] : body['message']
+              else
+                body
+              end
+
         new msg.to_s
       end
     end

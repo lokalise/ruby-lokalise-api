@@ -1,6 +1,10 @@
 # Changelog
 
-## 9.0.0 (09-11-2023)
+## 9.0.1 (13-Mar-2024)
+
+* Handle cases when server responds with non-JSON
+
+## 9.0.0 (09-Nov-2023)
 
 * **Breaking change**: require Ruby 3+. Version 2.7 has reached end-of-life and thus we are not planning to support it anymore. If you need support for Ruby 2.7, please stay on 8.0.1.
 
