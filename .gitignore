@@ -11,3 +11,4 @@ pkg/*
 .DS_Store
 .env
 demo.rb
+.ruby-lsp

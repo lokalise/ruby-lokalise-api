@@ -9,10 +9,11 @@
                                                 ## project_id (string, required)
                                                 ## params (hash)
                                                 ### Find full list in the docs
-                                                ### :page and :limit
                                                 # Output:
                                                 ## Collection of translations for the project
 ```
+
+**This endpoint also supports cursor pagination which is now a recommended approach, especially for fetching large amounts of data. Please [learn more in the Pagination docs](https://lokalise.github.io/ruby-lokalise-api/api/getting-started#cursor-pagination).**
 
 For example:
 

@@ -1,5 +1,25 @@
 # Changelog
 
+## 9.1.0 (15-May-2024)
+
+* Add support for [cursor pagination](https://lokalise.github.io/ruby-lokalise-api/api/getting-started#cursor-pagination) for List keys and List translation endpoints:
+
+```ruby
+cursor_pagination_params = {
+  pagination: 'cursor',
+  cursor: 'eyIxIjozMTk3ODIzNzJ9', # The starting cursor. Optional, string
+  limit: 2 # The number of items to fetch. Optional, default is 100
+}
+
+keys = @client.keys '123abcdef.01', cursor_pagination_params
+
+keys.next_cursor? # => true
+keys.next_cursor # => 'eyIxIjozMTk3ODIzNzV9'
+
+# Request keys from the next cursor (returns `nil` if the next cursor is not available):
+keys_next_cursor = keys.load_next_cursor
+```
+
 ## 9.0.1 (13-Mar-2024)
 
 * Handle cases when server responds with non-JSON

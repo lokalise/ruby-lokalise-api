@@ -57,23 +57,60 @@ RSpec.describe RubyLokaliseApi::Rest::Keys do
     end
   end
 
-  specify '#keys' do
-    stub(
-      uri: "projects/#{project_id}/keys",
-      resp: { body: fixture('keys/keys') }
-    )
+  describe '#keys' do
+    it 'fetches all keys' do
+      stub(
+        uri: "projects/#{project_id}/keys",
+        resp: { body: fixture('keys/keys') }
+      )
 
-    keys = test_client.keys project_id
-    expect(keys.collection.length).to eq(5)
-    expect(keys).to be_an_instance_of(RubyLokaliseApi::Collections::Keys)
-    expect_to_have_valid_resources(keys)
-    expect(keys.project_id).to eq(project_id)
-    expect(keys.branch).to eq('master')
+      keys = test_client.keys project_id
+      expect(keys.collection.length).to eq(5)
+      expect(keys).to be_an_instance_of(RubyLokaliseApi::Collections::Keys)
+      expect_to_have_valid_resources(keys)
+      expect(keys.project_id).to eq(project_id)
+      expect(keys.branch).to eq('master')
 
-    key = keys[0]
+      key = keys[0]
 
-    expect(key.key_id).to eq(319_782_369)
-    expect(key.project_id).to eq(project_id)
+      expect(key.key_id).to eq(319_782_369)
+      expect(key.project_id).to eq(project_id)
+    end
+
+    it 'fetches keys with cursor' do
+      cursor_params = {
+        pagination: 'cursor',
+        limit: 2
+      }
+
+      stub(
+        uri: "projects/#{project_id}/keys",
+        req: { query: cursor_params },
+        resp: {
+          body: fixture('keys/keys'),
+          headers: {
+            'x-pagination-limit': '2',
+            'x-pagination-next-cursor': 'eyIxIjozMTk3ODIzNzJ9'
+          }
+        }
+      )
+
+      keys = test_client.keys project_id, cursor_params
+
+      expect(keys.collection.length).to eq(5)
+      expect(keys).to be_an_instance_of(RubyLokaliseApi::Collections::Keys)
+      expect_to_have_valid_resources(keys)
+      expect(keys.project_id).to eq(project_id)
+      expect(keys.branch).to eq('master')
+
+      expect(keys.next_cursor?).to be true
+      expect(keys.next_cursor).to eq('eyIxIjozMTk3ODIzNzJ9')
+
+      key = keys[0]
+
+      expect(key.key_id).to eq(319_782_369)
+      expect(key.project_id).to eq(project_id)
+    end
   end
 
   specify '#create_keys' do

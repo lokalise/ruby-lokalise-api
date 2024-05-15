@@ -4,21 +4,56 @@ RSpec.describe RubyLokaliseApi::Rest::Translations do
   let(:project_id) { '88628569645b945648b474.25982965' }
   let(:translation_id) { 2_574_122_388 }
 
-  specify '#translations' do
-    stub(
-      uri: "projects/#{project_id}/translations",
-      resp: { body: fixture('translations/translations') }
-    )
+  describe '#translations' do
+    it 'fetches all translations' do
+      stub(
+        uri: "projects/#{project_id}/translations",
+        resp: { body: fixture('translations/translations') }
+      )
 
-    translations = test_client.translations project_id
+      translations = test_client.translations project_id
 
-    expect(translations.collection.length).to eq(3)
-    expect_to_have_valid_resources(translations)
-    expect(translations.project_id).to eq(project_id)
+      expect(translations.collection.length).to eq(3)
+      expect_to_have_valid_resources(translations)
+      expect(translations.project_id).to eq(project_id)
 
-    translation = translations[0]
+      translation = translations[0]
 
-    expect(translation.translation_id).to eq(translation_id)
+      expect(translation.translation_id).to eq(translation_id)
+    end
+
+    it 'fetches translation with cursor' do
+      cursor_params = {
+        pagination: 'cursor',
+        limit: 2,
+        cursor: 'eyIxIjoyNjU4ODM0NDUyfQ=='
+      }
+
+      stub(
+        uri: "projects/#{project_id}/translations",
+        req: { query: cursor_params },
+        resp: {
+          body: fixture('translations/translations'),
+          headers: {
+            'x-pagination-limit': '2',
+            'x-pagination-next-cursor': 'eyIxIjoyNjU4ODM0NDUzfQ=='
+          }
+        }
+      )
+
+      translations = test_client.translations project_id, cursor_params
+
+      expect(translations.collection.length).to eq(3)
+      expect_to_have_valid_resources(translations)
+      expect(translations.project_id).to eq(project_id)
+
+      expect(translations.next_cursor?).to be true
+      expect(translations.next_cursor).to eq('eyIxIjoyNjU4ODM0NDUzfQ==')
+
+      translation = translations[0]
+
+      expect(translation.translation_id).to eq(translation_id)
+    end
   end
 
   specify '#translation' do

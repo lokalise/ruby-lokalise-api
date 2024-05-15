@@ -138,6 +138,26 @@ first_translation = prev_page_translations.first # get first translation from th
 first_translation.translation # => 'Translation text'
 ```
 
+### Cursor pagination
+
+The [List Keys](https://developers.lokalise.com/reference/list-all-keys) and [List Translations](https://developers.lokalise.com/reference/list-all-translations) endpoints support cursor pagination, which is recommended for its faster performance compared to traditional "offset" pagination. By default, "offset" pagination is used, so you must explicitly set `pagination` to `"cursor"` to use cursor pagination.
+
+```ruby
+cursor_pagination_params = {
+  pagination: 'cursor',
+  cursor: 'eyIxIjozMTk3ODIzNzJ9', # The starting cursor. Optional, string
+  limit: 2 # The number of items to fetch. Optional, default is 100
+}
+
+keys = @client.keys '123abcdef.01', cursor_pagination_params
+
+keys.next_cursor? # => true
+keys.next_cursor # => 'eyIxIjozMTk3ODIzNzV9'
+
+# Request keys from the next cursor (returns `nil` if the next cursor is not available):
+keys_next_cursor = keys.load_next_cursor
+```
+
 ## Branching
 
 If you are using [project branching feature](https://docs.lokalise.com/en/articles/3391861-project-branching), simply add branch name separated by semicolon to your project ID in any endpoint to access the branch. For example, in order to access `new-feature` branch for the project with an id `123abcdef.01`:

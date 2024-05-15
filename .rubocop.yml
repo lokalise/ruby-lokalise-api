@@ -20,6 +20,10 @@ Layout/LineLength:
   Exclude:
     - ./*.gemspec
 
+Metrics/ClassLength:
+  CountComments: false
+  Max: 120
+
 Metrics/MethodLength:
   CountComments: false
   Max: 10

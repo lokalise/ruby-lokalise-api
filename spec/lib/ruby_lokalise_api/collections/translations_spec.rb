@@ -12,6 +12,63 @@ RSpec.describe RubyLokaliseApi::Collections::Translations do
       'x-pagination-page': '4'
     }
   end
+  let(:cursor_params) do
+    {
+      cursor: 'eyIxIjoyNjU4ODM0NDUyfQ==',
+      pagination: 'cursor',
+      limit: 2
+    }
+  end
+  let(:cursor_headers) do
+    {
+      'x-pagination-limit': cursor_params[:limit],
+      'x-pagination-next-cursor': 'eyIxIjoyNjU4ODM0NDUzfQ=='
+    }
+  end
+
+  it 'supports cursor pagination' do
+    stub(
+      uri: "projects/#{project_id}/translations",
+      req: { query: cursor_params },
+      resp: {
+        body: fixture('translations/translations_cursor_1'),
+        headers: cursor_headers
+      }
+    )
+
+    stub(
+      uri: "projects/#{project_id}/translations",
+      req: { query: cursor_params.merge(cursor: 'eyIxIjoyNjU4ODM0NDUzfQ==') },
+      resp: {
+        body: fixture('translations/translations_cursor_2'),
+        headers: { 'x-pagination-limit': cursor_params[:limit] }
+      }
+    )
+
+    translations = test_client.translations project_id, cursor_params
+
+    expect(translations.collection.length).to eq(2)
+    expect(translations[0].translation_id).to eq(2_574_122_386)
+    expect_to_have_valid_resources(translations)
+    expect(translations.next_page?).to be false
+    expect(translations.prev_page?).to be false
+    expect(translations.next_cursor?).to be true
+    expect(translations.next_cursor).to eq('eyIxIjoyNjU4ODM0NDUzfQ==')
+
+    expect(translations.prev_page).to be_nil
+    expect(translations.next_page).to be_nil
+
+    next_cursor_translations = translations.load_next_cursor
+
+    expect(next_cursor_translations.collection.length).to eq(2)
+    expect(next_cursor_translations[0].translation_id).to eq(2_658_834_453)
+    expect(next_cursor_translations.next_page?).to be false
+    expect(next_cursor_translations.prev_page?).to be false
+    expect(next_cursor_translations.next_cursor?).to be false
+    expect(next_cursor_translations.next_cursor).to be_nil
+
+    expect(next_cursor_translations.load_next_cursor).to be_nil
+  end
 
   it 'supports pagination' do
     stub(

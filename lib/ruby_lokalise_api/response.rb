@@ -5,7 +5,7 @@ module RubyLokaliseApi
   class Response
     # Lokalise returns pagination info in special headers
     PAGINATION_HEADERS = %w[x-pagination-total-count x-pagination-page-count x-pagination-limit
-                            x-pagination-page].freeze
+                            x-pagination-page x-pagination-next-cursor].freeze
 
     attr_reader :content, :endpoint, :headers
 
@@ -43,8 +43,7 @@ module RubyLokaliseApi
       raw_headers.
         to_h.
         keep_if { |header, _value| pagination_headers.include?(header) }.
-        transform_keys(&:to_sym).
-        transform_values(&:to_i)
+        transform_keys(&:to_sym)
     end
   end
 end

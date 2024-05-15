@@ -8,10 +8,12 @@
 @client.keys(project_id, params = {})   # Input:
                                         ## project_id (string, required)
                                         ## params (hash)
-                                        ### :page and :limit
+                                        ### pagination and cursor-related params
                                         # Output:
                                         ## Collection of keys available in the given project
 ```
+
+**This endpoint also supports cursor pagination which is now a recommended approach, especially for fetching large amounts of data. Please [learn more in the Pagination docs](https://lokalise.github.io/ruby-lokalise-api/api/getting-started#cursor-pagination).**
 
 For example:
 

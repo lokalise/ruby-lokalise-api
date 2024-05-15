@@ -18,7 +18,7 @@ module RubyLokaliseApi
       def_delegators :collection, :[], :last, :each
 
       attr_reader :total_pages, :total_results, :results_per_page, :current_page,
-                  :collection
+                  :collection, :next_cursor
 
       def initialize(response)
         @self_endpoint = response.endpoint
@@ -32,9 +32,25 @@ module RubyLokaliseApi
       def next_page
         return nil if last_page?
 
+        override_params = { page: current_page + 1 }
+
         self.class.new(
           reinit_endpoint(
-            override_req_params: { page: current_page + 1 }
+            override_req_params: override_params
+          ).do_get
+        )
+      end
+
+      # Tries to fetch the next cursor for paginated collection
+      # Returns a new collection or nil if the next cursor is not available
+      def load_next_cursor
+        return nil unless next_cursor?
+
+        override_params = { cursor: next_cursor }
+
+        self.class.new(
+          reinit_endpoint(
+            override_req_params: override_params
           ).do_get
         )
       end
@@ -75,6 +91,12 @@ module RubyLokaliseApi
         !prev_page?
       end
 
+      # Checks whether the next cursor is available
+      # @return [Boolean]
+      def next_cursor?
+        !next_cursor.nil? && next_cursor != ''
+      end
+
       private
 
       # This method is utilized to recreate an endpoint for the current collection
@@ -89,14 +111,17 @@ module RubyLokaliseApi
           instance_variable_set :"@#{attrib}", response.content[attrib]
         end
 
-        headers = response.headers
+        extract_common_from_headers(response.headers)
+      end
 
+      def extract_common_from_headers(headers)
         return unless headers.any?
 
-        @total_results = headers[:'x-pagination-total-count']
-        @total_pages = headers[:'x-pagination-page-count']
-        @results_per_page = headers[:'x-pagination-limit']
-        @current_page = headers[:'x-pagination-page']
+        @total_results = headers[:'x-pagination-total-count'].to_i
+        @total_pages = headers[:'x-pagination-page-count'].to_i
+        @results_per_page = headers[:'x-pagination-limit'].to_i
+        @current_page = headers[:'x-pagination-page'].to_i
+        @next_cursor = headers[:'x-pagination-next-cursor']
       end
 
       def produce_collection_from(response)
