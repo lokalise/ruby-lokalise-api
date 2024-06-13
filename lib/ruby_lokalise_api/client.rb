@@ -4,7 +4,7 @@ module RubyLokaliseApi
   # Regular API client used to perform requests with a basic API token
   class Client < BaseClient
     def initialize(token, params = {})
-      super(token, params)
+      super
 
       @token_header = 'x-api-token'
     end
