@@ -28,11 +28,11 @@ module RubyLokaliseApi
       end
 
       def base_url
-        self.class.const_get(:BASE_URL)
+        self.class::BASE_URL
       end
 
       def full_uri
-        base_url + uri
+        base_url + uri.to_s
       end
 
       # Creates methods like `do_post`, `do_get` that proxy calls to the
@@ -52,7 +52,7 @@ module RubyLokaliseApi
       end
 
       def partial_uri_template
-        self.class.const_get(:PARTIAL_URI_TEMPLATE)
+        self.class::PARTIAL_URI_TEMPLATE
       end
     end
   end

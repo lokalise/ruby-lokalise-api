@@ -38,7 +38,7 @@ module Expectations
       res.send(p).to_s
     end
 
-    expect(ep.uri.split('/')).to include(*params)
+    expect(ep.uri.split('/')).to include(*params) unless params.empty?
   end
 
   def collection_from(obj)

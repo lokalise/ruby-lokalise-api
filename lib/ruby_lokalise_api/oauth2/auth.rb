@@ -29,7 +29,7 @@ module RubyLokaliseApi
       def auth(scope:, redirect_uri: nil, state: nil)
         get_params = {
           client_id: client_id,
-          scope: (scope.is_a?(Array) ? scope.join(' ') : scope),
+          scope: scope_to_string(scope),
           state: state,
           redirect_uri: redirect_uri
         }
@@ -37,40 +37,41 @@ module RubyLokaliseApi
         oauth2_endpoint.new(self, query: 'auth', get: get_params).full_uri
       end
 
-      # Requests OAuth2 access token. Requires OAuth2 code obtained
-      # using the `.auth` method
-      # @return [RubyLokaliseApi::Resources::OAuth2Token]
-      # @param code [String]
+      # Requests an OAuth2 access token using a code
+      # @param code [String] The authorization code
+      # @return [RubyLokaliseApi::Resources::OAuth2Token] The OAuth2 token resource
       def token(code)
-        endpoint = oauth2_endpoint.new(
-          self,
-          query: :token,
-          req: common_params.merge(
-            grant_type: 'authorization_code',
-            code: code
-          )
-        )
-
-        RubyLokaliseApi::Resources::OAuth2Token.new endpoint.do_post
+        request_token(grant_type: 'authorization_code', code: code)
       end
 
-      # Refreshes expired OAuth2 access token.
-      # @return [RubyLokaliseApi::Resources::OAuth2RefreshedToken]
-      # @param refresh_token [String]
+      # Refreshes an expired OAuth2 token
+      # @param refresh_token [String] The refresh token
+      # @return [RubyLokaliseApi::Resources::OAuth2RefreshedToken] The refreshed token resource
       def refresh(refresh_token)
-        endpoint = oauth2_endpoint.new(
-          self,
-          query: :token,
-          req: common_params.merge(
-            grant_type: 'refresh_token',
-            refresh_token: refresh_token
-          )
-        )
-
-        RubyLokaliseApi::Resources::OAuth2RefreshedToken.new endpoint.do_post
+        request_token(grant_type: 'refresh_token', refresh_token: refresh_token)
       end
 
       private
+
+      # Generalized method for requesting a token
+      # @param params [Hash] Request parameters including grant type
+      # @return [RubyLokaliseApi::Resources::OAuth2Token, RubyLokaliseApi::Resources::OAuth2RefreshedToken]
+      def request_token(params)
+        endpoint = oauth2_endpoint.new(self, query: :token, req: common_params.merge(params))
+        resource_class = if params[:grant_type] == 'authorization_code'
+                           RubyLokaliseApi::Resources::OAuth2Token
+                         else
+                           RubyLokaliseApi::Resources::OAuth2RefreshedToken
+                         end
+        resource_class.new(endpoint.do_post)
+      end
+
+      # Converts scope to a space-separated string if it's an array
+      # @param scope [Array, String] The scope or scopes
+      # @return [String] The scope as a string
+      def scope_to_string(scope)
+        scope.is_a?(Array) ? scope.join(' ') : scope
+      end
 
       def common_params
         {

@@ -57,20 +57,28 @@ module RubyLokaliseApi
         @self_endpoint.reinitialize(query_params: read_main_params, req_params: req_params)
       end
 
+      # Populates attributes from the response content
       def populate_attrs_from(content)
         return unless content
 
-        data_key = data_key_for klass: self.class.base_name
+        data_key = data_key_for(klass: self.class.base_name)
+        supported_attrs.each { |attrib| set_instance_variable(attrib, content, data_key) }
+      end
 
-        supported_attrs.each do |attrib|
-          value = if content.key?(data_key) && content[data_key].is_a?(Hash) && content[data_key].key?(attrib)
-                    content[data_key][attrib]
-                  else
-                    content[attrib]
-                  end
+      # Sets the instance variable for a given attribute
+      def set_instance_variable(attrib, content, data_key)
+        value = if content_key_exists?(content, data_key, attrib)
+                  content[data_key][attrib]
+                else
+                  content[attrib]
+                end
 
-          instance_variable_set :"@#{attrib}", value
-        end
+        instance_variable_set(:"@#{attrib}", value)
+      end
+
+      # Checks if the content contains the specified key
+      def content_key_exists?(content, data_key, attrib)
+        content.key?(data_key) && content[data_key].is_a?(Hash) && content[data_key].key?(attrib)
       end
     end
   end

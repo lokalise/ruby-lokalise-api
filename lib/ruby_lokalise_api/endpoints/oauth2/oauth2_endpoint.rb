@@ -10,18 +10,28 @@ module RubyLokaliseApi
         def initialize(client, params = {})
           super
 
-          @uri = partial_uri(base_query(*@query_params), params.fetch(:get, []))
+          @uri = build_uri(params.fetch(:get, []))
         end
 
         private
+
+        # Builds the complete URI for the OAuth2 endpoint
+        def build_uri(query)
+          partial_uri(base_query(*@query_params), query)
+        end
 
         def partial_uri(segments, query)
           template = super
 
           template.expand(
             segments: segments.to_a.flatten,
-            query: query.filter { |_k, v| !v.nil? }
+            query: filter_query_params(query)
           ).to_s
+        end
+
+        # Filters out nil values from query parameters
+        def filter_query_params(query)
+          query.compact
         end
 
         def base_query(segment = nil)

@@ -32,13 +32,7 @@ module RubyLokaliseApi
       def next_page
         return nil if last_page?
 
-        override_params = { page: current_page + 1 }
-
-        self.class.new(
-          reinit_endpoint(
-            override_req_params: override_params
-          ).do_get
-        )
+        fetch_page(current_page + 1)
       end
 
       # Tries to fetch the next cursor for paginated collection
@@ -46,13 +40,7 @@ module RubyLokaliseApi
       def load_next_cursor
         return nil unless next_cursor?
 
-        override_params = { cursor: next_cursor }
-
-        self.class.new(
-          reinit_endpoint(
-            override_req_params: override_params
-          ).do_get
-        )
+        fetch_cursor(next_cursor)
       end
 
       # Tries to fetch the previous page for paginated collection
@@ -60,11 +48,7 @@ module RubyLokaliseApi
       def prev_page
         return nil if first_page?
 
-        self.class.new(
-          reinit_endpoint(
-            override_req_params: { page: current_page - 1 }
-          ).do_get
-        )
+        fetch_page(current_page - 1)
       end
 
       # Checks whether the next page is available
@@ -131,7 +115,7 @@ module RubyLokaliseApi
         data_key_plural = collection_key_for klass: self.class.base_name
 
         resources_data = content[data_key_plural]
-        other_data = content.reject { |key, _| key == data_key_plural }
+        other_data = content.except(data_key_plural)
 
         @collection = build_collection resources_data, other_data
       end
@@ -164,6 +148,16 @@ module RubyLokaliseApi
         klass = self.class
 
         klass.const_defined?(:RESOURCES_ENDPOINT) ? klass.const_get(:RESOURCES_ENDPOINT) : klass.const_get(:ENDPOINT)
+      end
+
+      # Helper method to fetch a page for paginated collections
+      def fetch_page(page)
+        self.class.new(reinit_endpoint(override_req_params: { page: page }).do_get)
+      end
+
+      # Helper method to fetch the next cursor
+      def fetch_cursor(cursor)
+        self.class.new(reinit_endpoint(override_req_params: { cursor: cursor }).do_get)
       end
     end
   end

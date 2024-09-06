@@ -14,11 +14,11 @@ module RubyLokaliseApi
       #
       # @return [Array<String>]
       def attributes_for(klass, filename)
-        @attributes ||= YAML.load_file(File.expand_path("../data/#{filename}", __dir__)).freeze
+        @attributes ||= load_attributes(filename)
 
         name = unify klass.base_name.snakecase
 
-        @attributes.key?(name) ? @attributes[name] : @attributes["#{name}s"]
+        @attributes[name] || @attributes["#{name}s"]
       end
 
       # Unify some resources' names (eg, `ProjectComment` and `KeyComment` have the same
@@ -26,11 +26,15 @@ module RubyLokaliseApi
       #
       # @return [String]
       def unify(name)
-        UNIFIED_RESOURCES.each do |u_a|
-          return u_a if name.match?(/#{u_a}/)
-        end
+        UNIFIED_RESOURCES.find { |u_a| name.match?(/#{u_a}/) } || name
+      end
 
-        name
+      # Loads attributes from a YAML file
+      #
+      # @param filename [String] The filename to load attributes from
+      # @return [Hash] The loaded attributes hash
+      def load_attributes(filename)
+        YAML.load_file(File.expand_path("../data/#{filename}", __dir__)).freeze
       end
     end
   end

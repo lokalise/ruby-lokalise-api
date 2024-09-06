@@ -31,19 +31,11 @@ module RubyLokaliseApi
       @endpoint = new_endpoint
     end
 
-    # Returns an array of pagination headers
-    def pagination_headers
-      self.class.const_get(:PAGINATION_HEADERS)
-    end
-
     private
 
     # Keep only pagination headers
     def extract_headers_from(raw_headers)
-      raw_headers.
-        to_h.
-        keep_if { |header, _value| pagination_headers.include?(header) }.
-        transform_keys(&:to_sym)
+      raw_headers.to_h.slice(*PAGINATION_HEADERS).transform_keys(&:to_sym)
     end
   end
 end
