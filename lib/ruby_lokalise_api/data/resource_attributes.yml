@@ -28,6 +28,7 @@ contributor:
   - is_reviewer
   - languages
   - admin_rights
+  - role_id
 custom_translation_status:
   - project_id
   - branch
@@ -142,6 +143,15 @@ queued_process:
   - created_at
   - created_at_timestamp
   - details
+permission_template:
+  - id
+  - role
+  - permissions
+  - description
+  - tag
+  - tagColor
+  - tagInfo
+  - doesEnableAllReadOnlyLanguages
 screenshot:
   - project_id
   - branch
@@ -256,6 +266,7 @@ team_user_group:
   - team_id
   - projects
   - members
+  - role_id
 translation:
   - project_id
   - branch

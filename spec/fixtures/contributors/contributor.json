@@ -47,6 +47,7 @@
       "create_branches",
       "activity",
       "statistics"
-    ]
+    ],
+    "role_id": 5
   }
 }

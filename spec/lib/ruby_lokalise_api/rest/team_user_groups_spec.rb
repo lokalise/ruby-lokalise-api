@@ -36,6 +36,7 @@ RSpec.describe RubyLokaliseApi::Rest::TeamUserGroups do
     expect(group.created_at_timestamp).to eq(1_595_503_264)
     expect(group.projects).to eq([])
     expect(group.members).to include(49_436)
+    expect(group.role_id).to eq(5)
   end
 
   specify '#create_team_user_group' do

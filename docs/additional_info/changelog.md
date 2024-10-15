@@ -1,5 +1,38 @@
 # Changelog
 
+## 9.2.0 (15-Oct-2024)
+
+* Added support for a new [`PermissionTemplates` endpoint](https://developers.lokalise.com/reference/list-all-permission-templates):
+
+```ruby
+permission_templates = test_client.permission_templates team_id
+
+template = permission_templates[0]
+
+template.id # => 1
+template.role # => "Manager"
+template.permissions # => ['branches_main_modify', ...]
+template.description # => 'Manage project settings ...'
+template.tag # => 'Full access'
+template.tagColor # => 'green'
+template.tagInfo # => ''
+template.doesEnableAllReadOnlyLanguages # => true
+```
+
+* Added `role_id` attribute to the user group object. For example:
+
+```ruby
+group = test_client.team_user_group team_id, group_id
+group.role_id # => 5
+```
+
+* Added `role_id` attribute to the contributor object. For example:
+
+```ruby
+contributor = test_client.contributor project_id, user_id
+contributor.role_id # => 5
+```
+
 ## 9.1.0 (15-May-2024)
 
 * Add support for [cursor pagination](https://lokalise.github.io/ruby-lokalise-api/api/getting-started#cursor-pagination) for List keys and List translation endpoints:

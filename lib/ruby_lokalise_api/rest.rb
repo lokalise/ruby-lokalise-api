@@ -14,6 +14,7 @@ module RubyLokaliseApi
     include Rest::Languages
     include Rest::Orders
     include Rest::PaymentCards
+    include Rest::PermissionTemplates
     include Rest::Projects
     include Rest::QueuedProcesses
     include Rest::Segments

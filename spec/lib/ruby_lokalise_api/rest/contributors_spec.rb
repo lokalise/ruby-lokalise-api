@@ -27,6 +27,8 @@ RSpec.describe RubyLokaliseApi::Rest::Contributors do
       'is_writable' => true
     )
     expect(contributor.admin_rights).to include('upload')
+    expect(contributor.user_id).to eq(user_id)
+    expect(contributor.role_id).to eq(5)
   end
 
   specify '#contributors' do
