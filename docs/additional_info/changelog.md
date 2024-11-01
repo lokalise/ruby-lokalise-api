@@ -1,5 +1,9 @@
 # Changelog
 
+## 9.2.1 (01-Nov-2024)
+
+* Update dependencies
+
 ## 9.2.0 (15-Oct-2024)
 
 * Added support for a new [`PermissionTemplates` endpoint](https://developers.lokalise.com/reference/list-all-permission-templates):
