@@ -20,6 +20,8 @@
       path: customizing-json-parser
     - title: Choosing Network Adapter
       path: choosing-network-adapter
+    - title: Configuring API host
+      path: configuring-api-host
 - title: Exception handling
   path: exception_handling
   sub_paths:

@@ -57,3 +57,17 @@ Faraday.default_adapter = :excon
 ```
 
 Please note that since the release of Faraday 2, most adapters have to be added manually. Find all supported adapters [on Faraday official website](https://github.com/lostisland/awesome-faraday#adapters).
+
+## Configuring API host
+
+By default, API requests are sent to the `https://api.lokalise.com/api2/` URL that acts as a host.
+
+OAuth 2 authentication requests are sent to `https://app.lokalise.com`.
+
+To override the API host, use the following approach (works for all client types):
+
+```ruby
+@client = RubyLokaliseApi.client('LOKALISE_API_TOKEN', api_host: 'http://example.com/api')
+```
+
+Then use your `@client` as usual.

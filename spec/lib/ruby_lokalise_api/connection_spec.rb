@@ -69,6 +69,25 @@ RSpec.describe RubyLokaliseApi::Connection do
     expect(another_conn.options.open_timeout).to eq(200)
   end
 
+  it 'uses default endpoint URL' do
+    custom_client = RubyLokaliseApi.client(ENV.fetch('LOKALISE_API_TOKEN', nil))
+
+    custom_endpoint = endpoint name: 'Projects', client: custom_client, params: { query: [project_id] }
+
+    conn = dummy.connection custom_endpoint
+    expect(conn.url_prefix.to_s).to eq(RubyLokaliseApi::Endpoints::MainEndpoint::BASE_URL)
+  end
+
+  it 'allows to override the endpoint URL' do
+    custom_api_host = 'http://example.com/api'
+    custom_client = RubyLokaliseApi.client(ENV.fetch('LOKALISE_API_TOKEN', nil), api_host: custom_api_host)
+
+    custom_endpoint = endpoint name: 'Projects', client: custom_client, params: { query: [project_id] }
+
+    conn = dummy.connection custom_endpoint
+    expect(conn.url_prefix.to_s).to eq(custom_api_host)
+  end
+
   it 'gzip compression is on by default' do
     custom_client = RubyLokaliseApi.client(ENV.fetch('LOKALISE_API_TOKEN', nil))
 

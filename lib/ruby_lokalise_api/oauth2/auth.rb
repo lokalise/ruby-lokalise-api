@@ -4,7 +4,7 @@ module RubyLokaliseApi
   module OAuth2
     # This class defines OAuth2 flow
     class Auth
-      attr_reader :client_id, :client_secret, :timeout, :open_timeout
+      attr_reader :client_id, :client_secret, :timeout, :open_timeout, :api_host
 
       OAUTH2_ENDPOINT = RubyLokaliseApi::Endpoints::OAuth2::OAuth2Endpoint
 
@@ -13,6 +13,7 @@ module RubyLokaliseApi
         @client_secret = client_secret
         @timeout = params[:timeout]
         @open_timeout = params[:open_timeout]
+        @api_host = params[:api_host]
       end
 
       # Returns OAuth2 endpoint URI

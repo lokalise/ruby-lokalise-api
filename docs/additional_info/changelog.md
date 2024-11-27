@@ -1,5 +1,13 @@
 # Changelog
 
+## 9.3.0 (27-Nov-2024)
+
+* Allow to override the API host to send requests to:
+
+```ruby
+@client = RubyLokaliseApi.client('LOKALISE_API_TOKEN', api_host: 'http://example.com/api')
+```
+
 ## 9.2.1 (01-Nov-2024)
 
 * Update dependencies
