@@ -4,6 +4,7 @@ require 'base64'
 
 RSpec.describe RubyLokaliseApi::Rest::Files do
   let(:project_id) { '88628569645b945648b474.25982965' }
+  let(:second_project_id) { '6504960967ab53d45e0ed7.15877499' }
 
   specify '#files' do
     stub(
@@ -40,6 +41,31 @@ RSpec.describe RubyLokaliseApi::Rest::Files do
     expect(resp.project_id).to eq(project_id)
     expect(resp.branch).to eq('master')
     expect(resp.bundle_url).to include("files/export/#{project_id}")
+  end
+
+  specify '#download_files_async' do
+    stub(
+      uri: "projects/#{second_project_id}/files/async-download",
+      req: { verb: :post },
+      resp: { body: fixture('files/download_files_async') }
+    )
+
+    process_id = '1efed57f-2720-6212-abd2-3e03040b6ae5'
+    process = test_client.download_files_async second_project_id, format: :json, original_filenames: false
+
+    expect(process).to be_an_instance_of(RubyLokaliseApi::Resources::QueuedProcess)
+    expect(process.process_id).to eq(process_id)
+
+    stub(
+      uri: "projects/#{second_project_id}/processes/#{process.process_id}",
+      resp: { body: fixture('files/async_download_check') }
+    )
+
+    process = test_client.queued_process second_project_id, process.process_id
+
+    expect(process.process_id).to eq(process_id)
+    expect(process.type).to eq('async-export')
+    expect(process.details['download_url']).to eq('https://example.com/download/bundle')
   end
 
   specify '#upload_file' do

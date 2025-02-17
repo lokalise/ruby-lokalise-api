@@ -327,6 +327,17 @@ RSpec.describe RubyLokaliseApi::Resources::Project do
       end
     end
 
+    it 'delegates download_files_async' do
+      params = {
+        format: :json,
+        original_filenames: false
+      }
+
+      expect_to_delegate(project, :download_files_async, project_id, params) do |obj|
+        obj.download_files_async(params)
+      end
+    end
+
     it 'delegates destroy_file' do
       file_id = 145
       expect_to_delegate(project, :destroy_file, project_id, file_id) do |obj|

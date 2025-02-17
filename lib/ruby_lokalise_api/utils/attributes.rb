@@ -6,9 +6,9 @@ module RubyLokaliseApi
       using RubyLokaliseApi::Utils::Strings
       using RubyLokaliseApi::Utils::Classes
 
-      private
-
       UNIFIED_RESOURCES = %w[comment].freeze
+
+      private
 
       # Loads attributes for the given resource based on its name
       #

@@ -36,6 +36,7 @@ module RubyLokaliseApi
       delegate_call :files
       delegate_call :upload_file
       delegate_call :download_files
+      delegate_call :download_files_async
       delegate_call :destroy_file
 
       delegate_call :create_jwt

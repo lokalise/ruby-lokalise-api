@@ -71,6 +71,42 @@ response = project.download_files params
 
 If you need a simple way to upload and download translation files in your Ruby scripts, take advantage of the [lokalise_manager gem](https://github.com/bodrovis/lokalise_manager).
 
+## Download translation files (async)
+
+[Doc](https://developers.lokalise.com/reference/download-files-async)
+
+Downloads translation files asynchronously (in the background) and returns process ID.
+
+```ruby
+@client.download_files_async(project_id, params)  # Input:
+                                                  ## project_id (string, required)
+                                                  ## params (hash, required)
+                                                  ### :format (string, required) - one of the file formats supported by Lokalise (json, xml, po etc).
+                                                  ### Find the list of other supported params at https://developers.lokalise.com/reference/download-files
+                                                  # Output:
+                                                  ## QueuedProcess resource
+```
+
+For example: 
+
+```ruby
+process = @client.download_files_async PROJECT_ID, format: :json, original_filenames: false
+
+process.process_id # => "123abc-..."
+
+process = @client.queued_process PROJECT_ID, process.process_id
+process.type # => 'async-export'
+process.details['download_url'] # => 'https://...'
+```
+
+Alternatively:
+
+```ruby
+project = @client.project project_id
+
+response = project.download_files_async params
+```
+
 ## Upload translation file
 
 [Doc](https://developers.lokalise.com/reference/upload-a-file)

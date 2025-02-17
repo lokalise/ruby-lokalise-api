@@ -1,0 +1,17 @@
+{
+  "process": {
+    "process_id": "1efed57f-2720-6212-abd2-3e03040b6ae5",
+    "type": "async-export",
+    "status": "finished",
+    "message": "",
+    "created_by": 20181,
+    "created_by_email": "bodrovis@protonmail.com",
+    "created_at": "2023-05-16 12:00:49 (Etc/UTC)",
+    "created_at_timestamp": 1684238449,
+    "details": {
+      "file_size_kb": 1,
+      "total_number_of_keys": 4,
+      "download_url": "https://example.com/download/bundle"
+    }
+  }
+}

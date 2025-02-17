@@ -1,5 +1,19 @@
 # Changelog
 
+## 9.4.0 (17-Feb-2025)
+
+* Add support for [async file downloads](https://developers.lokalise.com/reference/download-files-async)
+
+```ruby
+process = @client.download_files_async PROJECT_ID, format: :json, original_filenames: false
+
+process.process_id # => "123abc-..."
+
+process = @client.queued_process PROJECT_ID, process.process_id
+process.type # => 'async-export'
+process.details['download_url'] # => 'https://...'
+```
+
 ## 9.3.0 (27-Nov-2024)
 
 * Allow to override the API host to send requests to:

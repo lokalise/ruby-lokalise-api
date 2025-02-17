@@ -54,7 +54,7 @@ module RubyLokaliseApi
           accept: 'application/json',
           user_agent: "ruby-lokalise-api gem/#{RubyLokaliseApi::VERSION}"
         },
-        url: (endpoint.client.api_host || endpoint.base_url)
+        url: endpoint.client.api_host || endpoint.base_url
       }
     end
 

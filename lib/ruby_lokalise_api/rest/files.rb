@@ -50,6 +50,24 @@ module RubyLokaliseApi
         RubyLokaliseApi::Generics::DownloadBundle.new data.content
       end
 
+      # Downloads translation files from the project asynchronously
+      #
+      # @see https://developers.lokalise.com/reference/download-files-async
+      # @return [RubyLokaliseApi::Resources::QueuedProcess]
+      # @param project_id [String]
+      # @param req_params [Hash]
+      def download_files_async(project_id, req_params)
+        params = { query: [project_id, :'async-download'], req: req_params }
+
+        response = endpoint(name: 'Files', params: params).do_post
+
+        process_id = response.content['process_id']
+
+        response.patch_endpoint_with endpoint(name: 'QueuedProcesses', params: { query: [project_id, process_id] })
+
+        resource 'QueuedProcess', response
+      end
+
       # Deletes a single file from the project.
       # Only the "Documents" projects are supported
       #
