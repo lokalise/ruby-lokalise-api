@@ -39,6 +39,12 @@ module RubyLokaliseApi
       delegate_call :download_files_async
       delegate_call :destroy_file
 
+      delegate_call :glossary_terms
+      delegate_call :glossary_term
+      delegate_call :create_glossary_terms
+      delegate_call :update_glossary_terms
+      delegate_call :destroy_glossary_terms
+
       delegate_call :create_jwt
 
       delegate_call :keys

@@ -438,6 +438,70 @@ RSpec.describe RubyLokaliseApi::Resources::Project do
     end
   end
 
+  context 'with glossary terms' do
+    let(:term_id) { 876 }
+
+    it 'delegates glossary_terms' do
+      expect_to_delegate(project, :glossary_terms, project_id, pagination_params) do |obj|
+        obj.glossary_terms(pagination_params)
+      end
+    end
+
+    it 'delegates glossary_term' do
+      expect_to_delegate(project, :glossary_term, project_id, term_id) do |obj|
+        obj.glossary_term(term_id)
+      end
+    end
+
+    it 'delegates create_glossary_terms' do
+      terms_data = [
+        {
+          term: 'rspec',
+          description: 'rspec term',
+          caseSensitive: false,
+          translatable: false,
+          forbidden: false
+        },
+        {
+          term: 'rspec 2',
+          description: 'rspec term 2',
+          caseSensitive: true,
+          translatable: true,
+          forbidden: false
+        }
+      ]
+
+      expect_to_delegate(project, :create_glossary_terms, project_id, terms_data) do |obj|
+        obj.create_glossary_terms(terms_data)
+      end
+    end
+
+    it 'delegates update_glossary_terms' do
+      terms_data = [
+        {
+          id: 5_517_075,
+          term: 'updated rspec'
+        },
+        {
+          id: 5_517_076,
+          description: 'updated desc'
+        }
+      ]
+
+      expect_to_delegate(project, :update_glossary_terms, project_id, terms_data) do |obj|
+        obj.update_glossary_terms(terms_data)
+      end
+    end
+
+    it 'delegates destroy_glossary_terms' do
+      ids = [1, 2, 3]
+
+      expect_to_delegate(project, :destroy_glossary_terms, project_id, ids) do |obj|
+        obj.destroy_glossary_terms(ids)
+      end
+    end
+  end
+
   context 'with languages' do
     let(:language_id) { 543 }
 

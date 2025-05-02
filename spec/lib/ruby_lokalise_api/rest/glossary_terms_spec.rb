@@ -52,7 +52,6 @@ RSpec.describe RubyLokaliseApi::Rest::GlossaryTerms do
 
     it 'fetches translation with cursor' do
       cursor_params = {
-        pagination: 'cursor',
         limit: 1,
         cursor: '5319746'
       }
