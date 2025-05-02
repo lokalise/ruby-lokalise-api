@@ -54,7 +54,7 @@ module RubyLokaliseApi
       # Checks whether the next page is available
       # @return [Boolean]
       def next_page?
-        current_page.positive? && current_page < total_pages
+        !current_page.nil? && current_page.positive? && current_page < total_pages
       end
 
       # Checks whether the current page is the last one
@@ -66,7 +66,7 @@ module RubyLokaliseApi
       # Checks whether the previous page is available
       # @return [Boolean]
       def prev_page?
-        current_page > 1
+        !current_page.nil? && current_page > 1
       end
 
       # Checks whether the current page is the first one

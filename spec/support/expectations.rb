@@ -35,6 +35,7 @@ module Expectations
     res, ep = first_collection_endpoint(collection_from(collection_obj))
 
     main_params = res.class.const_get(:MAIN_PARAMS).to_array
+
     params = main_params.map do |p|
       res.send(p).to_s
     end

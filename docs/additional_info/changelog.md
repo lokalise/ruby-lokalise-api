@@ -1,5 +1,9 @@
 # Changelog
 
+## 9.5.0
+
+* Add support for [GlossaryTerms endpoint](https://lokalise.github.io/ruby-lokalise-api/api/glossary-terms)
+
 ## 9.4.0 (17-Feb-2025)
 
 * Add support for [async file downloads](https://developers.lokalise.com/reference/download-files-async)

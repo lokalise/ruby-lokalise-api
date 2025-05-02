@@ -9,6 +9,7 @@ module RubyLokaliseApi
     include Rest::Contributors
     include Rest::CustomTranslationStatuses
     include Rest::Files
+    include Rest::GlossaryTerms
     include Rest::Jwts
     include Rest::Keys
     include Rest::Languages

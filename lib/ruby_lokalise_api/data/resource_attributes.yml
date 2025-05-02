@@ -41,6 +41,18 @@ file:
   - file_id
   - filename
   - key_count
+glossary_term:
+  - id
+  - projectId
+  - term
+  - description
+  - caseSensitive
+  - translatable
+  - forbidden
+  - translations
+  - tags
+  - createdAt
+  - updatedAt
 jwt:
   - jwt
 key:
