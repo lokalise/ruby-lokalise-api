@@ -14,7 +14,7 @@ RSpec.describe RubyLokaliseApi::Resources::GlossaryTerm do
     resource 'GlossaryTerm', response(loaded_term_fixture, term_endpoint)
   end
 
-  let(:term_id) { 5319746 }
+  let(:term_id) { 5_319_746 }
 
   specify '#reload_data' do
     stub(

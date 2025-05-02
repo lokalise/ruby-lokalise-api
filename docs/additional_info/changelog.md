@@ -1,6 +1,6 @@
 # Changelog
 
-## 9.5.0
+## 9.5.0 (02-May-2025)
 
 * Add support for [GlossaryTerms endpoint](https://lokalise.github.io/ruby-lokalise-api/api/glossary-terms)
 
