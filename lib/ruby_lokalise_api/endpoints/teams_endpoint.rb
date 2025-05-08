@@ -5,8 +5,10 @@ module RubyLokaliseApi
     class TeamsEndpoint < MainEndpoint
       private
 
-      def base_query(*_args)
-        [:teams]
+      def base_query(team_id = nil, *_args)
+        {
+          teams: [team_id]
+        }
       end
     end
   end

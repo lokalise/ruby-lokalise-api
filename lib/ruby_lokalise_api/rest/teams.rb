@@ -16,6 +16,19 @@ module RubyLokaliseApi
 
         collection name, data
       end
+
+      # Returns a single team
+      #
+      # @see https://developers.lokalise.com/reference/get-team-details
+      # @return [RubyLokaliseApi::Resources::Team]
+      # @param team_id [String, Integer]
+      def team(team_id)
+        params = { query: team_id }
+
+        data = endpoint(name: 'Teams', params: params).do_get
+
+        resource 'Team', data
+      end
     end
   end
 end

@@ -19,6 +19,19 @@ module RubyLokaliseApi
         resource 'Contributor', data
       end
 
+      # Returns current contributor (me)
+      #
+      # @see https://developers.lokalise.com/reference/retrieve-me-as-a-contributor
+      # @return [RubyLokaliseApi::Resources::Contributor]
+      # @param project_id [String]
+      def current_contributor(project_id)
+        params = { query: [project_id, :me] }
+
+        data = endpoint(name: 'Contributors', params: params).do_get
+
+        resource 'Contributor', data
+      end
+
       # Returns project contributors
       #
       # @see https://developers.lokalise.com/reference/list-all-contributors

@@ -22,4 +22,18 @@ RSpec.describe RubyLokaliseApi::Rest::Teams do
     expect(team.quota_usage['users']).to eq(1)
     expect(team.quota_allowed['users']).to eq(999_999_999)
   end
+
+  specify '#team' do
+    team_id = 273_879
+
+    stub(
+      uri: "teams/#{team_id}",
+      resp: { body: fixture('teams/team') }
+    )
+
+    team = test_client.team team_id
+
+    expect(team.team_id).to eq(team_id)
+    expect(team.name).to eq('Ruby Team')
+  end
 end

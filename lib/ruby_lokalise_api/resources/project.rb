@@ -22,6 +22,7 @@ module RubyLokaliseApi
 
       delegate_call :contributor
       delegate_call :contributors
+      delegate_call :current_contributor
       delegate_call :create_contributors
       delegate_call :update_contributor
       delegate_call :destroy_contributor

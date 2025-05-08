@@ -213,6 +213,8 @@
   sub_paths:
     - title: Fetch teams
       path: fetch-teams
+    - title: Fetch a single team
+      path: fetch-a-single-team
 - title: Team users
   path: team-users
   sub_paths:

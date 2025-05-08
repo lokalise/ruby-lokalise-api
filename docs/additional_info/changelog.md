@@ -1,5 +1,10 @@
 # Changelog
 
+## 9.6.0 (08-May-2025)
+
+* Add support for [Get team details endpoint](https://developers.lokalise.com/reference/get-team-details)
+* Add support for [Getting current contributor](https://developers.lokalise.com/reference/retrieve-me-as-a-contributor) (on per-token basis)
+
 ## 9.5.0 (02-May-2025)
 
 * Add support for [GlossaryTerms endpoint](https://lokalise.github.io/ruby-lokalise-api/api/glossary-terms)

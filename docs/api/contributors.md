@@ -65,6 +65,35 @@ project = @client.project project_id
 contributor = project.contributor contributor_id
 ```
 
+## Fetch current contributor
+
+[Doc](https://developers.lokalise.com/reference/retrieve-me-as-a-contributor)
+
+This endpoint returns contributor in the given project based on the user whose token is used to send the request. In other words, it returns information about self in scope of a project.
+
+```ruby
+@client.current_contributor(project_id) # Input:
+                                        ## project_id (string, required)
+                                        # Output:
+                                        ## Current contributor in the given project
+```
+
+For example:
+
+```ruby
+contributor = @client.current_contributor "123.abc"
+
+contributor.fullname # => "Ruby Contributor"
+```
+
+Alternatively:
+
+```ruby
+project = @client.project project_id
+
+contributor = project.current_contributor
+```
+
 ## Create contributors
 
 [Doc](https://developers.lokalise.com/reference/create-contributors)

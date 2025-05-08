@@ -31,6 +31,18 @@ RSpec.describe RubyLokaliseApi::Rest::Contributors do
     expect(contributor.role_id).to eq(5)
   end
 
+  specify '#current_contributor' do
+    stub(
+      uri: "projects/#{project_id}/contributors/me",
+      resp: { body: fixture('contributors/current_contributor') }
+    )
+
+    contributor = test_client.current_contributor project_id
+
+    expect(contributor.project_id).to eq(project_id)
+    expect(contributor.fullname).to eq('Ruby Contributor')
+  end
+
   specify '#contributors' do
     stub(
       uri: "projects/#{project_id}/contributors",

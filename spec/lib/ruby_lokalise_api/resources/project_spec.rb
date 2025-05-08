@@ -221,6 +221,10 @@ RSpec.describe RubyLokaliseApi::Resources::Project do
       expect_to_delegate(project, :contributor, project_id, contributor_id) { |obj| obj.contributor(contributor_id) }
     end
 
+    it 'delegates current_contributor' do
+      expect_to_delegate(project, :current_contributor, project_id, &:current_contributor)
+    end
+
     it 'delegates create_contributors' do
       params = {
         email: 'ruby@contributor.sample',
