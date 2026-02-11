@@ -5,6 +5,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preload" href="{{ '/assets/fonts/FactorA-Regular.woff2' | relative_url }}" as="font" type="font/woff2"
+    crossorigin>
+  <link rel="preload" href="{{ '/assets/fonts/FactorA-Medium.woff2' | relative_url }}" as="font" type="font/woff2"
+    crossorigin>
 
   {% seo %}
   <link rel="stylesheet"
@@ -18,9 +22,7 @@
 <body>
   <div class="wrapper">
     <header>
-      {% assign root = "/" | absolute_url %}
-      <h1><a href="{{ root }}">{{ site.title | default: site.github.repository_name }}</a></h1>
-
+      <h1><a href="{{ '/' | relative_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
 
       {% if site.logo %}
       <img src="{{site.logo | relative_url}}" alt="Logo" />
@@ -54,7 +56,8 @@
 
         <ul>
           <li><a href="https://github.com/lokalise/ruby-lokalise-api" target="_blank">Source code</a></li>
-          <li><a href="https://developers.lokalise.com/reference/lokalise-rest-api" target="_blank">Lokalise APIv2 docs</a></li>
+          <li><a href="https://developers.lokalise.com/reference/lokalise-rest-api" target="_blank">Lokalise APIv2
+              docs</a></li>
           <li><a href="https://github.com/lokalise/php-lokalise-api" target="_blank">PHP API client</a></li>
           <li><a href="https://lokalise.github.io/node-lokalise-api/" target="_blank">Node.js API client</a></li>
           <li><a href="https://github.com/lokalise/go-lokalise-api" target="_blank">Go API client</a></li>
