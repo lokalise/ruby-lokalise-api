@@ -1,7 +1,23 @@
 ---
 ---
 
-@import "{{ site.theme }}";
+@use "fonts";
+@use "jekyll-theme-minimal";
+
+body {
+  font-family: "FactorA-Regular", system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'FactorA-Medium', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+
 .highlight {
   margin-left: 0;
   margin-right: 0;

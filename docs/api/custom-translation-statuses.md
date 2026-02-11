@@ -1,3 +1,5 @@
+---
+---
 # Custom translation statuses
 
 *Custom translation statuses must be enabled for the project before using this endpoint!* It can be done in the project settings.

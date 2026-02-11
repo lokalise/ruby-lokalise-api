@@ -1,0 +1,24 @@
+name: Pages build
+
+on:
+  # push:
+  #   branches: ["master"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: docs
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.4"
+          bundler-cache: true
+          working-directory: docs
+
+      - run: bundle exec jekyll build --trace
+        working-directory: docs

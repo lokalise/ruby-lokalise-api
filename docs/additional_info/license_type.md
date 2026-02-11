@@ -1,3 +1,5 @@
+---
+---
 BSD 3 Clause
 
 Copyright 2021 Lokalise Group, Ilya Krukowski
