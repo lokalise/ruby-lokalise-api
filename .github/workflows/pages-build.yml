@@ -1,4 +1,4 @@
-name: Pages build
+name: GH Pages build (docs)
 
 on:
   # push:
@@ -31,6 +31,8 @@ jobs:
 
       - run: bundle exec jekyll build --trace
         working-directory: docs
+        env:
+          JEKYLL_ENV: production
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4

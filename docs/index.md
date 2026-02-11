@@ -5,11 +5,13 @@
 
 Install the gem:
 
-    gem install ruby-lokalise-api
+```
+gem install ruby-lokalise-api
+```
 
 Obtain Lokalise API token in your personal profile, initialize and use the client:
 
-{% highlight ruby %}
+```ruby
 require 'ruby_lokalise_api'
 
 @client = RubyLokaliseApi.client 'YOUR_TOKEN_HERE'
@@ -27,7 +29,7 @@ process.status # => 'queued'
 reloaded_process = process.reload_data
 
 reloaded_process.status # => 'completed'
-{% endhighlight %}
+```
 
 Looking for a Rails integration? Try the [lokalise_rails gem](https://github.com/bodrovis/lokalise_rails). Also you can use a [lokalise_manager gem](https://github.com/bodrovis/lokalise_manager) which allows to exchange translation files between Lokalise and *any* Ruby script.
 

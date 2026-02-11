@@ -4,8 +4,9 @@ source 'https://rubygems.org'
 
 gem 'jekyll', '~> 4.4'
 
-# gem 'jekyll-theme-minimal', '~> 0.2'
 gem 'jekyll-seo-tag', '~> 2.2'
+gem 'jekyll-minifier', '~> 0.2'
+gem 'jekyll-sitemap', '~> 1'
 
 gem 'base64', '~> 0.3'
 

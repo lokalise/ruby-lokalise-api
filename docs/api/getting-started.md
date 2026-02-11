@@ -24,7 +24,7 @@ require 'ruby_lokalise_api'
 @client = RubyLokaliseApi.client 'YOUR_TOKEN_HERE'
 ```
 
-Now the `@client` can be used to perform API requests! Learn more about additional options in the [Customizing request section](#customizing-request).
+Now the `@client` can be used to perform API requests! Learn more about additional options on the [Customizing request]({{ '/additional_info/customization/' | relative_url }}) page.
 
 ## Objects and models
 

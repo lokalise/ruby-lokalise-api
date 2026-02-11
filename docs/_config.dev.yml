@@ -4,7 +4,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Ruby interface for the Lokalise APIv2 that
   represents returned data as Ruby objects.
 baseurl: "/ruby-lokalise-api" # the subpath of your site, e.g. /blog
-url: "https://lokalise.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: lokalise
 github_username:  lokalise
 
@@ -16,7 +16,6 @@ strict_front_matter: true
 
 plugins:
   - jekyll-seo-tag
-  - jekyll-minifier
   - jekyll-sitemap
 
 defaults:
