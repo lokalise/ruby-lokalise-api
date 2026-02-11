@@ -6,20 +6,44 @@ module RubyLokaliseApi
     ClientError = Class.new(self)
     ServerError = Class.new(self)
 
-    BadRequest = Class.new(ClientError)
-    Unauthorized = Class.new(ClientError)
-    NotAcceptable = Class.new(ClientError)
-    NotFound = Class.new(ClientError)
-    Conflict = Class.new(ClientError)
-    TooManyRequests = Class.new(ClientError)
-    Forbidden = Class.new(ClientError)
-    Locked = Class.new(ClientError)
-    MethodNotAllowed = Class.new(ClientError)
+    class BadRequest < ClientError
+    end
 
-    NotImplemented = Class.new(ServerError)
-    BadGateway = Class.new(ServerError)
-    ServiceUnavailable = Class.new(ServerError)
-    GatewayTimeout = Class.new(ServerError)
+    class Unauthorized < ClientError
+    end
+
+    class NotAcceptable < ClientError
+    end
+
+    class NotFound < ClientError
+    end
+
+    class Conflict < ClientError
+    end
+
+    class TooManyRequests < ClientError
+    end
+
+    class Forbidden < ClientError
+    end
+
+    class Locked < ClientError
+    end
+
+    class MethodNotAllowed < ClientError
+    end
+
+    class NotImplemented < ServerError
+    end
+
+    class BadGateway < ServerError
+    end
+
+    class ServiceUnavailable < ServerError
+    end
+
+    class GatewayTimeout < ServerError
+    end
 
     ERRORS = {
       400 => RubyLokaliseApi::Error::BadRequest,

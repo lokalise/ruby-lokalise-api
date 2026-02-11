@@ -113,8 +113,6 @@ def screenshot_from_file
   file = File.open File.expand_path('spec/fixtures/screenshots/screenshot_base64.txt')
   begin
     yield file
-  rescue StandardError => e
-    puts e
   ensure
     file.close
   end
