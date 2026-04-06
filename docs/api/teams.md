@@ -24,7 +24,7 @@ params = {
 
 teams = @client.teams params
 
-teams[0].plan # => 'Trial'
+teams[0].plan_name # => 'Trial'
 ```
 
 ## Fetch a single team

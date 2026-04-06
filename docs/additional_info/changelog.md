@@ -2,6 +2,21 @@
 ---
 # Changelog
 
+## 9.7.0 (06-Apr-2026)
+
+* Add support for the Users endpoint:
+
+```ruby
+user = test_client.user 1234
+
+user.id       # => 1234
+user.uuid     # => '01655d20-4648-5d1e-8dd7-6216606b7819'
+user.email    # => 'test@example.com'
+user.fullname # => 'Test User'
+```
+
+* Add new fields for certain resources
+
 ## 9.6.0 (08-May-2025)
 
 * Add support for [Get team details endpoint](https://developers.lokalise.com/reference/get-team-details)

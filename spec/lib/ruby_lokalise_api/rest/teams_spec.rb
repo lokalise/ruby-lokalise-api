@@ -18,7 +18,7 @@ RSpec.describe RubyLokaliseApi::Rest::Teams do
     expect(team.name).to eq('Ruby Team')
     expect(team.created_at).to eq('2021-12-15 17:37:23 (Etc/UTC)')
     expect(team.created_at_timestamp).to eq(1_639_589_843)
-    expect(team.plan).to eq('Trial')
+    expect(team.plan_name).to eq('Trial')
     expect(team.quota_usage['users']).to eq(1)
     expect(team.quota_allowed['users']).to eq(999_999_999)
   end

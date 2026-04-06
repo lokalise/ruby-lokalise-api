@@ -16,8 +16,7 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir['README.md', 'LICENSE',
                    'CHANGELOG.md', 'lib/**/*.rb', 'lib/ruby_lokalise_api/data/*.yml',
-                   'ruby-lokalise-api.gemspec', '.github/*.md',
-                   'Gemfile', 'Rakefile']
+                   'ruby-lokalise-api.gemspec']
   spec.extra_rdoc_files = ['README.md']
   spec.require_paths    = ['lib']
 
@@ -40,6 +39,10 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'simplecov-lcov',      '~> 0.8'
   spec.add_development_dependency 'webmock',             '~> 3.14'
   spec.metadata = {
-    'rubygems_mfa_required' => 'true'
+    'rubygems_mfa_required' => 'true',
+    'bug_tracker_uri' => 'https://github.com/lokalise/ruby-lokalise-api/issues',
+    'changelog_uri' => 'https://lokalise.github.io/ruby-lokalise-api/additional_info/changelog',
+    'documentation_uri' => 'https://github.com/lokalise/ruby-lokalise-api/blob/master/README.md',
+    'homepage_uri' => spec.homepage
   }
 end

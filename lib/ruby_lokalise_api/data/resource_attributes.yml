@@ -123,6 +123,7 @@ payment_card:
   - created_at_timestamp
 project:
   - project_id
+  - uuid
   - project_type
   - name
   - description
@@ -131,8 +132,11 @@ project:
   - created_by
   - created_by_email
   - team_id
+  - team_uuid
   - base_language_id
   - base_language_iso
+  - base_project_language_id
+  - base_project_language_uuid
   - settings
   - statistics
 project_language:
@@ -245,12 +249,18 @@ team:
   - name
   - created_at
   - created_at_timestamp
-  - plan
+  - plan_name
+  - logo_url
+  - role
   - quota_usage
   - quota_allowed
+  - is_team_suspended
+  - is_end_of_trial_active
+  - trial_days_left
 team_user:
   - team_id
   - user_id
+  - uuid
   - email
   - fullname
   - created_at
@@ -308,6 +318,11 @@ translation_provider:
   - description
   - tiers
   - pairs
+user:
+  - id
+  - uuid
+  - email
+  - fullname
 webhook:
   - project_id
   - branch

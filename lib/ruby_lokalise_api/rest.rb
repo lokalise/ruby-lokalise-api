@@ -28,6 +28,7 @@ module RubyLokaliseApi
     include Rest::TeamUserGroups
     include Rest::TranslationProviders
     include Rest::Translations
+    include Rest::Users
     include Rest::Webhooks
   end
 end

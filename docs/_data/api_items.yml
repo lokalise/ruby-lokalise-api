@@ -287,6 +287,11 @@
       path: delete-translation-status
     - title: Supported color codes for translation statuses
       path: supported-color-codes-for-translation-statuses
+- title: Users
+  path: users
+  sub_paths:
+    - title: Fetch basic user info
+      path: fetch-basic-user-info
 - title: Webhooks
   path: webhooks
   sub_paths:

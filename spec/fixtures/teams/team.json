@@ -2,7 +2,7 @@
   "team": {
     "team_id": 273879,
     "name": "Ruby Team",
-    "plan": "Trial",
+    "plan_name": "Trial",
     "created_at": "2021-12-15 17:37:23 (Etc/UTC)",
     "created_at_timestamp": 1639589843,
     "quota_usage": {
