@@ -27,6 +27,9 @@ module RubyLokaliseApi
     class Forbidden < ClientError
     end
 
+    class ContentTooLarge < ClientError
+    end
+
     class Locked < ClientError
     end
 
@@ -53,6 +56,7 @@ module RubyLokaliseApi
       405 => RubyLokaliseApi::Error::MethodNotAllowed,
       406 => RubyLokaliseApi::Error::NotAcceptable,
       409 => RubyLokaliseApi::Error::Conflict,
+      413 => RubyLokaliseApi::Error::ContentTooLarge,
       423 => RubyLokaliseApi::Error::Locked,
       429 => RubyLokaliseApi::Error::TooManyRequests,
       500 => RubyLokaliseApi::Error::ServerError,

@@ -15,6 +15,7 @@ The gem may raise the following custom exceptions:
 * `RubyLokaliseApi::Error::MethodNotAllowed` (`405`) - HTTP request with the provided verb is not supported by the endpoint
 * `RubyLokaliseApi::Error::NotAcceptable` (`406`) - posted resource is malformed
 * `RubyLokaliseApi::Error::Conflict` (`409`) - request conflicts with another request
+* `RubyLokaliseApi::Error::ContentTooLarge` (`413`)
 * `RubyLokaliseApi::Error::Locked` (`423`) - your token is used simultaneously in multiple requests
 * `RubyLokaliseApi::Error::TooManyRequests` (`429`)
 * `RubyLokaliseApi::Error::ServerError` (`500`)

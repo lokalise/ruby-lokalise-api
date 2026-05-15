@@ -2,6 +2,10 @@
 ---
 # Changelog
 
+## 9.7.1 (15-May-2026)
+
+* Add class for error 413 (`ContentTooLarge`)
+
 ## 9.7.0 (06-Apr-2026)
 
 * Add support for the Users endpoint:
