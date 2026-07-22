@@ -42,7 +42,7 @@ RSpec.describe RubyLokaliseApi::Collections::V1::AuditLogs do
 
     expect(next_cursor_logs.collection.length).to eq(2)
 
-    expect(logs[0].class_uid).to eq(6003)
+    expect(next_cursor_logs[0].class_uid).to eq(6003)
 
     expect(next_cursor_logs.next_cursor?).to be false
     expect(next_cursor_logs.has_more).to be false

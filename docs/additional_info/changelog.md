@@ -4,6 +4,7 @@
 
 ## 9.8.0 (22-Jul-2026)
 
+* This is the last major version to support Ruby 3.0 and 3.1; v10 will require Ruby 3.2+.
 * Add support for [Audit logs endpoint](https://developers.lokalise.com/reference/list-audit-logs) (available only via the new v1 client):
 
 ```ruby
