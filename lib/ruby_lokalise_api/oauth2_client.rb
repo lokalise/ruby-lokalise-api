@@ -3,6 +3,8 @@
 module RubyLokaliseApi
   # Client used to perform API requests with an OAuth2 access token
   class OAuth2Client < Client
+    include RubyLokaliseApi::Rest
+
     def initialize(token, params = {})
       super
       @token_header = 'Authorization'

@@ -2,6 +2,24 @@
 ---
 # Changelog
 
+## 9.8.0 (22-Jul-2026)
+
+* Add support for [Audit logs endpoint](https://developers.lokalise.com/reference/list-audit-logs) (available only via the new v1 client):
+
+```ruby
+@client = RubyLokaliseApi::ClientV1.new(api_token)
+
+audit_logs = @client.audit_logs limit: 100, event_type: 'project.deleted'
+
+audit_logs[0].class_name # => 'API Activity'
+audit_logs[0].metadata['event_code'] # => 'project.deleted'
+
+audit_logs.has_more # => true
+audit_logs.next_cursor # => 'eyJpZ...'
+
+next_cursor_logs = audit_logs.load_next_cursor
+```
+
 ## 9.7.1 (15-May-2026)
 
 * Add class for error 413 (`ContentTooLarge`)

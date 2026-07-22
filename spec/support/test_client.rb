@@ -5,6 +5,10 @@ module TestClient
     RubyLokaliseApi.client(token || ENV.fetch('LOKALISE_API_TOKEN', nil), params)
   end
 
+  def test_client_v1(token = nil, params = {})
+    RubyLokaliseApi.client_v1(token || ENV.fetch('LOKALISE_API_TOKEN', nil), params)
+  end
+
   def auth_client
     RubyLokaliseApi.auth_client(ENV.fetch('OAUTH2_CLIENT_ID', nil), ENV.fetch('OAUTH2_CLIENT_SECRET', nil))
   end

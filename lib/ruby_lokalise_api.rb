@@ -12,11 +12,13 @@ loader.inflector.inflect(
   'oauth2_client' => 'OAuth2Client',
   'oauth2_endpoint' => 'OAuth2Endpoint',
   'oauth2_token' => 'OAuth2Token',
-  'oauth2_refreshed_token' => 'OAuth2RefreshedToken'
+  'oauth2_refreshed_token' => 'OAuth2RefreshedToken',
+  'client_v1' => 'ClientV1',
+  'rest_v1' => 'RestV1'
 )
 loader.setup
 
-# Official Ruby client for Lokalise APIv2
+# Official Ruby client for Lokalise APIv2 and new V1 API
 module RubyLokaliseApi
   class << self
     # Initializes a new Client object
@@ -28,9 +30,19 @@ module RubyLokaliseApi
       @client = RubyLokaliseApi::Client.new token, params
     end
 
+    # Initializes a new Client object for v1 endpoints
+    #
+    # @return [RubyLokaliseApi::ClientV1]
+    # @param token [String]
+    # @param params [Hash]
+    def client_v1(token, params = {})
+      @client_v1 = RubyLokaliseApi::ClientV1.new token, params
+    end
+
     # Reset the currently set client
     def reset_client!
       @client = nil
+      @client_v1 = nil
     end
 
     # Initializes a new OAuth2Client object
