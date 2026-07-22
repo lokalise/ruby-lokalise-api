@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module RubyLokaliseApi
-  VERSION = '9.7.1'
+  VERSION = '9.8.0'
 end

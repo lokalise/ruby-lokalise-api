@@ -11,6 +11,11 @@
       path: collections-of-resources-and-pagination
     - title: Branching
       path: branching
+- title: Audit logs
+  path: audit-logs
+  sub_paths:
+    - title: Fetch audit logs
+      path: fetch-audit-logs
 - title: Branches
   path: branches
   sub_paths:

@@ -21,6 +21,14 @@ module Expectations
     proper_endpoint(collection_obj)
   end
 
+  def expect_to_have_valid_resources_v1(collection_obj)
+    expect(collection_obj).to all(be_an_instance_of(resource_klass(collection_obj)))
+    expect(endpoints(collection_obj)).to all(be_an_instance_of(endpoint_klass_for(collection_obj)))
+    expect(clients(collection_obj)).to all(be_an_instance_of(RubyLokaliseApi::ClientV1))
+
+    proper_endpoint(collection_obj)
+  end
+
   private
 
   def proper_collection(collection_obj, collection)

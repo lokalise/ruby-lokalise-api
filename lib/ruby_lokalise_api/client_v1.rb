@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 module RubyLokaliseApi
-  # Regular API client used to perform requests with a basic API token
-  class Client < BaseClient
-    include RubyLokaliseApi::Rest
+  # API client used to perform requests against new Lokalise API v1
+  class ClientV1 < BaseClient
+    include RubyLokaliseApi::RestV1
 
     def initialize(token, params = {})
       super

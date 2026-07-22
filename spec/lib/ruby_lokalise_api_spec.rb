@@ -8,6 +8,13 @@ RSpec.describe RubyLokaliseApi do
     expect(test_client.open_timeout).to be_nil
   end
 
+  specify '.client_v1' do
+    expect(test_client_v1).to be_an_instance_of(RubyLokaliseApi::ClientV1)
+    expect(test_client_v1.token).to eq(ENV.fetch('LOKALISE_API_TOKEN', nil))
+    expect(test_client_v1.timeout).to be_nil
+    expect(test_client_v1.open_timeout).to be_nil
+  end
+
   specify '.reset_client!' do
     expect(test_client).to be_an_instance_of(RubyLokaliseApi::Client)
     described_class.reset_client!
