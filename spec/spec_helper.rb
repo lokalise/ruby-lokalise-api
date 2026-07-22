@@ -17,8 +17,8 @@ SimpleCov.start do
     formatter SimpleCov::Formatter::LcovFormatter
   end
 
-  skip 'spec/'
-  skip '.github/'
+  add_filter 'spec/'
+  add_filter '.github/'
 end
 
 require_relative '../lib/ruby_lokalise_api'
