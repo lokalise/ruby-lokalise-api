@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.homepage              = 'https://github.com/lokalise/ruby-lokalise-api'
   spec.license               = 'BSD-3-Clause'
   spec.platform              = Gem::Platform::RUBY
-  spec.required_ruby_version = '>= 3.0'
+  spec.required_ruby_version = '>= 3.2'
 
   spec.files = Dir['README.md', 'LICENSE',
                    'CHANGELOG.md', 'lib/**/*.rb', 'lib/ruby_lokalise_api/data/*.yml',
@@ -35,7 +35,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop-performance', '~> 1.5'
   spec.add_development_dependency 'rubocop-rake',        '~> 0.6'
   spec.add_development_dependency 'rubocop-rspec',       '~> 3.0'
-  spec.add_development_dependency 'simplecov',           '~> 0.22.0'
+  spec.add_development_dependency 'simplecov',           '~> 1.1'
   spec.add_development_dependency 'simplecov-lcov',      '~> 0.8'
   spec.add_development_dependency 'webmock',             '~> 3.14'
   spec.metadata = {

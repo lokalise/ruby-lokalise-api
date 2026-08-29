@@ -111,6 +111,6 @@ RSpec.describe RubyLokaliseApi::Rest::Screenshots do
   end
 end
 
-def screenshot_from_file(&block)
-  File.open(File.expand_path('spec/fixtures/screenshots/screenshot_base64.txt'), &block)
+def screenshot_from_file(&)
+  File.open(File.expand_path('spec/fixtures/screenshots/screenshot_base64.txt'), &)
 end

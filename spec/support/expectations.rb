@@ -3,7 +3,7 @@
 module Expectations
   using RubyLokaliseApi::Utils::Classes
 
-  def expect_to_delegate(object, method, *args)
+  def expect_to_delegate(object, method, *)
     return unless block_given?
 
     ep = object.instance_variable_get(:@self_endpoint)
@@ -12,7 +12,7 @@ module Expectations
 
     yield(object)
 
-    expect(ep.client).to have_received(method).with(*args).exactly(1).times
+    expect(ep.client).to have_received(method).with(*).exactly(1).times
   end
 
   def expect_to_have_valid_resources(collection_obj)

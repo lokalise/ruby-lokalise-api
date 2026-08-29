@@ -38,8 +38,8 @@ module RubyLokaliseApi
       # @param constant_path [String] The constant path for the class
       # @param args [Array] Arguments to initialize the class with
       # @return [Object] The instantiated class
-      def instantiate(constant_path, *args)
-        RubyLokaliseApi.const_get(constant_path).new(*args)
+      def instantiate(constant_path, *)
+        RubyLokaliseApi.const_get(constant_path).new(*)
       end
     end
   end

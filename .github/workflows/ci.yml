@@ -13,12 +13,10 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         ruby:
-          - '3.0'
-          - 3.1
-          - 3.2
-          - 3.3
-          - 3.4
-          - 4.0
+          - "3.2"
+          - "3.3"
+          - "3.4"
+          - "4.0"
     runs-on: ${{ matrix.os }}
     env:
       LOKALISE_API_TOKEN: 123abc
@@ -29,14 +27,15 @@ jobs:
       OAUTH2_CODE: fake
       OAUTH2_TOKEN_REFRESHED: fake
     steps:
-    - uses: actions/checkout@v7
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
       with:
         persist-credentials: false
     - name: Set up Ruby
-      uses: ruby/setup-ruby@v1.321.0
+      uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b
       with:
         ruby-version: ${{ matrix.ruby }}
         bundler-cache: true
     - run: bundle exec rake spec
     - name: Coveralls
-      uses: coverallsapp/github-action@v2.3.6
+      if: matrix.ruby == '4.0'
+      uses: coverallsapp/github-action@8d6379e14d29928660c4ba802d8e85393440b329
