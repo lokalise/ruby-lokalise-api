@@ -2,6 +2,10 @@
 ---
 # Changelog
 
+## 10.1.0 (18-Sep-2026)
+
+* Relaxed `json` dependency version range to support JSON v3
+
 ## 10.0.0 (31-Aug-2026)
 
 * **Breaking change**: require Ruby 3.2+
