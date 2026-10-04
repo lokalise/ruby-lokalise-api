@@ -102,7 +102,7 @@ RSpec.describe RubyLokaliseApi::Rest::CustomTranslationStatuses do
 
     res = test_client.custom_translation_status_colors project_id
 
-    expect(res).to be_an_instance_of(RubyLokaliseApi::Generics::CustomStatusAvailableColors)
+    expect(res).to be_an_instance_of(RubyLokaliseApi::OperationResults::CustomStatusAvailableColors)
     expect(res.colors).to include('#61bd4f')
   end
 end

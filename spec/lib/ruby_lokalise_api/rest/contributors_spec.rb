@@ -117,7 +117,7 @@ RSpec.describe RubyLokaliseApi::Rest::Contributors do
 
     resp = test_client.destroy_contributor(project_id, contributor_to_delete)
 
-    expect(resp).to be_an_instance_of(RubyLokaliseApi::Generics::DeletedResource)
+    expect(resp).to be_an_instance_of(RubyLokaliseApi::OperationResults::DeletedResource)
     expect(resp.project_id).to eq(project_id)
     expect(resp.contributor_deleted).to be true
   end

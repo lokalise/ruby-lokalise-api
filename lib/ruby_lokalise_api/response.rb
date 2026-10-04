@@ -1,11 +1,16 @@
 # frozen_string_literal: true
 
 module RubyLokaliseApi
-  # This class is utilized to prepare Lokalise API response
+  # Wraps a Lokalise API response and its metadata
   class Response
     # Lokalise returns pagination info in special headers
-    PAGINATION_HEADERS = %w[x-pagination-total-count x-pagination-page-count x-pagination-limit
-                            x-pagination-page x-pagination-next-cursor].freeze
+    PAGINATION_HEADERS = %w[
+      x-pagination-total-count
+      x-pagination-page-count
+      x-pagination-limit
+      x-pagination-page
+      x-pagination-next-cursor
+    ].freeze
 
     attr_reader :content, :endpoint, :headers
 

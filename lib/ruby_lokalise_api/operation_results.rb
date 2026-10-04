@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module RubyLokaliseApi
-  # Simple generic objects to decorate certain responses (usually, related to data deletion)
-  class Generics
+  # Lightweight objects representing results of API operations
+  class OperationResults
     include RubyLokaliseApi::Concerns::HashAccessible
 
     DeletedResource = Class.new(self)

@@ -68,7 +68,7 @@ module RubyLokaliseApi
       # Deletes a screenshot
       #
       # @see https://developers.lokalise.com/reference/delete-a-screenshot
-      # @return [RubyLokaliseApi::Generics::DeletedResource]
+      # @return [RubyLokaliseApi::OperationResults::DeletedResource]
       # @param project_id [String]
       # @param screenshot_id [String, Integer]
       def destroy_screenshot(project_id, screenshot_id)
@@ -76,7 +76,7 @@ module RubyLokaliseApi
 
         data = endpoint(name: 'Screenshots', params: params).do_delete
 
-        RubyLokaliseApi::Generics::DeletedResource.new data.content
+        RubyLokaliseApi::OperationResults::DeletedResource.new data.content
       end
     end
   end

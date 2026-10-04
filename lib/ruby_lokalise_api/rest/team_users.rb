@@ -50,7 +50,7 @@ module RubyLokaliseApi
       # Deletes a team user
       #
       # @see https://developers.lokalise.com/reference/delete-a-team-user
-      # @return [RubyLokaliseApi::Generics::DeletedResource]
+      # @return [RubyLokaliseApi::OperationResults::DeletedResource]
       # @param team_id [String, Integer]
       # @param user_id [String, Integer]
       def destroy_team_user(team_id, user_id)
@@ -58,7 +58,7 @@ module RubyLokaliseApi
 
         data = endpoint(name: 'TeamUsers', params: params).do_delete
 
-        RubyLokaliseApi::Generics::DeletedResource.new data.content
+        RubyLokaliseApi::OperationResults::DeletedResource.new data.content
       end
     end
   end

@@ -55,7 +55,7 @@ RSpec.describe RubyLokaliseApi::Resources::Key do
 
     resp = key.destroy
 
-    expect(resp).to be_an_instance_of(RubyLokaliseApi::Generics::DeletedResource)
+    expect(resp).to be_an_instance_of(RubyLokaliseApi::OperationResults::DeletedResource)
     expect(resp.project_id).to eq(project_id)
     expect(resp.key_removed).to be true
     expect(resp.keys_locked).to eq(0)

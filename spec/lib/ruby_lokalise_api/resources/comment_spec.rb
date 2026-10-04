@@ -42,7 +42,7 @@ RSpec.describe RubyLokaliseApi::Resources::Comment do
 
     resp = comment.destroy
 
-    expect(resp).to be_an_instance_of(RubyLokaliseApi::Generics::DeletedResource)
+    expect(resp).to be_an_instance_of(RubyLokaliseApi::OperationResults::DeletedResource)
     expect(resp.project_id).to eq(project_id)
     expect(resp.comment_deleted).to be true
   end

@@ -55,7 +55,7 @@ RSpec.describe RubyLokaliseApi::Resources::Contributor do
 
     resp = contributor.destroy
 
-    expect(resp).to be_an_instance_of(RubyLokaliseApi::Generics::DeletedResource)
+    expect(resp).to be_an_instance_of(RubyLokaliseApi::OperationResults::DeletedResource)
     expect(resp.project_id).to eq(project_id)
     expect(resp.contributor_deleted).to be true
   end

@@ -34,7 +34,7 @@ RSpec.describe RubyLokaliseApi::Resources::File do
 
     resp = file.destroy
 
-    expect(resp).to be_an_instance_of(RubyLokaliseApi::Generics::DeletedResource)
+    expect(resp).to be_an_instance_of(RubyLokaliseApi::OperationResults::DeletedResource)
     expect(resp.project_id).to eq(project_id)
     expect(resp.file_deleted).to be true
   end

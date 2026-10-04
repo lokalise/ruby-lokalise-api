@@ -65,7 +65,7 @@ module RubyLokaliseApi
       # Deletes a task
       #
       # @see https://developers.lokalise.com/reference/delete-a-task
-      # @return [RubyLokaliseApi::Generics::DeletedResource]
+      # @return [RubyLokaliseApi::OperationResults::DeletedResource]
       # @param project_id [String]
       # @param task_id [String, Integer]
       def destroy_task(project_id, task_id)
@@ -73,7 +73,7 @@ module RubyLokaliseApi
 
         data = endpoint(name: 'Tasks', params: params).do_delete
 
-        RubyLokaliseApi::Generics::DeletedResource.new data.content
+        RubyLokaliseApi::OperationResults::DeletedResource.new data.content
       end
     end
   end

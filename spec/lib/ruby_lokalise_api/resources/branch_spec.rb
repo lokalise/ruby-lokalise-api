@@ -46,7 +46,7 @@ RSpec.describe RubyLokaliseApi::Resources::Branch do
 
     resp = branch.destroy
 
-    expect(resp).to be_an_instance_of(RubyLokaliseApi::Generics::DeletedResource)
+    expect(resp).to be_an_instance_of(RubyLokaliseApi::OperationResults::DeletedResource)
     expect(resp.project_id).to eq(project_id)
     expect(resp.branch).to eq('master')
     expect(resp.branch_deleted).to be true
@@ -74,7 +74,7 @@ RSpec.describe RubyLokaliseApi::Resources::Branch do
 
     resp = branch_source.merge data
 
-    expect(resp).to be_an_instance_of(RubyLokaliseApi::Generics::MergedBranches)
+    expect(resp).to be_an_instance_of(RubyLokaliseApi::OperationResults::MergedBranches)
     expect(resp.project_id).to eq(project_id)
     expect(resp.branch['branch_id']).to eq(branch_id2)
   end

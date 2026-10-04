@@ -161,7 +161,7 @@ RSpec.describe RubyLokaliseApi::Rest::TeamUserGroups do
 
     resp = test_client.destroy_team_user_group team_id, group_id
 
-    expect(resp).to be_an_instance_of(RubyLokaliseApi::Generics::DeletedResource)
+    expect(resp).to be_an_instance_of(RubyLokaliseApi::OperationResults::DeletedResource)
     expect(resp.team_id).to eq(team_id)
     expect(resp.group_deleted).to be true
   end

@@ -64,7 +64,7 @@ module RubyLokaliseApi
       # Deletes a custom translation status
       #
       # @see https://developers.lokalise.com/reference/delete-a-status
-      # @return [RubyLokaliseApi::Generics::DeletedResource]
+      # @return [RubyLokaliseApi::OperationResults::DeletedResource]
       # @param project_id [String]
       # @param status_id [Integer, String]
       def destroy_custom_translation_status(project_id, status_id)
@@ -72,20 +72,20 @@ module RubyLokaliseApi
 
         data = endpoint(name: 'CustomTranslationStatuses', params: params).do_delete
 
-        RubyLokaliseApi::Generics::DeletedResource.new data.content
+        RubyLokaliseApi::OperationResults::DeletedResource.new data.content
       end
 
       # Retrieves an array of available colors that can be assigned to custom translation statuses
       #
       # @see https://developers.lokalise.com/reference/retrieve-available-colors
-      # @return [RubyLokaliseApi::Generics::CustomStatusAvailableColors]
+      # @return [RubyLokaliseApi::OperationResults::CustomStatusAvailableColors]
       # @param project_id [String]
       def custom_translation_status_colors(project_id)
         params = { query: [project_id, :colors] }
 
         data = endpoint(name: 'CustomTranslationStatuses', params: params).do_get
 
-        RubyLokaliseApi::Generics::CustomStatusAvailableColors.new data.content
+        RubyLokaliseApi::OperationResults::CustomStatusAvailableColors.new data.content
       end
     end
   end

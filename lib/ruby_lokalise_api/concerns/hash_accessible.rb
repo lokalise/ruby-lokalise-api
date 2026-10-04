@@ -2,7 +2,7 @@
 
 module RubyLokaliseApi
   module Concerns
-    # Adds the `[]` method for invariant access
+    # Allows attributes to be accessed using `[]`
     module HashAccessible
       def [](raw_key_attr)
         key_attr = :"@#{raw_key_attr}"

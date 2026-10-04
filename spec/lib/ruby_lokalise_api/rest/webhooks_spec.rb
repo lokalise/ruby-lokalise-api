@@ -84,7 +84,7 @@ RSpec.describe RubyLokaliseApi::Rest::Webhooks do
 
     response = test_client.regenerate_webhook_secret project_id, webhook_id
 
-    expect(response).to be_an_instance_of(RubyLokaliseApi::Generics::RegeneratedWebhookSecret)
+    expect(response).to be_an_instance_of(RubyLokaliseApi::OperationResults::RegeneratedWebhookSecret)
     expect(response.project_id).to eq(project_id)
     expect(response.secret).to include('70fb')
   end
@@ -98,7 +98,7 @@ RSpec.describe RubyLokaliseApi::Rest::Webhooks do
 
     resp = test_client.destroy_webhook project_id, webhook_id
 
-    expect(resp).to be_an_instance_of(RubyLokaliseApi::Generics::DeletedResource)
+    expect(resp).to be_an_instance_of(RubyLokaliseApi::OperationResults::DeletedResource)
     expect(resp.project_id).to eq(project_id)
     expect(resp.webhook_deleted).to be true
   end

@@ -52,7 +52,7 @@ module RubyLokaliseApi
       # Deletes a snapshot
       #
       # @see https://developers.lokalise.com/reference/delete-a-snapshot
-      # @return [RubyLokaliseApi::Generics::DeletedResource]
+      # @return [RubyLokaliseApi::OperationResults::DeletedResource]
       # @param project_id [String]
       # @param snapshot_id [String, Integer]
       def destroy_snapshot(project_id, snapshot_id)
@@ -60,7 +60,7 @@ module RubyLokaliseApi
 
         data = endpoint(name: 'Snapshots', params: params).do_delete
 
-        RubyLokaliseApi::Generics::DeletedResource.new data.content
+        RubyLokaliseApi::OperationResults::DeletedResource.new data.content
       end
     end
   end

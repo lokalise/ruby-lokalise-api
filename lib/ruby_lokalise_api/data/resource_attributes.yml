@@ -328,6 +328,9 @@ translation:
   - words
   - custom_translation_statuses
   - task_id
+translation_memory:
+  - id
+  - name
 translation_provider:
   - team_id
   - provider_id

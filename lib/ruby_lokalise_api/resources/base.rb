@@ -26,7 +26,7 @@ module RubyLokaliseApi
 
       # Deletes the current resource
       def destroy
-        RubyLokaliseApi::Generics::DeletedResource.new(
+        RubyLokaliseApi::OperationResults::DeletedResource.new(
           reinit_endpoint.do_delete.content
         )
       end
@@ -40,7 +40,11 @@ module RubyLokaliseApi
         # Delegates instance method calls to the client methods
         def delegate_call(from, to = nil)
           define_method(from) do |*args|
-            @self_endpoint.client.send(to || from, *read_main_params.push(*args))
+            @self_endpoint.client.public_send(
+              to || from,
+              *read_main_params,
+              *args
+            )
           end
         end
       end

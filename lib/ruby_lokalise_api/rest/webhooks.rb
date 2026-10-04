@@ -64,7 +64,7 @@ module RubyLokaliseApi
       # Regenerates webhook secret
       #
       # @see https://developers.lokalise.com/reference/regenerate-a-webhook-secret
-      # @return [RubyLokaliseApi::Generics::RegeneratedWebhookSecret]
+      # @return [RubyLokaliseApi::OperationResults::RegeneratedWebhookSecret]
       # @param project_id [String]
       # @param webhook_id [String]
       def regenerate_webhook_secret(project_id, webhook_id)
@@ -72,13 +72,13 @@ module RubyLokaliseApi
 
         data = endpoint(name: 'Webhooks', params: params).do_patch
 
-        RubyLokaliseApi::Generics::RegeneratedWebhookSecret.new data.content
+        RubyLokaliseApi::OperationResults::RegeneratedWebhookSecret.new data.content
       end
 
       # Deletes a webhook
       #
       # @see https://developers.lokalise.com/reference/delete-a-webhook
-      # @return [RubyLokaliseApi::Generics::DeletedResource]
+      # @return [RubyLokaliseApi::OperationResults::DeletedResource]
       # @param project_id [String]
       # @param webhook_id [String]
       def destroy_webhook(project_id, webhook_id)
@@ -86,7 +86,7 @@ module RubyLokaliseApi
 
         data = endpoint(name: 'Webhooks', params: params).do_delete
 
-        RubyLokaliseApi::Generics::DeletedResource.new data.content
+        RubyLokaliseApi::OperationResults::DeletedResource.new data.content
       end
     end
   end

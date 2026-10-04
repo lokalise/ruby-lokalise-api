@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module RubyLokaliseApi
-  # Module to setup connection using Faraday
+  # Module for setting up Faraday connections
   module Connection
     # Creates a new Faraday object with specified params
     #
@@ -18,7 +18,7 @@ module RubyLokaliseApi
     private
 
     def options(endpoint, params)
-      req_params = __base_options(endpoint)
+      req_params = base_options(endpoint)
       client = endpoint.client
 
       add_token_header(req_params, client) if client_responds_to_token?(client)
@@ -26,7 +26,7 @@ module RubyLokaliseApi
       # Set Content-Type if required (skip for GET requests)
       add_content_type_header(req_params, params, endpoint)
 
-      req_params[:headers][:accept_encoding] = 'gzip,deflate,br'
+      req_params[:headers]['Accept-Encoding'] = 'gzip,deflate,br'
 
       req_params
     end
@@ -43,16 +43,16 @@ module RubyLokaliseApi
 
     # Conditionally adds the Content-Type header
     def add_content_type_header(req_params, params, endpoint)
-      return unless !params[:get_request] && endpoint.req_params
+      return if params[:get_request] || endpoint.req_params.nil?
 
       req_params[:headers]['Content-Type'] = 'application/json'
     end
 
-    def __base_options(endpoint)
+    def base_options(endpoint)
       {
         headers: {
-          accept: 'application/json',
-          user_agent: "ruby-lokalise-api gem/#{RubyLokaliseApi::VERSION}"
+          'Accept' => 'application/json',
+          'User-Agent' => "ruby-lokalise-api gem/#{RubyLokaliseApi::VERSION}"
         },
         url: endpoint.client.api_host || endpoint.base_url
       }

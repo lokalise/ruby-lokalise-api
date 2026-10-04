@@ -81,7 +81,7 @@ module RubyLokaliseApi
       # Deletes a single language from the project
       #
       # @see https://developers.lokalise.com/reference/delete-a-language
-      # @return [RubyLokaliseApi::Generics::DeletedResource]
+      # @return [RubyLokaliseApi::OperationResults::DeletedResource]
       # @param project_id [String]
       # @param language_id [String, Integer]
       def destroy_project_language(project_id, language_id)
@@ -89,7 +89,7 @@ module RubyLokaliseApi
 
         data = endpoint(name: 'ProjectLanguages', params: params).do_delete
 
-        RubyLokaliseApi::Generics::DeletedResource.new data.content
+        RubyLokaliseApi::OperationResults::DeletedResource.new data.content
       end
     end
   end

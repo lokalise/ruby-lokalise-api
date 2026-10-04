@@ -111,7 +111,7 @@ RSpec.describe RubyLokaliseApi::Rest::Projects do
 
     resp = test_client.destroy_project(new_project_id)
 
-    expect(resp).to be_an_instance_of(RubyLokaliseApi::Generics::DeletedResource)
+    expect(resp).to be_an_instance_of(RubyLokaliseApi::OperationResults::DeletedResource)
     expect(resp.project_id).to eq(new_project_id)
     expect(resp.project_deleted).to be true
   end
@@ -127,7 +127,7 @@ RSpec.describe RubyLokaliseApi::Rest::Projects do
 
     resp = test_client.empty_project project_to_empty
 
-    expect(resp).to be_an_instance_of(RubyLokaliseApi::Generics::EmptiedResource)
+    expect(resp).to be_an_instance_of(RubyLokaliseApi::OperationResults::EmptiedResource)
     expect(resp.project_id).to eq(project_to_empty)
     expect(resp.keys_deleted).to be true
   end

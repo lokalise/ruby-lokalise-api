@@ -46,14 +46,14 @@ module RubyLokaliseApi
       # Deletes a payment card
       #
       # @see https://developers.lokalise.com/reference/delete-a-card
-      # @return [RubyLokaliseApi::Generics::DeletedResource]
+      # @return [RubyLokaliseApi::OperationResults::DeletedResource]
       # @param card_id [String, Integer]
       def destroy_payment_card(card_id)
         params = { query: card_id }
 
         data = endpoint(name: 'PaymentCards', params: params).do_delete
 
-        RubyLokaliseApi::Generics::DeletedResource.new data.content
+        RubyLokaliseApi::OperationResults::DeletedResource.new data.content
       end
     end
   end

@@ -70,7 +70,7 @@ module RubyLokaliseApi
       # Deletes a single key comment
       #
       # @see https://developers.lokalise.com/reference/delete-a-comment
-      # @return [RubyLokaliseApi::Generics::DeletedResource]
+      # @return [RubyLokaliseApi::OperationResults::DeletedResource]
       # @param project_id [String]
       # @param key_id [String, Integer]
       # @param comment_id [String, Integer]
@@ -79,7 +79,7 @@ module RubyLokaliseApi
 
         data = endpoint(name: 'KeyComments', params: params).do_delete
 
-        RubyLokaliseApi::Generics::DeletedResource.new data.content
+        RubyLokaliseApi::OperationResults::DeletedResource.new data.content
       end
     end
   end

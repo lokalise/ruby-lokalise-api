@@ -66,7 +66,7 @@ module RubyLokaliseApi
       # Deletes a team user group
       #
       # @see https://developers.lokalise.com/reference/delete-a-group
-      # @return [RubyLokaliseApi::Generics::DeletedResource]
+      # @return [RubyLokaliseApi::OperationResults::DeletedResource]
       # @param team_id [String, Integer]
       # @param group_id [String, Integer]
       def destroy_team_user_group(team_id, group_id)
@@ -74,7 +74,7 @@ module RubyLokaliseApi
 
         data = endpoint(name: 'TeamUserGroups', params: params).do_delete
 
-        RubyLokaliseApi::Generics::DeletedResource.new data.content
+        RubyLokaliseApi::OperationResults::DeletedResource.new data.content
       end
 
       # Adds projects to the group

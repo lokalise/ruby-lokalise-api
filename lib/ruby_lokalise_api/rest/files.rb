@@ -39,7 +39,7 @@ module RubyLokaliseApi
       # Downloads translation files from the project
       #
       # @see https://developers.lokalise.com/reference/download-files
-      # @return [RubyLokaliseApi::Generics::DownloadBundle]
+      # @return [RubyLokaliseApi::OperationResults::DownloadBundle]
       # @param project_id [String]
       # @param req_params [Hash]
       def download_files(project_id, req_params)
@@ -47,7 +47,7 @@ module RubyLokaliseApi
 
         data = endpoint(name: 'Files', params: params).do_post
 
-        RubyLokaliseApi::Generics::DownloadBundle.new data.content
+        RubyLokaliseApi::OperationResults::DownloadBundle.new data.content
       end
 
       # Downloads translation files from the project asynchronously
@@ -72,7 +72,7 @@ module RubyLokaliseApi
       # Only the "Documents" projects are supported
       #
       # @see https://developers.lokalise.com/reference/delete-a-file
-      # @return [RubyLokaliseApi::Generics::DeletedResource]
+      # @return [RubyLokaliseApi::OperationResults::DeletedResource]
       # @param project_id [String]
       # @param file_id [String, Integer]
       def destroy_file(project_id, file_id)
@@ -80,7 +80,7 @@ module RubyLokaliseApi
 
         data = endpoint(name: 'Files', params: params).do_delete
 
-        RubyLokaliseApi::Generics::DeletedResource.new data.content
+        RubyLokaliseApi::OperationResults::DeletedResource.new data.content
       end
     end
   end

@@ -60,6 +60,7 @@ module RubyLokaliseApi
       423 => RubyLokaliseApi::Error::Locked,
       429 => RubyLokaliseApi::Error::TooManyRequests,
       500 => RubyLokaliseApi::Error::ServerError,
+      501 => RubyLokaliseApi::Error::NotImplemented,
       502 => RubyLokaliseApi::Error::BadGateway,
       503 => RubyLokaliseApi::Error::ServiceUnavailable,
       504 => RubyLokaliseApi::Error::GatewayTimeout
@@ -68,7 +69,7 @@ module RubyLokaliseApi
     class << self
       # Create a new error from an HTTP response
       def from_response(body)
-        msg = if body.respond_to?(:key)
+        msg = if body.respond_to?(:key?)
                 body.key?('error') ? body['error']['message'] : body['message']
               else
                 body

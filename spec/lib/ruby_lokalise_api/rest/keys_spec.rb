@@ -219,7 +219,7 @@ RSpec.describe RubyLokaliseApi::Rest::Keys do
 
     resp = test_client.destroy_key(project_id, another_key_id)
 
-    expect(resp).to be_an_instance_of(RubyLokaliseApi::Generics::DeletedResource)
+    expect(resp).to be_an_instance_of(RubyLokaliseApi::OperationResults::DeletedResource)
 
     expect(resp.project_id).to eq(project_id)
     expect(resp.branch).to eq('master')
@@ -238,7 +238,7 @@ RSpec.describe RubyLokaliseApi::Rest::Keys do
 
     resp = test_client.destroy_keys project_id, key_ids
 
-    expect(resp).to be_an_instance_of(RubyLokaliseApi::Generics::DeletedResource)
+    expect(resp).to be_an_instance_of(RubyLokaliseApi::OperationResults::DeletedResource)
     expect(resp.project_id).to eq(project_id)
     expect(resp.branch).to eq('master')
     expect(resp.keys_removed).to be true

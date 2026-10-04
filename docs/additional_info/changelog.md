@@ -2,6 +2,16 @@
 ---
 # Changelog
 
+## 10.2.0 (04-Oct-2026)
+
+* Added support for [translation memories endpoint](https://developers.lokalise.com/reference/list-project-translation-memories):
+
+```ruby
+memories = @client.translation_memories project_id
+
+memories[0].name # => 'Lokalise Translation Memory'
+```
+
 ## 10.1.0 (18-Sep-2026)
 
 * Relaxed `json` dependency version range to support JSON v3

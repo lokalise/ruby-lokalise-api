@@ -104,7 +104,7 @@ RSpec.describe RubyLokaliseApi::Rest::Screenshots do
 
     resp = test_client.destroy_screenshot project_id, delete_screen_id
 
-    expect(resp).to be_an_instance_of(RubyLokaliseApi::Generics::DeletedResource)
+    expect(resp).to be_an_instance_of(RubyLokaliseApi::OperationResults::DeletedResource)
     expect(resp.project_id).to eq(project_id)
     expect(resp.branch).to eq('master')
     expect(resp.screenshot_deleted).to be true

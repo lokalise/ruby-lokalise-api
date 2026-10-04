@@ -67,7 +67,7 @@ module RubyLokaliseApi
       # Deletes one or multiple glossary terms from the project
       #
       # @see https://developers.lokalise.com/reference/delete-glossary-terms
-      # @return [RubyLokaliseApi::Generics::DeletedResource]
+      # @return [RubyLokaliseApi::OperationResults::DeletedResource]
       # @param project_id [String]
       # @param term_ids [Array, String]
       def destroy_glossary_terms(project_id, term_ids)
@@ -75,7 +75,7 @@ module RubyLokaliseApi
 
         data = endpoint(name: 'GlossaryTerms', params: params).do_delete
 
-        RubyLokaliseApi::Generics::DeletedResource.new data.content
+        RubyLokaliseApi::OperationResults::DeletedResource.new data.content
       end
     end
   end

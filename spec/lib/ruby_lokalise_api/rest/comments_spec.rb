@@ -116,7 +116,7 @@ RSpec.describe RubyLokaliseApi::Rest::Comments do
 
     resp = test_client.destroy_comment(project_id, key_id, comment_to_delete)
 
-    expect(resp).to be_an_instance_of(RubyLokaliseApi::Generics::DeletedResource)
+    expect(resp).to be_an_instance_of(RubyLokaliseApi::OperationResults::DeletedResource)
     expect(resp.project_id).to eq(project_id)
     expect(resp.comment_deleted).to be true
   end

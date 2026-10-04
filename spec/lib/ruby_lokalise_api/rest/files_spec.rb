@@ -37,7 +37,7 @@ RSpec.describe RubyLokaliseApi::Rest::Files do
 
     resp = test_client.download_files project_id, format: :json, original_filenames: false
 
-    expect(resp).to be_an_instance_of(RubyLokaliseApi::Generics::DownloadBundle)
+    expect(resp).to be_an_instance_of(RubyLokaliseApi::OperationResults::DownloadBundle)
     expect(resp.project_id).to eq(project_id)
     expect(resp.branch).to eq('master')
     expect(resp.bundle_url).to include("files/export/#{project_id}")
@@ -112,7 +112,7 @@ RSpec.describe RubyLokaliseApi::Rest::Files do
 
     resp = test_client.destroy_file(doc_project_id, file_to_delete)
 
-    expect(resp).to be_an_instance_of(RubyLokaliseApi::Generics::DeletedResource)
+    expect(resp).to be_an_instance_of(RubyLokaliseApi::OperationResults::DeletedResource)
     expect(resp.project_id).to eq(doc_project_id)
     expect(resp.file_deleted).to be true
   end

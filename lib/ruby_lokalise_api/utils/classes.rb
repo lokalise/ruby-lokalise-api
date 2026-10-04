@@ -1,17 +1,19 @@
 # frozen_string_literal: true
 
 module RubyLokaliseApi
-  # Basic utilitiy methods
+  # Basic utility methods
   module Utils
     module Classes
-      refine Object do
+      refine Module do
         # Extracts the base name of a class, removing any module nesting.
         #
         # @return [String] The base class name
         def base_name
           name.split('::').last
         end
+      end
 
+      refine Object do
         # Converts the object to an array, unless it is already an array.
         #
         # @return [Array] The object wrapped in an array if not already an array

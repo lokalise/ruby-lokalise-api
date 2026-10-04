@@ -64,7 +64,7 @@ module RubyLokaliseApi
       # Deletes a branch
       #
       # @see https://developers.lokalise.com/reference/delete-a-branch
-      # @return [RubyLokaliseApi::Generics::DeletedResource]
+      # @return [RubyLokaliseApi::OperationResults::DeletedResource]
       # @param project_id [String]
       # @param branch_id [String, Integer]
       def destroy_branch(project_id, branch_id)
@@ -72,13 +72,13 @@ module RubyLokaliseApi
 
         data = endpoint(name: 'Branches', params: params).do_delete
 
-        RubyLokaliseApi::Generics::DeletedResource.new data.content
+        RubyLokaliseApi::OperationResults::DeletedResource.new data.content
       end
 
       # Merges two branches
       #
       # @see https://developers.lokalise.com/reference/merge-a-branch
-      # @return [RubyLokaliseApi::Generics::MergedBranches]
+      # @return [RubyLokaliseApi::OperationResults::MergedBranches]
       # @param project_id [String]
       # @param branch_id [String, Integer]
       # @param req_params [Hash]
@@ -87,7 +87,7 @@ module RubyLokaliseApi
 
         data = endpoint(name: 'Branches', params: params).do_post
 
-        RubyLokaliseApi::Generics::MergedBranches.new data.content
+        RubyLokaliseApi::OperationResults::MergedBranches.new data.content
       end
     end
   end

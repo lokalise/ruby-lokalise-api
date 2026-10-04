@@ -59,7 +59,7 @@ RSpec.describe RubyLokaliseApi::Resources::ProjectLanguage do
 
     resp = language.destroy
 
-    expect(resp).to be_an_instance_of(RubyLokaliseApi::Generics::DeletedResource)
+    expect(resp).to be_an_instance_of(RubyLokaliseApi::OperationResults::DeletedResource)
     expect(resp.project_id).to eq(project_id)
     expect(resp.branch).to eq('master')
     expect(resp.language_deleted).to be true

@@ -26,7 +26,7 @@ module RubyLokaliseApi
       #
       # @return [String]
       def unify(name)
-        UNIFIED_RESOURCES.find { |u_a| name.match?(/#{u_a}/) } || name
+        UNIFIED_RESOURCES.find { |resource| name.include?(resource) } || name
       end
 
       # Loads attributes from a YAML file
@@ -34,7 +34,7 @@ module RubyLokaliseApi
       # @param filename [String] The filename to load attributes from
       # @return [Hash] The loaded attributes hash
       def load_attributes(filename)
-        YAML.load_file(File.expand_path("../data/#{filename}", __dir__)).freeze
+        YAML.safe_load_file(File.expand_path("../data/#{filename}", __dir__)).freeze
       end
     end
   end

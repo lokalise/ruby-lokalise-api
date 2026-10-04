@@ -155,7 +155,7 @@ RSpec.describe RubyLokaliseApi::Rest::GlossaryTerms do
 
     resp = test_client.destroy_glossary_terms project_id, term_ids
 
-    expect(resp).to be_an_instance_of(RubyLokaliseApi::Generics::DeletedResource)
+    expect(resp).to be_an_instance_of(RubyLokaliseApi::OperationResults::DeletedResource)
 
     expect(resp.data['deleted']['count']).to eq(2)
   end

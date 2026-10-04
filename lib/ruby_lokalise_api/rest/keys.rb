@@ -83,7 +83,7 @@ module RubyLokaliseApi
       # Deletes a single key from the project
       #
       # @see https://developers.lokalise.com/reference/delete-a-key
-      # @return [RubyLokaliseApi::Generics::DeletedResource]
+      # @return [RubyLokaliseApi::OperationResults::DeletedResource]
       # @param project_id [String]
       # @param key_id [String, Integer]
       def destroy_key(project_id, key_id)
@@ -91,13 +91,13 @@ module RubyLokaliseApi
 
         data = endpoint(name: 'Keys', params: params).do_delete
 
-        RubyLokaliseApi::Generics::DeletedResource.new data.content
+        RubyLokaliseApi::OperationResults::DeletedResource.new data.content
       end
 
       # Deletes multiple keys from the project
       #
       # @see https://developers.lokalise.com/reference/delete-multiple-keys
-      # @return [RubyLokaliseApi::Generics::DeletedResource]
+      # @return [RubyLokaliseApi::OperationResults::DeletedResource]
       # @param project_id [String]
       # @param key_ids [Array, String]
       def destroy_keys(project_id, key_ids)
@@ -105,7 +105,7 @@ module RubyLokaliseApi
 
         data = endpoint(name: 'Keys', params: params).do_delete
 
-        RubyLokaliseApi::Generics::DeletedResource.new data.content
+        RubyLokaliseApi::OperationResults::DeletedResource.new data.content
       end
     end
   end

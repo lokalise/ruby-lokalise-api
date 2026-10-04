@@ -48,5 +48,8 @@ team_user_groups:
 translations:
   - project_id
   - branch
+translation_memories:
+  - project_id
+  - project_uuid
 webhooks:
   - project_id

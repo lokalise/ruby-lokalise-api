@@ -80,7 +80,7 @@ module RubyLokaliseApi
       # Deletes a single contributor from the project
       #
       # @see https://developers.lokalise.com/reference/delete-a-contributor
-      # @return [RubyLokaliseApi::Generics::DeletedResource]
+      # @return [RubyLokaliseApi::OperationResults::DeletedResource]
       # @param project_id [String]
       # @param contributor_id [String, Integer]
       def destroy_contributor(project_id, contributor_id)
@@ -88,7 +88,7 @@ module RubyLokaliseApi
 
         data = endpoint(name: 'Contributors', params: params).do_delete
 
-        RubyLokaliseApi::Generics::DeletedResource.new data.content
+        RubyLokaliseApi::OperationResults::DeletedResource.new data.content
       end
     end
   end

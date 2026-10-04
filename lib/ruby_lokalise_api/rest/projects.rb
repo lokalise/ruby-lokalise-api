@@ -60,25 +60,25 @@ module RubyLokaliseApi
       # Deletes a project
       #
       # @see https://developers.lokalise.com/reference/delete-a-project
-      # @return [RubyLokaliseApi::Generics::DeletedResource]
+      # @return [RubyLokaliseApi::OperationResults::DeletedResource]
       # @param project_id [String]
       def destroy_project(project_id)
         params = { query: project_id }
 
         data = endpoint(name: 'Projects', params: params).do_delete
 
-        RubyLokaliseApi::Generics::DeletedResource.new data.content
+        RubyLokaliseApi::OperationResults::DeletedResource.new data.content
       end
 
       # Empties a project by deleting all keys and translations
       #
       # @see https://developers.lokalise.com/reference/empty-a-project
-      # @return [RubyLokaliseApi::Generics::EmptiedResource]
+      # @return [RubyLokaliseApi::OperationResults::EmptiedResource]
       # @param project_id [String]
       def empty_project(project_id)
         data = endpoint(name: 'Projects', params: { query: [project_id, :empty] }).do_put
 
-        RubyLokaliseApi::Generics::EmptiedResource.new data.content
+        RubyLokaliseApi::OperationResults::EmptiedResource.new data.content
       end
     end
   end

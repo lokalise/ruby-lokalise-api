@@ -54,7 +54,7 @@ RSpec.describe RubyLokaliseApi::Resources::Task do
 
     resp = task.destroy
 
-    expect(resp).to be_an_instance_of(RubyLokaliseApi::Generics::DeletedResource)
+    expect(resp).to be_an_instance_of(RubyLokaliseApi::OperationResults::DeletedResource)
     expect(resp.project_id).to eq(project_id)
     expect(resp.branch).to eq('master')
     expect(resp.task_deleted).to be true

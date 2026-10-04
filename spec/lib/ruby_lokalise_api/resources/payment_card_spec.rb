@@ -22,7 +22,7 @@ RSpec.describe RubyLokaliseApi::Resources::PaymentCard do
 
     resp = card.destroy
 
-    expect(resp).to be_an_instance_of(RubyLokaliseApi::Generics::DeletedResource)
+    expect(resp).to be_an_instance_of(RubyLokaliseApi::OperationResults::DeletedResource)
 
     expect(resp.card_id).to eq(card_id)
     expect(resp.card_deleted).to be true

@@ -56,7 +56,7 @@ RSpec.describe RubyLokaliseApi::Resources::Project do
 
     resp = project.empty
 
-    expect(resp).to be_an_instance_of(RubyLokaliseApi::Generics::EmptiedResource)
+    expect(resp).to be_an_instance_of(RubyLokaliseApi::OperationResults::EmptiedResource)
     expect(resp.project_id).to eq(project_id)
     expect(resp.keys_deleted).to be true
   end
