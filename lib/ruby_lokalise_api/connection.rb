@@ -26,7 +26,7 @@ module RubyLokaliseApi
       # Set Content-Type if required (skip for GET requests)
       add_content_type_header(req_params, params, endpoint)
 
-      req_params[:headers]['Accept-Encoding'] = 'gzip,deflate,br'
+      req_params[:headers]['Accept-Encoding'] = 'gzip,deflate'
 
       req_params
     end

@@ -53,7 +53,7 @@ module Stubs
   def default_headers(req)
     headers = {
       'Accept' => 'application/json',
-      'Accept-Encoding' => 'gzip,deflate,br',
+      'Accept-Encoding' => 'gzip,deflate',
       'User-Agent' => "ruby-lokalise-api gem/#{RubyLokaliseApi::VERSION}"
     }
 

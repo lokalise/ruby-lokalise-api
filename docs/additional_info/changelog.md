@@ -2,6 +2,10 @@
 ---
 # Changelog
 
+## 10.2.1 (06-Oct-2026)
+
+* Remove `br` from accepted encodings (Lokalise API does not use it plus it requires a separate gem for processing)
+
 ## 10.2.0 (04-Oct-2026)
 
 * Added support for [translation memories endpoint](https://developers.lokalise.com/reference/list-project-translation-memories):
