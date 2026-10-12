@@ -12,7 +12,6 @@ module RubyLokaliseApi
       def translation_memories(project_id)
         name = 'TranslationMemories'
         params = { query: project_id }
-        puts endpoint(name: name, params: params).inspect
         data = endpoint(name: name, params: params).do_get
 
         collection name, data

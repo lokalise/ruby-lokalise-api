@@ -59,11 +59,6 @@ RSpec/SpecFilePathFormat:
     OAuth2Token: oauth2_token
     OAuth2RefreshedToken: oauth2_refreshed_token
   
-Gemspec/DevelopmentDependencies:
-  EnforcedStyle: gemspec
-  Exclude:
-    - ./docs/Gemfile
-
 RSpec/MultipleMemoizedHelpers:
   Exclude:
     - ./spec/lib/ruby_lokalise_api/resources/project_spec.rb

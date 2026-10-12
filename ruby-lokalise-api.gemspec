@@ -26,18 +26,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'json',                            '>= 2.0', '< 4'
   spec.add_dependency 'zeitwerk',                        '~> 2.4'
 
-  spec.add_development_dependency 'base64',              '~> 0.3.0'
-  spec.add_development_dependency 'dotenv',              '~> 3.0'
-  spec.add_development_dependency 'oj',                  '~> 3.10'
-  spec.add_development_dependency 'rake',                '~> 13.0'
-  spec.add_development_dependency 'rspec',               '~> 3.6'
-  spec.add_development_dependency 'rubocop',             '~> 1.6'
-  spec.add_development_dependency 'rubocop-performance', '~> 1.5'
-  spec.add_development_dependency 'rubocop-rake',        '~> 0.6'
-  spec.add_development_dependency 'rubocop-rspec',       '~> 3.0'
-  spec.add_development_dependency 'simplecov',           '~> 1.1'
-  spec.add_development_dependency 'simplecov-lcov',      '~> 0.8'
-  spec.add_development_dependency 'webmock',             '~> 3.14'
   spec.metadata = {
     'rubygems_mfa_required' => 'true',
     'bug_tracker_uri' => 'https://github.com/lokalise/ruby-lokalise-api/issues',

@@ -2,6 +2,11 @@
 ---
 # Changelog
 
+## 10.2.2 (12-Oct-2026)
+
+* Update dependencies
+* Minor updates
+
 ## 10.2.1 (06-Oct-2026)
 
 * Remove `br` from accepted encodings (Lokalise API does not use it plus it requires a separate gem for processing)
